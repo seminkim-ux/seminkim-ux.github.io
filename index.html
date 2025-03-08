@@ -72,6 +72,7 @@
       width: 100%;
     }
 
+    /* SECTION 1: Header/Navigation */
     .header {
       background-color: var(--bg-blue);
       width: 100%;
@@ -99,6 +100,7 @@
       text-decoration: none;
     }
 
+    /* SECTION 2: Hero section with blue background */
     .hero-section {
       background-color: var(--bg-blue);
       width: 100%;
@@ -125,6 +127,7 @@
       left: 40px;
     }
 
+    /* SECTION 3: Feature boxes and main text */
     .features-section {
       width: 100%;
       display: flex;
@@ -181,6 +184,7 @@
       margin: 50px 0;
     }
 
+    /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
     .ux-sections {
       width: 100%;
       max-width: 800px;
@@ -220,6 +224,20 @@
       margin-right: 10px;
     }
 
+    .clarity-box {
+      background-color: var(--yellow);
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      margin: 50px 0;
+    }
+
+    /* SECTION 4: Works section */
     .works-section {
       width: 100%;
       max-width: 1200px;
@@ -262,24 +280,11 @@
       font-size: 17px;
       color: var(--black);
     }
-
-    .clarity-box {
-      background-color: var(--yellow);
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      margin: 50px 0;
-    }
   </style>
 </head>
 <body>
   <div class="container-center-horizontal">
-    <!-- 헤더 -->
+    <!-- SECTION 1: Header/Navigation -->
     <header class="header">
       <div class="logo">Semin Kim</div>
       <nav class="menu">
@@ -289,35 +294,38 @@
       </nav>
     </header>
     
-    <!-- 히어로 섹션 -->
+    <!-- SECTION 2: Hero section with blue background -->
     <section class="hero-section">
       <h2 class="hero-title">I Design</h2>
       <h1 class="hero-subtitle">Inside & Outside of Service</h1>
     </section>
     
-    <!-- 특징 박스 섹션 -->
-    <div class="features-section">
-      <div class="feature-box feature-service">
-        <span>Service Purpose</span>
+    <!-- SECTION 3: Feature boxes and main text -->
+    <section class="section-features">
+      <!-- Feature boxes -->
+      <div class="features-section">
+        <div class="feature-box feature-service">
+          <span>Service Purpose</span>
+        </div>
+        <div class="feature-box feature-usefulness">
+          <span>Sense of Usefulness</span>
+        </div>
+        <div class="feature-box feature-empathy">
+          <span>Empathy</span>
+        </div>
       </div>
-      <div class="feature-box feature-usefulness">
-        <span>Sense of Usefulness</span>
+      
+      <!-- Main text -->
+      <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
+      
+      <!-- Additional feature box -->
+      <div class="feature-readability">
+        <span>Readability</span>
       </div>
-      <div class="feature-box feature-empathy">
-        <span>Empathy</span>
-      </div>
-    </div>
+    </section>
     
-    <!-- 메인 텍스트 -->
-    <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-    
-    <!-- 리더빌리티 박스 -->
-    <div class="feature-readability">
-      <span>Readability</span>
-    </div>
-    
-    <!-- UX 섹션 -->
-    <div class="ux-sections">
+    <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
+    <section class="ux-sections">
       <div class="ux-consulting">
         <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
@@ -343,14 +351,14 @@
         </svg>
         GUI & Interaction
       </div>
-    </div>
+      
+      <!-- Clarity box -->
+      <div class="clarity-box">
+        <span>Clarity</span>
+      </div>
+    </section>
     
-    <!-- 클래리티 박스 -->
-    <div class="clarity-box">
-      <span>Clarity</span>
-    </div>
-    
-    <!-- 작업 섹션 -->
+    <!-- SECTION 4: Works section -->
     <section class="works-section">
       <h2 class="works-title">Works</h2>
       <div class="works-grid">
