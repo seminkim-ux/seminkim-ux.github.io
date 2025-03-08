@@ -376,6 +376,50 @@
         grid-template-columns: 1fr;
       }
     }
+
+/* 섹션 3 스크롤 애니메이션을 위한 추가 CSS */
+.section-features {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+.features-section {
+  position: relative;
+  z-index: 2;
+  will-change: transform;
+}
+
+.feature-box {
+  position: relative;
+  will-change: transform, width, height;
+  transform-origin: center center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 40px; /* 초기값 저장 */
+}
+
+.feature-readability {
+  position: relative;
+  will-change: transform, width, height;
+  margin: 50px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform-origin: center center;
+}
+
+.main-text {
+  position: relative;
+  z-index: 1;
+  will-change: font-size, opacity;
+  transition: font-size 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* 호버 효과 추가 */
+.feature-box:hover, .feature-readability:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out !important;
+}
   </style>
 </head>
 <body>
@@ -630,6 +674,146 @@ if (typeof barba !== 'undefined') {
     }
   });
 }
+
+// 스크롤 기반 애니메이션을 위한 스크립트
+document.addEventListener('DOMContentLoaded', () => {
+  // 텍스트 분할 애니메이션 초기화 (기존 코드는 유지)
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  if (heroTitle && heroSubtitle) {
+    new TextSplitter({
+      elements: heroTitle,
+      type: 'chars',
+      delay: 0.2,
+      charDelay: 0.04
+    });
+    
+    new TextSplitter({
+      elements: heroSubtitle,
+      type: 'chars',
+      delay: 0.5,
+      charDelay: 0.03
+    });
+  }
+
+  // 섹션 3 스크롤 애니메이션을 위한 요소 선택
+  const featureBoxes = document.querySelectorAll('.feature-box');
+  const mainText = document.querySelector('.main-text');
+  const featureReadability = document.querySelector('.feature-readability');
+  
+  // 초기 설정 - 큰 크기와 퍼져있는 위치에서 시작
+  featureBoxes.forEach(box => {
+    // 원래 위치와 크기 저장
+    box.dataset.originalTransform = window.getComputedStyle(box).transform;
+    box.dataset.originalWidth = box.offsetWidth;
+    box.dataset.originalHeight = box.offsetHeight;
+    box.dataset.originalBorderRadius = window.getComputedStyle(box).borderRadius;
+    
+    // 시작 스타일 적용 (약간 크게, 퍼져있게)
+    box.style.width = '180px';
+    box.style.height = '180px';
+    box.style.transition = 'all 0.3s ease-out';
+    
+    // 각 박스마다 다른 시작 위치 설정
+    if (box.classList.contains('feature-service')) {
+      box.style.transform = 'translate(-10%, 10%)';
+    } else if (box.classList.contains('feature-usefulness')) {
+      box.style.transform = 'translate(0%, -5%)';
+    } else if (box.classList.contains('feature-empathy')) {
+      box.style.transform = 'translate(10%, 10%)';
+    }
+  });
+  
+  // 특수 박스에 대한 초기 설정
+  if (featureReadability) {
+    featureReadability.dataset.originalTransform = window.getComputedStyle(featureReadability).transform;
+    featureReadability.dataset.originalWidth = featureReadability.offsetWidth;
+    featureReadability.dataset.originalHeight = featureReadability.offsetHeight;
+    featureReadability.dataset.originalBorderRadius = window.getComputedStyle(featureReadability).borderRadius;
+    
+    featureReadability.style.width = '180px';
+    featureReadability.style.height = '180px';
+    featureReadability.style.transform = 'translate(15%, -10%)';
+    featureReadability.style.transition = 'all 0.3s ease-out';
+  }
+
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', () => {
+    // 섹션의 위치와 높이 가져오기
+    const section = document.querySelector('.section-features');
+    if (!section) return;
+    
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionHeight = section.offsetHeight;
+    const windowHeight = window.innerHeight;
+    
+    // 섹션이 뷰포트에 들어왔는지 확인
+    if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+      // 스크롤 진행률 계산 (0 ~ 1)
+      let scrollProgress = 1 - (sectionTop / windowHeight);
+      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
+      
+      // 메인 텍스트 크기 조절
+      if (mainText) {
+        // 텍스트 크기를 스크롤에 따라 서서히 줄이기
+        const initialSize = 54; // var(--font-size-xxxxxl)의 값
+        const finalSize = 48;   // 최종 크기
+        const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
+        mainText.style.fontSize = `${newSize}px`;
+        
+        // 선명도 조절 (스크롤 진행에 따라 점점 선명해짐)
+        mainText.style.opacity = 0.5 + (scrollProgress * 0.5);
+      }
+      
+      // 박스들 애니메이션
+      featureBoxes.forEach(box => {
+        // 원래 크기로 축소
+        const originalWidth = parseInt(box.dataset.originalWidth || 150);
+        const originalHeight = parseInt(box.dataset.originalHeight || 150);
+        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
+        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
+        
+        box.style.width = `${newWidth}px`;
+        box.style.height = `${newHeight}px`;
+        
+        // 원래 위치로 이동 (퍼져있던 위치에서 중앙으로)
+        let translateX = 0;
+        let translateY = 0;
+        
+        if (box.classList.contains('feature-service')) {
+          translateX = -10 + (scrollProgress * 10);
+          translateY = 10 - (scrollProgress * 10);
+        } else if (box.classList.contains('feature-usefulness')) {
+          translateY = -5 + (scrollProgress * 5);
+        } else if (box.classList.contains('feature-empathy')) {
+          translateX = 10 - (scrollProgress * 10);
+          translateY = 10 - (scrollProgress * 10);
+        }
+        
+        box.style.transform = `translate(${translateX}%, ${translateY}%)`;
+      });
+      
+      // Readability 박스 애니메이션
+      if (featureReadability) {
+        const originalWidth = parseInt(featureReadability.dataset.originalWidth || 150);
+        const originalHeight = parseInt(featureReadability.dataset.originalHeight || 150);
+        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
+        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
+        
+        featureReadability.style.width = `${newWidth}px`;
+        featureReadability.style.height = `${newHeight}px`;
+        
+        const translateX = 15 - (scrollProgress * 15);
+        const translateY = -10 + (scrollProgress * 10);
+        featureReadability.style.transform = `translate(${translateX}%, ${translateY}%)`;
+      }
+    }
+  });
+  
+  // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
+  window.dispatchEvent(new Event('scroll'));
+});
 </script>
 </body>
 </html>
