@@ -338,6 +338,14 @@
       color: var(--black);
     }
 
+
+    /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
+@media screen and (min-resolution: 2dppx) {
+  .hero-title, .hero-subtitle {
+    font-size: clamp(3rem, 4.5vw, 5rem);
+  }
+}
+
     /* 반응형: 작은 화면에서 작업 그리드 조정 */
     @media screen and (max-width: 768px) {
       .works-grid {
