@@ -149,33 +149,32 @@
     }
 
     /* SECTION 2: Hero section with blue background */
-    .hero-section {
-      background-color: var(--bg-blue);
-      width: 100%;
-      height: 100vh;
-      padding: 0 40px;
-      position: relative;
-      /* Hero 콘텐츠를 중앙에 배치하기 위한 설정 */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-title {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: clamp(4rem, 6vw, 6rem); /* 뷰포트 기반 반응형 글꼴 크기 */
-      font-weight: 700;
-      position: relative; /* 절대 위치에서 상대 위치로 변경 */
-      margin-bottom: 20px; /* 간격 절반으로 축소(130px → 65px) */
-    }
-
-    .hero-subtitle {
-      color: var(--white);
-      font-size: clamp(4rem, 6vw, 6rem); /* 뷰포트 기반 반응형 글꼴 크기 */
-      font-weight: 700;
-      position: relative; /* 절대 위치에서 상대 위치로 변경 */
-    }
-
+.hero-section {
+  background-color: var(--bg-blue);
+  width: 100%;
+  height: 100vh;
+  padding: 0 40px;
+  position: relative;
+  /* Hero 콘텐츠를 중앙에 배치하기 위한 설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 콘텐츠를 위로 50px 올리기 위한 설정 */
+  margin-top: -50px;
+}
+ .hero-title {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(4rem, 6vw, 6rem);
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 20px;
+}
+ .hero-subtitle {
+  color: var(--white);
+  font-size: clamp(4rem, 6vw, 6rem);
+  font-weight: 700;
+  position: relative;
+}
     /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
     @media screen and (min-width: 1440px) {
       .hero-section {
