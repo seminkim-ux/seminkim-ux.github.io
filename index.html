@@ -100,12 +100,12 @@
       text-decoration: none;
     }
 
-    /* SECTION 2: Hero section with blue background - 반응형으로 수정 */
+    /* SECTION 2: Hero section with blue background */
     .hero-section {
       background-color: var(--bg-blue);
       width: 100%;
       height: 600px;
-      padding: 0 40px;
+      padding: 0 40px; /* 기본 패딩 */
       position: relative;
     }
 
@@ -115,7 +115,7 @@
       font-weight: 700;
       position: absolute;
       top: 150px;
-      left: 40px;
+      left: 40px; /* 기본 위치 */
     }
 
     .hero-subtitle {
@@ -124,23 +124,23 @@
       font-weight: 700;
       position: absolute;
       top: 260px;
-      left: 40px;
+      left: 40px; /* 기본 위치 */
     }
 
-    /* 미디어 쿼리 추가: 화면이 큰 경우 여백과 글자 크기 조정 */
-    @media (min-width: 1200px) {
+    /* 미디어 쿼리: 화면 크기에 따라 여백과 글자 크기 조정 */
+    @media screen and (min-width: 1440px) {
       .hero-section {
-        padding: 0 60px;
+        padding: 0 60px; /* 큰 화면에서 여백 증가 */
       }
 
       .hero-title {
-        font-size: calc(var(--font-size-xxxxl) * 1.2);
-        left: 60px;
+        font-size: calc(var(--font-size-xxxxl) * 1.2); /* 글자 크기 120% */
+        left: 60px; /* 위치도 여백에 맞게 조정 */
       }
 
       .hero-subtitle {
-        font-size: calc(var(--font-size-xxxxl) * 1.2);
-        left: 60px;
+        font-size: calc(var(--font-size-xxxxl) * 1.2); /* 글자 크기 120% */
+        left: 60px; /* 위치도 여백에 맞게 조정 */
       }
     }
 
@@ -296,6 +296,19 @@
     .work-description {
       font-size: 17px;
       color: var(--black);
+    }
+
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    @media screen and (max-width: 768px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
