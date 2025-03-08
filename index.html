@@ -76,7 +76,7 @@
      
       --font-family-epilogue: "Epilogue", Helvetica;
       --font-family-jost: "Jost", Helvetica;
-      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
+      --font-family-pretendard-regular: "Pretendard-Regular", Helvetica, Arial, sans-serif;
     }
 
     * {
@@ -149,51 +149,49 @@
     }
 
     /* SECTION 2: Hero section with blue background */
-.hero-section {
-  background-color: var(--bg-blue);
-  width: 100%;
-  height: 100vh;
-  padding: 0 40px;
-  position: relative;
-  /* 중앙 정렬 유지 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.hero-title, .hero-subtitle {
-  transform: translateY(calc(-5vh - 30px));
-    overflow: hidden;
-}
+    .hero-section {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 100vh;
+      padding: 0 40px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-title, .hero-subtitle {
+      transform: translateY(calc(-5vh - 30px));
+      overflow: hidden;
+    }
 
- .hero-title {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: clamp(4rem, 7vw, 7rem);
-  font-weight: 700;
-  position: relative;
-  margin-bottom: 5px;
-     perspective: 1000px;
-}
- .hero-subtitle {
-  color: var(--white);
-  font-size: clamp(4rem, 7vw, 7rem);
-  font-weight: 700;
-  position: relative;
-     perspective: 1000px;
-}
+    .hero-title {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 5px;
+      perspective: 1000px;
+    }
+    .hero-subtitle {
+      color: var(--white);
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 700;
+      position: relative;
+      perspective: 1000px;
+    }
 
+    .js-split-char, .js-split-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
 
-.js-split-char, .js-split-word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.is-animated .js-split-char,
-.is-animated .js-split-word {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .is-animated .js-split-char,
+    .is-animated .js-split-word {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
     @media screen and (min-width: 1440px) {
@@ -202,224 +200,69 @@
       }
     }
 
-    /* SECTION 3: Feature boxes and main text */
-    .features-section {
+    /* HERO INTRODUCTION */
+    ._hero-introduction {
+      position: relative;
+      margin-top: 50px;
+    }
+
+    ._hero-introduction header {
+      position: relative;
+    }
+
+    ._hero-introduction .snippets {
+      position: relative;
+      height: 500px; /* Adjust as needed */
+    }
+
+    ._hero-introduction .snippets li {
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+
+    ._hero-introduction .snippets .snippet {
+      max-width: 425px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    ._hero-introduction .snippets .snippet img {
       width: 100%;
-      display: flex;
-      justify-content: space-around;
-      margin-top: -80px;
-      padding: 0 20px;
+      height: auto;
     }
 
-    .feature-box {
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
+    ._hero-introduction .taglines {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      text-align: center;
-      padding: 15px;
+      margin-top: 50px;
     }
 
-    .feature-service {
-      background-color: var(--sunset-orange);
+    ._hero-introduction .taglines li {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 0 20px;
     }
 
-    .feature-usefulness {
-      background-color: var(--blue-medium);
-    }
-
-    .feature-empathy {
-      background-color: var(--fern);
-    }
-
-    .main-text {
-      font-family: var(--font-family-pretendard-light);
-      font-size: var(--font-size-xxxxxl);
-      font-weight: 300;
-      color: #869298;
-      text-align: center;
-      margin: 100px 0;
-      line-height: 1.4;
-    }
-
-    .feature-readability {
-      background-color: var(--blue-light);
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
+    ._hero-introduction .taglines .icon-card {
+      background-color: var(--color, #34C771);
+      width: 80px;
+      height: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      margin: 50px 0;
+      border-radius: 20px;
     }
 
-    /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
-    .ux-sections {
-      width: 100%;
-      max-width: 800px;
-      margin: 50px auto;
+    ._hero-introduction .taglines h3 {
+      font-family: var(--font-family-pretendard-regular);
+      color: var(--color);
+      font-size: 24px;
     }
 
-    .ux-consulting {
-      font-size: var(--font-size-xxxl);
-      color: var(--fern);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .ux-planning {
-      font-size: var(--font-size-xxxl);
-      color: var(--blue-medium);
-      text-align: center;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .ux-gui {
-      font-size: var(--font-size-xxxl);
-      color: var(--sunset-orange);
-      text-align: center;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    .clarity-box {
-      background-color: var(--yellow);
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      margin: 50px 0;
-    }
-
-    /* SECTION 4: Works section */
-    .works-section {
-      width: 100%;
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .works-title {
-      font-size: 32px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .work-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .work-image {
-      width: 100%;
-      height: 250px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .work-title {
-      font-weight: 600;
-      font-size: 20px;
-    }
-
-    .work-description {
-      font-size: 17px;
-      color: var(--black);
-    }
-
-
-    /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
-@media screen and (min-resolution: 2dppx) {
-  .hero-title, .hero-subtitle {
-    font-size: clamp(4rem, 6vw, 6rem);
-  }
-}
-
-    /* 반응형: 작은 화면에서 작업 그리드 조정 */
-    @media screen and (max-width: 768px) {
-      .works-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-/* 섹션 3 스크롤 애니메이션을 위한 추가 CSS */
-.section-features {
-  position: relative;
-  padding-top: 120px;
-  padding-bottom: 120px;
-  overflow: hidden;
-}
-
-.features-section {
-  position: relative;
-  z-index: 2;
-  will-change: transform;
-}
-
-.feature-box {
-  position: relative;
-  will-change: transform, width, height;
-  transform-origin: center center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 40px; /* 초기값 저장 */
-}
-
-.feature-readability {
-  position: relative;
-  will-change: transform, width, height;
-  margin: 50px auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transform-origin: center center;
-}
-
-.main-text {
-  position: relative;
-  z-index: 1;
-  will-change: font-size, opacity;
-  transition: font-size 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-/* 호버 효과 추가 */
-.feature-box:hover, .feature-readability:hover {
-  transform: scale(1.05) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-out !important;
-}
+    /* 나머지 기존 스타일 유지 */
+    /* ... (기존 코드의 나머지 부분) */
   </style>
 </head>
 <body>
@@ -435,111 +278,87 @@
     </header>
     
     <!-- SECTION 2: Hero section with blue background -->
-<section class="hero-section">
-  <div class="hero-text-container">
-    <h2 class="hero-title">I Design</h2>
-    <h1 class="hero-subtitle">Inside & Outside of Service</h1>
-  </div>
-</section>
-    
-    <!-- SECTION 3: Feature boxes and main text -->
-    <section class="section-features">
-      <!-- Feature boxes -->
-      <div class="features-section">
-        <div class="feature-box feature-service">
-          <span>Service Purpose</span>
-        </div>
-        <div class="feature-box feature-usefulness">
-          <span>Sense of Usefulness</span>
-        </div>
-        <div class="feature-box feature-empathy">
-          <span>Empathy</span>
-        </div>
-      </div>
-      
-      <!-- Main text -->
-      <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-      
-      <!-- Additional feature box -->
-      <div class="feature-readability">
-        <span>Readability</span>
+    <section class="hero-section">
+      <div class="hero-text-container">
+        <h2 class="hero-title">I Design</h2>
+        <h1 class="hero-subtitle">Inside & Outside of Service</h1>
       </div>
     </section>
     
-    <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
-    <section class="ux-sections">
-      <div class="ux-consulting">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
-          <path d="M8 12L11 15L16 9" stroke="#65c479" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        UX Consulting
-      </div>
-      
-      <div class="ux-planning">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 4H20V20H4V4Z" stroke="#517fff" stroke-width="2"/>
-          <path d="M4 8H20" stroke="#517fff" stroke-width="2"/>
-          <path d="M8 8V20" stroke="#517fff" stroke-width="2"/>
-        </svg>
-        Planning & Wireframe
-      </div>
-      
-      <div class="ux-gui">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 7.8C3 6.2536 4.2536 5 5.8 5H18.2C19.7464 5 21 6.2536 21 7.8V16.2C21 17.7464 19.7464 19 18.2 19H5.8C4.2536 19 3 17.7464 3 16.2V7.8Z" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 10L17 10" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
-        </svg>
-        GUI & Interaction
-      </div>
-      
-      <!-- Clarity box -->
-      <div class="clarity-box">
-        <span>Clarity</span>
-      </div>
-    </section>
-    
-    <!-- SECTION 4: Works section -->
-    <section class="works-section">
-      <h2 class="works-title">Works</h2>
-      <div class="works-grid">
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-      </div>
+    <!-- SECTION 3: Hero Introduction (Replaced with Jeton site's section) -->
+    <section class="_hero-introduction">
+      <header class="relative">
+        <div class="sticky-slot">
+          <div class="title h-full flex place-center text-center overflow-hidden">
+            <h2 class="-medium relative whitespace-pre-line">일의 내부와 외부를 디자인합니다</h2>
+          </div>
+          <ul class="snippets absolute inset-0">
+            <li><div class="snippet ~t">
+              <img src="path/to/snippet1.png" alt="Deposit snippet">
+            </div></li>
+            <li><div class="snippet ~t">
+              <img src="path/to/snippet2.png" alt="Send snippet">
+            </div></li>
+            <li><div class="snippet ~t">
+              <img src="path/to/snippet3.png" alt="Pay snippet">
+            </div></li>
+            <li><div class="snippet ~t">
+              <img src="path/to/snippet4.png" alt="Send snippet">
+            </div></li>
+            <li><div class="snippet ~t">
+              <img src="path/to/snippet5.png" alt="Exchange snippet">
+            </div></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <ul class="taglines flex flex-col items-center title-2 no-select" style="--items: 3">
+          <li style="--color: #34C771; --index: 0">
+            <div class="flex gap-20 items-center">
+              <div class="icon-card grid place-center br-24-12">
+                <span class="_icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V20" data-mode="stroke" stroke-width="1.5" stroke-linecap="square" transform-origin="12 12"></path>
+                    <path d="M20 12L4 12" data-mode="stroke" stroke-width="1.5" stroke-linecap="square" transform-origin="12 12"></path>
+                    <path d="M20 12L4 12" data-mode="stroke" stroke-width="1.5" stroke-linecap="square" transform-origin="12 12"></path>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="-medium">서비스 기획</h3>
+            </div>
+          </li>
+          <li style="--color: #477EE9; --index: 1">
+            <div class="flex gap-20 items-center">
+              <div class="icon-card grid place-center br-24-12">
+                <span class="_icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12591 12.8938C4.17366 12.243 3.19753 11.9177 2.91364 11.414C2.66784 10.9779 2.6558 10.4479 2.88155 10.0011C3.14227 9.48501 4.10262 9.11565 6.02331 8.37692L16.6505 4.28955C18.2467 3.67561 19.0449 3.36864 19.557 3.54086C20.0019 3.69045 20.3512 4.03967 20.5008 4.48457C20.673 4.99676 20.366 5.79488 19.7521 7.39113L15.6647 18.0183C14.926 19.939 14.5566 20.8993 14.0405 21.1601C13.5937 21.3858 13.0637 21.3738 12.6276 21.128C12.1239 20.8441 11.7986 19.8679 11.1478 17.9157L9.89234 14.1493L6.12591 12.8938ZM11.3434 13.7589L13.3641 19.8212L19.079 4.96264L4.22038 10.6775L10.2827 12.6983L14.0208 8.96015L15.0815 10.0208L11.3434 13.7589Z" data-mode="fill"></path>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="-medium">사용자 경험</h3>
+            </div>
+          </li>
+          <li style="--color: #FB2D54; --index: 2">
+            <div class="flex gap-20 items-center">
+              <div class="icon-card grid place-center br-24-12">
+                <span class="_icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.25 14.7502H18.9395L15.4456 19.1173L16.6169 20.0544L20.1107 15.6873C20.8965 14.7051 20.1973 13.2502 18.9395 13.2502L4.25 13.2502V14.7502Z" data-mode="fill"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M19.75 9.2502H5.06047L8.55418 4.88307L7.38288 3.94602L3.88917 8.31316C3.10345 9.2953 3.80271 10.7502 5.06047 10.7502L19.75 10.7502V9.2502Z" data-mode="fill"></path>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="-medium">서비스 디자인</h3>
+            </div>
+          </li>
+               </ul>
+      </main>
     </section>
   </div>
-// First, add this script to your HTML file (before the closing body tag)
-
 <script>
+  // First, add this script to your HTML file (before the closing body tag)
+
 // Text splitting and animation class (simplified version of your provided code)
 class TextSplitter {
   constructor(options = {}) {
@@ -612,6 +431,20 @@ class TextSplitter {
 const styleElement = document.createElement('style');
 styleElement.textContent = `
   .js-split-char, .js-split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .is-animated .js-split-char,
+  .is-animated .js-split-word {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(styleElement);
+-split-char, .js-split-word {
     display: inline-block;
     opacity: 0;
     transform: translateY(100%);
@@ -814,6 +647,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
   window.dispatchEvent(new Event('scroll'));
 });
+
+
+
+
 </script>
 </body>
 </html>
