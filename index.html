@@ -520,15 +520,20 @@ class TextSplitter {
       element.innerHTML = '';
       
       if (this.type === 'chars') {
-        // Split by characters
-        const chars = originalText.split('');
+        // 글자별로 분리 시 공백 처리 개선
+        const chars = Array.from(originalText); // split('')보다 더 정확하게 공백 보존
         
         chars.forEach((char, index) => {
-          const span = document.createElement('span');
-          span.classList.add('js-split-char');
-          span.textContent = char;
-          span.style.transitionDelay = `${this.delay + (index * this.charDelay)}s`;
-          element.appendChild(span);
+          if (char === ' ') {
+            // 공백은 일반 텍스트 노드로 추가
+            element.appendChild(document.createTextNode(' '));
+          } else {
+            const span = document.createElement('span');
+            span.classList.add('js-split-char');
+            span.textContent = char;
+            span.style.transitionDelay = `${this.delay + (index * this.charDelay)}s`;
+            element.appendChild(span);
+          }
         });
       } else {
         // Split by words
@@ -558,6 +563,24 @@ class TextSplitter {
     });
   }
 }
+
+// 텍스트 분할 애니메이션을 위한 CSS 스타일 추가
+const styleElement = document.createElement('style');
+styleElement.textContent = `
+  .js-split-char, .js-split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .is-animated .js-split-char,
+  .is-animated .js-split-word {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(styleElement);
 
 // Initialize animation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
