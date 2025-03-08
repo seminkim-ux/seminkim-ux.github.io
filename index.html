@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1280, maximum-scale=1.0">
-  <title>포트폴리오 - Semin Kim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semin Kim - UX 디자이너 포트폴리오</title>
   <style>
     @import url("https://fonts.googleapis.com/css?family=Jost:400,700,600|Epilogue:400,600");
 
@@ -13,18 +13,22 @@
       --fern: #65c479;
       --sunset-orange: #ff6250;
       --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
      
       --font-size-l: 20px;
       --font-size-m: 17px;
       --font-size-xl: 37px;
       --font-size-xxl: 38px;
-      --font-size-xxxl: 79px;
+      --font-size-xxxl: 48px;
       --font-size-xxxxl: 82px;
-      --font-size-xxxxxl: 94px;
+      --font-size-xxxxxl: 54px;
      
       --font-family-epilogue: "Epilogue", Helvetica;
       --font-family-jost: "Jost", Helvetica;
-      --font-family-pretendard-light: "Pretendard-Light", Helvetica;
+      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
     }
 
     * {
@@ -36,6 +40,7 @@
     body {
       font-family: var(--font-family-jost);
       background-color: var(--white);
+      color: var(--black);
     }
 
     .subtitle {
@@ -54,14 +59,6 @@
       letter-spacing: 0px;
     }
 
-    .jost-normal-white-17px {
-      color: var(--white);
-      font-family: var(--font-family-jost);
-      font-size: var(--font-size-m);
-      font-style: normal;
-      font-weight: 400;
-    }
-
     .valign-text-middle {
       display: flex;
       flex-direction: column;
@@ -70,389 +67,325 @@
 
     .container-center-horizontal {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      pointer-events: none;
-      width: 100%;
-    }
-
-    .container-center-horizontal > * {
-      flex-shrink: 0;
-      pointer-events: auto;
-    }
-
-    .frame-2 {
-      background-color: var(--white);
-      height: 3651px;
-      overflow: hidden;
-      position: relative;
-      width: 1280px;
-    }
-
-    .rectangle-3810-GB5BqJ {
-      background-color: #87a0ae;
-      height: 829px;
-      left: 0px;
-      position: absolute;
-      top: 0px;
-      width: 1280px;
-    }
-
-    .portfolio-template-GB5BqJ {
-      align-items: center;
-      background-color: var(--white);
-      display: flex;
       flex-direction: column;
-      left: 0px;
-      position: absolute;
-      top: 0px;
-      width: 1280px;
-    }
-
-    .navigation-5T6NWk {
       align-items: center;
-      align-self: stretch;
-      background-color: #87a0ae;
-      display: flex;
-      flex: 0 0 auto;
-      flex-wrap: wrap;
-      gap: 24px 24px;
-      justify-content: space-between;
-      padding: 24px 42px;
-      position: relative;
       width: 100%;
     }
 
-    .logo-iV5RbL {
-      background-color: transparent;
+    .header {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
       color: var(--white);
-      font-family: var(--font-family-jost);
       font-size: var(--font-size-l);
-      font-style: normal;
       font-weight: 400;
-      letter-spacing: 0.00px;
-      line-height: 30px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: left;
-      white-space: nowrap;
-      width: fit-content;
     }
 
-    .menu-items-iV5RbL {
-      align-items: flex-start;
-      background-color: transparent;
-      display: inline-flex;
-      flex: 0 0 auto;
+    .menu {
+      display: flex;
       gap: 24px;
-      justify-content: flex-end;
-      position: relative;
     }
 
-    .about-AiWMhO {
-      background-color: transparent;
-      letter-spacing: 0.00px;
-      line-height: 27px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: left;
-      white-space: nowrap;
-      width: fit-content;
-    }
-
-    .work-AiWMhO {
-      background-color: transparent;
-      letter-spacing: 0.00px;
-      line-height: 27px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: left;
-      white-space: nowrap;
-      width: fit-content;
-    }
-
-    .contact-AiWMhO {
-      background-color: transparent;
-      letter-spacing: 0.00px;
-      line-height: 27px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: left;
-      white-space: nowrap;
-      width: fit-content;
-    }
-
-    .i-design-GB5BqJ {
-      background-color: transparent;
-      color: #ffffff99;
-      font-family: var(--font-family-jost);
-      font-size: var(--font-size-xxxxl);
-      font-style: normal;
-      font-weight: 700;
-      height: auto;
-      left: 67px;
-      letter-spacing: 0.00px;
-      line-height: normal;
-      position: absolute;
-      text-align: left;
-      top: 274px;
-      width: 1097px;
-    }
-
-    .inside-outside-of-service-GB5BqJ {
-      background-color: transparent;
+    .menu-item {
       color: var(--white);
-      font-family: var(--font-family-jost);
-      font-size: var(--font-size-xxxxl);
-      font-style: normal;
-      font-weight: 700;
-      height: auto;
-      left: 67px;
-      letter-spacing: 0.00px;
-      line-height: normal;
-      position: absolute;
-      text-align: left;
-      top: 392px;
-      width: 1097px;
+      font-size: var(--font-size-m);
+      text-decoration: none;
     }
 
-    .ux-GB5BqJ {
-      background-color: transparent;
-      color: #869298;
+    .hero-section {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 600px;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    .hero-title {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      position: absolute;
+      top: 150px;
+      left: 40px;
+    }
+
+    .hero-subtitle {
+      color: var(--white);
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      position: absolute;
+      top: 260px;
+      left: 40px;
+    }
+
+    .features-section {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin-top: -80px;
+      padding: 0 20px;
+    }
+
+    .feature-box {
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .feature-service {
+      background-color: var(--sunset-orange);
+    }
+
+    .feature-usefulness {
+      background-color: var(--blue-medium);
+    }
+
+    .feature-empathy {
+      background-color: var(--fern);
+    }
+
+    .main-text {
       font-family: var(--font-family-pretendard-light);
       font-size: var(--font-size-xxxxxl);
-      font-style: normal;
       font-weight: 300;
-      height: auto;
-      left: 0px;
-      letter-spacing: 0.00px;
-      line-height: normal;
-      position: absolute;
+      color: #869298;
       text-align: center;
-      top: 1068px;
-      width: 1280px;
+      margin: 100px 0;
+      line-height: 1.4;
     }
 
-    .gallery-section-GB5BqJ {
-      align-items: center;
-      background-color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 42px;
-      left: 0px;
-      overflow: hidden;
-      padding: 42px 24px;
-      position: absolute;
-      top: 2259px;
-      width: 1280px;
-    }
-
-    .latest-work-1JbFhD {
-      background-color: transparent;
-      color: var(--black);
-      font-family: var(--font-family-jost);
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 600;
-      letter-spacing: 0.00px;
-      line-height: 42px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: center;
-      white-space: nowrap;
-      width: fit-content;
-    }
-
-    .cards-section-1JbFhD {
-      align-items: flex-start;
-      align-self: stretch;
-      background-color: transparent;
-      display: flex;
-      flex: 0 0 auto;
-      flex-wrap: wrap;
-      gap: 24px 24px;
-      position: relative;
-      width: 100%;
-    }
-
-    .gallery-card-7kfi4y, .component-9-7kfi4y, .component-10-7kfi4y, 
-    .component-11-7kfi4y, .component-12-7kfi4y, .component-13-7kfi4y {
-      align-items: flex-start;
-      background-color: transparent;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      flex-grow: 1;
-      gap: 24px;
-      min-width: 320px;
-      position: relative;
-    }
-
-    .rectangle-3811 {
+    .feature-readability {
+      background-color: var(--blue-light);
       border-radius: 40px;
-      height: 229px;
-      left: 0px;
-      position: absolute;
-      top: 0px;
-      width: 229px;
-    }
-
-    .rectangle-3817 {
-      left: 0px;
-      position: absolute;
-    }
-
-    .title-description {
-      align-items: flex-start;
-      align-self: stretch;
-      background-color: transparent;
+      width: 150px;
+      height: 150px;
       display: flex;
-      flex: 0 0 auto;
-      flex-direction: column;
-      gap: 8px;
-      position: relative;
-      width: 100%;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      margin: 50px 0;
     }
 
-    .project-title {
-      align-self: stretch;
-      background-color: transparent;
-      color: var(--black);
-      font-style: normal;
+    .ux-sections {
+      width: 100%;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+
+    .ux-consulting {
+      font-size: var(--font-size-xxxl);
+      color: var(--fern);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .ux-planning {
+      font-size: var(--font-size-xxxl);
+      color: var(--blue-medium);
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ux-gui {
+      font-size: var(--font-size-xxxl);
+      color: var(--sunset-orange);
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .works-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .works-title {
+      font-size: 32px;
       font-weight: 600;
-      line-height: 30px;
-      margin-top: -1.00px;
-      position: relative;
-      text-align: left;
+      text-align: center;
+      margin-bottom: 40px;
     }
 
-    .ui-art-drection {
-      align-self: stretch;
-      background-color: transparent;
-      color: var(--black);
-      font-style: normal;
-      font-weight: 400;
-      line-height: 27px;
-      position: relative;
-      text-align: left;
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .image {
-      align-self: stretch;
-      background-color: transparent;
-      height: 330px;
-      object-fit: cover;
-      position: relative;
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .work-image {
       width: 100%;
+      height: 250px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
     }
 
-    .vector {
-      background-color: transparent;
-      position: absolute;
+    .work-title {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .work-description {
+      font-size: 17px;
+      color: var(--black);
+    }
+
+    .clarity-box {
+      background-color: var(--yellow);
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      margin: 50px 0;
     }
   </style>
 </head>
 <body>
   <div class="container-center-horizontal">
-    <div class="frame-2 screen">
-      <div class="rectangle-3810-GB5BqJ"></div>
-      <div class="portfolio-template-GB5BqJ">
-        <div class="navigation-5T6NWk">
-          <div class="logo-iV5RbL valign-text-middle">Semin Kim</div>
-          <div class="menu-items-iV5RbL">
-            <div class="about-AiWMhO valign-text-middle jost-normal-white-17px">About</div>
-            <div class="work-AiWMhO valign-text-middle jost-normal-white-17px">UX Works</div>
-            <div class="contact-AiWMhO valign-text-middle jost-normal-white-17px">Contact</div>
-          </div>
-        </div>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="logo">Semin Kim</div>
+      <nav class="menu">
+        <a href="#" class="menu-item">About</a>
+        <a href="#" class="menu-item">UX Works</a>
+        <a href="#" class="menu-item">Contact</a>
+      </nav>
+    </header>
+    
+    <!-- 히어로 섹션 -->
+    <section class="hero-section">
+      <h2 class="hero-title">I Design</h2>
+      <h1 class="hero-subtitle">Inside & Outside of Service</h1>
+    </section>
+    
+    <!-- 특징 박스 섹션 -->
+    <div class="features-section">
+      <div class="feature-box feature-service">
+        <span>Service Purpose</span>
       </div>
-      <div class="i-design-GB5BqJ">I Design</div>
-      <p class="inside-outside-of-service-GB5BqJ">Inside &amp; Outside of Service</p>
-      <h1 class="ux-GB5BqJ">서비스와 사용자를 연구하여 <br>UX를 디자인합니다.</h1>
-      
-      <div class="gallery-section-GB5BqJ">
-        <div class="latest-work-1JbFhD">Works</div>
-        <div class="cards-section-1JbFhD">
-          <article class="gallery-card-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-          <article class="component-9-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image-1@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-          <article class="component-10-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image-2@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-          <article class="component-11-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image-3@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-          <article class="component-12-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image-4@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-          <article class="component-13-7kfi4y">
-            <img class="image" src="https://cdn.animaapp.com/projects/67cbb1095891d05e647adf6a/releases/67cbb26fa3f591c172bc87af/img/image-5@2x.png" alt="Image">
-            <div class="title-description">
-              <div class="project-title subtitle">Project title</div>
-              <div class="ui-art-drection body-text">UI, Art drection</div>
-            </div>
-          </article>
-        </div>
+      <div class="feature-box feature-usefulness">
+        <span>Sense of Usefulness</span>
       </div>
-      
-      <!-- UX 관련 섹션 -->
-      <div class="ux-consulting-GB5BqJ valign-text-middle">UX Consulting</div>
-      <div class="group-856-GB5BqJ">
-        <div class="planning-wireframe-r5yEcr valign-text-middle">Planning &amp; Wireframe</div>
-      </div>
-      <div class="group-855-GB5BqJ">
-        <div class="gui-interaction-0JFiGA valign-text-middle">GUI &amp; Interaction</div>
-      </div>
-      
-      <!-- 핵심 요소들 -->
-      <div class="group-845-GB5BqJ">
-        <div class="rectangle-3811-7gQuux rectangle-3811" style="background-color: #41d9ff;"></div>
-        <div class="readability-7gQuux valign-text-middle">Readability</div>
-      </div>
-      
-      <div class="group-847-GB5BqJ">
-        <div class="rectangle-3811-ghqbom rectangle-3811" style="background-color: var(--sunset-orange);"></div>
-        <div class="service-purpose-ghqbom valign-text-middle">Service<br>Purpose</div>
-      </div>
-      
-      <div class="group-846-GB5BqJ">
-        <div class="rectangle-3812-YS8bdj" style="background-color: #517fff; border-radius: 40px; height: 229px; position: absolute; top: 0px; width: 229px;"></div>
-        <div class="sense-of-usefulness-ggt3o1 valign-text-middle">Sense of Usefulness</div>
-      </div>
-      
-      <div class="group-848-GB5BqJ">
-        <div class="rectangle-3817-AprPoZ rectangle-3817" style="background-color: var(--fern); border-radius: 40px; height: 230px; top: 0px; width: 230px;"></div>
-        <div class="empathy-AprPoZ valign-text-middle">Empathy</div>
-      </div>
-      
-      <div class="group-843-GB5BqJ">
-        <div class="rectangle-3811-Ui4xs1 rectangle-3811" style="background-color: #ffd453;"></div>
-        <div class="clarity-C8crzh valign-text-middle">Clarity</div>
+      <div class="feature-box feature-empathy">
+        <span>Empathy</span>
       </div>
     </div>
+    
+    <!-- 메인 텍스트 -->
+    <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
+    
+    <!-- 리더빌리티 박스 -->
+    <div class="feature-readability">
+      <span>Readability</span>
+    </div>
+    
+    <!-- UX 섹션 -->
+    <div class="ux-sections">
+      <div class="ux-consulting">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
+          <path d="M8 12L11 15L16 9" stroke="#65c479" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        UX Consulting
+      </div>
+      
+      <div class="ux-planning">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4H20V20H4V4Z" stroke="#517fff" stroke-width="2"/>
+          <path d="M4 8H20" stroke="#517fff" stroke-width="2"/>
+          <path d="M8 8V20" stroke="#517fff" stroke-width="2"/>
+        </svg>
+        Planning & Wireframe
+      </div>
+      
+      <div class="ux-gui">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 7.8C3 6.2536 4.2536 5 5.8 5H18.2C19.7464 5 21 6.2536 21 7.8V16.2C21 17.7464 19.7464 19 18.2 19H5.8C4.2536 19 3 17.7464 3 16.2V7.8Z" stroke="#ff6250" stroke-width="2"/>
+          <path d="M7 10L17 10" stroke="#ff6250" stroke-width="2"/>
+          <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
+        </svg>
+        GUI & Interaction
+      </div>
+    </div>
+    
+    <!-- 클래리티 박스 -->
+    <div class="clarity-box">
+      <span>Clarity</span>
+    </div>
+    
+    <!-- 작업 섹션 -->
+    <section class="works-section">
+      <h2 class="works-title">Works</h2>
+      <div class="works-grid">
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+      </div>
+    </section>
   </div>
 </body>
 </html>
