@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semin Kim - UX 디자이너 포트폴리오</title>
+  <style>
+    /* 구글 웹폰트 대신 로컬 woff 파일 사용 */
+    @font-face {
+      font-family: "Jost";
+      src: url("woff/Jost-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("woff/Jost-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("woff/Jost-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+    }
+
+    .subtitle {
+      font-family: var(--font-family-epilogue);
+      font-size: var(--font-size-l);
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0px;
+    }
+
+    .body-text {
+      font-family: var(--font-family-epilogue);
+      font-size: var(--font-size-m);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0px;
+    }
+
+    .valign-text-middle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* SECTION 1: Header/Navigation */
+    .header {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      color: var(--white);
+      font-size: var(--font-size-l);
+      font-weight: 400;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--white);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+    }
+
+    /* SECTION 2: Hero section with blue background */
+.hero-section {
+  background-color: var(--bg-blue);
+  width: 100%;
+  height: 100vh;
+  padding: 0 40px;
+  position: relative;
+  /* 중앙 정렬 유지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-title, .hero-subtitle {
+  transform: translateY(calc(-5vh - 30px));
+    overflow: hidden;
+}
+
+ .hero-title {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 5px;
+     perspective: 1000px;
+}
+ .hero-subtitle {
+  color: var(--white);
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 700;
+  position: relative;
+     perspective: 1000px;
+}
+
+
+.js-split-char, .js-split-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.is-animated .js-split-char,
+.is-animated .js-split-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
+    @media screen and (min-width: 1440px) {
+      .hero-section {
+        padding: 0 60px;
+      }
+    }
+
+    /* SECTION 3: Feature boxes and main text */
+    .features-section {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin-top: -80px;
+      padding: 0 20px;
+    }
+
+    .feature-box {
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .feature-service {
+      background-color: var(--sunset-orange);
+    }
+
+    .feature-usefulness {
+      background-color: var(--blue-medium);
+    }
+
+    .feature-empathy {
+      background-color: var(--fern);
+    }
+
+    .main-text {
+      font-family: var(--font-family-pretendard-light);
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 300;
+      color: #869298;
+      text-align: center;
+      margin: 100px 0;
+      line-height: 1.4;
+    }
+
+    .feature-readability {
+      background-color: var(--blue-light);
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      margin: 50px 0;
+    }
+
+    /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
+    .ux-sections {
+      width: 100%;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+
+    .ux-consulting {
+      font-size: var(--font-size-xxxl);
+      color: var(--fern);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .ux-planning {
+      font-size: var(--font-size-xxxl);
+      color: var(--blue-medium);
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ux-gui {
+      font-size: var(--font-size-xxxl);
+      color: var(--sunset-orange);
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .clarity-box {
+      background-color: var(--yellow);
+      border-radius: 40px;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      margin: 50px 0;
+    }
+
+    /* SECTION 4: Works section */
+    .works-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .works-title {
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .work-image {
+      width: 100%;
+      height: 250px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .work-title {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .work-description {
+      font-size: 17px;
+      color: var(--black);
+    }
+
+
+    /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
+@media screen and (min-resolution: 2dppx) {
+  .hero-title, .hero-subtitle {
+    font-size: clamp(4rem, 6vw, 6rem);
+  }
+}
+
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    @media screen and (max-width: 768px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-center-horizontal">
+    <!-- SECTION 1: Header/Navigation -->
+    <header class="header">
+      <div class="logo">Semin Kim</div>
+      <nav class="menu">
+        <a href="#" class="menu-item">About</a>
+        <a href="#" class="menu-item">UX Works</a>
+        <a href="#" class="menu-item">Contact</a>
+      </nav>
+    </header>
+    
+    <!-- SECTION 2: Hero section with blue background -->
+<section class="hero-section">
+  <div class="hero-text-container">
+    <h2 class="hero-title">I Design</h2>
+    <h1 class="hero-subtitle">Inside & Outside of Service</h1>
+  </div>
+</section>
+    
+    <!-- SECTION 3: Feature boxes and main text -->
+    <section class="section-features">
+      <!-- Feature boxes -->
+      <div class="features-section">
+        <div class="feature-box feature-service">
+          <span>Service Purpose</span>
+        </div>
+        <div class="feature-box feature-usefulness">
+          <span>Sense of Usefulness</span>
+        </div>
+        <div class="feature-box feature-empathy">
+          <span>Empathy</span>
+        </div>
+      </div>
+      
+      <!-- Main text -->
+      <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
+      
+      <!-- Additional feature box -->
+      <div class="feature-readability">
+        <span>Readability</span>
+      </div>
+    </section>
+    
+    <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
+    <section class="ux-sections">
+      <div class="ux-consulting">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
+          <path d="M8 12L11 15L16 9" stroke="#65c479" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        UX Consulting
+      </div>
+      
+      <div class="ux-planning">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4H20V20H4V4Z" stroke="#517fff" stroke-width="2"/>
+          <path d="M4 8H20" stroke="#517fff" stroke-width="2"/>
+          <path d="M8 8V20" stroke="#517fff" stroke-width="2"/>
+        </svg>
+        Planning & Wireframe
+      </div>
+      
+      <div class="ux-gui">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 7.8C3 6.2536 4.2536 5 5.8 5H18.2C19.7464 5 21 6.2536 21 7.8V16.2C21 17.7464 19.7464 19 18.2 19H5.8C4.2536 19 3 17.7464 3 16.2V7.8Z" stroke="#ff6250" stroke-width="2"/>
+          <path d="M7 10L17 10" stroke="#ff6250" stroke-width="2"/>
+          <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
+        </svg>
+        GUI & Interaction
+      </div>
+      
+      <!-- Clarity box -->
+      <div class="clarity-box">
+        <span>Clarity</span>
+      </div>
+    </section>
+    
+    <!-- SECTION 4: Works section -->
+    <section class="works-section">
+      <h2 class="works-title">Works</h2>
+      <div class="works-grid">
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+        <article class="work-card">
+          <div class="work-image"></div>
+          <div class="work-title">Project title</div>
+          <div class="work-description">UI, Art direction</div>
+        </article>
+      </div>
+    </section>
+  </div>
+// First, add this script to your HTML file (before the closing body tag)
+
+<script>
+// Text splitting and animation class (simplified version of your provided code)
+class TextSplitter {
+  constructor(options = {}) {
+    this.elements = Array.isArray(options.elements) ? options.elements : [options.elements];
+    this.type = options.type || 'chars'; // chars, words
+    this.delay = options.delay || 0;
+    this.charDelay = options.charDelay || 0.05;
+    this.wordDelay = options.wordDelay || 0.1;
+    
+    this.init();
+  }
+  
+  init() {
+    this.elements.forEach(element => {
+      if (!element) return;
+      
+      // Store original text
+      const originalText = element.textContent;
+      element.dataset.originalText = originalText;
+      
+      // Clear element
+      element.innerHTML = '';
+      
+      if (this.type === 'chars') {
+        // 글자별로 분리 시 공백 처리 개선
+        const chars = Array.from(originalText); // split('')보다 더 정확하게 공백 보존
+        
+        chars.forEach((char, index) => {
+          if (char === ' ') {
+            // 공백은 일반 텍스트 노드로 추가
+            element.appendChild(document.createTextNode(' '));
+          } else {
+            const span = document.createElement('span');
+            span.classList.add('js-split-char');
+            span.textContent = char;
+            span.style.transitionDelay = `${this.delay + (index * this.charDelay)}s`;
+            element.appendChild(span);
+          }
+        });
+      } else {
+        // Split by words
+        const words = originalText.split(' ');
+        
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.classList.add('js-split-word');
+          span.textContent = word;
+          span.style.transitionDelay = `${this.delay + (index * this.wordDelay)}s`;
+          element.appendChild(span);
+          
+          // Add space after each word except the last one
+          if (index < words.length - 1) {
+            element.appendChild(document.createTextNode(' '));
+          }
+        });
+      }
+      
+      // Add class to indicate element is split
+      element.classList.add('is-splitted');
+      
+      // Trigger animation after a small delay
+      setTimeout(() => {
+        element.classList.add('is-animated');
+      }, 100);
+    });
+  }
+}
+
+// 텍스트 분할 애니메이션을 위한 CSS 스타일 추가
+const styleElement = document.createElement('style');
+styleElement.textContent = `
+  .js-split-char, .js-split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .is-animated .js-split-char,
+  .is-animated .js-split-word {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(styleElement);
+
+// Initialize animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Get hero title and subtitle
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  // Apply text splitting to hero title
+  new TextSplitter({
+    elements: heroTitle,
+    type: 'chars',
+    delay: 0.2,
+    charDelay: 0.04
+  });
+  
+  // Apply text splitting to hero subtitle with a slight delay
+  new TextSplitter({
+    elements: heroSubtitle,
+    type: 'chars',
+    delay: 0.5, // Start after title animation has begun
+    charDelay: 0.03
+  });
+});
+
+// Apply animation on page transitions as well (for Barba.js)
+if (typeof barba !== 'undefined') {
+  barba.hooks.after((data) => {
+    const newHeroTitle = data.next.container.querySelector('.hero-title');
+    const newHeroSubtitle = data.next.container.querySelector('.hero-subtitle');
+    
+    if (newHeroTitle) {
+      new TextSplitter({
+        elements: newHeroTitle,
+        type: 'chars',
+        delay: 0.2,
+        charDelay: 0.04
+      });
+    }
+    
+    if (newHeroSubtitle) {
+      new TextSplitter({
+        elements: newHeroSubtitle,
+        type: 'chars',
+        delay: 0.5,
+        charDelay: 0.03
+      });
+    }
+  });
+}
+</script>
+</body>
+</html>
