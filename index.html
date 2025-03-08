@@ -423,123 +423,90 @@
   </style>
 </head>
 <body>
-  <div class="container-center-horizontal">
-    <!-- SECTION 1: Header/Navigation -->
-    <header class="header">
-      <div class="logo">Semin Kim</div>
-      <nav class="menu">
-        <a href="#" class="menu-item">About</a>
-        <a href="#" class="menu-item">UX Works</a>
-        <a href="#" class="menu-item">Contact</a>
-      </nav>
+ <body>
+  <section class="_hero-introduction">
+    <header>
+      <div class="sticky-slot">
+        <div class="title h-full flex place-center text-center overflow-hidden">
+          <h2 class="-medium relative whitespace-pre-line">일 디자인</h2>
+        </div>
+        <ul class="snippets absolute inset-0">
+          <li>
+            <div class="snippet ~t">
+              <img src="path/to/snippet1.png" alt="Snippet 1">
+            </div>
+          </li>
+          <li>
+            <div class="snippet ~t">
+              <img src="path/to/snippet2.png" alt="Snippet 2">
+            </div>
+          </li>
+          <li>
+            <div class="snippet ~t">
+              <img src="path/to/snippet3.png" alt="Snippet 3">
+            </div>
+          </li>
+          <li>
+            <div class="snippet ~t">
+              <img src="path/to/snippet4.png" alt="Snippet 4">
+            </div>
+          </li>
+          <li>
+            <div class="snippet ~t">
+              <img src="path/to/snippet5.png" alt="Snippet 5">
+            </div>
+          </li>
+        </ul>
+      </div>
     </header>
-    
-    <!-- SECTION 2: Hero section with blue background -->
-<section class="hero-section">
-  <div class="hero-text-container">
-    <h2 class="hero-title">I Design</h2>
-    <h1 class="hero-subtitle">Inside & Outside of Service</h1>
-  </div>
-</section>
-    
-    <!-- SECTION 3: Feature boxes and main text -->
-    <section class="section-features">
-      <!-- Feature boxes -->
-      <div class="features-section">
-        <div class="feature-box feature-service">
-          <span>Service Purpose</span>
-        </div>
-        <div class="feature-box feature-usefulness">
-          <span>Sense of Usefulness</span>
-        </div>
-        <div class="feature-box feature-empathy">
-          <span>Empathy</span>
-        </div>
-      </div>
-      
-      <!-- Main text -->
-      <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-      
-      <!-- Additional feature box -->
-      <div class="feature-readability">
-        <span>Readability</span>
-      </div>
-    </section>
-    
-    <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
-    <section class="ux-sections">
-      <div class="ux-consulting">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
-          <path d="M8 12L11 15L16 9" stroke="#65c479" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        UX Consulting
-      </div>
-      
-      <div class="ux-planning">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 4H20V20H4V4Z" stroke="#517fff" stroke-width="2"/>
-          <path d="M4 8H20" stroke="#517fff" stroke-width="2"/>
-          <path d="M8 8V20" stroke="#517fff" stroke-width="2"/>
-        </svg>
-        Planning & Wireframe
-      </div>
-      
-      <div class="ux-gui">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 7.8C3 6.2536 4.2536 5 5.8 5H18.2C19.7464 5 21 6.2536 21 7.8V16.2C21 17.7464 19.7464 19 18.2 19H5.8C4.2536 19 3 17.7464 3 16.2V7.8Z" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 10L17 10" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
-        </svg>
-        GUI & Interaction
-      </div>
-      
-      <!-- Clarity box -->
-      <div class="clarity-box">
-        <span>Clarity</span>
-      </div>
-    </section>
-    
-    <!-- SECTION 4: Works section -->
-    <section class="works-section">
-      <h2 class="works-title">Works</h2>
-      <div class="works-grid">
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-        <article class="work-card">
-          <div class="work-image"></div>
-          <div class="work-title">Project title</div>
-          <div class="work-description">UI, Art direction</div>
-        </article>
-      </div>
-    </section>
-  </div>
-// First, add this script to your HTML file (before the closing body tag)
+    <main>
+      <ul class="taglines flex flex-col items-center title-2 no-select" style="--items: 3">
+        <li style="--color: #34C771; --index: 0">
+          <div class="flex gap-20 items-center">
+            <div class="icon-card grid place-center br-24-12">
+              <span class="_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4V20" data-mode="stroke" stroke-width="1.5" stroke-linecap="square" transform-origin="12 12"></path>
+                  <path d="M20 12L4 12" data-mode="stroke" stroke-width="1.5" stroke-linecap="square" transform-origin="12 12"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="-medium">서비스 목적</h3>
+          </div>
+        </li>
+        <li style="--color: #477EE9; --index: 1">
+          <div class="flex gap-20 items-center">
+            <div class="icon-card grid place-center br-24-12">
+              <span class="_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12591 12.8938C4.17366 12.243 3.19753 11.9177 2.91364 11.414C2.66784 10.9779 2.6558 10.4479 2.88155 10.0011C3.14227 9.48501 4.10262 9.11565 6.02331 8.37692L16.6505 4.28955C18.2467 3.67561 19.0449 3.36864 19.557 3.54086C20.0019 3.69045 20.3512 4.03967 20.5008 4.48457C20.673 4.99676 20.366 5.79488 19.7521 7.39113L15.6647 18.0183C14.926 19.939 14.5566 20.8993 14.0405 21.1601C13.5937 21.3858 13.0637 21.3738 12.6276 21.128C12.1239 20.8441 11.7986 19.8679 11.1478 17.9157L9.89234 14.1493L6.12591 12.8938ZM11.3434 13.7589L13.3641 19.8212L19.079 4.96264L4.22038 10.6775L10.2827 12.6983L14.0208 8.96015L15.0815 10.0208L11.3434 13.7589Z" data-mode="fill"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="-medium">전송</h3>
+          </div>
+        </li>
+        <li style="--color: #FB2D54; --index: 2">
+          <div class="flex gap-20 items-center">
+            <div class="icon-card grid place-center br-24-12">
+              <span class="_icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.25 14.7502H18.9395L15.4456 19.1173L16.6169 20.0544L20.1107 15.6873C20.8965 14.7051 20.1973 13.2502 18.9395 13.2502L4.25 13.2502V14.7502Z" data-mode="fill"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.75 9.2502H5.06047L8.55418 4.88307L7.38288 3.94602L3.88917 8.31316C3.10345 9.2953 3.80271 10.7502 5.06047 10.7502L19.75 10.7502V9.2502Z" data-mode="fill"></path>
+                </svg>
+              </span>
+            </div>
+            <h3 class="-medium">교환</h3>
+          </div>
+        </li>
+        <li></li>
+      </ul>
+    </main>
+  </section>
 
 <script>
+// First, add this script to your HTML file (before the closing body tag)
+
 // Text splitting and animation class (simplified version of your provided code)
 class TextSplitter {
   constructor(options = {}) {
@@ -629,8 +596,8 @@ document.head.appendChild(styleElement);
 // Initialize animation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Get hero title and subtitle
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
+  const heroTitle = document.querySelector('._hero-introduction header h2');
+  const snippets = document.querySelectorAll('._hero-introduction .snippets li');
   
   // Apply text splitting to hero title
   new TextSplitter({
@@ -639,21 +606,93 @@ document.addEventListener('DOMContentLoaded', () => {
     delay: 0.2,
     charDelay: 0.04
   });
-  
-  // Apply text splitting to hero subtitle with a slight delay
-  new TextSplitter({
-    elements: heroSubtitle,
-    type: 'chars',
-    delay: 0.5, // Start after title animation has begun
-    charDelay: 0.03
+
+  // 스크롤 기반 애니메이션을 위한 요소 선택
+  const section = document.querySelector('._hero-introduction');
+  const taglines = document.querySelectorAll('._hero-introduction .taglines li');
+
+  // 스크롤 이벤트 핸들러
+  const handleScroll = () => {
+    if (!section) return;
+
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    // 섹션이 뷰포트에 들어왔는지 확인
+    if (sectionTop < windowHeight && sectionTop > -section.offsetHeight) {
+      // 스크롤 진행률 계산 (0 ~ 1)
+      let scrollProgress = 1 - (sectionTop / windowHeight);
+      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
+
+      // 스니펫 애니메이션
+      snippets.forEach((snippet, index) => {
+        const snippetElement = snippet.querySelector('.snippet');
+        if (!snippetElement) return;
+
+        // 각 스니펫의 초기 위치와 크기에 따라 다르게 조정
+        let translateX = 0, translateY = 0;
+        
+        switch(index) {
+          case 0: // 첫 번째 스니펫
+            translateX = -6 + (scrollProgress * 6);
+            translateY = -40 + (scrollProgress * 40);
+            break;
+          case 1: // 두 번째 스니펫
+            translateX = 5 - (scrollProgress * 5);
+            translateY = -2 + (scrollProgress * 2);
+            break;
+          case 2: // 세 번째 스니펫
+            translateX = 4 - (scrollProgress * 4);
+            translateY = -10 + (scrollProgress * 10);
+            break;
+          case 3: // 네 번째 스니펫
+            // 이미 transform: translate(0)이므로 별도 조정 불필요
+            break;
+          case 4: // 다섯 번째 스니펫
+            translateX = -6 + (scrollProgress * 6);
+            translateY = -10 + (scrollProgress * 10);
+            break;
+        }
+
+        snippet.style.transform = `translate(${translateX}%, ${translateY}%)`;
+        
+        // 선명도 조절
+        snippetElement.style.opacity = 1 - scrollProgress;
+      });
+
+      // 태그라인 스크롤 효과
+      taglines.forEach((tagline, index) => {
+        if (index < taglines.length - 1) {
+          const transformValue = `translateY(calc((var(--index) - var(--items)*0.5)*1.1em * ${1 - scrollProgress}))`;
+          tagline.style.transform = transformValue;
+        }
+      });
+    }
+  };
+
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', handleScroll);
+
+  // 초기 한 번 호출
+  handleScroll();
+
+  // 스니펫 초기 애니메이션
+  snippets.forEach((snippet, index) => {
+    const snippetElement = snippet.querySelector('.snippet');
+    if (!snippetElement) return;
+
+    // 각 스니펫에 순차적인 딜레이를 적용
+    setTimeout(() => {
+      snippetElement.style.opacity = 1;
+      snippetElement.style.transform = 'translate(0, 0)';
+    }, (index + 1) * 200);
   });
 });
 
 // Apply animation on page transitions as well (for Barba.js)
 if (typeof barba !== 'undefined') {
   barba.hooks.after((data) => {
-    const newHeroTitle = data.next.container.querySelector('.hero-title');
-    const newHeroSubtitle = data.next.container.querySelector('.hero-subtitle');
+    const newHeroTitle = data.next.container.querySelector('._hero-introduction header h2');
     
     if (newHeroTitle) {
       new TextSplitter({
@@ -663,157 +702,8 @@ if (typeof barba !== 'undefined') {
         charDelay: 0.04
       });
     }
-    
-    if (newHeroSubtitle) {
-      new TextSplitter({
-        elements: newHeroSubtitle,
-        type: 'chars',
-        delay: 0.5,
-        charDelay: 0.03
-      });
-    }
   });
 }
-
-// 스크롤 기반 애니메이션을 위한 스크립트
-document.addEventListener('DOMContentLoaded', () => {
-  // 텍스트 분할 애니메이션 초기화 (기존 코드는 유지)
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  
-  if (heroTitle && heroSubtitle) {
-    new TextSplitter({
-      elements: heroTitle,
-      type: 'chars',
-      delay: 0.2,
-      charDelay: 0.04
-    });
-    
-    new TextSplitter({
-      elements: heroSubtitle,
-      type: 'chars',
-      delay: 0.5,
-      charDelay: 0.03
-    });
-  }
-
-  // 섹션 3 스크롤 애니메이션을 위한 요소 선택
-  const featureBoxes = document.querySelectorAll('.feature-box');
-  const mainText = document.querySelector('.main-text');
-  const featureReadability = document.querySelector('.feature-readability');
-  
-  // 초기 설정 - 큰 크기와 퍼져있는 위치에서 시작
-  featureBoxes.forEach(box => {
-    // 원래 위치와 크기 저장
-    box.dataset.originalTransform = window.getComputedStyle(box).transform;
-    box.dataset.originalWidth = box.offsetWidth;
-    box.dataset.originalHeight = box.offsetHeight;
-    box.dataset.originalBorderRadius = window.getComputedStyle(box).borderRadius;
-    
-    // 시작 스타일 적용 (약간 크게, 퍼져있게)
-    box.style.width = '180px';
-    box.style.height = '180px';
-    box.style.transition = 'all 0.3s ease-out';
-    
-    // 각 박스마다 다른 시작 위치 설정
-    if (box.classList.contains('feature-service')) {
-      box.style.transform = 'translate(-10%, 10%)';
-    } else if (box.classList.contains('feature-usefulness')) {
-      box.style.transform = 'translate(0%, -5%)';
-    } else if (box.classList.contains('feature-empathy')) {
-      box.style.transform = 'translate(10%, 10%)';
-    }
-  });
-  
-  // 특수 박스에 대한 초기 설정
-  if (featureReadability) {
-    featureReadability.dataset.originalTransform = window.getComputedStyle(featureReadability).transform;
-    featureReadability.dataset.originalWidth = featureReadability.offsetWidth;
-    featureReadability.dataset.originalHeight = featureReadability.offsetHeight;
-    featureReadability.dataset.originalBorderRadius = window.getComputedStyle(featureReadability).borderRadius;
-    
-    featureReadability.style.width = '180px';
-    featureReadability.style.height = '180px';
-    featureReadability.style.transform = 'translate(15%, -10%)';
-    featureReadability.style.transition = 'all 0.3s ease-out';
-  }
-
-  // 스크롤 이벤트 리스너 추가
-  window.addEventListener('scroll', () => {
-    // 섹션의 위치와 높이 가져오기
-    const section = document.querySelector('.section-features');
-    if (!section) return;
-    
-    const sectionTop = section.getBoundingClientRect().top;
-    const sectionHeight = section.offsetHeight;
-    const windowHeight = window.innerHeight;
-    
-    // 섹션이 뷰포트에 들어왔는지 확인
-    if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-      // 스크롤 진행률 계산 (0 ~ 1)
-      let scrollProgress = 1 - (sectionTop / windowHeight);
-      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
-      
-      // 메인 텍스트 크기 조절
-      if (mainText) {
-        // 텍스트 크기를 스크롤에 따라 서서히 줄이기
-        const initialSize = 54; // var(--font-size-xxxxxl)의 값
-        const finalSize = 48;   // 최종 크기
-        const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
-        mainText.style.fontSize = `${newSize}px`;
-        
-        // 선명도 조절 (스크롤 진행에 따라 점점 선명해짐)
-        mainText.style.opacity = 0.5 + (scrollProgress * 0.5);
-      }
-      
-      // 박스들 애니메이션
-      featureBoxes.forEach(box => {
-        // 원래 크기로 축소
-        const originalWidth = parseInt(box.dataset.originalWidth || 150);
-        const originalHeight = parseInt(box.dataset.originalHeight || 150);
-        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
-        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
-        
-        box.style.width = `${newWidth}px`;
-        box.style.height = `${newHeight}px`;
-        
-        // 원래 위치로 이동 (퍼져있던 위치에서 중앙으로)
-        let translateX = 0;
-        let translateY = 0;
-        
-        if (box.classList.contains('feature-service')) {
-          translateX = -10 + (scrollProgress * 10);
-          translateY = 10 - (scrollProgress * 10);
-        } else if (box.classList.contains('feature-usefulness')) {
-          translateY = -5 + (scrollProgress * 5);
-        } else if (box.classList.contains('feature-empathy')) {
-          translateX = 10 - (scrollProgress * 10);
-          translateY = 10 - (scrollProgress * 10);
-        }
-        
-        box.style.transform = `translate(${translateX}%, ${translateY}%)`;
-      });
-      
-      // Readability 박스 애니메이션
-      if (featureReadability) {
-        const originalWidth = parseInt(featureReadability.dataset.originalWidth || 150);
-        const originalHeight = parseInt(featureReadability.dataset.originalHeight || 150);
-        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
-        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
-        
-        featureReadability.style.width = `${newWidth}px`;
-        featureReadability.style.height = `${newHeight}px`;
-        
-        const translateX = 15 - (scrollProgress * 15);
-        const translateY = -10 + (scrollProgress * 10);
-        featureReadability.style.transform = `translate(${translateX}%, ${translateY}%)`;
-      }
-    }
-  });
-  
-  // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
-  window.dispatchEvent(new Event('scroll'));
-});
 </script>
 </body>
 </html>
