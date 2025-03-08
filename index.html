@@ -155,19 +155,19 @@
   height: 100vh;
   padding: 0 40px;
   position: relative;
-  /* Hero 콘텐츠를 중앙에 배치하기 위한 설정 */
+  /* 중앙 정렬 대신 시작점부터 패딩으로 조정 */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* 콘텐츠를 위로 50px 올리기 위한 설정 */
-  margin-top: -50px;
+  justify-content: flex-start;
+  padding-top: calc(50vh - 100px); /* 중앙보다 약간 위로 배치 */
 }
+
  .hero-title {
   color: rgba(255, 255, 255, 0.6);
   font-size: clamp(4rem, 6vw, 6rem);
   font-weight: 700;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
  .hero-subtitle {
   color: var(--white);
