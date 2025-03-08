@@ -100,7 +100,7 @@
       text-decoration: none;
     }
 
-    /* SECTION 2: Hero section with blue background */
+    /* SECTION 2: Hero section with blue background - 반응형으로 수정 */
     .hero-section {
       background-color: var(--bg-blue);
       width: 100%;
@@ -125,6 +125,23 @@
       position: absolute;
       top: 260px;
       left: 40px;
+    }
+
+    /* 미디어 쿼리 추가: 화면이 큰 경우 여백과 글자 크기 조정 */
+    @media (min-width: 1200px) {
+      .hero-section {
+        padding: 0 60px;
+      }
+
+      .hero-title {
+        font-size: calc(var(--font-size-xxxxl) * 1.2);
+        left: 60px;
+      }
+
+      .hero-subtitle {
+        font-size: calc(var(--font-size-xxxxl) * 1.2);
+        left: 60px;
+      }
     }
 
     /* SECTION 3: Feature boxes and main text */
