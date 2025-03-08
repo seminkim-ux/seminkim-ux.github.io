@@ -163,31 +163,23 @@
 
     .hero-title {
       color: rgba(255, 255, 255, 0.6);
-      font-size: var(--font-size-xxxxl);
+      font-size: clamp(4rem, 6vw, 6rem); /* 뷰포트 기반 반응형 글꼴 크기 */
       font-weight: 700;
       position: relative; /* 절대 위치에서 상대 위치로 변경 */
-      margin-bottom: 130px; /* 간격 130px */
+      margin-bottom: 65px; /* 간격 절반으로 축소(130px → 65px) */
     }
 
     .hero-subtitle {
       color: var(--white);
-      font-size: var(--font-size-xxxxl);
+      font-size: clamp(4rem, 6vw, 6rem); /* 뷰포트 기반 반응형 글꼴 크기 */
       font-weight: 700;
       position: relative; /* 절대 위치에서 상대 위치로 변경 */
     }
 
-    /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기 최대 120%로 확대 */
+    /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
     @media screen and (min-width: 1440px) {
       .hero-section {
         padding: 0 60px;
-      }
-
-      .hero-title {
-        font-size: calc(var(--font-size-xxxxl) * 1.2); /* 글자 크기 120% */
-      }
-
-      .hero-subtitle {
-        font-size: calc(var(--font-size-xxxxl) * 1.2); /* 글자 크기 120% */
       }
     }
 
