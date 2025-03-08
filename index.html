@@ -162,6 +162,7 @@
 }
 .hero-title, .hero-subtitle {
   transform: translateY(calc(-5vh - 30px));
+    overflow: hidden;
 }
 
  .hero-title {
@@ -170,13 +171,30 @@
   font-weight: 700;
   position: relative;
   margin-bottom: 5px;
+     perspective: 1000px;
 }
  .hero-subtitle {
   color: var(--white);
   font-size: clamp(4rem, 7vw, 7rem);
   font-weight: 700;
   position: relative;
+     perspective: 1000px;
 }
+
+
+.js-split-char, .js-split-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.is-animated .js-split-char,
+.is-animated .js-split-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
     @media screen and (min-width: 1440px) {
       .hero-section {
@@ -475,5 +493,120 @@
       </div>
     </section>
   </div>
+// First, add this script to your HTML file (before the closing body tag)
+
+<script>
+// Text splitting and animation class (simplified version of your provided code)
+class TextSplitter {
+  constructor(options = {}) {
+    this.elements = Array.isArray(options.elements) ? options.elements : [options.elements];
+    this.type = options.type || 'chars'; // chars, words
+    this.delay = options.delay || 0;
+    this.charDelay = options.charDelay || 0.05;
+    this.wordDelay = options.wordDelay || 0.1;
+    
+    this.init();
+  }
+  
+  init() {
+    this.elements.forEach(element => {
+      if (!element) return;
+      
+      // Store original text
+      const originalText = element.textContent;
+      element.dataset.originalText = originalText;
+      
+      // Clear element
+      element.innerHTML = '';
+      
+      if (this.type === 'chars') {
+        // Split by characters
+        const chars = originalText.split('');
+        
+        chars.forEach((char, index) => {
+          const span = document.createElement('span');
+          span.classList.add('js-split-char');
+          span.textContent = char;
+          span.style.transitionDelay = `${this.delay + (index * this.charDelay)}s`;
+          element.appendChild(span);
+        });
+      } else {
+        // Split by words
+        const words = originalText.split(' ');
+        
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.classList.add('js-split-word');
+          span.textContent = word;
+          span.style.transitionDelay = `${this.delay + (index * this.wordDelay)}s`;
+          element.appendChild(span);
+          
+          // Add space after each word except the last one
+          if (index < words.length - 1) {
+            element.appendChild(document.createTextNode(' '));
+          }
+        });
+      }
+      
+      // Add class to indicate element is split
+      element.classList.add('is-splitted');
+      
+      // Trigger animation after a small delay
+      setTimeout(() => {
+        element.classList.add('is-animated');
+      }, 100);
+    });
+  }
+}
+
+// Initialize animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Get hero title and subtitle
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  // Apply text splitting to hero title
+  new TextSplitter({
+    elements: heroTitle,
+    type: 'chars',
+    delay: 0.2,
+    charDelay: 0.04
+  });
+  
+  // Apply text splitting to hero subtitle with a slight delay
+  new TextSplitter({
+    elements: heroSubtitle,
+    type: 'chars',
+    delay: 0.5, // Start after title animation has begun
+    charDelay: 0.03
+  });
+});
+
+// Apply animation on page transitions as well (for Barba.js)
+if (typeof barba !== 'undefined') {
+  barba.hooks.after((data) => {
+    const newHeroTitle = data.next.container.querySelector('.hero-title');
+    const newHeroSubtitle = data.next.container.querySelector('.hero-subtitle');
+    
+    if (newHeroTitle) {
+      new TextSplitter({
+        elements: newHeroTitle,
+        type: 'chars',
+        delay: 0.2,
+        charDelay: 0.04
+      });
+    }
+    
+    if (newHeroSubtitle) {
+      new TextSplitter({
+        elements: newHeroSubtitle,
+        type: 'chars',
+        delay: 0.5,
+        charDelay: 0.03
+      });
+    }
+  });
+}
+</script>
 </body>
 </html>
