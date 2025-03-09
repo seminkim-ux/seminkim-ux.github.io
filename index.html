@@ -204,7 +204,7 @@
     /* SECTION 3: UX Sections (Consulting, Planning, GUI) */
     .ux-sections-container {
       position: relative;
-      height: 200vh; /* 섹션 4개 분량의 높이 (첫번째는 비움) */
+      height: 200vh; /* 섹션 4개 분량의 높이를 절반으로 줄임 */
       width: 100%;
       background-color: white;
       margin-bottom: 100px; /* 섹션4와의 간격 */
@@ -611,19 +611,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // 컨테이너 내에서의 상대적 스크롤 위치 (0~1)
     const relativeScroll = Math.max(0, Math.min(1, (scrollY - containerTop) / (containerHeight - windowHeight)));
     
-    // 상대적 스크롤 위치에 따라 단계 결정 (0, 1, 2, 3)
-    // 0: 컨테이너 진입 전, 1: 첫 번째 아이템, 2: 두 번째 아이템, 3: 세 번째 아이템
-    // 높이를 4등분하여 첫 1/4은 아무것도 표시하지 않음
-    const step = Math.floor(relativeScroll * 4);
+    // 첫 번째 아이템은 더 빨리 나타나도록 threshold 조정
+    // 나머지 아이템은 기존 속도 유지
+    if (relativeScroll > 0.1) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
+      uxItems[0].classList.add('visible');
+    } else {
+      uxItems[0].classList.remove('visible');
+    }
     
-    // 각 아이템의 표시 여부 결정
-    uxItems.forEach((item, index) => {
-      if (index < step) {
-        item.classList.add('visible');
-      } else {
-        item.classList.remove('visible');
-      }
-    });
+    if (relativeScroll > 0.4) { // 두 번째 아이템
+      uxItems[1].classList.add('visible');
+    } else {
+      uxItems[1].classList.remove('visible');
+    }
+    
+    if (relativeScroll > 0.7) { // 세 번째 아이템
+      uxItems[2].classList.add('visible');
+    } else {
+      uxItems[2].classList.remove('visible');
+    }
   }
   
   // 스크롤 이벤트 리스너 등록
