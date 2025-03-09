@@ -209,6 +209,7 @@
       justify-content: space-around;
       margin-top: -80px;
       padding: 0 20px;
+      position: relative;
     }
 
     .feature-box {
@@ -222,6 +223,7 @@
       font-weight: 700;
       text-align: center;
       padding: 15px;
+      transition: all 0.5s ease-out;
     }
 
     .feature-service {
@@ -244,6 +246,7 @@
       text-align: center;
       margin: 100px 0;
       line-height: 1.4;
+      transition: font-size 0.5s ease-out, opacity 0.5s ease-out;
     }
 
     .feature-readability {
@@ -256,7 +259,8 @@
       align-items: center;
       color: var(--white);
       font-weight: 700;
-      margin: 50px 0;
+      margin: 50px auto;
+      transition: all 0.5s ease-out;
     }
 
     /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
@@ -309,7 +313,8 @@
       align-items: center;
       color: var(--white);
       font-weight: 700;
-      margin: 50px 0;
+      margin: 50px auto;
+      transition: all 0.5s ease-out;
     }
 
     /* SECTION 4: Works section */
@@ -389,20 +394,20 @@
   position: relative;
   z-index: 2;
   will-change: transform;
+  height: 200px; /* 고정 높이 추가 */
 }
 
 .feature-box {
-  position: relative;
+  position: absolute; /* 원형 배치를 위한 절대 위치 */
   will-change: transform, width, height;
   transform-origin: center center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 40px; /* 초기값 저장 */
+  border-radius: 40px;
 }
 
 .feature-readability {
   position: relative;
   will-change: transform, width, height;
-  margin: 50px auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transform-origin: center center;
 }
@@ -411,11 +416,19 @@
   position: relative;
   z-index: 1;
   will-change: font-size, opacity;
-  transition: font-size 0.3s ease-out, opacity 0.3s ease-out;
+  transition: font-size 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.features-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
 }
 
 /* 호버 효과 추가 */
-.feature-box:hover, .feature-readability:hover {
+.feature-box:hover, .feature-readability:hover, .clarity-box:hover {
   transform: scale(1.05) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out !important;
@@ -444,8 +457,8 @@
     
     <!-- SECTION 3: Feature boxes and main text -->
     <section class="section-features">
-      <!-- Feature boxes -->
-      <div class="features-section">
+      <!-- Feature boxes in container for circular positioning -->
+      <div class="features-container">
         <div class="feature-box feature-service">
           <span>Service Purpose</span>
         </div>
@@ -455,15 +468,20 @@
         <div class="feature-box feature-empathy">
           <span>Empathy</span>
         </div>
+        
+        <!-- Additional feature box -->
+        <div class="feature-readability">
+          <span>Readability</span>
+        </div>
+        
+        <!-- Clarity box -->
+        <div class="clarity-box">
+          <span>Clarity</span>
+        </div>
       </div>
       
       <!-- Main text -->
       <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-      
-      <!-- Additional feature box -->
-      <div class="feature-readability">
-        <span>Readability</span>
-      </div>
     </section>
     
     <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
@@ -492,11 +510,6 @@
           <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
         </svg>
         GUI & Interaction
-      </div>
-      
-      <!-- Clarity box -->
-      <div class="clarity-box">
-        <span>Clarity</span>
       </div>
     </section>
     
@@ -537,10 +550,9 @@
       </div>
     </section>
   </div>
-// First, add this script to your HTML file (before the closing body tag)
 
 <script>
-// Text splitting and animation class (simplified version of your provided code)
+// Text splitting and animation class
 class TextSplitter {
   constructor(options = {}) {
     this.elements = Array.isArray(options.elements) ? options.elements : [options.elements];
@@ -647,6 +659,228 @@ document.addEventListener('DOMContentLoaded', () => {
     delay: 0.5, // Start after title animation has begun
     charDelay: 0.03
   });
+
+  // 섹션 3 스크롤 애니메이션을 위한 요소 선택
+  const featureBoxes = document.querySelectorAll('.feature-box');
+  const mainText = document.querySelector('.main-text');
+  const featureReadability = document.querySelector('.feature-readability');
+  const clarityBox = document.querySelector('.clarity-box');
+  const featuresContainer = document.querySelector('.features-container');
+  
+  if (!featuresContainer) return;
+  
+  // 컨테이너의 중심점 계산
+  const containerWidth = featuresContainer.offsetWidth;
+  const containerHeight = featuresContainer.offsetHeight;
+  const centerX = containerWidth / 2;
+  const centerY = containerHeight / 2;
+  const radius = Math.min(centerX, centerY) * 0.7; // 원의 반지름 (컨테이너의 70%)
+  
+  // 원형 배치 초기화 함수
+  function initializeCircularLayout() {
+    // 각 박스의 원래 크기 저장
+    const boxOriginalWidth = 150;
+    const boxOriginalHeight = 150;
+    
+    // 초기 크기를 150% 크게 설정
+    const initialScale = 1.5; // 150%
+    const boxInitialWidth = boxOriginalWidth * initialScale;
+    const boxInitialHeight = boxOriginalHeight * initialScale;
+    
+    // 원 배치를 위한 각도 계산 (5개 아이템)
+    const totalItems = 5;
+    const angleStep = (2 * Math.PI) / totalItems;
+    
+    // Service Purpose 박스 (첫 번째 위치)
+    const serviceBox = document.querySelector('.feature-service');
+    if (serviceBox) {
+      const angle = -Math.PI / 2; // 12시 방향 (상단)
+      const x = centerX + radius * Math.cos(angle) - boxInitialWidth/2;
+      const y = centerY + radius * Math.sin(angle) - boxInitialHeight/2;
+      
+      serviceBox.style.width = `${boxInitialWidth}px`;
+      serviceBox.style.height = `${boxInitialHeight}px`;
+      serviceBox.style.left = `${x}px`;
+      serviceBox.style.top = `${y}px`;
+      
+      // 원래 값 저장
+      serviceBox.dataset.originalWidth = boxOriginalWidth;
+      serviceBox.dataset.originalHeight = boxOriginalHeight;
+      serviceBox.dataset.originalLeft = x;
+      serviceBox.dataset.originalTop = y;
+      serviceBox.dataset.angle = angle;
+    }
+    
+    // Usefulness 박스 (두 번째 위치)
+    const usefulnessBox = document.querySelector('.feature-usefulness');
+    if (usefulnessBox) {
+      const angle = -Math.PI / 2 + angleStep; // 시계 방향으로 이동
+      const x = centerX + radius * Math.cos(angle) - boxInitialWidth/2;
+      const y = centerY + radius * Math.sin(angle) - boxInitialHeight/2;
+      
+      usefulnessBox.style.width = `${boxInitialWidth}px`;
+      usefulnessBox.style.height = `${boxInitialHeight}px`;
+      usefulnessBox.style.left = `${x}px`;
+      usefulnessBox.style.top = `${y}px`;
+      
+      usefulnessBox.dataset.originalWidth = boxOriginalWidth;
+      usefulnessBox.dataset.originalHeight = boxOriginalHeight;
+      usefulnessBox.dataset.originalLeft = x;
+      usefulnessBox.dataset.originalTop = y;
+      usefulnessBox.dataset.angle = angle;
+    }
+    
+    // Empathy 박스 (세 번째 위치)
+    const empathyBox = document.querySelector('.feature-empathy');
+    if (empathyBox) {
+      const angle = -Math.PI / 2 + (angleStep * 2);
+      const x = centerX + radius * Math.cos(angle) - boxInitialWidth/2;
+      const y = centerY + radius * Math.sin(angle) - boxInitialHeight/2;
+      
+      empathyBox.style.width = `${boxInitialWidth}px`;
+      empathyBox.style.height = `${boxInitialHeight}px`;
+      empathyBox.style.left = `${x}px`;
+      empathyBox.style.top = `${y}px`;
+      
+      empathyBox.dataset.originalWidth = boxOriginalWidth;
+      empathyBox.dataset.originalHeight = boxOriginalHeight;
+      empathyBox.dataset.originalLeft = x;
+      empathyBox.dataset.originalTop = y;
+      empathyBox.dataset.angle = angle;
+    }
+    
+    // Readability 박스 (네 번째 위치)
+    if (featureReadability) {
+      const angle = -Math.PI / 2 + (angleStep * 3);
+      const x = centerX + radius * Math.cos(angle) - boxInitialWidth/2;
+      const y = centerY + radius * Math.sin(angle) - boxInitialHeight/2;
+      
+      featureReadability.style.width = `${boxInitialWidth}px`;
+      featureReadability.style.height = `${boxInitialHeight}px`;
+      featureReadability.style.position = 'absolute';
+      featureReadability.style.left = `${x}px`;
+      featureReadability.style.top = `${y}px`;
+      
+      featureReadability.dataset.originalWidth = boxOriginalWidth;
+      featureReadability.dataset.originalHeight = boxOriginalHeight;
+      featureReadability.dataset.originalLeft = x;
+      featureReadability.dataset.originalTop = y;
+      featureReadability.dataset.angle = angle;
+    }
+    
+    // Clarity 박스 (다섯 번째 위치)
+    if (clarityBox) {
+      const angle = -Math.PI / 2 + (angleStep * 4);
+      const x = centerX + radius * Math.cos(angle) - boxInitialWidth/2;
+      const y = centerY + radius * Math.sin(angle) - boxInitialHeight/2;
+      
+      clarityBox.style.width = `${boxInitialWidth}px`;
+      clarityBox.style.height = `${boxInitialHeight}px`;
+      clarityBox.style.position = 'absolute';
+      clarityBox.style.left = `${x}px`;
+      clarityBox.style.top = `${y}px`;
+      clarityBox.style.margin = '0';
+      
+      clarityBox.dataset.originalWidth = boxOriginalWidth;
+      clarityBox.dataset.originalHeight = boxOriginalHeight;
+      clarityBox.dataset.originalLeft = x;
+      clarityBox.dataset.originalTop = y;
+      clarityBox.dataset.angle = angle;
+    }
+    
+// 메인 텍스트 초기 설정 (300% 크기로 시작)
+    if (mainText) {
+      const originalFontSize = parseFloat(getComputedStyle(mainText).fontSize);
+      const initialSize = originalFontSize * 3; // 300%
+      const finalSize = originalFontSize * 1.8; // 180%
+      
+      mainText.dataset.originalFontSize = originalFontSize;
+      mainText.dataset.initialSize = initialSize;
+      mainText.dataset.finalSize = finalSize;
+      
+      // 초기 크기 설정
+      mainText.style.fontSize = `${initialSize}px`;
+      mainText.style.opacity = '0.7'; // 시작 시 약간 흐릿하게
+    }
+  }
+  
+  // 초기 레이아웃 설정
+  initializeCircularLayout();
+  
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', () => {
+    // 섹션의 위치와 높이 가져오기
+    const section = document.querySelector('.section-features');
+    if (!section) return;
+    
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionHeight = section.offsetHeight;
+    const windowHeight = window.innerHeight;
+    
+    // 섹션이 뷰포트에 들어왔는지 확인
+    if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+      // 스크롤 진행률 계산 (0 ~ 1)
+      let scrollProgress = 1 - (sectionTop / windowHeight);
+      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
+      
+      // 메인 텍스트 크기 조절
+      if (mainText) {
+        const initialSize = parseFloat(mainText.dataset.initialSize);
+        const finalSize = parseFloat(mainText.dataset.finalSize);
+        const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
+        
+        mainText.style.fontSize = `${newSize}px`;
+        mainText.style.opacity = 0.7 + (scrollProgress * 0.3); // 점점 더 선명해짐
+      }
+      
+      // 각 박스들의 크기와 위치 조절
+      const allBoxes = [
+        ...Array.from(featureBoxes), 
+        featureReadability, 
+        clarityBox
+      ].filter(box => box); // null 제거
+      
+      allBoxes.forEach(box => {
+        if (!box) return;
+        
+        // 원래 크기로 축소
+        const originalWidth = parseFloat(box.dataset.originalWidth || 150);
+        const originalHeight = parseFloat(box.dataset.originalHeight || 150);
+        const initialWidth = originalWidth * 1.5; // 150%
+        const initialHeight = originalHeight * 1.5;
+        
+        const newWidth = initialWidth - (scrollProgress * (initialWidth - originalWidth));
+        const newHeight = initialHeight - (scrollProgress * (initialHeight - originalHeight));
+        
+        box.style.width = `${newWidth}px`;
+        box.style.height = `${newHeight}px`;
+        
+        // 원형 배치에서 각 박스의 위치 조정 (원의 반지름이 줄어드는 효과)
+        if (box.dataset.angle) {
+          const angle = parseFloat(box.dataset.angle);
+          const originalLeft = parseFloat(box.dataset.originalLeft);
+          const originalTop = parseFloat(box.dataset.originalTop);
+          
+          // 원래 중심에서 약간 더 바깥으로
+          const extraRadius = 20 * (1 - scrollProgress); // 스크롤에 따라 줄어드는 추가 반지름
+          
+          // 박스 중심을 기준으로 위치 계산
+          const centerX = centerX + (radius + extraRadius) * Math.cos(angle);
+          const centerY = centerY + (radius + extraRadius) * Math.sin(angle);
+          
+          // 박스 크기의 절반을 빼서 좌상단 좌표 계산
+          const newLeft = centerX - (newWidth / 2);
+          const newTop = centerY - (newHeight / 2);
+          
+          box.style.left = `${newLeft}px`;
+          box.style.top = `${newTop}px`;
+        }
+      });
+    }
+  });
+  
+  // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
+  window.dispatchEvent(new Event('scroll'));
 });
 
 // Apply animation on page transitions as well (for Barba.js)
@@ -674,146 +908,6 @@ if (typeof barba !== 'undefined') {
     }
   });
 }
-
-// 스크롤 기반 애니메이션을 위한 스크립트
-document.addEventListener('DOMContentLoaded', () => {
-  // 텍스트 분할 애니메이션 초기화 (기존 코드는 유지)
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  
-  if (heroTitle && heroSubtitle) {
-    new TextSplitter({
-      elements: heroTitle,
-      type: 'chars',
-      delay: 0.2,
-      charDelay: 0.04
-    });
-    
-    new TextSplitter({
-      elements: heroSubtitle,
-      type: 'chars',
-      delay: 0.5,
-      charDelay: 0.03
-    });
-  }
-
-  // 섹션 3 스크롤 애니메이션을 위한 요소 선택
-  const featureBoxes = document.querySelectorAll('.feature-box');
-  const mainText = document.querySelector('.main-text');
-  const featureReadability = document.querySelector('.feature-readability');
-  
-  // 초기 설정 - 큰 크기와 퍼져있는 위치에서 시작
-  featureBoxes.forEach(box => {
-    // 원래 위치와 크기 저장
-    box.dataset.originalTransform = window.getComputedStyle(box).transform;
-    box.dataset.originalWidth = box.offsetWidth;
-    box.dataset.originalHeight = box.offsetHeight;
-    box.dataset.originalBorderRadius = window.getComputedStyle(box).borderRadius;
-    
-    // 시작 스타일 적용 (약간 크게, 퍼져있게)
-    box.style.width = '180px';
-    box.style.height = '180px';
-    box.style.transition = 'all 0.3s ease-out';
-    
-    // 각 박스마다 다른 시작 위치 설정
-    if (box.classList.contains('feature-service')) {
-      box.style.transform = 'translate(-10%, 10%)';
-    } else if (box.classList.contains('feature-usefulness')) {
-      box.style.transform = 'translate(0%, -5%)';
-    } else if (box.classList.contains('feature-empathy')) {
-      box.style.transform = 'translate(10%, 10%)';
-    }
-  });
-  
-  // 특수 박스에 대한 초기 설정
-  if (featureReadability) {
-    featureReadability.dataset.originalTransform = window.getComputedStyle(featureReadability).transform;
-    featureReadability.dataset.originalWidth = featureReadability.offsetWidth;
-    featureReadability.dataset.originalHeight = featureReadability.offsetHeight;
-    featureReadability.dataset.originalBorderRadius = window.getComputedStyle(featureReadability).borderRadius;
-    
-    featureReadability.style.width = '180px';
-    featureReadability.style.height = '180px';
-    featureReadability.style.transform = 'translate(15%, -10%)';
-    featureReadability.style.transition = 'all 0.3s ease-out';
-  }
-
-  // 스크롤 이벤트 리스너 추가
-  window.addEventListener('scroll', () => {
-    // 섹션의 위치와 높이 가져오기
-    const section = document.querySelector('.section-features');
-    if (!section) return;
-    
-    const sectionTop = section.getBoundingClientRect().top;
-    const sectionHeight = section.offsetHeight;
-    const windowHeight = window.innerHeight;
-    
-    // 섹션이 뷰포트에 들어왔는지 확인
-    if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-      // 스크롤 진행률 계산 (0 ~ 1)
-      let scrollProgress = 1 - (sectionTop / windowHeight);
-      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
-      
-      // 메인 텍스트 크기 조절
-      if (mainText) {
-        // 텍스트 크기를 스크롤에 따라 서서히 줄이기
-        const initialSize = 54; // var(--font-size-xxxxxl)의 값
-        const finalSize = 48;   // 최종 크기
-        const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
-        mainText.style.fontSize = `${newSize}px`;
-        
-        // 선명도 조절 (스크롤 진행에 따라 점점 선명해짐)
-        mainText.style.opacity = 0.5 + (scrollProgress * 0.5);
-      }
-      
-      // 박스들 애니메이션
-      featureBoxes.forEach(box => {
-        // 원래 크기로 축소
-        const originalWidth = parseInt(box.dataset.originalWidth || 150);
-        const originalHeight = parseInt(box.dataset.originalHeight || 150);
-        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
-        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
-        
-        box.style.width = `${newWidth}px`;
-        box.style.height = `${newHeight}px`;
-        
-        // 원래 위치로 이동 (퍼져있던 위치에서 중앙으로)
-        let translateX = 0;
-        let translateY = 0;
-        
-        if (box.classList.contains('feature-service')) {
-          translateX = -10 + (scrollProgress * 10);
-          translateY = 10 - (scrollProgress * 10);
-        } else if (box.classList.contains('feature-usefulness')) {
-          translateY = -5 + (scrollProgress * 5);
-        } else if (box.classList.contains('feature-empathy')) {
-          translateX = 10 - (scrollProgress * 10);
-          translateY = 10 - (scrollProgress * 10);
-        }
-        
-        box.style.transform = `translate(${translateX}%, ${translateY}%)`;
-      });
-      
-      // Readability 박스 애니메이션
-      if (featureReadability) {
-        const originalWidth = parseInt(featureReadability.dataset.originalWidth || 150);
-        const originalHeight = parseInt(featureReadability.dataset.originalHeight || 150);
-        const newWidth = 180 - (scrollProgress * (180 - originalWidth));
-        const newHeight = 180 - (scrollProgress * (180 - originalHeight));
-        
-        featureReadability.style.width = `${newWidth}px`;
-        featureReadability.style.height = `${newHeight}px`;
-        
-        const translateX = 15 - (scrollProgress * 15);
-        const translateY = -10 + (scrollProgress * 10);
-        featureReadability.style.transform = `translate(${translateX}%, ${translateY}%)`;
-      }
-    }
-  });
-  
-  // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
-  window.dispatchEvent(new Event('scroll'));
-});
 </script>
 </body>
 </html>
