@@ -787,15 +787,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         mainText.style.fontSize = `${newSize}px`;
         
-        // 스크롤이 끝부분에 가까워지면 텍스트 사라지게 하기
-        if (scrollProgress > 0.7) {
-          // 0.7부터 1까지의 진행률을 0부터 1로 정규화
-          const fadeProgress = (scrollProgress - 0.7) / 0.3;
-          mainText.style.opacity = Math.max(0, 0.7 - fadeProgress);
-        } else {
-          mainText.style.opacity = 0.7 + (scrollProgress * 0.3); // 점점 더 선명해졌다가
-        }
-      }
+   // 스크롤 진행에 따라 텍스트를 더 선명하게 보이도록 함
+mainText.style.opacity = 0.7 + (scrollProgress * 0.3);
       
       // 각 박스들의 크기와 위치 조절
       allBoxes.forEach(box => {
