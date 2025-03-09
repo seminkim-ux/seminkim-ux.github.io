@@ -181,6 +181,7 @@
       perspective: 1000px;
     }
 
+
     .js-split-char, .js-split-word {
       display: inline-block;
       opacity: 0;
@@ -201,56 +202,69 @@
       }
     }
 
-    /* SECTION 3: 제거된 복잡한 효과와 라운드 박스 */
+    /* SECTION 3: Feature boxes and main text */
+    /* 섹션 3 스크롤 애니메이션을 위한 추가 CSS */
     .section-features {
       position: relative;
-      padding-top: 60px;
-      padding-bottom: 60px;
+      padding-top: 120px;
+      padding-bottom: 120px;
       overflow: hidden;
     }
 
     /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
     .ux-sections {
       width: 100%;
-      max-width: 1280px; /* 영역 크게 확장 (기존 800px) */
-      margin: 50px auto;
-      padding: 0 20px;
+      height: 100vh; /* 섹션2와 동일한 높이 */
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ux-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .ux-item.animated {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .ux-consulting {
-      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2); /* 150%에서 추가로 120% 키움 */
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--fern);
-      text-align: left; /* 왼쪽 정렬로 변경 */
-      margin-bottom: 60px;
-      display: flex;
-      align-items: center;
-      padding-left: 10%; /* 좌측 여백 추가 */
+      text-align: center;
+      transition-delay: 0.1s;
     }
 
     .ux-planning {
       font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--blue-medium);
-      text-align: left; /* 왼쪽 정렬로 변경 */
-      margin-bottom: 60px;
-      display: flex;
-      align-items: center;
-      padding-left: 10%; /* 좌측 여백 추가 */
+      text-align: center;
+      transition-delay: 0.3s;
     }
 
     .ux-gui {
       font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--sunset-orange);
-      text-align: left; /* 왼쪽 정렬로 변경 */
-      margin-bottom: 60px;
-      display: flex;
-      align-items: center;
-      padding-left: 10%; /* 좌측 여백 추가 */
+      text-align: center;
+      transition-delay: 0.5s;
     }
 
     .icon {
-      width: 72px; /* 아이콘 크기 유지 */
+      width: 72px;
       height: 72px;
-      margin-right: 24px; /* 간격 유지 */
+      margin-right: 24px;
     }
 
     /* SECTION 4: Works section */
@@ -297,6 +311,7 @@
       color: var(--black);
     }
 
+
     /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
     @media screen and (min-resolution: 2dppx) {
       .hero-title, .hero-subtitle {
@@ -304,22 +319,15 @@
       }
     }
 
-    /* 반응형: 작은 화면에서 작업 그리드 조정 */
-    @media screen and (max-width: 1200px) {
-      .ux-consulting, .ux-planning, .ux-gui {
-        padding-left: 5%; /* 작은 화면에서는 여백 줄이기 */
-      }
-    }
 
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
     @media screen and (max-width: 768px) {
       .works-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       
       .ux-consulting, .ux-planning, .ux-gui {
-        font-size: calc(var(--font-size-xxxl) * 1.2 * 1.2); /* 반응형도 120% 증가 */
-        padding-left: 0; /* 모바일에서는 패딩 제거 */
-        justify-content: flex-start; /* 왼쪽 정렬 유지 */
+        font-size: calc(var(--font-size-xxxl) * 1.2);
       }
       
       .icon {
@@ -335,13 +343,31 @@
       }
       
       .ux-consulting, .ux-planning, .ux-gui {
-        font-size: calc(var(--font-size-xxxl) * 1.2); /* 매우 작은 화면에서 적정 크기로 */
+        font-size: var(--font-size-xxxl);
       }
       
       .icon {
         width: 36px;
         height: 36px;
         margin-right: 12px;
+      }
+    }
+
+    @media only screen and (min-width: 2000px) {
+      .section-features {
+        --padding-x: 1vw;
+        --padding-y: 1vw;
+        font-size: .8vw;
+      }
+      
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: calc(2.4vw * 1.5 * 1.2);
+      }
+      
+      .icon {
+        width: 3.6vw;
+        height: 3.6vw;
+        margin-right: 1.2vw;
       }
     }
   </style>
@@ -366,24 +392,19 @@
       </div>
     </section>
     
-    <!-- SECTION 3: 제거된 복잡한 효과와 라운드 박스 -->
-    <section class="section-features">
-      <!-- 이전 컨텐츠 제거됨 -->
-    </section>
-    
     <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
     <section class="ux-sections">
-      <div class="ux-consulting">
+      <div class="ux-item ux-consulting">
         <img src="images/01.svg" alt="UX Consulting Icon" class="icon">
         UX Consulting
       </div>
       
-      <div class="ux-planning">
+      <div class="ux-item ux-planning">
         <img src="images/02.svg" alt="Planning & Wireframe Icon" class="icon">
         Planning & Wireframe
       </div>
       
-      <div class="ux-gui">
+      <div class="ux-item ux-gui">
         <img src="images/03.svg" alt="GUI & Interaction Icon" class="icon">
         GUI & Interaction
       </div>
@@ -535,8 +556,57 @@ document.addEventListener('DOMContentLoaded', () => {
     delay: 0.5, // Start after title animation has begun
     charDelay: 0.03
   });
+
+  // UX 섹션 스크롤 애니메이션
+  const uxItems = document.querySelectorAll('.ux-item');
+  const uxSection = document.querySelector('.ux-sections');
   
-  // 섹션 3 스크롤 애니메이션 관련 코드는 모두 제거됨
+  // IntersectionObserver로 요소가 화면에 보이는지 감시
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // 화면에 보일 때 애니메이션 실행
+      if (entry.isIntersecting) {
+        // 스크롤이 섹션에 도달했을 때 모든 아이템에 애니메이션 클래스 추가
+        setTimeout(() => {
+          uxItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('animated');
+            }, index * 300); // 각 아이템 사이에 300ms 딜레이
+          });
+        }, 300); // 첫 번째 아이템 시작 전 300ms 딜레이
+        
+        // 이미 감지된 요소는 더 이상 관찰하지 않음
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    // 섹션의 상단이 뷰포트에 50% 들어오면 트리거
+    threshold: 0.5
+  });
+  
+  // UX 섹션 감시 시작
+  observer.observe(uxSection);
+  
+  // 스크롤 위치에 따라 추가적인 효과를 위한 이벤트 리스너
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const uxSectionPos = uxSection.getBoundingClientRect().top + scrollPos;
+    
+    // 헤더 섹션이 완전히 스크롤 아웃되면 UX 섹션 아이템 애니메이션 시작
+    if (scrollPos > windowHeight * 0.8) {
+      const scrollOffset = scrollPos - uxSectionPos;
+      const scrollPercent = Math.min(1, Math.max(0, scrollOffset / (windowHeight * 0.5)));
+      
+      if (scrollPercent > 0.3 && !uxItems[0].classList.contains('animated')) {
+        uxItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('animated');
+          }, index * 300);
+        });
+      }
+    }
+  });
 });
 
 // Apply animation on page transitions as well (for Barba.js)
