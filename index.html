@@ -232,15 +232,15 @@
       align-items: center;
     }
 
-.ux-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(30px); /* 짧은 거리에서 올라오도록 */
-  transition: opacity 0.3s ease, transform 0.4s ease; /* 빠른 애니메이션 */
-  position: absolute;
-}
+    .ux-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(100px); /* 더 아래에서 시작 */
+      transition: opacity 0.5s ease, transform 0.8s ease;
+      position: absolute;
+    }
     
     .ux-item.visible {
       opacity: 1;
@@ -601,8 +601,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const uxSectionContainer = document.querySelector('.ux-sections-container');
   const uxSection = document.querySelector('.ux-sections');
   
-
-  
   // 스크롤 위치에 따라 각 아이템을 순차적으로 표시하는 함수
   function updateUxItemsVisibility() {
     const scrollY = window.scrollY;
@@ -615,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 첫 번째 아이템은 더 빨리 나타나도록 threshold 조정
     // 나머지 아이템은 기존 속도 유지
-    if (relativeScroll > 0) { // 첫 번째 아이템 즉시 나타나게 함
+    if (relativeScroll > 0) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
       uxItems[0].classList.add('visible');
     } else {
       uxItems[0].classList.remove('visible');
@@ -640,12 +638,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 초기 로드 및 리사이즈 시 업데이트
   window.addEventListener('resize', updateUxItemsVisibility);
   
-  // 페이지 로드 시 초기화 
-updateUxItemsVisibility();
-window.dispatchEvent(new Event('scroll')); // 강제로 스크롤 이벤트 발생시키기;
+  // 페이지 로드 시 초기화
+  setTimeout(updateUxItemsVisibility, 100);
+});
 
-
-  
 // Apply animation on page transitions as well (for Barba.js)
 if (typeof barba !== 'undefined') {
   barba.hooks.after((data) => {
@@ -669,7 +665,6 @@ if (typeof barba !== 'undefined') {
         charDelay: 0.03
       });
     }
-    
   });
 }
 </script>
