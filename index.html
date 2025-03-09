@@ -212,38 +212,39 @@
     /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
     .ux-sections {
       width: 100%;
-      max-width: 800px;
+      max-width: 1280px; /* 영역 크게 확장 (기존 800px) */
       margin: 50px auto;
+      padding: 0 20px;
     }
 
     .ux-consulting {
       font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2); /* 150%에서 추가로 120% 키움 */
       color: var(--fern);
-      text-align: center;
-      margin-bottom: 60px; /* 여백 유지 */
+      text-align: left; /* 왼쪽 정렬로 변경 */
+      margin-bottom: 60px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding-left: 10%; /* 좌측 여백 추가 */
     }
 
     .ux-planning {
-      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2); /* 150%에서 추가로 120% 키움 */
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--blue-medium);
-      text-align: center;
-      margin-bottom: 60px; /* 여백 유지 */
+      text-align: left; /* 왼쪽 정렬로 변경 */
+      margin-bottom: 60px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding-left: 10%; /* 좌측 여백 추가 */
     }
 
     .ux-gui {
-      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2); /* 150%에서 추가로 120% 키움 */
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--sunset-orange);
-      text-align: center;
-      margin-bottom: 60px; /* 여백 유지 */
+      text-align: left; /* 왼쪽 정렬로 변경 */
+      margin-bottom: 60px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding-left: 10%; /* 좌측 여백 추가 */
     }
 
     .icon {
@@ -304,6 +305,12 @@
     }
 
     /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    @media screen and (max-width: 1200px) {
+      .ux-consulting, .ux-planning, .ux-gui {
+        padding-left: 5%; /* 작은 화면에서는 여백 줄이기 */
+      }
+    }
+
     @media screen and (max-width: 768px) {
       .works-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -311,6 +318,8 @@
       
       .ux-consulting, .ux-planning, .ux-gui {
         font-size: calc(var(--font-size-xxxl) * 1.2 * 1.2); /* 반응형도 120% 증가 */
+        padding-left: 0; /* 모바일에서는 패딩 제거 */
+        justify-content: flex-start; /* 왼쪽 정렬 유지 */
       }
       
       .icon {
