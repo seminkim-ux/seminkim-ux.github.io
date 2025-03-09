@@ -237,8 +237,8 @@
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transform: translateY(100px); /* 더 아래에서 시작 */
-      transition: opacity 0.5s ease, transform 0.8s ease;
+      transform: translateY(30px); /* 아래에서부터 더 짧게 올라오도록 조정 */
+      transition: opacity 0.3s ease, transform 0.4s ease; /* 페이드인 효과 시간 단축 */
       position: absolute;
     }
     
@@ -601,6 +601,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const uxSectionContainer = document.querySelector('.ux-sections-container');
   const uxSection = document.querySelector('.ux-sections');
   
+  // 각 UX 아이템의 시작 위치를 화면 아래에서 시작하도록 설정
+  uxItems.forEach(item => {
+    // 초기 위치를 화면 아래로 설정
+    item.style.transform = 'translateY(30px)';
+    item.style.opacity = '0';
+  });
+  
   // 스크롤 위치에 따라 각 아이템을 순차적으로 표시하는 함수
   function updateUxItemsVisibility() {
     const scrollY = window.scrollY;
@@ -613,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 첫 번째 아이템은 더 빨리 나타나도록 threshold 조정
     // 나머지 아이템은 기존 속도 유지
-    if (relativeScroll > 0) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
+    if (relativeScroll > 0) { // 첫 번째 아이템 즉시 나타나게 함
       uxItems[0].classList.add('visible');
     } else {
       uxItems[0].classList.remove('visible');
