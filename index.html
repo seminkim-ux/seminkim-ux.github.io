@@ -262,7 +262,7 @@
       background-color: var(--fern);
     }
 
-    .main-text {
+     .main-text {
       font-family: var(--font-family-pretendard-light);
       font-size: var(--font-size-xxxxxl);
       font-weight: 300;
@@ -274,8 +274,15 @@
       z-index: 1;
       will-change: font-size, opacity;
       transition: font-size 0.5s ease-out, opacity 0.5s ease-out;
+      white-space: nowrap; /* Prevent text from wrapping to a third line */
+      max-width: 100%; /* Ensure text doesn't expand container */
+      overflow: hidden; /* Hide text that goes beyond container */
+      text-overflow: ellipsis; /* Show ellipsis for overflow text */
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* Limit to 2 lines */
+      -webkit-box-orient: vertical;
+      text-overflow: clip; /* Option to just clip the text */
     }
-
     .feature-readability {
       position: absolute;
       background-color: var(--blue-light);
@@ -418,7 +425,13 @@
       .works-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .main-text {
+        font-size: calc(var(--font-size-xxxxxl) * 0.7); /* Smaller text on mobile */
+      }
     }
+    }
+
+    
 
     @media screen and (max-width: 480px) {
       .works-grid {
@@ -740,22 +753,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionHeight = section.offsetHeight;
     const windowHeight = window.innerHeight;
     
+    
     // 섹션이 뷰포트에 들어왔는지 확인
     if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
       // 스크롤 진행률 계산 (0 ~ 1)
       let scrollProgress = 1 - (sectionTop / windowHeight);
       scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
       
-      // 메인 텍스트 크기 조절
+      // 메인 텍스트 크기 조절 및 페이드아웃
       if (mainText) {
         const initialSize = parseFloat(mainText.dataset.initialSize);
         const finalSize = parseFloat(mainText.dataset.finalSize);
         const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
         
         mainText.style.fontSize = `${newSize}px`;
-        mainText.style.opacity = 0.7 + (scrollProgress * 0.3); // 점점 더 선명해짐
+
+        // 스크롤 진행에 따라 점점 투명해지도록 수정
+        // 60% 스크롤까지는 선명해지다가, 그 이후로는 점점 사라지게 함
+        const fadeThreshold = 0.6;
+        let opacity;
+        
+        if (scrollProgress < fadeThreshold) {
+          // 초반 60%: 0.7에서 1로 선명해짐
+          opacity = 0.7 + ((scrollProgress / fadeThreshold) * 0.3);
+        } else {
+          // 후반 40%: 1에서 0으로 페이드아웃
+          const fadeProgress = (scrollProgress - fadeThreshold) / (1 - fadeThreshold);
+          opacity = 1 - fadeProgress;
+        }
+
+                mainText.style.opacity = opacity;
       }
       
+        
       // 각 박스들의 크기와 위치 조절
       allBoxes.forEach(box => {
         if (!box) return;
