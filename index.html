@@ -181,7 +181,6 @@
       perspective: 1000px;
     }
 
-
     .js-split-char, .js-split-word {
       display: inline-block;
       opacity: 0;
@@ -202,134 +201,12 @@
       }
     }
 
-    /* SECTION 3: Feature boxes and main text */
-    /* 섹션 3 스크롤 애니메이션을 위한 추가 CSS */
+    /* SECTION 3: 제거된 복잡한 효과와 라운드 박스 */
     .section-features {
       position: relative;
-      padding-top: 120px;
-      padding-bottom: 120px;
+      padding-top: 60px;
+      padding-bottom: 60px;
       overflow: hidden;
-    }
-
-    .features-container {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      height: 400px; /* 충분한 높이 확보 */
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .features-section {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .feature-box {
-      position: absolute; /* 절대 위치로 설정해 원형 배치 가능하게 함 */
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      text-align: center;
-      padding: 15px;
-      will-change: transform, width, height;
-      transform-origin: center center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 40px;
-      z-index: 3;
-      transition: all 0.5s ease-out;
-    }
-
-    .feature-service {
-      background-color: var(--sunset-orange);
-    }
-
-    .feature-usefulness {
-      background-color: var(--blue-medium);
-    }
-
-    .feature-empathy {
-      background-color: var(--fern);
-    }
-
- .main-text {
-  font-family: var(--font-family-pretendard-light);
-  font-size: var(--font-size-xxxxxl);
-  font-weight: 300;
-  color: #869298;
-  text-align: center;
-  line-height: 1.4;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-  will-change: font-size, opacity;
-  transition: font-size 0.5s ease-out, opacity 0.5s ease-out;
-  width: 100%; /* 너비를 100%로 설정 */
-  max-width: 100vw; /* 최대 너비를 뷰포트 너비로 설정 */
-  box-sizing: border-box; /* 박스 모델 설정 */
-  padding: 0 20px; /* 최소한의 좌우 패딩 */
-  
-  /* 기존 속성 수정 */
-  white-space: normal; /* nowrap 제거, 정상적인 줄바꿈 허용 */
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 여전히 2줄로 제한 */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-    .feature-readability {
-      position: absolute;
-      background-color: var(--blue-light);
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      will-change: transform, width, height;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transform-origin: center center;
-      z-index: 3;
-      transition: all 0.5s ease-out;
-    }
-
-    .clarity-box {
-      position: absolute;
-      background-color: var(--yellow);
-      border-radius: 40px;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--white);
-      font-weight: 700;
-      will-change: transform, width, height;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transform-origin: center center;
-      z-index: 3;
-      transition: all 0.5s ease-out;
-    }
-
-    /* 호버 효과 추가 */
-    .feature-box:hover, .feature-readability:hover, .clarity-box:hover {
-      transform: scale(1.05) translate(0px, 0px) !important;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease-out !important;
-      z-index: 10;
     }
 
     /* SECTION 3-2: UX Sections (Consulting, Planning, GUI) */
@@ -340,14 +217,17 @@
     }
 
     .ux-consulting {
-      font-size: var(--font-size-xxxl);
+      font-size: calc(var(--font-size-xxxl) * 1.5); /* 150% 크기로 증가 */
       color: var(--fern);
       text-align: center;
       margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .ux-planning {
-      font-size: var(--font-size-xxxl);
+      font-size: calc(var(--font-size-xxxl) * 1.5); /* 150% 크기로 증가 */
       color: var(--blue-medium);
       text-align: center;
       margin-bottom: 40px;
@@ -357,7 +237,7 @@
     }
 
     .ux-gui {
-      font-size: var(--font-size-xxxl);
+      font-size: calc(var(--font-size-xxxl) * 1.5); /* 150% 크기로 증가 */
       color: var(--sunset-orange);
       text-align: center;
       margin-bottom: 40px;
@@ -367,9 +247,9 @@
     }
 
     .icon {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
+      width: 36px; /* 아이콘 크기도 키움 */
+      height: 36px;
+      margin-right: 15px;
     }
 
     /* SECTION 4: Works section */
@@ -416,7 +296,6 @@
       color: var(--black);
     }
 
-
     /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
     @media screen and (min-resolution: 2dppx) {
       .hero-title, .hero-subtitle {
@@ -424,31 +303,29 @@
       }
     }
 
-
-        /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
     @media screen and (max-width: 768px) {
       .works-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .main-text {
-        font-size: calc(var(--font-size-xxxxxl) * 0.7); /* Smaller text on mobile */
+      
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: calc(var(--font-size-xxxl) * 1.2); /* 작은 화면에서는 폰트 크기 조절 */
       }
     }
-    }
-
-    
 
     @media screen and (max-width: 480px) {
       .works-grid {
         grid-template-columns: 1fr;
       }
-    }
-
-    @media only screen and (min-width: 2000px) {
-      .section-features {
-        --padding-x: 1vw;
-        --padding-y: 1vw;
-        font-size: .8vw;
+      
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: var(--font-size-xxxl); /* 매우 작은 화면에서는 원래 크기로 */
+      }
+      
+      .icon {
+        width: 24px;
+        height: 24px;
       }
     }
   </style>
@@ -473,60 +350,25 @@
       </div>
     </section>
     
-    <!-- SECTION 3: Feature boxes and main text -->
+    <!-- SECTION 3: 제거된 복잡한 효과와 라운드 박스 -->
     <section class="section-features">
-      <div class="features-container">
-        <!-- Feature boxes -->
-        <div class="feature-box feature-service">
-          <span>Service Purpose</span>
-        </div>
-        <div class="feature-box feature-usefulness">
-          <span>Sense of Usefulness</span>
-        </div>
-        <div class="feature-box feature-empathy">
-          <span>Empathy</span>
-        </div>
-        
-        <!-- Additional feature box -->
-        <div class="feature-readability">
-          <span>Readability</span>
-        </div>
-        
-        <!-- Clarity box -->
-        <div class="clarity-box">
-          <span>Clarity</span>
-        </div>
-        
-        <!-- Main text -->
-        <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-      </div>
+      <!-- 이전 컨텐츠 제거됨 -->
     </section>
     
     <!-- SECTION 3-2: UX Sections (Consulting, Planning, GUI) -->
     <section class="ux-sections">
       <div class="ux-consulting">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#65c479" stroke-width="2"/>
-          <path d="M8 12L11 15L16 9" stroke="#65c479" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="images/01.svg" alt="UX Consulting Icon" class="icon">
         UX Consulting
       </div>
       
       <div class="ux-planning">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 4H20V20H4V4Z" stroke="#517fff" stroke-width="2"/>
-          <path d="M4 8H20" stroke="#517fff" stroke-width="2"/>
-          <path d="M8 8V20" stroke="#517fff" stroke-width="2"/>
-        </svg>
+        <img src="images/02.svg" alt="Planning & Wireframe Icon" class="icon">
         Planning & Wireframe
       </div>
       
       <div class="ux-gui">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 7.8C3 6.2536 4.2536 5 5.8 5H18.2C19.7464 5 21 6.2536 21 7.8V16.2C21 17.7464 19.7464 19 18.2 19H5.8C4.2536 19 3 17.7464 3 16.2V7.8Z" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 10L17 10" stroke="#ff6250" stroke-width="2"/>
-          <path d="M7 14L14 14" stroke="#ff6250" stroke-width="2"/>
-        </svg>
+        <img src="images/03.svg" alt="GUI & Interaction Icon" class="icon">
         GUI & Interaction
       </div>
     </section>
@@ -677,165 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
     delay: 0.5, // Start after title animation has begun
     charDelay: 0.03
   });
-
-  // 섹션 3 스크롤 애니메이션을 위한 요소 선택
-  const featureBoxes = document.querySelectorAll('.feature-box');
-  const mainText = document.querySelector('.main-text');
-  const featureReadability = document.querySelector('.feature-readability');
-  const clarityBox = document.querySelector('.clarity-box');
-  const featuresContainer = document.querySelector('.features-container');
   
-// 메인 텍스트 초기 설정 부분 수정
-if (mainText) {
-  const originalFontSize = parseFloat(getComputedStyle(mainText).fontSize);
-  const viewportWidth = window.innerWidth;
-  
-  // 화면 너비에 따라 더 큰 초기 크기 설정 (화면 크기에 비례하도록)
-  const initialSize = Math.max(originalFontSize * 4, viewportWidth / 15); // 더 큰 값 사용
-  const finalSize = originalFontSize * 1.8; // 최종 크기는 유지
-  
-  mainText.dataset.originalFontSize = originalFontSize;
-  mainText.dataset.initialSize = initialSize;
-  mainText.dataset.finalSize = finalSize;
-  
-  // 초기 크기 설정
-  mainText.style.fontSize = `${initialSize}px`;
-  mainText.style.opacity = '0.7'; // 시작 시 약간 흐릿하게
-  
-  // 뷰포트 너비에 맞게 조정
-  mainText.style.width = '100%';
-  
-  // 텍스트가 2줄을 넘지 않도록 조정
-  mainText.style.display = '-webkit-box';
-  mainText.style.webkitLineClamp = '2';
-  mainText.style.webkitBoxOrient = 'vertical';
-}
-  
-  // 박스들 초기 위치와 크기 설정 - 밖으로 넓게 퍼져있는 상태로 시작
-  const allBoxes = [
-    ...Array.from(featureBoxes), 
-    featureReadability, 
-    clarityBox
-  ].filter(box => box); // null 제거
-  
-  allBoxes.forEach((box, index) => {
-    if (!box) return;
-    
-    // 원래 크기와 위치 저장
-    const originalWidth = 150;
-    const originalHeight = 150;
-    box.dataset.originalWidth = originalWidth;
-    box.dataset.originalHeight = originalHeight;
-    
-    // 크기를 150% 로 시작
-    const scaleFactor = 1.5;
-    const initialWidth = originalWidth * scaleFactor;
-    const initialHeight = originalHeight * scaleFactor;
-    
-    box.style.width = `${initialWidth}px`;
-    box.style.height = `${initialHeight}px`;
-    box.style.transition = 'all 0.3s ease-out';
-    
-    // 초기 위치 설정 - 각 박스마다 다른 위치로 밖으로 배치
-    // 원형으로 배치되는 효과를 주기 위한 각도 계산 (5개 아이템)
-    const totalBoxes = 5;
-    const angle = (2 * Math.PI / totalBoxes) * index;
-    const radius = 200; // 원의 반지름 (퍼짐 정도)
-    
-    // 중심점을 기준으로 한 위치 계산
-    const centerX = featuresContainer.offsetWidth / 2 - initialWidth / 2;
-    const centerY = featuresContainer.offsetHeight / 2 - initialHeight / 2;
-    
-    // 각도에 따른 xy 좌표 계산 (극좌표계 -> 직교좌표계)
-    const translateX = centerX + radius * Math.cos(angle);
-    const translateY = centerY + radius * Math.sin(angle);
-    
-    box.dataset.initialTranslateX = translateX;
-    box.dataset.initialTranslateY = translateY;
-    box.dataset.centerX = centerX;
-    box.dataset.centerY = centerY;
-    
-    box.style.left = `${translateX}px`;
-    box.style.top = `${translateY}px`;
-  });
-
-  // 스크롤 이벤트 리스너 추가
-  window.addEventListener('scroll', () => {
-    // 섹션의 위치와 높이 가져오기
-    const section = document.querySelector('.section-features');
-    if (!section) return;
-    
-    const sectionTop = section.getBoundingClientRect().top;
-    const sectionHeight = section.offsetHeight;
-    const windowHeight = window.innerHeight;
-    
-    
-    // 섹션이 뷰포트에 들어왔는지 확인
-    if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-      // 스크롤 진행률 계산 (0 ~ 1)
-      let scrollProgress = 1 - (sectionTop / windowHeight);
-      scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
-      
-      // 메인 텍스트 크기 조절 및 페이드아웃
-      if (mainText) {
-        const initialSize = parseFloat(mainText.dataset.initialSize);
-        const finalSize = parseFloat(mainText.dataset.finalSize);
-        const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
-        
-        mainText.style.fontSize = `${newSize}px`;
-
-        // 스크롤 진행에 따라 점점 투명해지도록 수정
-        // 60% 스크롤까지는 선명해지다가, 그 이후로는 점점 사라지게 함
-        const fadeThreshold = 0.6;
-        let opacity;
-        
-        if (scrollProgress < fadeThreshold) {
-          // 초반 60%: 0.7에서 1로 선명해짐
-          opacity = 0.7 + ((scrollProgress / fadeThreshold) * 0.3);
-        } else {
-          // 후반 40%: 1에서 0으로 페이드아웃
-          const fadeProgress = (scrollProgress - fadeThreshold) / (1 - fadeThreshold);
-          opacity = 1 - fadeProgress;
-        }
-
-                mainText.style.opacity = opacity;
-      }
-      
-        
-      // 각 박스들의 크기와 위치 조절
-      allBoxes.forEach(box => {
-        if (!box) return;
-        
-        // 원래 크기로 축소
-        const originalWidth = parseFloat(box.dataset.originalWidth || 150);
-        const originalHeight = parseFloat(box.dataset.originalHeight || 150);
-        const initialWidth = originalWidth * 1.5; // 150%
-        const initialHeight = originalHeight * 1.5;
-        
-        const newWidth = initialWidth - (scrollProgress * (initialWidth - originalWidth));
-        const newHeight = initialHeight - (scrollProgress * (initialHeight - originalHeight));
-        
-        box.style.width = `${newWidth}px`;
-        box.style.height = `${newHeight}px`;
-        
-        // 외곽에서 중앙으로 모이는 효과
-        const initialTranslateX = parseFloat(box.dataset.initialTranslateX || 0);
-        const initialTranslateY = parseFloat(box.dataset.initialTranslateY || 0);
-        const centerX = parseFloat(box.dataset.centerX || 0);
-        const centerY = parseFloat(box.dataset.centerY || 0);
-        
-        // 스크롤에 따라 중앙으로 이동
-        const currentTranslateX = initialTranslateX + (centerX - initialTranslateX) * scrollProgress;
-        const currentTranslateY = initialTranslateY + (centerY - initialTranslateY) * scrollProgress;
-        
-        box.style.left = `${currentTranslateX}px`;
-        box.style.top = `${currentTranslateY}px`;
-      });
-    }
-  });
-  
-  // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
-  window.dispatchEvent(new Event('scroll'));
+  // 섹션 3 스크롤 애니메이션 관련 코드는 모두 제거됨
 });
 
 // Apply animation on page transitions as well (for Barba.js)
