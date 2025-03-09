@@ -215,7 +215,7 @@
       position: relative;
       width: 100%;
       max-width: 1200px;
-      height: 600px; /* 충분한 높이 확보 */
+      height: 400px; /* 충분한 높이 확보 */
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -262,20 +262,6 @@
       background-color: var(--fern);
     }
 
-    .main-text-container {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      overflow: hidden;
-      /* 최대 높이 2줄로 제한 */
-      max-height: calc(var(--font-size-xxxxxl) * 1.4 * 2);
-      line-height: 1.4;
-    }
-
     .main-text {
       font-family: var(--font-family-pretendard-light);
       font-size: var(--font-size-xxxxxl);
@@ -288,8 +274,6 @@
       z-index: 1;
       will-change: font-size, opacity;
       transition: font-size 0.5s ease-out, opacity 0.5s ease-out;
-      /* 글자가 항상 2줄로만 보이도록 */
-      white-space: nowrap;
     }
 
     .feature-readability {
@@ -429,7 +413,7 @@
     }
 
 
-    /* 반응형: 작은 화면에서 작업 그리드 조정 */
+        /* 반응형: 작은 화면에서 작업 그리드 조정 */
     @media screen and (max-width: 768px) {
       .works-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -496,9 +480,7 @@
         </div>
         
         <!-- Main text -->
-        <div class="main-text-container">
-          <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
-        </div>
+        <h1 class="main-text">서비스와 사용자를 연구하여<br>UX를 디자인합니다.</h1>
       </div>
     </section>
     
@@ -707,12 +689,6 @@ document.addEventListener('DOMContentLoaded', () => {
     clarityBox
   ].filter(box => box); // null 제거
   
-  // 화면 중앙 계산
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-  const centerScreenX = viewportWidth / 2;
-  const centerScreenY = viewportHeight / 2;
-  
   allBoxes.forEach((box, index) => {
     if (!box) return;
     
@@ -722,45 +698,36 @@ document.addEventListener('DOMContentLoaded', () => {
     box.dataset.originalWidth = originalWidth;
     box.dataset.originalHeight = originalHeight;
     
-    // 크기를 200% 로 시작
-    const scaleFactor = 2;
+    // 크기를 150% 로 시작
+    const scaleFactor = 1.5;
     const initialWidth = originalWidth * scaleFactor;
     const initialHeight = originalHeight * scaleFactor;
     
     box.style.width = `${initialWidth}px`;
     box.style.height = `${initialHeight}px`;
-    box.style.transition = 'all 0.5s ease-out';
+    box.style.transition = 'all 0.3s ease-out';
     
     // 초기 위치 설정 - 각 박스마다 다른 위치로 밖으로 배치
     // 원형으로 배치되는 효과를 주기 위한 각도 계산 (5개 아이템)
     const totalBoxes = 5;
     const angle = (2 * Math.PI / totalBoxes) * index;
-    const radius = Math.min(viewportWidth, viewportHeight) * 0.4; // 원의 반지름 (퍼짐 정도) - 화면 크기에 비례
+    const radius = 200; // 원의 반지름 (퍼짐 정도)
     
-    // 화면 중앙을 기준으로 위치 계산
-    const containerRect = featuresContainer.getBoundingClientRect();
-    const containerCenterX = containerRect.left + containerRect.width / 2;
-    const containerCenterY = containerRect.top + containerRect.height / 2;
+    // 중심점을 기준으로 한 위치 계산
+    const centerX = featuresContainer.offsetWidth / 2 - initialWidth / 2;
+    const centerY = featuresContainer.offsetHeight / 2 - initialHeight / 2;
     
     // 각도에 따른 xy 좌표 계산 (극좌표계 -> 직교좌표계)
-    const translateX = radius * Math.cos(angle);
-    const translateY = radius * Math.sin(angle);
+    const translateX = centerX + radius * Math.cos(angle);
+    const translateY = centerY + radius * Math.sin(angle);
     
-    // 최종 위치 (화면 중앙을 기준으로 계산)
-    const finalCenterX = containerCenterX - originalWidth * 1.5 / 2; // 150% 크기일 때 중앙
-    const finalCenterY = containerCenterY - originalHeight * 1.5 / 2; // 150% 크기일 때 중앙
+    box.dataset.initialTranslateX = translateX;
+    box.dataset.initialTranslateY = translateY;
+    box.dataset.centerX = centerX;
+    box.dataset.centerY = centerY;
     
-    // 초기 위치 (화면 중앙에서 radius만큼 떨어진 위치)
-    const initialX = finalCenterX + translateX;
-    const initialY = finalCenterY + translateY;
-    
-    box.dataset.initialX = initialX;
-    box.dataset.initialY = initialY;
-    box.dataset.finalX = finalCenterX;
-    box.dataset.finalY = finalCenterY;
-    
-    box.style.left = `${initialX}px`;
-    box.style.top = `${initialY}px`;
+    box.style.left = `${translateX}px`;
+    box.style.top = `${translateY}px`;
   });
 
   // 스크롤 이벤트 리스너 추가
@@ -775,7 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 섹션이 뷰포트에 들어왔는지 확인
     if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
-  // 스크롤 진행률 계산 (0 ~ 1)
+      // 스크롤 진행률 계산 (0 ~ 1)
       let scrollProgress = 1 - (sectionTop / windowHeight);
       scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
       
@@ -786,96 +753,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const newSize = initialSize - (scrollProgress * (initialSize - finalSize));
         
         mainText.style.fontSize = `${newSize}px`;
-        
-        // 스크롤이 끝부분에 가까워지면 텍스트 사라지게 하기
-        if (scrollProgress > 0.7) {
-          // 0.7부터 1까지의 진행률을 0부터 1로 정규화
-          const fadeProgress = (scrollProgress - 0.7) / 0.3;
-          mainText.style.opacity = Math.max(0, 0.7 - fadeProgress);
-        } else {
-          mainText.style.opacity = 0.7 + (scrollProgress * 0.3); // 점점 더 선명해졌다가
-        }
+        mainText.style.opacity = 0.7 + (scrollProgress * 0.3); // 점점 더 선명해짐
       }
       
       // 각 박스들의 크기와 위치 조절
       allBoxes.forEach(box => {
         if (!box) return;
         
-        // 원래 크기의 200%에서 150%로 축소
+        // 원래 크기로 축소
         const originalWidth = parseFloat(box.dataset.originalWidth || 150);
         const originalHeight = parseFloat(box.dataset.originalHeight || 150);
-        const initialWidth = originalWidth * 2; // 200%
-        const initialHeight = originalHeight * 2; // 200%
-        const finalWidth = originalWidth * 1.5; // 150% 
-        const finalHeight = originalHeight * 1.5; // 150%
+        const initialWidth = originalWidth * 1.5; // 150%
+        const initialHeight = originalHeight * 1.5;
         
-        const newWidth = initialWidth - (scrollProgress * (initialWidth - finalWidth));
-        const newHeight = initialHeight - (scrollProgress * (initialHeight - finalHeight));
+        const newWidth = initialWidth - (scrollProgress * (initialWidth - originalWidth));
+        const newHeight = initialHeight - (scrollProgress * (initialHeight - originalHeight));
         
         box.style.width = `${newWidth}px`;
         box.style.height = `${newHeight}px`;
         
         // 외곽에서 중앙으로 모이는 효과
-        const initialX = parseFloat(box.dataset.initialX || 0);
-        const initialY = parseFloat(box.dataset.initialY || 0);
-        const finalX = parseFloat(box.dataset.finalX || 0);
-        const finalY = parseFloat(box.dataset.finalY || 0);
+        const initialTranslateX = parseFloat(box.dataset.initialTranslateX || 0);
+        const initialTranslateY = parseFloat(box.dataset.initialTranslateY || 0);
+        const centerX = parseFloat(box.dataset.centerX || 0);
+        const centerY = parseFloat(box.dataset.centerY || 0);
         
         // 스크롤에 따라 중앙으로 이동
-        const currentX = initialX + (finalX - initialX) * scrollProgress;
-        const currentY = initialY + (finalY - initialY) * scrollProgress;
+        const currentTranslateX = initialTranslateX + (centerX - initialTranslateX) * scrollProgress;
+        const currentTranslateY = initialTranslateY + (centerY - initialTranslateY) * scrollProgress;
         
-        box.style.left = `${currentX}px`;
-        box.style.top = `${currentY}px`;
+        box.style.left = `${currentTranslateX}px`;
+        box.style.top = `${currentTranslateY}px`;
       });
     }
   });
   
   // 페이지 로드 시 한 번 스크롤 이벤트 강제 호출
   window.dispatchEvent(new Event('scroll'));
-  
-  // 윈도우 리사이즈 이벤트 처리 - 반응형으로 중앙 위치 재계산
-  window.addEventListener('resize', () => {
-    // 화면 중앙 재계산
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    const containerRect = featuresContainer.getBoundingClientRect();
-    const containerCenterX = containerRect.left + containerRect.width / 2;
-    const containerCenterY = containerRect.top + containerRect.height / 2;
-    
-    allBoxes.forEach((box, index) => {
-      if (!box) return;
-      
-      const originalWidth = parseFloat(box.dataset.originalWidth || 150);
-      const originalHeight = parseFloat(box.dataset.originalHeight || 150);
-      
-      // 최종 위치 재계산 (항상 화면 중앙)
-      const finalCenterX = containerCenterX - originalWidth * 1.5 / 2;
-      const finalCenterY = containerCenterY - originalHeight * 1.5 / 2;
-      
-      // 각도 및 반지름 계산
-      const totalBoxes = 5;
-      const angle = (2 * Math.PI / totalBoxes) * index;
-      const radius = Math.min(viewportWidth, viewportHeight) * 0.4;
-      
-      // 초기 위치 재계산
-      const translateX = radius * Math.cos(angle);
-      const translateY = radius * Math.sin(angle);
-      
-      const initialX = finalCenterX + translateX;
-      const initialY = finalCenterY + translateY;
-      
-      // 데이터셋 업데이트
-      box.dataset.initialX = initialX;
-      box.dataset.initialY = initialY;
-      box.dataset.finalX = finalCenterX;
-      box.dataset.finalY = finalCenterY;
-      
-      // 스크롤 이벤트 강제 호출하여 현재 위치 업데이트
-      window.dispatchEvent(new Event('scroll'));
-    });
-  });
 });
 
 // Apply animation on page transitions as well (for Barba.js)
