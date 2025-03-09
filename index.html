@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 첫 번째 아이템은 더 빨리 나타나도록 threshold 조정
     // 나머지 아이템은 기존 속도 유지
-    if (relativeScroll > 0.1) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
+    if (relativeScroll > 0.05) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
       uxItems[0].classList.add('visible');
     } else {
       uxItems[0].classList.remove('visible');
