@@ -204,9 +204,10 @@
     /* SECTION 3: UX Sections (Consulting, Planning, GUI) */
     .ux-sections-container {
       position: relative;
-      height: 300vh; /* 섹션 3개 분량의 높이 */
+      height: 400vh; /* 섹션 4개 분량의 높이 (첫번째는 비움) */
       width: 100%;
       background-color: white;
+      margin-bottom: 100px; /* 섹션4와의 간격 */
     }
 
     .ux-sections {
@@ -223,7 +224,7 @@
 
     .ux-items-wrapper {
       position: relative;
-      height: 200px; /* 내용물 높이 */
+      height: 350px; /* 내용물 높이 증가 */
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -235,7 +236,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 30px; /* 기존의 50% 간격 */
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
@@ -258,14 +258,14 @@
       font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--blue-medium);
       text-align: center;
-      top: 70px;
+      top: 120px; /* 간격 증가 */
     }
 
     .ux-gui {
       font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
       color: var(--sunset-orange);
       text-align: center;
-      top: 140px;
+      top: 240px; /* 간격 증가 */
     }
 
     .icon {
@@ -340,6 +340,18 @@
         height: 48px;
         margin-right: 16px;
       }
+      
+      .ux-items-wrapper {
+        height: 280px; /* 작은 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 90px; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 180px; /* 간격 조정 */
+      }
     }
 
     @media screen and (max-width: 480px) {
@@ -356,6 +368,18 @@
         height: 36px;
         margin-right: 12px;
       }
+      
+      .ux-items-wrapper {
+        height: 240px; /* 더 작은 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 80px; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 160px; /* 간격 조정 */
+      }
     }
 
     @media only screen and (min-width: 2000px) {
@@ -367,6 +391,18 @@
         width: 3.6vw;
         height: 3.6vw;
         margin-right: 1.2vw;
+      }
+      
+      .ux-items-wrapper {
+        height: 17.5vw; /* 큰 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 6vw; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 12vw; /* 간격 조정 */
       }
     }
   </style>
@@ -575,7 +611,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 상대적 스크롤 위치에 따라 단계 결정 (0, 1, 2, 3)
     // 0: 컨테이너 진입 전, 1: 첫 번째 아이템, 2: 두 번째 아이템, 3: 세 번째 아이템
-    const step = Math.floor(relativeScroll * 3) + 1;
+    // 높이를 4등분하여 첫 1/4은 아무것도 표시하지 않음
+    const step = Math.floor(relativeScroll * 4);
     
     // 각 아이템의 표시 여부 결정
     uxItems.forEach((item, index) => {
