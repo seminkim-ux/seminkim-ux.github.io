@@ -712,35 +712,38 @@
     </div>
   </div>
   
-  <!-- PROJECT GOAL 배경 텍스트 이미지: 텍스트 아래 독립적으로 배치 -->
-  <div style="position: relative; margin-top: 80px; margin-bottom: 40px; text-align: center;">
-    <img src="images/04_b.png" style="width: 80%; max-width: 900px; height: auto;">
-  </div>
-  
-  <!-- 5개 이미지: 각각 개별적으로 배치되지만 section 안에 포함됨 -->
-  <!-- 기존 분산된 앱 통합 - 왼쪽 상단 -->
-  <div style="position: absolute; top: 55%; left: 10%;">
-    <img src="images/04_1.png" style="width: 277px; height: auto;">
-  </div>
-  
-  <!-- 태블릿 버전은 아이파크몰 콘텐츠 일부 제공 - 좌측 하단 -->
-  <div style="position: absolute; top: 75%; left: 15%;">
-    <img src="images/04_22.png" style="width: 449px; height: auto;">
-  </div>
-  
-  <!-- 사용자 관점의 IoT 서비스 - 중앙 상단 -->
-  <div style="position: absolute; top: 60%; left: 50%; transform: translateX(-50%);">
-    <img src="images/04_3.png" style="width: 314px; height: auto;">
-  </div>
-  
-  <!-- 삼성, LG 앱과 연동한 가전제어 - 오른쪽 상단 -->
-  <div style="position: absolute; top: 55%; right: 10%;">
-    <img src="images/04_4.png" style="width: 349px; height: auto;">
-  </div>
-  
-  <!-- 자동화, 실험실 등 고도화 기능 - 오른쪽 하단 -->
-  <div style="position: absolute; top: 75%; right: 15%;">
-    <img src="images/04_5.png" style="width: 336px; height: auto;">
+  <!-- 이미지 배치를 위한 컨테이너 -->
+  <div style="position: relative; margin-top: 80px; height: 700px; width: 100%;">
+    <!-- PROJECT GOAL 배경 텍스트 이미지: 왼쪽에 배치하고 z-index 낮게 설정 -->
+    <div style="position: absolute; top: 0; left: 0; z-index: 1;">
+      <img src="images/04_b.png" style="width: 100%; max-width: 1200px; height: auto;">
+    </div>
+    
+    <!-- 5개 이미지: 배경 이미지 위에 겹쳐서 배치 -->
+    <!-- 기존 분산된 앱 통합 - 왼쪽 상단 -->
+    <div style="position: absolute; top: 10%; left: 10%; z-index: 2;">
+      <img src="images/04_1.png" style="width: 277px; height: auto;">
+    </div>
+    
+    <!-- 태블릿 버전은 아이파크몰 콘텐츠 일부 제공 - 좌측 하단 -->
+    <div style="position: absolute; top: 65%; left: 15%; z-index: 2;">
+      <img src="images/04_22.png" style="width: 449px; height: auto;">
+    </div>
+    
+    <!-- 사용자 관점의 IoT 서비스 - 중앙 -->
+    <div style="position: absolute; top: 35%; left: 40%; z-index: 2;">
+      <img src="images/04_3.png" style="width: 314px; height: auto;">
+    </div>
+    
+    <!-- 삼성, LG 앱과 연동한 가전제어 - 오른쪽 상단 -->
+    <div style="position: absolute; top: 10%; right: 10%; z-index: 2;">
+      <img src="images/04_4.png" style="width: 349px; height: auto;">
+    </div>
+    
+    <!-- 자동화, 실험실 등 고도화 기능 - 오른쪽 하단 -->
+    <div style="position: absolute; top: 65%; right: 15%; z-index: 2;">
+      <img src="images/04_5.png" style="width: 336px; height: auto;">
+    </div>
   </div>
 </section>
 </html>
