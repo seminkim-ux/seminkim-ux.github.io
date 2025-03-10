@@ -260,20 +260,24 @@
     }
 
     .overview-image {
-    position:absoulute;  
-    width: 50%;
+      position: absolute;  
+      width: 65%; /* 이미지 크기 1.3배 증가 (50% * 1.3 = 65%) */
       aspect-ratio: 1 / 1;
       background-color: transparent;
       border-radius: 0px;
-      order:10;
+      order: 10;
+      right: 0;
     }
 
-
+    .overview-image img {
+      width: 100%;
+      height: auto;
+    }
 
     .overview-text {
-    display:absoulute;
+      display: absolute;
       width: 100%;
-      order:1;
+      order: 1;
     }
 
     .overview-heading {
@@ -321,55 +325,68 @@
       text-align:left;
     }
 
+    /* 타임라인 수정 */
     .timeline {
       position: relative;
-      margin-top: 64px;
-      padding-top: 40px;
+      margin-top: 100px;
       width: 100%;
-      margin-left:0;
+      margin-left: 0;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 0;
       right: 0;
-      height: 1px;
+      height: 3px; /* 라인 두께 증가 */
       background-color: #ddd;
+      border-radius: 1.5px; /* 라인 끝 라운드 처리 */
     }
 
     .timeline-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(2, auto);
-      gap: 24px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
     }
 
     .timeline-item {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 10%;
     }
 
-    .timeline-item::before {
-      content: '';
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #aaa;
+      border-radius: 50%;
       position: absolute;
-      top: -40px;
-      left: 0;
-      width: 1px;
-      height: 20px;
-      background-color: #ddd;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
     }
 
     .timeline-year {
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 60px;
       font-size: 15px;
+      position: absolute;
+      top: -40px;
+      text-align: center;
+      width: 100%;
     }
 
     .timeline-event {
       font-family: var(--font-family-pretendard);
       font-size: 14px;
       line-height: 1.4;
+      position: absolute;
+      top: 20px;
+      text-align: center;
+      width: 130%;
     }
 
     /* SECTION 3: CONCLUSION */
@@ -398,8 +415,13 @@
     /* RESPONSIVE */
     @media screen and (max-width: 1200px) {
       .timeline-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, auto);
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      
+      .timeline-item {
+        width: 20%;
+        margin-bottom: 60px;
       }
     }
 
@@ -414,6 +436,7 @@
       
       .overview-image, .overview-text {
         width: 100%;
+        position: relative;
       }
       
       .overview-heading {
@@ -423,14 +446,16 @@
       .conclusion-heading {
         font-size: var(--font-size-xl);
       }
+      
+      .timeline-item {
+        width: 30%;
+      }
     }
 
     @media screen and (max-width: 768px) {
       .header {
         padding: 0 20px;
       }
-      
-
       
       .project-header {
         padding: 0 20px;
@@ -452,17 +477,8 @@
         font-size: var(--font-size-xl);
       }
       
-      .timeline-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, auto);
-      }
-      
-      .timeline-year {
-        font-size: 14px;
-      }
-      
-      .timeline-event {
-        font-size: 13px;
+      .timeline-item {
+        width: 45%;
       }
     }
 
@@ -471,16 +487,8 @@
         flex-wrap: wrap;
       }
       
-      .timeline-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .timeline-year {
-        font-size: 13px;
-      }
-      
-      .timeline-event {
-        font-size: 12px;
+      .timeline-item {
+        width: 100%;
       }
     }
   </style>
@@ -533,13 +541,12 @@
           개별 앱으로 분산된 IoT 기능을 <span class="highlight-blue">통합</span>.<br>
           <span class="highlight-blue">IPARK</span>만의 특색을 살린 <span class="highlight-regular">UX</span> 제시.
         </h3>
-    <p class="overview-paragraph">개편 전 아이파크의 IoT 서비스는 제어, 주차, 출입 등의 기능을 개별앱으로 제공하고 있었습니다.<br>
-        이 기능을 하나의 앱으로 통합하며, 경쟁사인 푸르지오, 래미안과 차별점을 갖는 UX가 필요했습니다. <br>
-       마켓 리서치와 임직원 인터뷰, 유저 리서치를 통해 UX콘셉트 및 구체적인 실행 전략을 설정하였습니다.</p>
+        <p class="overview-paragraph">개편 전 아이파크의 IoT 서비스는 제어, 주차, 출입 등의 기능을 개별앱으로 제공하고 있었습니다.<br>
+          이 기능을 하나의 앱으로 통합하며, 경쟁사인 푸르지오, 래미안과 차별점을 갖는 UX가 필요했습니다. <br>
+          마켓 리서치와 임직원 인터뷰, 유저 리서치를 통해 UX콘셉트 및 구체적인 실행 전략을 설정하였습니다.</p>
       </div>
-         <div class="overview-image">
+      <div class="overview-image">
         <img src="images/02.png" alt="HDC IoT App 프로젝트 이미지">
-      </div>
       </div>
     </div>
   </section>
@@ -557,46 +564,55 @@
         <div class="timeline-container">
           <div class="timeline-item">
             <div class="timeline-year">1980-1990</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">1999</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">MIT의 Kevin Ashton이 처음<br>IoT (Internet of Things) 용어 사용</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2011</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">IT 기술을 분석하는 기업<br>Gartner에서 IoT를 신기술로 소개</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2014</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">CES에서 IoT가<br>핵심키워드로 등장</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2014</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">구글, 애플, 삼성 등이<br>IoT 기술을 발표</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2016</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">아마존의 API 발표 이후,<br>Alexa의 IoT 허브역할 가속화</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2017</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">삼성 SmartThings<br>앱 업그레이드 및 가전과 통합</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2018</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">네이버, 카카오의 스마트 스피커 출시<br>및 스마트 홈 기기 연결 추가</div>
           </div>
             
           <div class="timeline-item">
             <div class="timeline-year">2020</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-event">아이파크, 푸르지오 등<br>아파트 브랜드의 스마트홈 앱 출시</div>
           </div>
         </div>
