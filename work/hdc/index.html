@@ -404,7 +404,7 @@
       font-family: "pretendard-bold", san-serif;
       font-size: var(--font-size-xxl);
       margin-top: 100px;
-      margin-bottom: 80px; /* 중복된 margin-bottom 수정 (현재 코드에서 두 번 선언됨) */
+      margin-bottom: 180px; /* 중복된 margin-bottom 수정 (현재 코드에서 두 번 선언됨) */
       font-weight: 700;
       line-height: 1.3;
     }
@@ -479,7 +479,11 @@
       width: 100%; /* 너비 100%로 설정 */
 }
     }
-
+    .overview-text {
+      display: absolute;
+      width: 100%;
+      order: 1;
+    }
     .conclusion-highlight {
       color: var(--blue-light);
     }
@@ -710,13 +714,17 @@
   <!-- SECTION 3: CLIENT INTERVIEW -->
   <section class="section">
     <h2 class="section-title">Client Interview</h2>
-    <div class="cinterview-content">
+        <div class="cinterview-content">
+    <div class="cinterview-text">
       <h3 class="cinterview-heading">
-
         <span class="highlight-blue">사용성에 공감</span>할 수 있는 서비스를 만든 후,<br>
         더욱 <span class="highlight-blue">확장된 플랫폼</span>으로 발전해야 합니다. 
       </h3>
-    </div>
+        <p class="overview-paragraph">HDC와 HDC랩스 임직원을 대상으로 인터뷰를 진행하였습니다.<br>
+         기능만 제공했던 기존의 서비스에서, 사용자 관점의 UX를 제공하는 목표를 가지고 있었습니다.<br>
+        다양한 기능을 통합하여 잘 제공한 후, 추후에는 아이파크몰과 연계한 세일즈까지 염두에 두었습니다.</p>
+      </div>
+        </div>
   </section>
 </body>
 </html>
