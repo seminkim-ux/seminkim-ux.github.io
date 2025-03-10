@@ -165,7 +165,7 @@
       justify-content: space-between; /* 요소 사이 간격을 균등하게 */
       align-items: center;
       background-color: var(--nav-bg);
-            position: relative; 
+      position: relative; 
     }
     
     .project-header-content {
@@ -226,10 +226,10 @@
     z-index: 10;
     }
     .hero-image-p {
-    position:absolute; 
-    top: 20%;
-   left: 65%;
-    width: 45%;
+     position:absolute; 
+    top: 20vh;
+    left: 65vw;
+    width: 45vw;
     height: auto;
     overflow: hidden;
     z-index: 20;
@@ -264,6 +264,7 @@
     /* SECTION 1: OVERVIEW */
     .overview-content {
       display: flex;
+      position: relative; 
       gap: 80px;
       align-items: center;
       max-width: 100%;
@@ -273,14 +274,27 @@
     }
 
     .overview-image {
-      width: 50%;
+    position:absoulute;  
+    width: 50%;
       aspect-ratio: 1 / 1;
-      background-color: var(--light-bg);
-      border-radius: 16px;
+      background-color: transparent;
+      border-radius: 0px;
+      order:2;
+    }
+        .overview-image-s {
+     position:absoulute;  
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border-radius: 0px;
+    order:1;
     }
 
+
     .overview-text {
+    display:absoulute;
       width: 100%;
+      order:1;
     }
 
     .overview-heading {
@@ -554,8 +568,11 @@
         이 기능을 하나의 앱으로 통합하며, 경쟁사인 푸르지오, 래미안과 차별점을 갖는 UX가 필요했습니다. <br>
        마켓 리서치와 임직원 인터뷰, 유저 리서치를 통해 UX콘셉트 및 구체적인 실행 전략을 설정하였습니다.</p>
       </div>
-            <div class="overview-image">
-        <!-- Image will be here, currently using background color -->
+         <div class="overview-image">
+        <img src="images/02_f_786_173.png" alt="HDC IoT App 프로젝트 이미지">
+      </div>
+            <div class="overview-image-s">
+        <img src="images/02_s_786_529.png" alt="HDC IoT App 프로젝트 이미지">
       </div>
     </div>
   </section>
