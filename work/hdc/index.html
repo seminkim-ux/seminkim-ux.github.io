@@ -48,12 +48,13 @@
       font-style: normal;
     }
 
-      @font-face {
+    @font-face {
       font-family: "Pretendard-Black";
       src: url("../../woff/Pretendard-Black.woff") format("woff");
       font-weight: 900;
       font-style: normal;
     }
+    
     @font-face {
       font-family: "Epilogue";
       src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
@@ -98,7 +99,7 @@
       font-family: var(--font-family-jost);
       background-color: var(--white);
       color: var(--black);
-      overflow-x:hidden;
+      overflow-x: hidden;
     }
 
     .container {
@@ -149,24 +150,23 @@
       background-color: transparent; 
     }
 
-
     /* PROJECT HEADER SECTION */
     .project-header {
       padding: 0 60px;
       height: 90vh;
       display: flex;
-      flex-direction: row; /* column에서 row로 변경 */
-      justify-content: space-between; /* 요소 사이 간격을 균등하게 */
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
       background-color: var(--nav-bg);
       position: relative; 
     }
     
     .project-header-content {
-      flex: 1; /* 컨텐츠가 사용 가능한 공간을 차지하도록 */
-      max-width: 50%; /* 전체 너비의 50%만 차지 */
-    align-self: flex-start; /* 상단에 정렬 */
-      margin-top: 22vh; /* 상단에서 25vh 떨어진 위치에 배치 - 조정 가능 */
+      flex: 1;
+      max-width: 50%;
+      align-self: flex-start;
+      margin-top: 22vh;
     }
     
     .project-meta {
@@ -206,20 +206,21 @@
 
     .stat-value {
       font-size: 14px;
-      font-weight:700;
+      font-weight: 700;
       margin-right: 15px;
     }
 
-    /* HERO IMAGE - 이제 project-header 내부에 있음 */
+    /* HERO IMAGE */
     .hero-image {
-    position:absolute; 
-    bottom: -6px;
-    right: 0px;
-    width: 42%;
-    height: auto;
-    overflow: hidden;
-    z-index: 10;
+      position: absolute; 
+      bottom: -6px;
+      right: 0px;
+      width: 42%;
+      height: auto;
+      overflow: hidden;
+      z-index: 10;
     }
+    
     .hero-image img {
       width: 100%;
       height: auto;
@@ -230,7 +231,7 @@
     /* SECTION COMMON STYLES */
     .section {
       padding: 100px 60px;
-      height: 100vh;
+      min-height: 100vh; /* height 대신 min-height 사용 */
       display: flex;
       flex-direction: column;
       background-color: var(--white);
@@ -247,6 +248,15 @@
       margin-right: auto;
     }
 
+    /* 하이라이트 스타일 */
+    .highlight-blue {
+      color: var(--blue-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+
     /* SECTION 1: OVERVIEW */
     .overview-content {
       display: flex;
@@ -261,7 +271,7 @@
 
     .overview-image {
       position: absolute;  
-      width: 25%; /* 이미지 크기 1.3배 증가 (50% * 1.3 = 65%) */
+      width: 25%;
       margin-top: 15vh; 
       right: 100px;
       aspect-ratio: 1 / 1;
@@ -276,34 +286,26 @@
     }
 
     .overview-text {
-      display: absolute;
+      display: block; /* absolute 대신 block 사용 */
       width: 100%;
       order: 1;
     }
 
     .overview-heading {
-      font-family: "pretendard-bold", san-serif;
+      font-family: "pretendard-bold", sans-serif;
       font-size: var(--font-size-xxxl);
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 32px;
     }
 
-    .highlight-blue {
-      color: var(--blue-medium);
-    }
-
-    .highlight-regular {
-      color: var(--black);
-    }
-
     .overview-paragraph {
-      font-family: "pretendard-bold", san-serif;
+      font-family: "pretendard-bold", sans-serif;
       font-weight: 700; 
       font-size: var(--font-size-m);
       line-height: 1.8;
       margin-bottom: 16px;
-      color:#6e6e73;
+      color: #6e6e73;
     }
 
     /* SECTION 2: MARKET RESEARCH */
@@ -314,182 +316,140 @@
       max-width: 100%;
       margin: 0;
       flex: 1;
-      padding-bottom: 100px; 
     }
 
     .research-heading {
-      font-family: "pretendard-bold", san-serif;
+      font-family: "pretendard-bold", sans-serif;
       font-size: var(--font-size-xxxl);
       font-weight: 700;
       line-height: 1.4;
       margin-bottom: 40px;
       max-width: 1100px;
-      text-align:left;
+      text-align: left;
     }
-/* 타임라인 수정 */
-.timeline {
-  position: relative;
-  margin-top: 80px;
-  width: 100%;
-  margin-left: 0;
-  margin-bottom: 50px;
-}
+    
+    /* 타임라인 스타일 */
+    .timeline {
+      position: relative;
+      margin-top: 80px;
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 50px;
+    }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 15px; /* 라인 두께 */
-  background-color: #ddd;
-  border-radius: 5px; /* 라인 끝 라운드 처리 */
-}
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
 
-.timeline-container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 40px 0;
-}
+    .timeline-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 40px 0;
+    }
 
-.timeline-item {
-  position: relative;
-  width: 11%;
-}
+    .timeline-item {
+      position: relative;
+      width: 11%;
+    }
 
-.timeline-dot {
-  width: 15px;
-  height: 15px;
-  background-color: #aaa;
-  border-radius: 50%;
-  position: absolute;
-  top: calc(50% + 7px); /
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
+    .timeline-dot {
+      width: 15px;
+      height: 15px;
+      background-color: #aaa;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% + 7px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
 
-/* 타임라인 콘텐츠 그룹화 */
-.timeline-content {
-  position: absolute;
-  left: 0;
-  text-align: left;
-  width: 150%;
-}
+    .timeline-content {
+      position: absolute;
+      left: 0;
+      text-align: left;
+      width: 150%;
+    }
 
-/* 홀수 아이템 (라인 위에 배치) */
-.timeline-item:nth-child(odd) .timeline-content {
-  top: -90px; /* 라인 위로 배치 */
-}
+    .timeline-item:nth-child(odd) .timeline-content {
+      top: -90px;
+    }
 
-/* 짝수 아이템 (라인 아래에 배치) */
-.timeline-item:nth-child(even) .timeline-content {
-  bottom: -90px; /* 라인 아래로 배치 */
-}
+    .timeline-item:nth-child(even) .timeline-content {
+      bottom: -90px;
+    }
 
-/* 연도 스타일 */
-.timeline-year {
-  font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 4x; /* 연도와 설명 사이 간격 */
-}
+    .timeline-year {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px; /* 수정: 4x -> 10px */
+    }
 
-/* 설명 텍스트 스타일 */
-.timeline-event {
-  font-family: var(--font-family-pretendard);
-  font-size: 14px;
-  line-height: 1.4;
-}
- .conclusion-heading {
-      font-family: "pretendard-bold", san-serif;
-      font-size: var(--font-size-xxl);
+    .timeline-event {
+      font-family: var(--font-family-pretendard);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    /* 결론 영역 스타일 */
+    .conclusion-content {
       margin-top: 100px;
-      margin-bottom: 180px; /* 중복된 margin-bottom 수정 (현재 코드에서 두 번 선언됨) */
+      margin-bottom: 200px !important; /* !important로 우선순위 강제 */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+    }
+
+    .conclusion-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
       font-weight: 700;
       line-height: 1.3;
+      text-align: left;
+      width: 100%;
     }
-
-/* 반응형 설정 */
-@media screen and (max-width: 1200px) {
-  .timeline-container {
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .timeline-item {
-    width: 20%;
-    margin-bottom: 120px;
-  }
-  
-  .timeline::before {
-    top: 20px;
-    height: 8px;
-  }
-  
-  .timeline-dot {
-    top: 20px;
-    transform: translate(-50%, -50%);
-  }
-  
-  .timeline-item .timeline-content {
-    top: 40px;
-    bottom: auto;
-  }
-  
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content {
-    top: 40px;
-    bottom: auto;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .timeline-item {
-    width: 45%;
-    margin-bottom: 100px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .timeline-item {
-    width: 100%;
-    margin-bottom: 80px;
-  }
-}
 
     /* SECTION 3: CLIENT INTERVIEW */
-.cinterview-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* 왼쪽 정렬 강조 */
-  justify-content: flex-start;
-  text-align: left; /* 왼쪽 텍스트 정렬 */
-  max-width: 100%;
-  margin: 0; /* 자동 마진 제거 */
-  margin-right: auto; /* 오른쪽 자동 마진으로 왼쪽 정렬 강화 */
-  padding-top: 30px;
-}
+    .cinterview-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      max-width: 100%;
+      margin: 0;
+      margin-right: auto;
+      padding-top: 30px;
+    }
+
+    .cinterview-text {
+      display: block; /* absolute 대신 block 사용 */
+      margin-top: 50px;
+      width: 100%;
+    }
 
     .cinterview-heading {
-      font-family: "pretendard-bold", san-serif;
+      font-family: "pretendard-bold", sans-serif;
       font-size: var(--font-size-xxl);
       font-weight: 700;
       line-height: 1.3;
-       text-align: left; /* 직접적으로 텍스트 왼쪽 정렬 */
-      width: 100%; /* 너비 100%로 설정 */
-    }
-    .cinterview-text {
-      display: absolute;
-      margin-top:50px;
+      text-align: left;
       width: 100%;
-      order: 1;
-    }
-    .conclusion-highlight {
-      color: var(--blue-light);
+      margin-bottom: 40px; /* 헤딩과 텍스트 사이 간격 추가 */
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
       .timeline-container {
         flex-wrap: wrap;
@@ -498,7 +458,28 @@
       
       .timeline-item {
         width: 20%;
-        margin-bottom: 60px;
+        margin-bottom: 120px;
+      }
+      
+      .timeline::before {
+        top: 20px;
+        height: 8px;
+      }
+      
+      .timeline-dot {
+        top: 20px;
+        transform: translate(-50%, -50%);
+      }
+      
+      .timeline-item .timeline-content {
+        top: 40px;
+        bottom: auto;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        top: 40px;
+        bottom: auto;
       }
     }
 
@@ -583,7 +564,6 @@
       </nav>
     </header>
     
-    
     <!-- PROJECT HEADER SECTION -->
     <section class="project-header">
       <div class="project-header-content">
@@ -607,7 +587,7 @@
         <img src="images/01.jpg" alt="HDC IoT App 프로젝트 이미지">
       </div>
     </section>
-
+  </div>
     
   <!-- SECTION 1: OVERVIEW -->
   <section class="section">
@@ -637,95 +617,98 @@
         기술혁신의 대표로 여겨졌으나, 적용 속도는 더뎠습니다.
       </h3>
         
-<!-- 타임라인 수정 코드 -->
-<div class="timeline">
-  <div class="timeline-container">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">1980-1990</div>
-        <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
+      <!-- 타임라인 영역 -->
+      <div class="timeline">
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">1980-1990</div>
+              <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
+            </div>
+          </div>
+       
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2011</div>
+              <div class="timeline-event">IT 기술을 분석하는 기업<br>Gartner에서 IoT를 신기술로 소개</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-event">CES에서 IoT가<br>핵심키워드로 등장</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-event">구글, 애플, 삼성 등이<br>IoT 기술을 발표</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-event">아마존의 API 발표 이후,<br>Alexa의 IoT 허브역할 가속화</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2017</div>
+              <div class="timeline-event">삼성 SmartThings<br>앱 업그레이드 및 가전과 통합</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2018</div>
+              <div class="timeline-event">네이버, 카카오의 스마트 스피커 출시<br>및 스마트 홈 기기 연결 추가</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-event">아이파크, 푸르지오 등<br>아파트 브랜드의 스마트홈 앱 출시</div>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      <!-- 결론 영역 -->
+      <div class="conclusion-content">
+        <h3 class="conclusion-heading">
+          중간단계에 있는 현재는 <span class="highlight-blue">익숙한 사용과 필요성</span>을 어필하는 UX가 필요합니다.
+        </h3>
+      </div> 
     </div>
- 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2011</div>
-        <div class="timeline-event">IT 기술을 분석하는 기업<br>Gartner에서 IoT를 신기술로 소개</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2014</div>
-        <div class="timeline-event">CES에서 IoT가<br>핵심키워드로 등장</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2014</div>
-        <div class="timeline-event">구글, 애플, 삼성 등이<br>IoT 기술을 발표</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2016</div>
-        <div class="timeline-event">아마존의 API 발표 이후,<br>Alexa의 IoT 허브역할 가속화</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2017</div>
-        <div class="timeline-event">삼성 SmartThings<br>앱 업그레이드 및 가전과 통합</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2018</div>
-        <div class="timeline-event">네이버, 카카오의 스마트 스피커 출시<br>및 스마트 홈 기기 연결 추가</div>
-      </div>
-    </div>
-            
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2020</div>
-        <div class="timeline-event">아이파크, 푸르지오 등<br>아파트 브랜드의 스마트홈 앱 출시</div>
-      </div>
-    </div>
-  </div>
-</div>
-    <div class="conclusion-content">
-      <h3 class="conclusion-heading">
-        중간단계에 있는 현재는 <span class="highlight-blue">익숙한 사용과 필요성</span>을 어필하는 UX가 필요합니다.
-      </h3>
-    </div> 
   </section>
     
   <!-- SECTION 3: CLIENT INTERVIEW -->
   <section class="section">
     <h2 class="section-title">Client Interview</h2>
-        <div class="cinterview-content">
-    <div class="cinterview-text">
-      <h3 class="cinterview-heading">
-        <span class="highlight-blue">사용성에 공감</span>할 수 있는 서비스를 만든 후,<br>
-        더욱 <span class="highlight-blue">확장된 플랫폼</span>으로 발전해야 합니다. 
-      </h3>
+    <div class="cinterview-content">
+      <div class="cinterview-text">
+        <h3 class="cinterview-heading">
+          <span class="highlight-blue">사용성에 공감</span>할 수 있는 서비스를 만든 후,<br>
+          더욱 <span class="highlight-blue">확장된 플랫폼</span>으로 발전해야 합니다. 
+        </h3>
         <p class="overview-paragraph">HDC와 HDC랩스 임직원을 대상으로 인터뷰를 진행하였습니다.<br>
          기능만 제공했던 기존의 서비스에서, 사용자 관점의 UX를 제공하는 목표를 가지고 있었습니다.<br>
         다양한 기능을 통합하여 잘 제공한 후, 추후에는 아이파크몰과 연계한 세일즈까지 염두에 두었습니다.</p>
       </div>
-        </div>
+    </div>
   </section>
 </body>
 </html>
