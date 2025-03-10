@@ -263,7 +263,7 @@
       position: absolute;  
       width: 25%; /* 이미지 크기 1.3배 증가 (50% * 1.3 = 65%) */
       bottom: -6px;
-      right: 20px;
+      right: -30px;
       aspect-ratio: 1 / 1;
       background-color: transparent;
       border-radius: 0px;
@@ -326,13 +326,13 @@
       max-width: 1100px;
       text-align:left;
     }
-
-    /* 타임라인 수정 */
+/* 타임라인 수정 */
     .timeline {
       position: relative;
-      margin-top: 100px;
+      margin-top: 80px;
       width: 100%;
       margin-left: 0;
+      margin-bottom: 50px;
     }
 
     .timeline::before {
@@ -341,7 +341,7 @@
       top: 50%;
       left: 0;
       right: 0;
-      height: 3px; /* 라인 두께 증가 */
+      height: 7px; /* 라인 두께 증가 */
       background-color: #ddd;
       border-radius: 1.5px; /* 라인 끝 라운드 처리 */
     }
@@ -350,14 +350,12 @@
       display: flex;
       justify-content: space-between;
       position: relative;
+      padding: 40px 0;
     }
 
     .timeline-item {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 10%;
+      width: 11%;
     }
 
     .timeline-dot {
@@ -367,28 +365,38 @@
       border-radius: 50%;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 2;
     }
 
-    .timeline-year {
-      font-weight: 700;
-      margin-bottom: 60px;
-      font-size: 15px;
+    /* 타임라인 아이템 위치 조정 */
+    .timeline-item .timeline-year {
       position: absolute;
-      top: -40px;
-      text-align: center;
-      width: 100%;
+      top: -30px;
+      left: 0;
+      text-align: left;
+      font-weight: 700;
+      font-size: 15px;
     }
 
-    .timeline-event {
+    .timeline-item .timeline-event {
+      position: absolute;
+      left: 0;
+      text-align: left;
+      width: 150%;
       font-family: var(--font-family-pretendard);
       font-size: 14px;
       line-height: 1.4;
-      position: absolute;
+    }
+    
+    /* 짝수/홀수 아이템 이벤트 텍스트 위치 지그재그 설정 */
+    .timeline-item:nth-child(odd) .timeline-event {
       top: 20px;
-      text-align: center;
-      width: 130%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-event {
+      bottom: 20px;
     }
 
     /* SECTION 3: CONCLUSION */
@@ -570,6 +578,14 @@
             <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
           </div>
             
+      <div class="timeline">
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-year">1980-1990</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
+          </div>
+            
           <div class="timeline-item">
             <div class="timeline-year">1999</div>
             <div class="timeline-dot"></div>
@@ -618,6 +634,10 @@
             <div class="timeline-event">아이파크, 푸르지오 등<br>아파트 브랜드의 스마트홈 앱 출시</div>
           </div>
         </div>
+    </div>
+  </section>
+            
+
       </div>
     </div>
   </section>
