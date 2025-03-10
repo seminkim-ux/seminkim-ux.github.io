@@ -364,7 +364,7 @@
   background-color: #aaa;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 5px); /
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -380,12 +380,12 @@
 
 /* 홀수 아이템 (라인 위에 배치) */
 .timeline-item:nth-child(odd) .timeline-content {
-  top: -120px; /* 라인 위로 배치 */
+  top: -90px; /* 라인 위로 배치 */
 }
 
 /* 짝수 아이템 (라인 아래에 배치) */
 .timeline-item:nth-child(even) .timeline-content {
-  bottom: -120px; /* 라인 아래로 배치 */
+  bottom: -90px; /* 라인 아래로 배치 */
 }
 
 /* 연도 스타일 */
