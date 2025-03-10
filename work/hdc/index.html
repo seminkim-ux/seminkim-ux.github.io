@@ -369,34 +369,37 @@
       z-index: 2;
     }
 
-    /* 타임라인 아이템 위치 조정 */
-    .timeline-item .timeline-year {
-      position: absolute;
-      top: -30px;
-      left: 0;
-      text-align: left;
-      font-weight: 700;
-      font-size: 15px;
-    }
+/* 홀수 아이템 (라인 위에 배치) */
+.timeline-item:nth-child(odd) .timeline-year,
+.timeline-item:nth-child(odd) .timeline-event {
+  position: absolute;
+  top: -60px; /* 라인 위로 배치 */
+  left: 0;
+  text-align: left;
+}
 
-    .timeline-item .timeline-event {
-      position: absolute;
-      left: 0;
-      text-align: left;
-      width: 150%;
-      font-family: var(--font-family-pretendard);
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    
-    /* 짝수/홀수 아이템 이벤트 텍스트 위치 지그재그 설정 */
-    .timeline-item:nth-child(odd) .timeline-event {
-      top: 20px;
-    }
+/* 짝수 아이템 (라인 아래에 배치) */
+.timeline-item:nth-child(even) .timeline-year,
+.timeline-item:nth-child(even) .timeline-event {
+  position: absolute;
+  bottom: -60px; /* 라인 아래로 배치 */
+  left: 0;
+  text-align: left;
+}
 
-    .timeline-item:nth-child(even) .timeline-event {
-      bottom: 20px;
-    }
+/* 연도와 설명 텍스트 간격 조정 */
+.timeline-item .timeline-year {
+  margin-bottom: 5px; /* 연도와 설명 사이 간격 */
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.timeline-item .timeline-event {
+  margin-top: 25px; /* 연도 아래에 설명 배치 */
+  font-family: var(--font-family-pretendard);
+  font-size: 14px;
+  line-height: 1.4;
+}
 
     /* SECTION 3: CONCLUSION */
     .conclusion-content {
