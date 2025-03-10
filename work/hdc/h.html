@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDC IoT App - Semin Kim Portfolio</title>
+  <style>
+    /* 폰트 설정 - 상위 폴더의 woff 폴더 참조 */
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+      @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #f0f1f3;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x:hidden;
+    }
+
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+
+
+    /* PROJECT HEADER SECTION */
+    .project-header {
+      padding: 0 60px;
+      height: 90vh;
+      display: flex;
+      flex-direction: row; /* column에서 row로 변경 */
+      justify-content: space-between; /* 요소 사이 간격을 균등하게 */
+      align-items: center;
+      background-color: var(--nav-bg);
+      position: relative; 
+    }
+    
+    .project-header-content {
+      flex: 1; /* 컨텐츠가 사용 가능한 공간을 차지하도록 */
+      max-width: 50%; /* 전체 너비의 50%만 차지 */
+    align-self: flex-start; /* 상단에 정렬 */
+      margin-top: 22vh; /* 상단에서 25vh 떨어진 위치에 배치 - 조정 가능 */
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight:700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGE - 이제 project-header 내부에 있음 */
+    .hero-image {
+    position:absolute; 
+    bottom: -6px;
+    right: 0px;
+    width: 45%;
+    height: auto;
+    overflow: hidden;
+    z-index: 10;
+    }
+    .hero-image-p {
+     position:absolute; 
+    margin-top: 2vh; 
+    margin-left: 120vh; 
+    width: 25%;
+    max-width : 500px;
+    height: auto;
+    overflow: hidden;
+    z-index: 20;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 0; 
+    }
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* SECTION 1: OVERVIEW */
+    .overview-content {
+      display: flex;
+      position: relative; 
+      gap: 20px;
+      align-items: center;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+    position:absoulute;  
+    width: 50%;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order:10;
+    }
+
+
+
+    .overview-text {
+    display:absoulute;
+      width: 100%;
+      order:1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", san-serif;
+      font-size: var(--font-size-xxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .highlight-blue {
+      color: var(--blue-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", san-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color:#6e6e73;
+    }
+
+    /* SECTION 2: MARKET RESEARCH */
+    .research-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+    }
+
+    .research-heading {
+      font-family: "pretendard-bold", san-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 40px;
+      max-width: 900px;
+      text-align:left;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 64px;
+      padding-top: 40px;
+      width: 100%;
+      margin-left:0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: #ddd;
+    }
+
+    .timeline-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 24px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 0;
+      width: 1px;
+      height: 20px;
+      background-color: #ddd;
+    }
+
+    .timeline-year {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .timeline-event {
+      font-family: var(--font-family-pretendard);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* SECTION 3: CONCLUSION */
+    .conclusion-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .conclusion-heading {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .conclusion-highlight {
+      color: var(--blue-light);
+    }
+
+    /* RESPONSIVE */
+    @media screen and (max-width: 1200px) {
+      .timeline-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .conclusion-heading {
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+
+      
+      .project-header {
+        padding: 0 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .research-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+      }
+      
+      .timeline-year {
+        font-size: 14px;
+      }
+      
+      .timeline-event {
+        font-size: 13px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+      
+      .timeline-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline-year {
+        font-size: 13px;
+      }
+      
+      .timeline-event {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../index.html" class="logo">Semin Kim</a>
+      <nav class="menu">
+        <a href="../../about.html" class="menu-item">EN</a>
+        <a href="../../about.html" class="menu-item">ABOUT</a>
+        <a href="../../index.html#work" class="menu-item active">WORK</a>
+        <a href="../../contact.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    
+    <!-- PROJECT HEADER SECTION -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2022.01 - 2023.03</div>
+        <h1 class="project-title">HDC IoT App</h1>
+        <div class="project-description">
+          <p>현대산업개발 IoT 제어서비스 앱 IPark 스마트홈의 UX를 1, 2차에 걸쳐 기획하였습니다.</p>
+          <p>UX 컨설팅 및 출입, 제어, 모빌리티, 커뮤니티로 구성된 상세화면 전반을 설계하였습니다.</p>
+          <p>화면별 인터렉션과 부가 기능도 기획하였습니다.</p>
+        </div>
+          
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING / 90%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Increased 10% MAU</span>
+        </div>
+      </div>
+    
+      <div class="hero-image-p">
+        <img src="images/01_f_690_95.png" alt="HDC IoT App 프로젝트 이미지">
+      </div>
+      <div class="hero-image">
+        <img src="images/01_b22_625_650.jpg" alt="HDC IoT App 프로젝트 이미지">
+      </div>
+    </section>
+  </div>
+    
+  <!-- SECTION 1: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">
+          개별 앱으로 분산된 IoT 기능을 <span class="highlight-blue">통합</span>.<br>
+          <span class="highlight-blue">IPARK</span>만의 특색을 살린 <span class="highlight-regular">UX</span> 제시.
+        </h3>
+    <p class="overview-paragraph">개편 전 아이파크의 IoT 서비스는 제어, 주차, 출입 등의 기능을 개별앱으로 제공하고 있었습니다.<br>
+        이 기능을 하나의 앱으로 통합하며, 경쟁사인 푸르지오, 래미안과 차별점을 갖는 UX가 필요했습니다. <br>
+       마켓 리서치와 임직원 인터뷰, 유저 리서치를 통해 UX콘셉트 및 구체적인 실행 전략을 설정하였습니다.</p>
+      </div>
+         <div class="overview-image">
+        <img src="images/02.png" alt="HDC IoT App 프로젝트 이미지">
+      </div>
+      </div>
+    </div>
+  </section>
+    
+  <!-- SECTION 2: MARKET RESEARCH -->
+  <section class="section">
+    <h2 class="section-title">Market Research</h2>
+    <div class="research-content">
+      <h3 class="research-heading">
+        IoT서비스는 사물인터넷이라는 이름으로<br>
+        기술혁신의 대표로 여겨졌으나, 적용 속도는 더뎠습니다.
+      </h3>
+        
+      <div class="timeline">
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-year">1980-1990</div>
+            <div class="timeline-event">M2M(Machine to Machine)<br>통신 개념으로 연구 진행됨</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">1999</div>
+            <div class="timeline-event">MIT의 Kevin Ashton이 처음<br>IoT (Internet of Things) 용어 사용</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2011</div>
+            <div class="timeline-event">IT 기술을 분석하는 기업<br>Gartner에서 IoT를 신기술로 소개</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-event">CES에서 IoT가<br>핵심키워드로 등장</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-event">구글, 애플, 삼성 등이<br>IoT 기술을 발표</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-event">아마존의 API 발표 이후,<br>Alexa의 IoT 허브역할 가속화</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2017</div>
+            <div class="timeline-event">삼성 SmartThings<br>앱 업그레이드 및 가전과 통합</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-event">네이버, 카카오의 스마트 스피커 출시<br>및 스마트 홈 기기 연결 추가</div>
+          </div>
+            
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-event">아이파크, 푸르지오 등<br>아파트 브랜드의 스마트홈 앱 출시</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <!-- SECTION 3: CONCLUSION -->
+  <section class="section">
+    <h2 class="section-title" style="visibility: hidden;">Conclusion</h2>
+    <div class="conclusion-content">
+      <h3 class="conclusion-heading">
+        중간단계에 있는 현재는 <span class="conclusion-highlight">익숙한 사용과 필요성</span>을 어필하는 UX가 필요합니다.
+      </h3>
+    </div>
+  </section>
+</body>
+</html>
