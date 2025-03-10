@@ -96,6 +96,7 @@
 
     .container {
       width: 100%;
+  background-color: var(--nav-bg);
     }
 
     /* HEADER / NAVIGATION */
@@ -147,7 +148,7 @@
       justify-content: center;
       text-decoration: none;
       color: var(--black);
-   background-color: transparent; 
+      background-color: transparent;
     }
     
     .back-arrow svg {
@@ -168,6 +169,10 @@
 }
     .project-header, .section {
   padding: 100px 60px; /* 40px에서 60px로 변경 */
+}
+    /* 다음 코드 추가 */
+.project-header-content {
+  transform: translateY(calc(-5vh - 30px));
 }
     .project-meta {
       font-size: 14px;
@@ -190,23 +195,24 @@
       margin-bottom: 32px;
     }
 
-    .project-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 40px;
-    }
+  .project-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* 각 항목 사이 간격 */
+  margin-top: 40px;
+}
 
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #777;
+  margin-right: 4px; /* 레이블과 값 사이 간격 */
+}
 
-    .stat-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #777;
-    }
+.stat-value {
+  font-size: var(--font-size-m);
+  margin-right: 16px; /* 값과 다음 레이블 사이 간격 */
+}
 
     .stat-value {
       font-size: var(--font-size-m);
@@ -487,25 +493,21 @@
     </a>
     
     <!-- PROJECT HEADER SECTION -->
-    <section class="project-header">
-      <div class="project-meta">2022.01 - 2023.03</div>
-      <h1 class="project-title">HDC IoT App</h1>
-      <div class="project-description">
+  <div class="project-header-content">
+    <div class="project-meta">2022.01 - 2023.03</div>
+    <h1 class="project-title">HDC IoT App</h1>
+    <div class="project-description">
         <p>현대산업개발 IoT 제어서비스 앱 IPark 스마트홈의 UX를 1, 2차에 걸쳐 기획하였습니다.</p>
         <p>UX 컨설팅 및 출입, 제어, 모빌리티, 커뮤니티로 구성된 상세화면 전반을 설계하였습니다.</p>
         <p>화면별 인터렉션과 부가 기능도 기획하였습니다.</p>
       </div>
       
-      <div class="project-stats">
-        <div class="stat-item">
-          <div class="stat-label">ROLE</div>
-          <div class="stat-value">UX PLANNING / 90%</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">PROGRESS</div>
-          <div class="stat-value">Increased 10% MAU</div>
-        </div>
-      </div>
+ <div class="project-stats">
+  <span class="stat-label">ROLE</span>
+  <span class="stat-value">UX PLANNING / 90%</span>
+  <span class="stat-label">PROGRESS</span>
+  <span class="stat-value">Increased 10% MAU</span>
+</div>
     </section>
     
     <!-- HERO IMAGE -->
