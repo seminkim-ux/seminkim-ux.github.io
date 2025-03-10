@@ -135,10 +135,10 @@
 
     .back-link {
       position: absolute;
-      left: 40px;
+      left: 60px;
       top: 110px;
       z-index: 10;
-      background-color: var(--nav-bg);
+      background-color: transparent; 
     }
 
     .back-arrow {
@@ -147,7 +147,7 @@
       justify-content: center;
       text-decoration: none;
       color: var(--black);
-      background-color: transparent);
+   background-color: transparent; 
     }
     
     .back-arrow svg {
@@ -156,17 +156,19 @@
     }
 
     /* PROJECT HEADER SECTION */
-    .project-header {
-      padding: 0 40px;
-      margin-top: 60px;
-      margin-bottom: 60px;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      background-color: var(--nav-bg);
-    }
-
+.project-header {
+  padding: 0 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* flex-start에서 center로 변경 */
+  background-color: var(--nav-bg);
+}
+    .project-header, .section {
+  padding: 100px 60px; /* 40px에서 60px로 변경 */
+}
     .project-meta {
       font-size: 14px;
       margin-bottom: 8px;
