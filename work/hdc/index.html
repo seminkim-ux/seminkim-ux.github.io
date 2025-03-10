@@ -90,7 +90,7 @@
 
     body {
       font-family: var(--font-family-jost);
-      background-color: var(--light-bg);
+      background-color: var(--white);
       color: var(--black);
     }
 
@@ -141,16 +141,16 @@
     }
 
     .back-arrow {
-      width: 32px;
-      height: 32px;
-      border: 1px solid #ccc;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       color: var(--black);
-      background-color: white;
+    }
+    
+    .back-arrow svg {
+      width: 24px;
+      height: 24px;
     }
 
     /* PROJECT HEADER SECTION */
@@ -158,8 +158,7 @@
       padding: 0 40px;
       margin-top: 60px;
       margin-bottom: 60px;
-      height: 60vw; /* 768px at 1280px width */
-      max-height: 768px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -211,21 +210,16 @@
     /* HERO IMAGE */
     .hero-image {
       width: 100%;
-      height: calc(46.875vw); /* 600px at 1280px width */
-      max-height: 600px;
-      background-color: var(--bg-blue);
+      height: 60vh;
       position: relative;
       overflow: hidden;
-      margin-top: calc(-31.25vw); /* -400px at 1280px width */
-      min-margin-top: -400px;
+      margin-top: -10vh;
     }
 
-    /* SECTION 1: OVERVIEW */
+    /* SECTION COMMON STYLES */
     .section {
       padding: 100px 40px;
-      background-color: var(--white);
-      height: 60vw; /* 768px at 1280px width */
-      max-height: 768px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -239,6 +233,7 @@
       margin-right: auto;
     }
 
+    /* SECTION 1: OVERVIEW */
     .overview-content {
       display: flex;
       gap: 80px;
@@ -251,7 +246,7 @@
     .overview-image {
       width: 50%;
       aspect-ratio: 1 / 1;
-      background-color: var(--bg-blue);
+      background-color: var(--light-bg);
       border-radius: 16px;
     }
 
@@ -382,19 +377,6 @@
       }
     }
 
-    @media screen and (min-width: 1920px) {
-      .section, .project-header {
-        height: 1152px; /* 768px * 1.5 for larger screens */
-        max-height: 1152px;
-      }
-      
-      .hero-image {
-        height: 900px;
-        max-height: 900px;
-        margin-top: -600px;
-      }
-    }
-
     @media screen and (max-width: 1024px) {
       .project-title {
         font-size: var(--font-size-xxxl);
@@ -414,11 +396,6 @@
       
       .conclusion-heading {
         font-size: var(--font-size-xl);
-      }
-      
-      .section, .project-header {
-        height: auto;
-        min-height: 100vh;
       }
     }
 
@@ -498,7 +475,7 @@
     
     <a href="../../index.html#work" class="back-link">
       <div class="back-arrow">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
