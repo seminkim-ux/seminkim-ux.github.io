@@ -621,7 +621,196 @@
     top: 0;
     color: #4285F4;
   }
+  /* SECTION 6: SOLUTION STYLES */
+  .solution-section {
+    background-color: var(--white);
+    padding-bottom: 120px;
+    overflow: visible;
+  }
   
+  .solution-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0;
+    position: relative;
+    gap: 20px;
+  }
+  
+  /* 왼쪽 UX Writing 영역 스타일 */
+  .solution-left {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .solution-strategy-circle {
+    width: 150px;
+    height: 150px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .solution-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .solution-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* 가운데 휴대폰 이미지 영역 스타일 */
+  .solution-center {
+    width: 40%;
+    position: relative;
+  }
+  
+  .phone-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .phone-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .control-buttons-overlay {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    z-index: 2;
+  }
+  
+  .control-buttons-overlay h4 {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .control-buttons-overlay p {
+    font-family: var(--font-family-pretendard);
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 오른쪽 날씨 정보 영역 스타일 */
+  .solution-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+  
+  .weather-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .weather-bubble {
+    background-color: #ECECEC;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    max-width: 80%;
+  }
+  
+  .weather-bubble p {
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .weather-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* RESPONSIVE STYLES FOR SOLUTION SECTION */
+  @media screen and (max-width: 1200px) {
+    .solution-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .solution-left, .solution-center, .solution-right {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    
+    .solution-strategy-circle {
+      margin: 0 auto 30px;
+    }
+    
+    .solution-subheading {
+      text-align: center;
+    }
+    
+    .solution-description {
+      text-align: center;
+    }
+    
+    .phone-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .control-buttons-overlay {
+      position: relative;
+      bottom: 0;
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .weather-title {
+      text-align: center;
+      width: 100%;
+    }
+    
+    .weather-bubble {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .weather-description {
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .phone-container {
+      max-width: 100%;
+    }
+  }
   /* RESPONSIVE STYLES FOR INSIGHT SECTION */
   @media screen and (max-width: 1200px) {
     .strategy-circle {
@@ -1081,6 +1270,65 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+  <!-- SECTION 6: SOLUTION -->
+<section class="section solution-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution-content">
+    
+    <!-- 왼쪽 UX Writing 영역 -->
+    <div class="solution-left">
+      <div class="solution-strategy-circle">
+        <p>UX Writing</p>
+      </div>
+      
+      <h3 class="solution-subheading">
+        <span class="highlight-blue">친근한 UX Writing</span>으로<br>
+        사용자에게 다가갑니다.
+      </h3>
+      
+      <p class="solution-description">
+        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
+        실제로는 와이어프레임과 UX정책 작업을 하였습니다.
+      </p>
+    </div>
+    
+    <!-- 가운데 휴대폰 이미지 영역 -->
+    <div class="solution-center">
+      <div class="phone-container">
+        <img src="images/phone_screen.png" alt="아이파크 앱 화면" class="phone-image">
+        
+        <!-- 제어버튼 영역 (폰 이미지 아래에 겹쳐진 이미지) -->
+        <div class="control-buttons-overlay">
+          <h4>제어버튼</h4>
+          <p>현재 상태를 구어체의 문장으로 안내하여,<br>
+          어떤 기능을 선택했지 직관적으로 알 수 있습니다.<br>
+          구체적인 구역별 안내도 함께 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 오른쪽 날씨 정보 영역 -->
+    <div class="solution-right">
+      <h4 class="weather-title">날씨 정보</h4>
+      
+      <!-- 날씨 메시지 말풍선 -->
+      <div class="weather-bubble">
+        <p>어제보다 3도 낮아요. 🙂</p>
+      </div>
+      
+      <div class="weather-bubble">
+        <p>어제보다 5도 높아요. 😊</p>
+      </div>
+      
+      <p class="weather-description">
+        홈디/집디의 정보는 주관적이므로 홈화면 날씨정보는<br>
+        사용자가 경험한 어제의 정보와 비교하는 문구를 제공합니다.<br>
+        이제가 좋게느껴졌다면, 더 추워진 것을 예상할 수 있습니다.
+      </p>
+    </div>
+    
   </div>
 </section>
 </body>
