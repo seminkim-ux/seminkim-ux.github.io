@@ -165,6 +165,7 @@
       justify-content: space-between; /* 요소 사이 간격을 균등하게 */
       align-items: center;
       background-color: var(--nav-bg);
+            position: relative; 
     }
     
     .project-header-content {
@@ -216,17 +217,19 @@
 
     /* HERO IMAGE - 이제 project-header 내부에 있음 */
     .hero-image {
-      width: 45%;
-      height: auto;
-      position: relative;
-      overflow: hidden;
+    position:absolute; 
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: auto;
+    overflow: hidden;
     }
     
     .hero-image img {
       width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 0; 
     }
 
     /* SECTION COMMON STYLES */
