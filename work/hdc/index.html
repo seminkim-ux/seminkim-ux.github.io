@@ -1316,21 +1316,21 @@
 
 .uds-phone-image1 {
   width: 71%;
-  top: 10%;
+  top: 0%; /* 상단으로 살짝 올림 */
   height: auto;
   border-radius: 15px;
 }
 
 .uds-phone-image2 {
   width: 71%;
- top: 3%;
+  top: -5%; /* 섹션 내 제일 높은 위치로 */
   height: auto;
   border-radius: 15px;
 }
     
-  .uds-phone-image2 {
+.uds-phone-image3 {
   width: 71%;
-     top: 16%;
+  top: 10%; /* y값이 중간 정도로 */
   height: auto;
   border-radius: 15px;
 }
@@ -1360,49 +1360,42 @@
   line-height: 1.6;
   color: #555;
 }
-/* 누가언제 */
-  .whw-info {
-    position: absolute;
-    top: 20%;
-    right: 10.5%;
-    width: 30%;
-    text-align: left;
-    z-index: 3;
-  }
-  
-  .whw-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .whw-bubble {
-    background-color: #ECECEC;
-    border-radius: 18px;
-    padding: 12px 18px;
-    margin-bottom: 10px;
-    max-width: 65%;
-    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
-    display: block; 
-  }
-  
 
-  
-  .whw-bubble p, .whw-bubble2 p {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 20px;
-    line-height: 1.4;
-    margin: 0;
-  }
-  
-  .whw-description {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-top: 20px;
-  }
+/* 누가언제 */
+.whw-info {
+  position: absolute;
+  top: -10%; /* 위로 올림 */
+  right: 10.5%;
+  width: 30%;
+  text-align: left;
+  z-index: 3;
+}
+
+.whw-bubble {
+  background-color: #ECECEC;
+  border-radius: 18px;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  max-width: 65%;
+  width: fit-content;
+  display: block; 
+}
+
+.whw-bubble p {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.whw-description {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 20px;
+}
+
 /* RESPONSIVE STYLES FOR UNDERSTANDING SECTION */
 @media screen and (max-width: 1200px) {
   .understanding-content {
@@ -1458,6 +1451,8 @@
     font-size: 28px;
   }
 }
+
+
   
 
     /* RESPONSIVE STYLES */
