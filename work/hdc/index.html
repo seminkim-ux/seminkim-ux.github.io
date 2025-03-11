@@ -1045,58 +1045,59 @@
     margin-bottom: 20px;
   }
   
-  /* 왼쪽 하단 그레이 박스와 이미지 */
+  /* 왼쪽 하단 그레이 박스와 이미지 - 크기 증가 */
   .gray-box-container {
     position: relative;
     width: 100%;
     margin-bottom: 80px;
     display: flex;
-    flex-direction: row; /* column에서 row로 변경하여 가로 배치 */
+    flex-direction: row;
     align-items: flex-start;
-    gap: 20px; /* 요소 간 간격 */
+    gap: 30px; /* 간격 증가 */
   }
   
   .gray-box {
-    width: 30%; /* 너비 축소 */
-    max-width: 300px;
+    width: 40%; /* 너비 증가 */
+    max-width: 450px; /* 최대 너비 증가 */
     background-color: #F5F5F5;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    padding: 0; /* 패딩 제거 */
+    padding: 0;
   }
   
   .gray-box-image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 20px; /* 이미지에도 라운드 적용 */
+    border-radius: 20px;
   }
   
   /* 최근 사용 메뉴 텍스트와 아이콘 */
   .recent-menu-content {
-    position: relative; /* absolute에서 relative로 변경 */
-    margin-left: 20px; /* 왼쪽 여백 추가 */
-    flex: 1; /* 남은 공간을 차지하도록 설정 */
+    position: relative;
+    margin-left: 0; /* 여백 제거 */
+    flex: 1;
+    padding-top: 20px; /* 상단 패딩 추가 */
   }
   
   .recent-menu-title {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
+    font-size: 28px; /* 폰트 크기 증가 */
     font-weight: 700;
-    margin-bottom: 15px;
-    margin-top: 0; /* 상단 여백 제거 */
+    margin-bottom: 25px; /* 여백 증가 */
+    margin-top: 0;
   }
   
   .menu-icons-container {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 25px; /* 간격 증가 */
+    margin-bottom: 35px; /* 여백 증가 */
   }
   
   .menu-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* 크기 증가 */
+    height: 80px; /* 크기 증가 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1114,27 +1115,29 @@
     color: #555;
   }
   
-  /* 오른쪽 이미지와 설명 */
+  /* 오른쪽 이미지와 설명 - 수평 배치로 변경 */
   .right-feature-container {
     position: relative;
     width: 100%;
-    min-height: 500px;
+    min-height: 400px;
     display: flex;
+    flex-direction: row; /* 수평 배치로 변경 */
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* 요소 간 간격 */
   }
   
   .feature-description {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 60%;
-    z-index: 2;
+    position: relative; /* absolute에서 변경 */
+    width: 45%; /* 너비 조정 */
+    order: 1; /* 왼쪽에 배치 */
   }
   
   .feature-title {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
+    font-size: 28px; /* 폰트 크기 증가 */
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* 여백 증가 */
   }
   
   .feature-text {
@@ -1145,11 +1148,10 @@
   }
   
   .right-phone-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45%;
-    max-width: 400px;
+    position: relative; /* absolute에서 변경 */
+    width: 50%; /* 너비 증가 */
+    max-width: 500px; /* 최대 너비 증가 */
+    order: 2; /* 오른쪽에 배치 */
   }
   
   .right-phone-image {
@@ -1172,14 +1174,14 @@
     }
     
     .gray-box {
-      width: 60%;
-      max-width: 400px;
+      width: 70%; /* 너비 증가 */
+      max-width: 500px;
     }
     
     .recent-menu-content {
-      width: 80%;
-      max-width: 500px;
-      margin: 30px auto;
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto; /* 여백 증가 */
       text-align: center;
     }
     
@@ -1193,17 +1195,17 @@
     }
     
     .feature-description {
-      position: static;
-      width: 80%;
+      width: 90%;
       margin: 0 auto 50px;
       text-align: center;
+      order: 1; /* 모바일에서는 설명을 먼저 보여줌 */
     }
     
     .right-phone-container {
-      position: static;
-      width: 80%;
-      max-width: 400px;
+      width: 90%;
+      max-width: 500px;
       margin: 0 auto;
+      order: 2;
     }
   }
   
@@ -1217,11 +1219,15 @@
       font-size: 28px;
     }
     
-    .gray-box, .recent-menu-content, .feature-description, .right-phone-container {
-      width: 90%;
+    .menu-icon {
+      width: 70px;
+      height: 70px;
     }
-  }
-
+    
+    .recent-menu-title, .feature-title {
+      font-size: 24px;
+    }
+  }  
     
 
     /* RESPONSIVE STYLES */
@@ -1789,7 +1795,7 @@
       </div>
     </div>
     
-    <!-- 오른쪽 이미지와 설명 -->
+    <!-- 오른쪽 이미지와 설명 - 수평 배치로 변경 -->
     <div class="right-feature-container">
       <!-- 설명 텍스트 -->
       <div class="feature-description">
@@ -1808,6 +1814,7 @@
     </div>
   </div>
 </section>
+
 
 </body>
 </html>
