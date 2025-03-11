@@ -827,7 +827,52 @@
       margin-right: auto;
     }
   }
+/* 1200px에서 1440px 사이의 해상도를 위한 미디어 쿼리 */
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  /* SECTION 6: SOLUTION STYLES 수정 */
+  .solution-section {
+    min-height: auto;
+    height: auto;
+    padding-bottom: 120px;
+  }
   
+  .main-phone-container {
+    left: 35%;
+    width: 45%;
+    bottom: 0;
+  }
+  
+  .control-button-desc {
+    left: 8%;
+    width: 25%;
+    bottom: 15%;
+  }
+  
+  .weather-info {
+    right: 8%;
+    top: 25%;
+    width: 25%;
+  }
+  
+  .weather-bubble, 
+  .weather-bubble2 {
+    max-width: 80%;
+  }
+  
+  .solution-left {
+    width: 30%;
+  }
+  
+  .solution-strategy-circle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .solution-subheading {
+    font-size: 28px;
+  }
+}
+    
   @media screen and (max-width: 768px) {
     .main-phone-container {
       width: 90%;
