@@ -829,7 +829,160 @@
     }
   }
 
-
+ /* SECTION 7: UI 화면 구조 STYLES */
+  .ui-structure-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
+    overflow: visible;
+    position: relative;
+    min-height: 120vh;
+  }
+  
+  .ui-structure-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 왼쪽 규칙성 영역 스타일 */
+  .ui-structure-left {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    padding-right: 20px;
+  }
+  
+  .ui-structure-strategy-circle {
+    width: 180px;
+    height: 180px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .ui-structure-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .ui-structure-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* 모바일 UI 이미지 컨테이너 */
+  .ui-image-container {
+    display: flex;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    width: 60%;
+    height: 70%;
+    z-index: 2;
+    justify-content: space-between;
+  }
+  
+  .ui-phone-image {
+    width: 31%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* 일관성 설명 영역 */
+  .consistency-explanation {
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+    width: 60%;
+    text-align: left;
+    z-index: 3;
+  }
+  
+  .consistency-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .consistency-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* RESPONSIVE STYLES FOR UI STRUCTURE SECTION */
+  @media screen and (max-width: 1200px) {
+    .ui-structure-content {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .ui-structure-left {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 50px;
+      padding-right: 0;
+    }
+    
+    .ui-image-container {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 20px;
+    }
+    
+    .ui-phone-image {
+      width: 70%;
+      max-width: 300px;
+    }
+    
+    .consistency-explanation {
+      position: static;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ui-phone-image {
+      width: 90%;
+    }
+    
+    .ui-structure-strategy-circle {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .ui-structure-subheading {
+      font-size: 28px;
+    }
+  }
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -1299,6 +1452,52 @@
         춥다/덥다의 정보는 주관적이므로 홈화면 날씨정보는<br>
         사용자가 경험한 어제의 정보와 비교하는 문구를 제공합니다.<br>
         이제가 춥게 느껴졌다면, 더 추워질 것을 예상할 수 있습니다.
+      </p>
+    </div>
+  </div>
+</section>
+  <!-- SECTION 7: UI 화면 구조 -->
+<section class="section ui-structure-section">
+  <h2 class="section-title">UI 화면 구조</h2>
+  <div class="ui-structure-content">
+    
+    <!-- 왼쪽 규칙성 영역 -->
+    <div class="ui-structure-left">
+      <div class="ui-structure-strategy-circle">
+        <p>규칙성</p>
+      </div>
+      
+      <h3 class="ui-structure-subheading">
+        <span class="highlight-blue">규칙성</span>을 가진 구조로<br>
+               <span class="highlight-blue">사용을 쉽게</span><br>
+        예상할 수 있습니다.
+      </h3>
+      
+      <p class="ui-structure-description">
+        대메뉴 - 제어메뉴 - 현재상태 - 개별제어 구역 / 기기 -<br>
+              컨트롤 순으로,  <span class="highlight-d">메뉴가 달라도 컨트롤을 쉽게 예상할 수 있습니다. </span>
+      </p>
+    </div>
+    
+    <!-- 모바일 UI 이미지 컨테이너 -->
+    <div class="ui-image-container">
+      <!-- 첫 번째 휴대폰 이미지 -->
+      <img src="images/07_1.png" alt="아이파크 앱 UI 화면 1" class="ui-phone-image">
+      
+      <!-- 두 번째 휴대폰 이미지 -->
+      <img src="images/07_2.png" alt="아이파크 앱 UI 화면 2" class="ui-phone-image">
+      
+      <!-- 세 번째 휴대폰 이미지 -->
+      <img src="images/07_3.png" alt="아이파크 앱 UI 화면 3" class="ui-phone-image">
+    </div>
+    
+    <!-- 일관성 설명 -->
+    <div class="consistency-explanation">
+      <h4 class="consistency-title">UI 화면 구조</h4>
+      <p class="consistency-description">
+        대메뉴 - 제어메뉴 - 현재상태 - 개별제어 구역 / 기기 - 컨트롤을 순으로,<br>
+        메뉴가 달라도 컨트롤을 쉽게 예상할 수 있습니다.<br>
+        사용자가 다른 메뉴에서도 동일한 구조를 경험하면서 학습 곡선을 낮추고 사용성을 높일 수 있습니다.
       </p>
     </div>
   </div>
