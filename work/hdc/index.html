@@ -246,7 +246,7 @@
       margin-left: 0;
       text-align: left;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       margin-right: auto;
     }
 
@@ -791,7 +791,7 @@
   }
   
   /* RESPONSIVE STYLES FOR SOLUTION SECTION */
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1280px) {
     .solution-content {
       flex-direction: column;
       height: auto;
@@ -826,29 +826,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-  }
-/* 1200px에서 1440px 사이의 해상도를 위한 미디어 쿼리 */
-@media screen and (min-width: 1201px) and (max-width: 1440px) {
-  /* SECTION 6: SOLUTION STYLES 수정 */
-  .solution-section {
-    min-height: auto;
-    height: auto;
-    padding-bottom: 120px;
-  }
-  
-  .main-phone-container {
-    left: 35%;
-    width: 45%;
-    bottom: 0;
-  }
-  
-  .control-button-desc {
-display:none;
-/*
-  left: 8%;
-    width: 25%;
-    bottom: 15%;
-*/
   }
   
   .weather-info {
@@ -986,7 +963,7 @@ display:none;
   }
   
   /* RESPONSIVE STYLES FOR UI STRUCTURE SECTION */
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1280px) {
     .ui-structure-content {
       flex-direction: column;
       height: auto;
@@ -1040,6 +1017,28 @@ display:none;
       font-size: 28px;
     }
   }
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  /* 모바일 UI 이미지 컨테이너 */
+  .ui-image-container {
+  position: relative; /* absolute에서 relative로 변경 */
+  left: auto; /* 기존 left 속성 제거 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 100%; /* 너비 조정 */
+  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 90px; /* 상단 마진 추가 */
+  display: flex;
+ flex-direction: row; /* 가로 방향 배치 */
+  align-items: center; /* 가운데 정렬 */
+  gap: 30px; /* 이미지 사이 간격 */
+}
+  
+  .ui-phone-image {
+    width: 71%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
+    
 
 /* SECTION 8: USER CONTEXT STYLES */
   .user-context-section {
@@ -1220,7 +1219,7 @@ display:none;
   }
   
   /* 반응형 스타일 */
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1280px) {
     .inline-content-container {
       flex-direction: column;
     }
@@ -1411,7 +1410,7 @@ display:none;
 
 
 /* RESPONSIVE STYLES FOR UNDERSTANDING SECTION */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .understanding-content {
     flex-direction: column;
     height: auto;
@@ -1605,7 +1604,7 @@ display:none;
 }
 
 /* RESPONSIVE STYLES FOR fun SECTION */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .fun-content {
     flex-direction: column;
     height: auto;
@@ -1677,7 +1676,7 @@ display:none;
   }
 }
     /* RESPONSIVE STYLES */
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1280px) {
       .timeline-container {
         flex-wrap: wrap;
         justify-content: space-around;
@@ -1945,7 +1944,7 @@ display:none;
   <div style="position: relative; margin-top: 40px; height: 300px; width: 90%;">
     <!-- PROJECT GOAL 배경 텍스트 이미지: 왼쪽에 배치하고 z-index 낮게 설정 -->
     <div style="position: absolute; top: 0; left: 0; z-index: 1;">
-      <img src="images/04_b.png" style="width: 110%; max-width: 1200px; height: auto;">
+      <img src="images/04_b.png" style="width: 110%; max-width: 1280px; height: auto;">
     </div>
     
     <!-- 5개 이미지: 배경 이미지 위에 겹쳐서 배치 -->
