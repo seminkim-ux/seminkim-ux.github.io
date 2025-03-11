@@ -639,13 +639,14 @@
   }
 
   /* SECTION 6: SOLUTION STYLES */
-  .solution-section {
-    background-color: var(--white);
-    padding: 0 60px;
-    overflow: visible;
-    position: relative;
-   height: 90vh; /* 120vh에서 auto로 변경 */
-  }
+.solution-section {
+  background-color: var(--white);
+  padding: 100px 60px 0 60px; /* 상단 패딩 유지, 하단 패딩 제거 */
+  overflow: visible;
+  position: relative;
+  height: 90vh; /* 고정 높이 설정 */
+}
+
   
   .solution-content {
     display: flex;
@@ -694,13 +695,14 @@
   }
   
   /* 메인 폰 이미지 영역 - 왼쪽 30% 위치에 배치 */
-  .main-phone-container {
-    position: absolute;
-    left: 37%;
-   bottom:-10px;
-    width: 50%;
-    z-index: 2;
-  }
+.main-phone-container {
+  position: absolute;
+  right: 0;
+  bottom: -6px; /* project-header와 동일하게 조정 */
+  width: 50%; 
+  z-index: 2;
+}
+
   
   .main-phone-image {
     width: 100%;
