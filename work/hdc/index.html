@@ -1345,7 +1345,58 @@
   line-height: 1.6;
   color: #555;
 }
-
+/* 누가언제 */
+  .whw-info {
+    position: absolute;
+    top: 20%;
+    right: 10.5%;
+    width: 30%;
+    text-align: left;
+    z-index: 3;
+  }
+  
+  .whw-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .whw-bubble {
+    background-color: #ECECEC;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    max-width: 65%;
+    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
+    display: block; 
+  }
+  
+  .whw-bubble2 {
+    background-color: #ECECEC;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    max-width: 65%;
+    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
+    display: block; 
+  }
+  
+  .whw-bubble p, .whw-bubble2 p {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .whw-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 20px;
+  }
 /* RESPONSIVE STYLES FOR UNDERSTANDING SECTION */
 @media screen and (max-width: 1200px) {
   .understanding-content {
@@ -2001,10 +2052,6 @@
         <span class="highlight-blue">콘텐츠를 제공</span>합니다.
       </h3>
       
-      <p class="understanding-description">
-        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
-        실제로는 콘텐츠 기획 및 UX 정책 작업을 하였습니다.
-      </p>
     </div>
     
     <!-- 모바일 UI 이미지 컨테이너 -->
@@ -2027,6 +2074,23 @@
         자동화 기능은 다른 제어 기능보다 더 어렵습니다.<br>
         <span class="highlight-d">스토리 방식의 콘텐츠와 그대로 따라서 설정하는<br>
         템플릿 기능도 기획하였습니다.</span>
+      </p>
+    </div>
+ <!—누가언제 (이미지 오른쪽 상단에 배치) -->
+    <div class=“whw-info">
+      <h4 class="whw-title">날씨 정보</h4>
+      
+      <!-- 날씨 메시지 말풍선 -->
+      <div class="whw-bubble">
+        <p>누가+언제+무엇을</p>
+      </div>
+     
+      
+      <p class="whw-description">
+        후기나 블로그가 마케팅에 사용되는 이유는 다른 사람의<br>
+이야기에 나도 할 수 있겠다는 공감이 생기기 때문입니다. <br>
+자신과 대입할 수 있는 “누가+언제+무엇을”이 담겨있는<br>
+스토리로 <span class=“highlight-d”>왜 사용해야 하는지를 이해할 수 있습니다. </span>
       </p>
     </div>
   </div>
