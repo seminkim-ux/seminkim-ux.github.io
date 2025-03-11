@@ -63,19 +63,23 @@
     }
 
     :root { 
+      /* 색상 변수 */
       --black: #2d2d2d;
       --black-2: #000000;
       --fern: #65c479;
       --sunset-orange: #ff6250;
       --white: #ffffff;
       --blue-light: #41d9ff;
-      --blue-medium: #517fff;
+      --blue-medium: #4285F4;
       --yellow: #ffd453;
       --bg-blue: #87a0ae;
       --light-bg: #f5f7f9;
       --nav-bg: #f0f1f3;
       --nav-text: #879299;
+      --gray-text: #6e6e73;
+      --light-gray: #ECECEC;
      
+      /* 폰트 크기 변수 */
       --font-size-l: 20px;
       --font-size-m: 17px;
       --font-size-xl: 37px;
@@ -84,11 +88,13 @@
       --font-size-xxxxl: 82px;
       --font-size-xxxxxl: 54px;
      
+      /* 폰트 패밀리 변수 */
       --font-family-epilogue: "Epilogue", Helvetica;
       --font-family-jost: "Jost", Helvetica;
       --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
     }
 
+    /* 기본 스타일 */
     * {
       margin: 0;
       padding: 0;
@@ -104,6 +110,7 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
+    
     .container {
       width: 100%;
       background-color: var(--nav-bg);
@@ -233,7 +240,7 @@
     /* SECTION COMMON STYLES */
     .section {
       padding: 100px 60px;
-      min-height: 100vh; /* height 대신 min-height 사용 */
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       background-color: var(--white);
@@ -258,8 +265,9 @@
     .highlight-regular {
       color: var(--black);
     }
-      .highlight-d {
-      color : #000;
+    
+    .highlight-d {
+      color: #000;
     }
 
     /* SECTION 1: OVERVIEW */
@@ -291,7 +299,7 @@
     }
 
     .overview-text {
-      display: block; /* absolute 대신 block 사용 */
+      display: block;
       width: 100%;
       order: 1;
     }
@@ -310,7 +318,7 @@
       font-size: var(--font-size-m);
       line-height: 1.8;
       margin-bottom: 16px;
-      color: #6e6e73;
+      color: var(--gray-text);
     }
 
     /* SECTION 2: MARKET RESEARCH */
@@ -332,18 +340,20 @@
       max-width: 1100px;
       text-align: left;
     }
+    
     .research-text {
-      display: block; /* absolute 대신 block 사용 */
+      display: block;
       margin-top: 50px;
       width: 100%;
     }
-      .research-paragraph {
+    
+    .research-paragraph {
       font-family: "pretendard-bold", sans-serif;
       font-weight: 700; 
       font-size: var(--font-size-m);
       line-height: 1.8;
       margin-bottom: 16px;
-      color: #6e6e73;
+      color: var(--gray-text);
     }
     
     /* 타임라인 스타일 */
@@ -408,7 +418,7 @@
     .timeline-year {
       font-weight: 700;
       font-size: 15px;
-      margin-bottom: 4px; /* 수정: 4x -> 10px */
+      margin-bottom: 4px;
     }
 
     .timeline-event {
@@ -420,7 +430,7 @@
     /* 결론 영역 스타일 */
     .conclusion-content {
       margin-top: 40px;
-      margin-bottom: 50px !important; /* !important로 우선순위 강제 */
+      margin-bottom: 50px !important;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -452,7 +462,7 @@
     }
 
     .cinterview-text {
-      display: block; /* absolute 대신 block 사용 */
+      display: block;
       margin-top: 30px;
       width: 100%;
     }
@@ -464,793 +474,556 @@
       line-height: 1.3;
       text-align: left;
       width: 100%;
-      margin-bottom: 24px; /* 헤딩과 텍스트 사이 간격 추가 */
+      margin-bottom: 24px;
     }
 
     /* SECTION 4: USER RESEARCH STYLES */
-  .user-research-section {
-    background-color: var(--light-bg);
-    padding-bottom: 120px;
-  }
-  
-  .user-research-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    max-width: 100%;
-    margin: 0;
-  }
-  
-  .user-research-text {
-    display: block;
-    margin-top: 30px;
-    width: 100%;
-    margin-bottom: 60px;
-  }
-  
-  .user-research-heading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 24px;
-  }
-  
-  .user-feedback-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 16px;
-  }
-  
-  .user-feedback-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-  }
-  
-  .user-feedback-box {
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.01);
-    position: relative;
-    min-height:180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity:0.8;
-  }
-  
-  .user-feedback-text {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: var(--font-size-m);
-    line-height: 1.5;
-    text-align: left;
-    font-weight: 700;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-  }
-  
-  .user-label {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--blue-medium);
-  }
+    .user-research-section {
+      background-color: var(--light-bg);
+      padding-bottom: 120px;
+    }
+    
+    .user-research-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      max-width: 100%;
+      margin: 0;
+    }
+    
+    .user-research-text {
+      display: block;
+      margin-top: 30px;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+    
+    .user-research-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    
+    .user-feedback-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 16px;
+    }
+    
+    .user-feedback-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+    }
+    
+    .user-feedback-box {
+      background-color: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+      position: relative;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+    }
+    
+    .user-feedback-text {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-m);
+      line-height: 1.5;
+      text-align: left;
+      font-weight: 700;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+    
+    .user-label {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-medium);
+    }
+
     /* SECTION 5: INSIGHT STYLES */
-  .insight-section {
-    background-color: var(--white);
-    padding-bottom: 120px;
-  }
-  
-  .insight-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    max-width: 100%;
-    margin: 0;
-  }
-  
-  .insight-text {
-    display: block;
-    margin-top: 30px;
-    width: 100%;
-    margin-bottom: 80px;
-  }
-  
-  .insight-heading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 24px;
-  }
-  
-  .strategy-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 30px;
-  }
-  
-  .strategy-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-  }
-  
-  .strategy-circle {
-    width: 220px;
-    height: 220px;
-    background-color: #4285F4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-  
-  .strategy-title {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.3;
-  }
-  
-  .strategy-points {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-  }
-  
-  .strategy-points li {
-    position: relative;
-    padding-left: 18px;
-    margin-bottom: 20px;
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #6e6e73;
-  }
-  
-  .strategy-points li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #4285F4;
-  }
-
-  /* SECTION 6: SOLUTION STYLES */
-.solution-section {
-  background-color: var(--white);
-  padding: 100px 60px 0 60px; /* 상단 패딩 유지, 하단 패딩 제거 */
-  overflow: visible;
-  position: relative;
-  height: 90vh; /* 고정 높이 설정 */
-  display: flex;
-  flex-direction: column;
-}
-
-  
-  .solution-content {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* 왼쪽 UX Writing 영역 스타일 */
-  .solution-left {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .solution-strategy-circle {
-    width: 180px;
-    height: 180px;
-    background-color: #4285F4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 700;
-  }
-  
-  .solution-subheading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 20px;
-  }
-  
-  .solution-description {
-    font-family: var(--font-family-pretendard);
-    font-size: 13px;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  /* 메인 폰 이미지 영역 - 왼쪽 30% 위치에 배치 */
-.main-phone-container {
-  position: absolute;
-  left: 37%;
-  right: 0;
-  bottom: -1px; /* project-header와 동일하게 조정 */
-  width: 50%; 
-  z-index: 2;
-}
-
-  
-  .main-phone-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* 제어버튼 설명 영역 (이미지 왼쪽 하단에 배치) */
-  .control-button-desc {
-    position: absolute;
-    bottom: 30px;
-    left: 11%;
-    width: 24%;
-    text-align: right;
-    z-index: 3;
-  }
-  
-  .control-button-desc h4 {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  
-  .control-button-desc p {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  /* 날씨 정보 영역 (이미지 오른쪽 상단에 배치) */
-  .weather-info {
-    position: absolute;
-    top: 20%;
-    right: 10.5%;
-    width: 30%;
-    text-align: left;
-    z-index: 3;
-  }
-  
-  .weather-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .weather-bubble {
-    background-color: #ECECEC;
-    border-radius: 18px;
-    padding: 12px 18px;
-    margin-bottom: 10px;
-    max-width: 65%;
-    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
-    display: block; 
-  }
-  
-  .weather-bubble2 {
-    background-color: #ECECEC;
-    border-radius: 18px;
-    padding: 12px 18px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    max-width: 65%;
-    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
-    display: block; 
-  }
-  
-  .weather-bubble p, .weather-bubble2 p {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.4;
-    margin: 0;
-  }
-  
-  .weather-description {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  /* RESPONSIVE STYLES FOR SOLUTION SECTION */
-  @media screen and (max-width: 1200px) {
-    .solution-content {
+    .insight-section {
+      background-color: var(--white);
+      padding-bottom: 120px;
+    }
+    
+    .insight-content {
+      display: flex;
       flex-direction: column;
-      height: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      max-width: 100%;
+      margin: 0;
     }
     
-    .solution-left {
+    .insight-text {
+      display: block;
+      margin-top: 30px;
       width: 100%;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 80px;
     }
     
-    .main-phone-container {
-      position: relative;
-      left: 0;
-      top: 0;
-      transform: none;
-      width: 80%;
-      max-width: 500px;
-      margin: 0 auto 50px;
-    }
-    
-    .control-button-desc, .weather-info {
-      position: static;
+    .insight-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: left;
       width: 100%;
-      max-width: 500px;
-      margin: 30px auto;
-      text-align: center;
+      margin-bottom: 24px;
     }
     
-    .weather-bubble, .weather-bubble2 {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .main-phone-container {
-      width: 90%;
-    }
-  }
-
- /* SECTION 7: UI 화면 구조 STYLES */
-  .ui-structure-section {
-    background-color: var(--light-bg);
-    padding-bottom: 120px;
-    overflow: visible;
-    position: relative;
-    min-height: 120vh; /* 120vh에서 auto로 변경 */
-    padding-bottom: 80px; /
-  }
-  
-  .ui-structure-content {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* 왼쪽 규칙성 영역 스타일 */
-  .ui-structure-left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    z-index: 1;
-    padding-right: 20px;
-  }
-  
-  .ui-structure-strategy-circle {
-    width: 180px;
-    height: 180px;
-    background-color: #4285F4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 700;
-  }
-  
-  .ui-structure-subheading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 20px;
-  }
-  
-  .ui-structure-description {
-    font-family: var(--font-family-pretendard);
-    font-size: 13px;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  /* 모바일 UI 이미지 컨테이너 */
-  .ui-image-container {
-  position: relative; /* absolute에서 relative로 변경 */
-  left: auto; /* 기존 left 속성 제거 */
-  top: auto; /* 기존 top 속성 제거 */
-  width: 100%; /* 너비 조정 */
-  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
-  margin-top: 90px; /* 상단 마진 추가 */
-  display: flex;
- flex-direction: row; /* 가로 방향 배치 */
-  align-items: center; /* 가운데 정렬 */
-  gap: 30px; /* 이미지 사이 간격 */
-}
-  
-  .ui-phone-image {
-    width: 71%;
-    height: auto;
-    border-radius: 15px;
-  }
-  
-  /* 일관성 설명 영역 */
-  .consistency-explanation {
-    position: absolute;
-    bottom: 5%;
-    width: 100%;
-    text-align: left;
-    z-index: 3;
-    padding-left: 0px; /* 왼쪽 여백 60px 추가 */
-    margin-top: 750px; /* 위쪽 여백 추가 */
-    clear: both; /* float 요소 이후 클리어 */
-  }
-  
-  .consistency-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-  
-  .consistency-description {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  /* RESPONSIVE STYLES FOR UI STRUCTURE SECTION */
-  @media screen and (max-width: 1200px) {
-    .ui-structure-content {
-      flex-direction: column;
-      height: auto;
-    }
-    
-    .ui-structure-left {
+    .strategy-container {
+      display: flex;
       width: 100%;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 50px;
-      padding-right: 0;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 30px;
     }
     
-    .ui-image-container {
-      position: relative;
-      left: 0;
-      top: 0;
-      width: 100%;
+    .strategy-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 50px;
-      gap: 20px;
+      flex: 1;
     }
     
-    .ui-phone-image {
-      width: 70%;
-      max-width: 300px;
+    .strategy-circle {
+      width: 220px;
+      height: 220px;
+      background-color: var(--blue-medium);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
     }
     
-    .consistency-explanation {
-      position: static;
-      width: 100%;
-      max-width: 500px;
-      margin: 30px auto;
+    .strategy-title {
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 700;
       text-align: center;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .ui-phone-image {
-      width: 90%;
+      line-height: 1.3;
     }
     
-    .ui-structure-strategy-circle {
-      width: 150px;
-      height: 150px;
+    .strategy-points {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
     }
     
-    .ui-structure-subheading {
-      font-size: 28px;
+    .strategy-points li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 20px;
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      color: var(--gray-text);
     }
-  }
+    
+    .strategy-points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--blue-medium);
+    }
 
-/* SECTION 8: USER CONTEXT STYLES */
-  .user-context-section {
-    background-color: var(--white);
-    padding-bottom: 120px;
-    overflow: visible;
-    position: relative;
-    min-height: 100vh;
-  }
-  
-  .user-context-content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* 헤더 영역 스타일 */
-  .user-context-left {
-    width: 100%;
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    position: relative;
-    z-index: 1;
-    margin-bottom: 60px;
-    gap: 30px; 
-  }
-  
-  .user-context-strategy-circle {
-    width: 180px;
-    height: 180px;
-    background-color: #4285F4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.4;
-    flex-shrink: 0;
-  }
-  
-  .user-context-subheading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 0;
-  }
-  
-  /* 내용 컨테이너 - 왼쪽/오른쪽 이미지가 나란히 배치 */
-  .inline-content-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    gap: 20px;
-    margin-top: 60px;
-  }
-  
-  /* 왼쪽 컨텐츠 영역 */
-  .left-content {
-    display: flex;
-    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
-    position: relative;
-  }
-  
-  /* 오른쪽 컨텐츠 영역 */
-  .right-content {
-    display: flex;
-    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
-    position: relative;
-  }
-  
-  /* 좌측 이미지 컨테이너 */
-  .gray-box {
-    width: 30%;
-    min-width: 260px;
-    background-color: #F5F5F5;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  
-  .gray-box-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 20px;
-  }
-  
-  /* 우측 휴대폰 이미지 컨테이너 */
-  .right-phone-container {
-    position:absolute;
-    width: 22%;
-    top: 10%;
-    right: -5%;
-    overflow: hidden;
-    margin-left: 15px;
-    flex-shrink: 0;
-  }
-  
-  .right-phone-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* 최근 사용 메뉴 설명 (왼쪽 이미지 옆에 배치) */
-  .recent-menu-content {
-    flex: 1;
-    position:absolute;
-    left:32%;
-    top:67%
-  }
-  
-  .recent-menu-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    margin-top: 0;
-  }
-  
-  .menu-icons-container {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .menu-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .circle-icon {
-    width: 100%;
-    height: auto;
-  }
-  
-  .recent-menu-description {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  /* 버튼 편집 설명 (오른쪽 이미지 옆에 배치) */
-  .feature-description {
-    flex: 1;
-    position:absolute;
-    right : 19%;
-    top:15%;
-    text-align: right;
-  }
-  
-  .feature-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-  
-  .feature-text {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  /* 반응형 스타일 */
-  @media screen and (max-width: 1200px) {
-    .inline-content-container {
+    /* SECTION 6: SOLUTION STYLES */
+    .solution-section {
+      background-color: var(--white);
+      padding: 100px 60px 0 60px;
+      overflow: visible;
+      position: relative;
+      height: 90vh;
+      display: flex;
       flex-direction: column;
     }
     
-    .left-content, .right-content {
+    .solution-content {
+      display: flex;
+      position: relative;
       width: 100%;
-      margin-bottom: 50px;
+      height: 100%;
     }
     
-    .user-context-left {
+    /* 왼쪽 UX Writing 영역 스타일 */
+    .solution-left {
+      width: 25%;
+      display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
     }
     
+    /* 전략 원형 공통 스타일 */
+    .strategy-circle-common {
+      width: 180px;
+      height: 180px;
+      background-color: var(--blue-medium);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    
+    /* 서브헤딩 공통 스타일 */
+    .subheading-common {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    
+    /* 설명 텍스트 공통 스타일 */
+    .description-common {
+      font-family: var(--font-family-pretendard);
+      font-size: 13px;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    .solution-strategy-circle {
+      composes: strategy-circle-common;
+    }
+    
+    .solution-subheading {
+      composes: subheading-common;
+    }
+    
+    .solution-description {
+      composes: description-common;
+    }
+    
+    /* 메인 폰 이미지 영역 */
+    .main-phone-container {
+      position: absolute;
+      left: 37%;
+      right: 0;
+      bottom: -1px;
+      width: 50%;
+      z-index: 2;
+    }
+    
+    .main-phone-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* 제어버튼 설명 영역 (이미지 왼쪽 하단에 배치) */
+    .control-button-desc {
+      position: absolute;
+      bottom: 30px;
+      left: 11%;
+      width: 24%;
+      text-align: right;
+      z-index: 3;
+    }
+    
+    .control-button-desc h4,
+    .weather-title,
+    .consistency-title,
+    .contents-title,
+    .recent-menu-title,
+    .feature-title,
+    .fun-title {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .control-button-desc p,
+    .weather-description,
+    .consistency-description,
+    .contents-description,
+    .recent-menu-description,
+    .feature-text,
+    .fun-description {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #555;
+    }
+    
+    /* 날씨 정보 영역 (이미지 오른쪽 상단에 배치) */
+    .weather-info {
+      position: absolute;
+      top: 20%;
+      right: 10.5%;
+      width: 30%;
+      text-align: left;
+      z-index: 3;
+    }
+    
+    .weather-title {
+      margin-bottom: 20px;
+    }
+    
+    .weather-bubble,
+    .weather-bubble2 {
+      background-color: var(--light-gray);
+      border-radius: 18px;
+      padding: 12px 18px;
+      margin-bottom: 10px;
+      max-width: 65%;
+      width: fit-content;
+      display: block;
+    }
+    
+    .weather-bubble2 {
+      margin-left: 30px;
+    }
+    
+    .weather-bubble p,
+    .weather-bubble2 p {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 0;
+    }
+    
+    .weather-description {
+      margin-top: 20px;
+    }
+
+    /* SECTION 7: UI 화면 구조 STYLES */
+    .ui-structure-section {
+      background-color: var(--light-bg);
+      padding-bottom: 80px;
+      overflow: visible;
+      position: relative;
+      min-height: 120vh;
+    }
+    
+    .ui-structure-content {
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* 왼쪽 규칙성 영역 스타일 */
+    .ui-structure-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+      padding-right: 20px;
+    }
+    
+    .ui-structure-strategy-circle,
+    .understanding-strategy-circle,
+    .fun-strategy-circle,
+    .user-context-strategy-circle {
+      composes: strategy-circle-common;
+    }
+    
+    .ui-structure-subheading,
+    .understanding-subheading,
+    .fun-subheading,
     .user-context-subheading {
-      text-align: center;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .left-content, .right-content {
-      flex-direction: column;
-      align-items: center;
+      composes: subheading-common;
     }
     
-    .gray-box, .right-phone-container {
-      width: 80%;
-      max-width: 300px;
-      margin: 0 auto 30px;
+    .ui-structure-description,
+    .understanding-description,
+    .fun-description {
+      composes: description-common;
     }
     
-    .recent-menu-content, .feature-description {
+    /* 모바일 UI 이미지 컨테이너 */
+    .ui-image-container,
+    .uds-image-container,
+    .fun-image-container {
+      position: relative;
+      left: auto;
+      top: auto;
       width: 100%;
-      text-align: center;
+      margin-left: 0;
+      margin-top: 90px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
     }
     
-    .feature-description {
-      order: -1; /* 설명이 이미지 위에 오도록 순서 변경 */
+    .ui-phone-image {
+      width: 71%;
+      height: auto;
+      border-radius: 15px;
+    }
+    
+    /* 일관성 설명 영역 */
+    .consistency-explanation,
+    .contents-explanation,
+    .fun-explanation {
+      position: absolute;
+      bottom: 5%;
+      width: 100%;
+      text-align: left;
+      z-index: 3;
+      padding-left: 0px;
+      margin-top: 750px;
+      clear: both;
+    }
+
+    /* SECTION 8: USER CONTEXT STYLES */
+    .user-context-section {
+      background-color: var(--white);
+      padding-bottom: 120px;
+      overflow: visible;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    .user-context-content {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* 헤더 영역 스타일 */
+    .user-context-left {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 60px;
+      gap: 30px;
+    }
+    
+    /* 내용 컨테이너 - 왼쪽/오른쪽 이미지가 나란히 배치 */
+    .inline-content-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      gap: 20px;
+      margin-top: 60px;
+    }
+    
+    /* 왼쪽 컨텐츠 영역 */
+    .left-content,
+    .right-content {
+      display: flex;
+      width: 48%;
+      position: relative;
+    }
+    
+    /* 좌측 이미지 컨테이너 */
+    .gray-box {
+      width: 30%;
+      min-width: 260px;
+      background-color: #F5F5F5;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .gray-box-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+    
+    /* 우측 휴대폰 이미지 컨테이너 */
+    .right-phone-container {
+      position: absolute;
+      width: 22%;
+      top: 10%;
+      right: -5%;
+      overflow: hidden;
+      margin-left: 15px;
+      flex-shrink: 0;
+    }
+    
+    .right-phone-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* 최근 사용 메뉴 설명 (왼쪽 이미지 옆에 배치) */
+    .recent-menu-content {
+      flex: 1;
+      position: absolute;
+      left: 32%;
+      top: 67%;
     }
     
     .menu-icons-container {
-      justify-content: center;
-    }
-    
-    .user-context-strategy-circle {
-      width: 150px;
-      height: 150px;
-    }
-    
-    .user-context-subheading {
-      font-size: 24px;
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
     }
     
     .menu-icon {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     
-    .recent-menu-title, .feature-title {
-      font-size: 24px;
+    .circle-icon {
+      width: 100%;
+      height: auto;
     }
     
-    .recent-menu-description, .feature-text {
-      font-size: 14px;
-      line-height: 1.4;
+    /* 버튼 편집 설명 (오른쪽 이미지 옆에 배치) */
+    .feature-description {
+      flex: 1;
+      position: absolute;
+      right: 19%;
+      top: 15%;
+      text-align: right;
     }
-  }
 
 /* SECTION 9: Understanding STYLES */
 .understanding-section {
   background-color: var(--light-bg);
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   overflow: visible;
   position: relative;
   min-height: 120vh;
-  padding-bottom: 80px;
 }
 
 .understanding-content {
@@ -1271,162 +1044,33 @@
   padding-right: 20px;
 }
 
-.understanding-strategy-circle {
-  width: 180px;
-  height: 180px;
-  background-color: #4285F4;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  color: var(--white);
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.understanding-subheading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
-
-.understanding-description {
-  font-family: var(--font-family-pretendard);
-  font-size: 13px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* 모바일 UI 이미지 컨테이너 */
-.uds-image-container {
-  position: relative;
-  left: auto;
-  top: auto;
-  width: 100%;
-  margin-left: 0;
-  margin-top: 90px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
+.uds-phone-image1, 
+.uds-phone-image2, 
+.uds-phone-image3 {
+  width: 71%;
+  height: auto;
+  border-radius: 15px;
 }
 
 .uds-phone-image1 {
-  width: 71%;
-  top: 0%; /* 상단으로 살짝 올림 */
-  height: auto;
-  border-radius: 15px;
+  top: 0%;
 }
 
 .uds-phone-image2 {
-  width: 71%;
-  top: -5%; /* 섹션 내 제일 높은 위치로 */
-  height: auto;
-  border-radius: 15px;
+  top: -5%;
 }
-    
+
 .uds-phone-image3 {
-  width: 71%;
-  top: 10%; /* y값이 중간 정도로 */
-  height: auto;
-  border-radius: 15px;
+  top: 10%;
 }
 
-/* 콘텐츠 설명 영역 */
-.contents-explanation {
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
-  text-align: left;
-  z-index: 3;
-  padding-left: 0px;
-  margin-top: 750px;
-  clear: both;
-}
-
-.contents-title {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.contents-description {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
-
-
-/* RESPONSIVE STYLES FOR UNDERSTANDING SECTION */
-@media screen and (max-width: 1200px) {
-  .understanding-content {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .understanding-left {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 50px;
-    padding-right: 0;
-  }
-  
-  .uds-image-container {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-    gap: 20px;
-  }
-  
-  .uds-phone-image {
-    width: 70%;
-    max-width: 300px;
-  }
-  
-  .contents-explanation {
-    position: static;
-    width: 100%;
-    max-width: 500px;
-    margin: 30px auto;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .uds-phone-image {
-    width: 90%;
-  }
-  
-  .understanding-strategy-circle {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .understanding-subheading {
-    font-size: 28px;
-  }
-}
-
-
-/* SECTION 10: fun STYLES - 업데이트된 스타일 */
+/* SECTION 10: fun STYLES */
 .fun-section {
   background-color: var(--white);
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   overflow: visible;
   position: relative;
   min-height: 120vh;
-  padding-bottom: 80px;
 }
 
 .fun-content {
@@ -1447,61 +1091,19 @@
   padding-right: 20px;
 }
 
-.fun-strategy-circle {
-  width: 180px;
-  height: 180px;
-  background-color: #4285F4;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  color: var(--white);
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.fun-subheading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
-
-.fun-description {
-  font-family: var(--font-family-pretendard);
-  font-size: 13px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* 모바일 UI 이미지 컨테이너 */
-.fun-image-container {
-  position: relative;
-  left: auto;
-  top: auto;
-  width: 100%;
-  margin-left: 0;
-  margin-top: 90px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
+.fun-phone-image1,
+.fun-phone-image2 {
+  width: 40%;
+  height: auto;
+  border-radius: 15px;
 }
 
 .fun-phone-image1 {
-  width: 40%; /* 이미지 크기 줄임 (71%에서 60%로) */
   top: 0%;
-  height: auto;
-  border-radius: 15px;
 }
 
 .fun-phone-image2 {
-  width: 40%; /* 이미지 크기 줄임 (71%에서 60%로) */
   top: -5%;
-  height: auto;
-  border-radius: 15px;
 }
 
 /* 겹쳐진 메시지 박스 컨테이너 */
@@ -1517,7 +1119,7 @@
 
 /* 메시지 박스 스타일 */
 .fun-message-box {
-  background-color: #4285F4;
+  background-color: var(--blue-medium);
   color: white;
   border-radius: 25px;
   padding: 15px 20px;
@@ -1530,39 +1132,88 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 콘텐츠 설명 영역 */
-.fun-explanation {
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
-  text-align: left;
-  z-index: 3;
-  padding-left: 0px;
-  margin-top: 750px;
-  clear: both;
-}
-
-.fun-title {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.fun-description {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* RESPONSIVE STYLES FOR fun SECTION */
+/* 통합된 미디어 쿼리 */
 @media screen and (max-width: 1200px) {
+  /* 공통 미디어 쿼리 */
+  .timeline-container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .timeline-item {
+    width: 20%;
+    margin-bottom: 120px;
+  }
+  
+  .timeline::before {
+    top: 20px;
+    height: 8px;
+  }
+  
+  .timeline-dot {
+    top: 20px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .timeline-item .timeline-content {
+    top: 40px;
+    bottom: auto;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    top: 40px;
+    bottom: auto;
+  }
+  
+  /* 솔루션 섹션 미디어 쿼리 */
+  .solution-content {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .solution-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .main-phone-container {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto 50px;
+  }
+  
+  .control-button-desc, 
+  .weather-info {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  .weather-bubble, 
+  .weather-bubble2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* UI 구조 섹션 미디어 쿼리 */
+  .ui-structure-content,
+  .understanding-content,
   .fun-content {
     flex-direction: column;
     height: auto;
   }
   
+  .ui-structure-left,
+  .understanding-left,
   .fun-left {
     width: 100%;
     align-items: center;
@@ -1571,6 +1222,8 @@
     padding-right: 0;
   }
   
+  .ui-image-container,
+  .uds-image-container,
   .fun-image-container {
     position: relative;
     left: 0;
@@ -1583,11 +1236,53 @@
     gap: 20px;
   }
   
-  .fun-phone-image1, .fun-phone-image2 {
+  .ui-phone-image,
+  .uds-phone-image1, 
+  .uds-phone-image2, 
+  .uds-phone-image3 {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .fun-phone-image1, 
+  .fun-phone-image2 {
     width: 70%;
     max-width: 300px;
   }
   
+  .consistency-explanation,
+  .contents-explanation,
+  .fun-explanation {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  /* 사용자 컨텍스트 섹션 미디어 쿼리 */
+  .inline-content-container {
+    flex-direction: column;
+  }
+  
+  .left-content, 
+  .right-content {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .user-context-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .user-context-subheading {
+    text-align: center;
+  }
+
+  /* Fun 섹션 미디어 쿼리 */
   .fun-message-boxes {
     position: static;
     margin: 20px auto;
@@ -1599,133 +1294,178 @@
     width: 80%;
     max-width: 200px;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .project-title {
+    font-size: var(--font-size-xxxl);
+  }
   
-  .fun-explanation {
-    position: static;
+  .overview-content {
+    flex-direction: column;
+  }
+  
+  .overview-image, 
+  .overview-text {
     width: 100%;
-    max-width: 500px;
-    margin: 30px auto;
-    text-align: center;
+    position: relative;
+  }
+  
+  .overview-heading {
+    font-size: var(--font-size-xxl);
+  }
+  
+  .conclusion-heading {
+    font-size: var(--font-size-xl);
+  }
+  
+  .timeline-item {
+    width: 30%;
+  }
+  
+  .strategy-container {
+    flex-wrap: wrap;
+  }
+  
+  .strategy-item {
+    width: 45%;
+    margin-bottom: 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .fun-phone-image1, .fun-phone-image2 {
+  .header {
+    padding: 0 20px;
+  }
+  
+  .project-header {
+    padding: 0 20px;
+  }
+  
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .project-title {
+    font-size: var(--font-size-xxl);
+  }
+  
+  .overview-heading {
+    font-size: var(--font-size-xl);
+  }
+  
+  .research-heading {
+    font-size: var(--font-size-xl);
+  }
+  
+  .timeline-item {
+    width: 45%;
+  }
+  
+  .main-phone-container {
     width: 90%;
   }
   
-  .fun-strategy-circle {
+  .ui-phone-image,
+  .uds-phone-image1, 
+  .uds-phone-image2, 
+  .uds-phone-image3,
+  .fun-phone-image1, 
+  .fun-phone-image2 {
+    width: 90%;
+  }
+  
+  .left-content, 
+  .right-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gray-box, 
+  .right-phone-container {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  
+  .recent-menu-content, 
+  .feature-description {
+    width: 100%;
+    text-align: center;
+    position: static;
+  }
+  
+  .feature-description {
+    order: -1;
+  }
+  
+  .menu-icons-container {
+    justify-content: center;
+  }
+  
+  .ui-structure-strategy-circle,
+  .understanding-strategy-circle,
+  .fun-strategy-circle,
+  .user-context-strategy-circle {
     width: 150px;
     height: 150px;
   }
   
-  .fun-subheading {
+  .ui-structure-subheading,
+  .understanding-subheading,
+  .fun-subheading,
+  .user-context-subheading {
     font-size: 28px;
+  }
+  
+  .menu-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .recent-menu-title, 
+  .feature-title {
+    font-size: 24px;
+  }
+  
+  .recent-menu-description, 
+  .feature-text {
+    font-size: 14px;
+    line-height: 1.4;
   }
   
   .fun-message-box {
     font-size: 16px;
     padding: 12px 15px;
   }
+
+  .strategy-item {
+    width: 100%;
+  }
 }
-    /* RESPONSIVE STYLES */
-    @media screen and (max-width: 1200px) {
-      .timeline-container {
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
-      
-      .timeline-item {
-        width: 20%;
-        margin-bottom: 120px;
-      }
-      
-      .timeline::before {
-        top: 20px;
-        height: 8px;
-      }
-      
-      .timeline-dot {
-        top: 20px;
-        transform: translate(-50%, -50%);
-      }
-      
-      .timeline-item .timeline-content {
-        top: 40px;
-        bottom: auto;
-      }
-      
-      .timeline-item:nth-child(odd) .timeline-content,
-      .timeline-item:nth-child(even) .timeline-content {
-        top: 40px;
-        bottom: auto;
-      }
-    }
 
-    @media screen and (max-width: 1024px) {
-      .project-title {
-        font-size: var(--font-size-xxxl);
-      }
-      
-      .overview-content {
-        flex-direction: column;
-      }
-      
-      .overview-image, .overview-text {
-        width: 100%;
-        position: relative;
-      }
-      
-      .overview-heading {
-        font-size: var(--font-size-xxl);
-      }
-      
-      .conclusion-heading {
-        font-size: var(--font-size-xl);
-      }
-      
-      .timeline-item {
-        width: 30%;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .header {
-        padding: 0 20px;
-      }
-      
-      .project-header {
-        padding: 0 20px;
-      }
-      
-      .section {
-        padding: 80px 20px;
-      }
-      
-      .project-title {
-        font-size: var(--font-size-xxl);
-      }
-      
-      .overview-heading {
-        font-size: var(--font-size-xl);
-      }
-      
-      .research-heading {
-        font-size: var(--font-size-xl);
-      }
-      
-      .timeline-item {
-        width: 45%;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
       .project-stats {
         flex-wrap: wrap;
       }
       
       .timeline-item {
         width: 100%;
+      }
+      
+      .strategy-circle {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .project-header-content {
+        max-width: 100%;
+        margin-top: 10vh;
+      }
+      
+      .hero-image {
+        width: 80%;
+        right: -20%;
       }
     }
   </style>
@@ -1754,7 +1494,7 @@
           <p>화면별 인터랙션과 부가 기능도 기획하였습니다.</p>
         </div>
           
-        <div class="project-stats">
+<div class="project-stats">
           <span class="stat-label">ROLE</span>
           <span class="stat-value">UX PLANNING / 90%</span>
           <span class="stat-label">PROGRESS</span>
@@ -1762,7 +1502,7 @@
         </div>
       </div>
   
-     <div class="hero-image">
+      <div class="hero-image">
         <img src="images/01.jpg" alt="HDC IoT App 프로젝트 이미지">
       </div>
     </section>
@@ -1985,7 +1725,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 <!-- SECTION 5: INSIGHT -->
 <section class="section insight-section">
@@ -2250,7 +1989,6 @@
         템플릿 기능도 기획하였습니다.</span>
       </p>
     </div>
-
   </div>
 </section>
 <!-- SECTION 10: Fun -->
@@ -2287,7 +2025,7 @@
         <div class="fun-message-box">
           엄마<br>생일 축하해요!
         </div>
-        <div class="fun-message-box">
+    <div class="fun-message-box">
           배달 음식을<br>줄이자!
         </div>
       </div>
@@ -2309,3 +2047,6 @@
 </section>
 </body>
 </html>
+
+
+
