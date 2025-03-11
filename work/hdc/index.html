@@ -993,7 +993,7 @@
     }
   }
 
-  /* SECTION 8: USER CONTEXT STYLES */
+    /* SECTION 8: USER CONTEXT STYLES */
   .user-context-section {
     background-color: var(--white);
     padding-bottom: 120px;
@@ -1012,13 +1012,14 @@
   
   /* 왼쪽 영역 스타일 */
   .user-context-left {
-    width: 40%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* column에서 row로 변경 */
+    align-items: center; /* 중앙 정렬 */
     position: relative;
     z-index: 1;
     margin-bottom: 60px;
+    gap: 30px; /* 원과 텍스트 사이 간격 */
   }
   
   .user-context-strategy-circle {
@@ -1029,12 +1030,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
     color: var(--white);
     font-size: 20px;
     font-weight: 700;
     text-align: center;
     line-height: 1.4;
+    flex-shrink: 0; /* 크기 유지 */
   }
   
   .user-context-subheading {
@@ -1042,7 +1043,7 @@
     font-size: 32px;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-bottom: 0; /* 여백 제거 */
   }
   
   /* 한 줄 배치 컨테이너 */
@@ -1060,7 +1061,9 @@
   
   /* 회색 박스와 이미지 - 중앙에 배치 */
   .gray-box {
-    width: 30%;
+    width: 25%; /* 20%에서 25%로 증가 */
+    min-width: 220px; /* 180px에서 220px로 증가 */
+    max-width: 280px; /* 220px에서 280px로 증가 */
     background-color: #F5F5F5;
     border-radius: 20px;
     position: relative;
@@ -1142,7 +1145,9 @@
   
   /* 오른쪽 휴대폰 이미지 - 오른쪽 끝에 배치 */
   .right-phone-container {
-    width: 30%;
+    width: 25%; /* 20%에서 25%로 증가 */
+    min-width: 220px; /* 180px에서 220px로 증가 */
+    max-width: 280px; /* 220px에서 280px로 증가 */
     align-self: center; /* 중앙 배치 */
     margin-left: -10px; /* 왼쪽 설명과 더 가깝게 */
   }
@@ -1156,8 +1161,13 @@
   /* RESPONSIVE STYLES */
   @media screen and (max-width: 1200px) {
     .user-context-left {
-      width: 100%;
+      flex-direction: column; /* 작은 화면에서는 세로 배치 */
       align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    
+    .user-context-subheading {
       text-align: center;
     }
     
@@ -1207,6 +1217,8 @@
       line-height: 1.4;
     }
   }
+
+  
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -1790,8 +1802,5 @@
     </div>
   </div>
 </section>
-
-
-
 </body>
 </html>
