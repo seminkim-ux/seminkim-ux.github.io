@@ -993,7 +993,7 @@
     }
   }
 
- /* SECTION 8: USER CONTEXT STYLES */
+  /* SECTION 8: USER CONTEXT STYLES */
   .user-context-section {
     background-color: var(--white);
     padding-bottom: 120px;
@@ -1045,33 +1045,30 @@
     margin-bottom: 20px;
   }
   
-  /* 상단 이미지들 컨테이너 */
-  .top-images-container {
+  /* 한 줄 배치 컨테이너 */
+  .inline-content-container {
     position: relative;
     width: 100%;
     margin-bottom: 80px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch; /* stretch로 변경하여 다양한 높이 배치 가능 */
     justify-content: space-between;
-    gap: 40px; /* 좌우 영역 사이 간격 */
+    flex-wrap: nowrap;
+    gap: 20px;
   }
   
-  /* 왼쪽 이미지 영역 */
-  .left-image-area {
-    width: 45%; /* 왼쪽 영역 너비 */
-    display: flex;
-    flex-direction: column;
-  }
-  
+  /* 회색 박스와 이미지 - 중앙에 배치 */
   .gray-box {
-    width: 100%;
-    max-width: 350px; /* 최대 너비 축소 */
+    width: 20%;
+    min-width: 180px;
+    max-width: 220px;
     background-color: #F5F5F5;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
     padding: 0;
+    align-self: center; /* 중앙 배치 */
   }
   
   .gray-box-image {
@@ -1081,30 +1078,31 @@
     border-radius: 20px;
   }
   
-  /* 최근 사용 메뉴 텍스트와 아이콘 */
+  /* 최근 사용 메뉴 텍스트와 아이콘 - 하단에 배치 */
   .recent-menu-content {
-    position: relative;
-    margin-top: 25px; /* 상단 여백 */
-    width: 100%;
+    width: 25%;
+    min-width: 200px;
+    align-self: flex-end; /* 하단 배치 */
+    padding-bottom: 20px; /* 하단 여백 */
   }
   
   .recent-menu-title {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     margin-top: 0;
   }
   
   .menu-icons-container {
     display: flex;
-    gap: 20px;
-    margin-bottom: 25px;
+    gap: 15px;
+    margin-bottom: 20px;
   }
   
   .menu-icon {
-    width: 60px; /* 크기 축소 */
-    height: 60px; /* 크기 축소 */
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1117,39 +1115,40 @@
   
   .recent-menu-description {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: #555;
   }
   
-  /* 오른쪽 이미지 영역 */
-  .right-image-area {
-    width: 45%; /* 오른쪽 영역 너비 */
-    display: flex;
-    flex-direction: column;
-  }
-  
+  /* 버튼 편집 설명 - 오른쪽 이미지 왼쪽에 배치 */
   .feature-description {
-    margin-bottom: 25px;
+    width: 25%;
+    min-width: 200px;
+    align-self: center; /* 중앙 배치 */
+    margin-right: -10px; /* 오른쪽 이미지와 더 가깝게 */
   }
   
   .feature-title {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .feature-text {
     font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: #555;
   }
   
+  /* 오른쪽 휴대폰 이미지 - 오른쪽 끝에 배치 */
   .right-phone-container {
-    width: 100%;
-    max-width: 350px; /* 최대 너비 축소 */
+    width: 20%;
+    min-width: 180px;
+    max-width: 220px;
+    align-self: center; /* 중앙 배치 */
+    margin-left: -10px; /* 왼쪽 설명과 더 가깝게 */
   }
   
   .right-phone-image {
@@ -1166,43 +1165,21 @@
       text-align: center;
     }
     
-    .top-images-container {
+    .inline-content-container {
       flex-direction: column;
       align-items: center;
-      gap: 60px;
+      gap: 40px;
     }
     
-    .left-image-area, .right-image-area {
-      width: 90%;
-      align-items: center;
+    .gray-box, .recent-menu-content, .feature-description, .right-phone-container {
+      width: 80%;
+      max-width: 350px;
+      min-width: auto;
       text-align: center;
-    }
-    
-    .gray-box {
-      width: 70%;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    
-    .recent-menu-content {
-      width: 100%;
-      text-align: center;
-      margin-top: 30px;
     }
     
     .menu-icons-container {
       justify-content: center;
-    }
-    
-    .feature-description {
-      width: 100%;
-      text-align: center;
-    }
-    
-    .right-phone-container {
-      width: 70%;
-      max-width: 400px;
-      margin: 0 auto;
     }
   }
   
@@ -1216,20 +1193,24 @@
       font-size: 24px;
     }
     
-    .gray-box, .right-phone-container {
+    .gray-box, .recent-menu-content, .feature-description, .right-phone-container {
       width: 90%;
     }
     
     .menu-icon {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
     }
     
     .recent-menu-title, .feature-title {
-      font-size: 22px;
+      font-size: 20px;
+    }
+    
+    .recent-menu-description, .feature-text {
+      font-size: 14px;
+      line-height: 1.4;
     }
   }
-    
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -1761,63 +1742,59 @@
       </h3>
     </div>
     
-    <!-- 상단 이미지들 컨테이너 (08_1.png 왼쪽, 08_2.png 오른쪽) -->
-    <div class="top-images-container">
-      <!-- 왼쪽 그레이 박스와 이미지 -->
-      <div class="left-image-area">
-        <div class="gray-box">
-          <img src="images/08_1.png" alt="최근 사용 메뉴" class="gray-box-image">
-        </div>
-        
-        <!-- 최근 사용 메뉴 텍스트와 아이콘 -->
-        <div class="recent-menu-content">
-          <h4 class="recent-menu-title">최근 사용 메뉴</h4>
-          
-          <div class="menu-icons-container">
-            <!-- 첫 번째 아이콘 -->
-            <div class="menu-icon">
-              <img src="images/08_c_1.png" alt="메뉴 아이콘 1" class="circle-icon">
-            </div>
-            
-            <!-- 두 번째 아이콘 -->
-            <div class="menu-icon">
-              <img src="images/08_c_2.png" alt="메뉴 아이콘 2" class="circle-icon">
-            </div>
-            
-            <!-- 세 번째 아이콘 -->
-            <div class="menu-icon">
-              <img src="images/08_c_3.png" alt="메뉴 아이콘 3" class="circle-icon">
-            </div>
-          </div>
-          
-          <p class="recent-menu-description">
-            사용자는 맞춤 메뉴 중 잘 사용하는 2~3개 계속 사용할<br>
-            가능성이 높습니다. 사용한 기록이 없다면 표시하지 않지만,<br>
-            사용 내역이 있다면 홈화면 상단에 먼저 제공합니다.
-          </p>
-        </div>
+    <!-- 한 줄 이미지/텍스트 배치 컨테이너 -->
+    <div class="inline-content-container">
+      <!-- 1. 왼쪽 회색 박스와 이미지 (08_1.png) -->
+      <div class="gray-box">
+        <img src="images/08_1.png" alt="최근 사용 메뉴" class="gray-box-image">
       </div>
       
-      <!-- 오른쪽 이미지와 설명 -->
-      <div class="right-image-area">
-        <!-- 설명 텍스트 -->
-        <div class="feature-description">
-          <h4 class="feature-title">홈 화면에서 표시할 버튼을 선택할 수 있어요.</h4>
-          <p class="feature-text">
-            홈 화면에서 사용하지 않는 기능을 본인지 않도록<br>
-            숨기거나 순서를 변경할 수 있습니다. 많은 기능<br>
-            버튼을 편집하여 선택과 집중이 가능합니다.
-          </p>
+      <!-- 2. 최근 사용 메뉴 텍스트와 아이콘 -->
+      <div class="recent-menu-content">
+        <h4 class="recent-menu-title">최근 사용 메뉴</h4>
+        
+        <div class="menu-icons-container">
+          <!-- 첫 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_1.png" alt="메뉴 아이콘 1" class="circle-icon">
+          </div>
+          
+          <!-- 두 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_2.png" alt="메뉴 아이콘 2" class="circle-icon">
+          </div>
+          
+          <!-- 세 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_3.png" alt="메뉴 아이콘 3" class="circle-icon">
+          </div>
         </div>
         
-        <!-- 오른쪽 휴대폰 이미지 -->
-        <div class="right-phone-container">
-          <img src="images/08_2.png" alt="홈 화면 버튼 편집" class="right-phone-image">
-        </div>
+        <p class="recent-menu-description">
+          사용자는 맞춤 메뉴 중 잘 사용하는 2~3개 계속 사용할<br>
+          가능성이 높습니다. 사용한 기록이 없다면 표시하지 않지만,<br>
+          사용 내역이 있다면 홈화면 상단에 먼저 제공합니다.
+        </p>
+      </div>
+      
+      <!-- 3. 버튼 편집 설명 텍스트 -->
+      <div class="feature-description">
+        <h4 class="feature-title">홈 화면에서 표시할 버튼을 선택할 수 있어요.</h4>
+        <p class="feature-text">
+          홈 화면에서 사용하지 않는 기능을 본인지 않도록<br>
+          숨기거나 순서를 변경할 수 있습니다. 많은 기능<br>
+          버튼을 편집하여 선택과 집중이 가능합니다.
+        </p>
+      </div>
+      
+      <!-- 4. 오른쪽 휴대폰 이미지 (08_2.png) -->
+      <div class="right-phone-container">
+        <img src="images/08_2.png" alt="홈 화면 버튼 편집" class="right-phone-image">
       </div>
     </div>
   </div>
 </section>
+
 
 
 </body>
