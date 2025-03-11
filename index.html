@@ -5,27 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semin Kim - UX 디자이너 포트폴리오</title>
   <style>
-    /* 구글 웹폰트 대신 로컬 woff 파일 사용 */
-    @font-face {
-      font-family: "Jost";
-      src: url("woff/Jost-Regular.woff") format("woff");
-      font-weight: 400;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: "Jost";
-      src: url("woff/Jost-Bold.woff") format("woff");
-      font-weight: 700;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: "Jost";
-      src: url("woff/Jost-Light.woff") format("woff");
-      font-weight: 300;
-      font-style: normal;
-    }
+/* 폰트 설정 - Jost는 웹에서 가져오도록 변경 */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap');
+
     
     @font-face {
       font-family: "Epilogue";
@@ -33,7 +15,8 @@
       font-weight: 400;
       font-style: normal;
     }
-    
+    /* Pretendard 폰트는 기존 woff 참조 유지 */
+  
     @font-face {
       font-family: "Pretendard-Light";
       src: url("woff/Pretendard-Light.woff") format("woff");
@@ -89,9 +72,9 @@
       font-family: var(--font-family-jost);
       background-color: var(--white);
       color: var(--black);
-        -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
     }
 
     .subtitle {
