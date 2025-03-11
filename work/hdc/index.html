@@ -993,252 +993,251 @@
     }
   }
 
-
-    
- /* SECTION 8: USER CONTEXT STYLES */
-.user-context-section {
-  background-color: var(--white);
-  padding-bottom: 120px;
-  overflow: visible;
-  position: relative;
-  min-height: 100vh;
-}
-
-.user-context-content {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* 헤더 영역 스타일 */
-.user-context-left {
-  width: 100%;
-  display: flex;
-  flex-direction: row; 
-  align-items: center; 
-  position: relative;
-  z-index: 1;
-  margin-bottom: 60px;
-  gap: 30px; 
-}
-
-.user-context-strategy-circle {
-  width: 180px;
-  height: 180px;
-  background-color: #4285F4;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.4;
-  flex-shrink: 0;
-}
-
-.user-context-subheading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 0;
-}
-
-/* 내용 컨테이너 - 왼쪽/오른쪽 이미지가 나란히 배치 */
-.inline-content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  gap: 40px;
-  margin-top: 60px;
-}
-
-/* 왼쪽 컨텐츠 영역 */
-.left-content {
-  display: flex;
-  width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
-  flex-direction: column;
-  gap: 30px;
-  position: relative;
-}
-
-/* 오른쪽 컨텐츠 영역 */
-.right-content {
-  display: flex;
-  width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
-  flex-direction: column;
-  gap: 30px;
-  position: relative;
-}
-
-/* 좌측 이미지 컨테이너 */
-.gray-box {
-  width: 30%;
-  min-width: 260px;
-  background-color: #F5F5F5;
-  border-radius: 20px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.gray-box-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 20px;
-}
-
-/* 메뉴 아이콘 컨테이너 */
-.menu-icons-container {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.menu-icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.circle-icon {
-  width: 100%;
-  height: auto;
-}
-
-/* 최근 사용 메뉴 설명 */
-.recent-menu-content {
-  flex: 1;
-}
-
-.recent-menu-title {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  margin-top: 0;
-}
-
-.recent-menu-description {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555;
-}
-
-/* 오른쪽 버튼 편집 설명 */
-.feature-description {
-  flex: 1;
-  text-align: right;
-}
-
-.feature-title {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.feature-text {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555;
-}
-
-/* 오른쪽 휴대폰 이미지 컨테이너 */
-.right-phone-container {
-  width: 30%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.right-phone-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 반응형 스타일 */
-@media screen and (max-width: 1200px) {
-  .inline-content-container {
+/* SECTION 8: USER CONTEXT STYLES */
+  .user-context-section {
+    background-color: var(--white);
+    padding-bottom: 120px;
+    overflow: visible;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .user-context-content {
+    display: flex;
     flex-direction: column;
-  }
-  
-  .left-content, .right-content {
+    position: relative;
     width: 100%;
-    margin-bottom: 50px;
+    height: 100%;
   }
   
+  /* 헤더 영역 스타일 */
   .user-context-left {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-  }
-  
-  .user-context-subheading {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .left-content, .right-content {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .gray-box, .right-phone-container {
-    width: 80%;
-    max-width: 300px;
-    margin: 0 auto 30px;
-  }
-  
-  .recent-menu-content, .feature-description {
     width: 100%;
-    text-align: center;
-  }
-  
-  .feature-description {
-    order: -1; /* 설명이 이미지 위에 오도록 순서 변경 */
-  }
-  
-  .menu-icons-container {
-    justify-content: center;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    gap: 30px; 
   }
   
   .user-context-strategy-circle {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    flex-shrink: 0;
   }
   
   .user-context-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+  
+  /* 내용 컨테이너 - 왼쪽/오른쪽 이미지가 나란히 배치 */
+  .inline-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  
+  /* 왼쪽 컨텐츠 영역 */
+  .left-content {
+    display: flex;
+    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
+    position: relative;
+  }
+  
+  /* 오른쪽 컨텐츠 영역 */
+  .right-content {
+    display: flex;
+    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
+    position: relative;
+  }
+  
+  /* 좌측 이미지 컨테이너 */
+  .gray-box {
+    width: 30%;
+    min-width: 260px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .gray-box-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+  
+  /* 우측 휴대폰 이미지 컨테이너 */
+  .right-phone-container {
+    position:absolute;
+    width: 22%;
+    right: 2%;
+    overflow: hidden;
+    margin-left: 15px;
+    flex-shrink: 0;
+  }
+  
+  .right-phone-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* 최근 사용 메뉴 설명 (왼쪽 이미지 옆에 배치) */
+  .recent-menu-content {
+    flex: 1;
+  }
+  
+  .recent-menu-title {
+    font-family: "pretendard-bold", sans-serif;
     font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+  
+  .menu-icons-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
   }
   
   .menu-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .recent-menu-title, .feature-title {
+  .circle-icon {
+    width: 100%;
+    height: auto;
+  }
+  
+  .recent-menu-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 버튼 편집 설명 (오른쪽 이미지 옆에 배치) */
+  .feature-description {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .feature-title {
+    font-family: "pretendard-bold", sans-serif;
     font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
   }
   
-  .recent-menu-description, .feature-text {
-    font-size: 14px;
-    line-height: 1.4;
+  .feature-text {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
   }
-}
+  
+  /* 반응형 스타일 */
+  @media screen and (max-width: 1200px) {
+    .inline-content-container {
+      flex-direction: column;
+    }
+    
+    .left-content, .right-content {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    
+    .user-context-left {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    
+    .user-context-subheading {
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .left-content, .right-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .gray-box, .right-phone-container {
+      width: 80%;
+      max-width: 300px;
+      margin: 0 auto 30px;
+    }
+    
+    .recent-menu-content, .feature-description {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .feature-description {
+      order: -1; /* 설명이 이미지 위에 오도록 순서 변경 */
+    }
+    
+    .menu-icons-container {
+      justify-content: center;
+    }
+    
+    .user-context-strategy-circle {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .user-context-subheading {
+      font-size: 24px;
+    }
+    
+    .menu-icon {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .recent-menu-title, .feature-title {
+      font-size: 24px;
+    }
+    
+    .recent-menu-description, .feature-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+
+  
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -1772,49 +1771,52 @@
     
     <!-- 한 줄 이미지/텍스트 배치 컨테이너 -->
     <div class="inline-content-container">
-      <!-- 왼쪽 영역 -->
-      <div class="left-content">
-        <div class="gray-box">
-          <img src="images/08_1.png" alt="최근 사용 메뉴" class="gray-box-image">
-        </div>
-        
-        <div class="recent-menu-content">
-          <h4 class="recent-menu-title">최근 사용 메뉴</h4>
-          
-          <div class="menu-icons-container">
-            <div class="menu-icon">
-              <img src="images/08_c_1.png" alt="메뉴 아이콘 1" class="circle-icon">
-            </div>
-            <div class="menu-icon">
-              <img src="images/08_c_2.png" alt="메뉴 아이콘 2" class="circle-icon">
-            </div>
-            <div class="menu-icon">
-              <img src="images/08_c_3.png" alt="메뉴 아이콘 3" class="circle-icon">
-            </div>
-          </div>
-          
-          <p class="recent-menu-description">
-            사용자는 많은 메뉴 중 잘 사용하는 것만 계속 사용할<br>
-            가능성이 높습니다. 사용한 기록이 없다면 표시하지 않지만, <br>
-            사용 내역이 있다면 홈화면 상단에 먼저 제공합니다.  
-          </p>
-        </div>
+      <!-- 1. 왼쪽 회색 박스와 이미지 (08_1.png) -->
+      <div class="gray-box">
+        <img src="images/08_1.png" alt="최근 사용 메뉴" class="gray-box-image">
       </div>
       
-      <!-- 오른쪽 영역 -->
-      <div class="right-content">
-        <div class="feature-description">
-          <h4 class="feature-title">버튼 편집 기능</h4>
-          <p class="feature-text">
-            홈 화면 내 사용하지 않는 기능을 보이지 않도록<br>
-            숨기거나 순서를 변경할 수 있습니다. 많은 기능 <br>
-            버튼을 편집하여 선택과 집중이 가능합니다.
-          </p>
+      <!-- 2. 최근 사용 메뉴 텍스트와 아이콘 -->
+      <div class="recent-menu-content">
+        <h4 class="recent-menu-title">최근 사용 메뉴</h4>
+        
+        <div class="menu-icons-container">
+          <!-- 첫 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_1.png" alt="메뉴 아이콘 1" class="circle-icon">
+          </div>
+          
+          <!-- 두 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_2.png" alt="메뉴 아이콘 2" class="circle-icon">
+          </div>
+          
+          <!-- 세 번째 아이콘 -->
+          <div class="menu-icon">
+            <img src="images/08_c_3.png" alt="메뉴 아이콘 3" class="circle-icon">
+          </div>
         </div>
         
-        <div class="right-phone-container">
-          <img src="images/08_2.png" alt="홈 화면 버튼 편집" class="right-phone-image">
-        </div>
+        <p class="recent-menu-description">
+          사용자는 많은 메뉴 중 잘 사용하는 것만 계속 사용할<br>
+        가능성이 높습니다. 사용한 기록이 없다면 표시하지 않지만, <br>
+          사용 내역이 있다면 홈화면 상단에 먼저 제공합니다.  
+        </p>
+      </div>
+      
+      <!-- 3. 버튼 편집 설명 텍스트 -->
+      <div class="feature-description">
+        <h4 class="feature-title">버튼 편집 기능</h4>
+        <p class="feature-text">
+          홈 화면 내 사용하지 않는 기능을 보이지 않도록<br>
+        숨기거나 순서를 변경할 수 있습니다. 많은 기능 <br>
+        버튼을 편집하여 선택과 집중이 가능합니다.
+        </p>
+      </div>
+      
+      <!-- 4. 오른쪽 휴대폰 이미지 (08_2.png) -->
+      <div class="right-phone-container">
+        <img src="images/08_2.png" alt="홈 화면 버튼 편집" class="right-phone-image">
       </div>
     </div>
   </div>
