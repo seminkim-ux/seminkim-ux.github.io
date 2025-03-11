@@ -144,7 +144,30 @@ body, h1, h2, h3, h4, p, span {
       z-index: 10;
       background-color: transparent; 
     }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
     /* PROJECT HEADER SECTION */
     .project-header {
       padding: 0 60px;
@@ -2387,5 +2410,26 @@ body, h1, h2, h3, h4, p, span {
 
   </div>
 </section>
+      <div class="top-button" id="topButton"></div>
 </body>
+  <script>
+    // Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+</script>
 </html>
