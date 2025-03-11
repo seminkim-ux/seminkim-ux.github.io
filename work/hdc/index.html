@@ -1418,7 +1418,8 @@
   }
 }
 
-/* SECTION 10: fun STYLES */
+
+/* SECTION 10: fun STYLES - 업데이트된 스타일 */
 .fun-section {
   background-color: var(--white);
   padding-bottom: 120px;
@@ -1490,20 +1491,44 @@
 }
 
 .fun-phone-image1 {
-  width: 71%;
-  top: 0%; /* 상단으로 살짝 올림 */
+  width: 60%; /* 이미지 크기 줄임 (71%에서 60%로) */
+  top: 0%;
   height: auto;
   border-radius: 15px;
 }
 
 .fun-phone-image2 {
-  width: 71%;
-  top: -5%; /* 섹션 내 제일 높은 위치로 */
+  width: 60%; /* 이미지 크기 줄임 (71%에서 60%로) */
+  top: -5%;
   height: auto;
   border-radius: 15px;
 }
-    
 
+/* 겹쳐진 메시지 박스 컨테이너 */
+.fun-message-boxes {
+  position: absolute;
+  top: -15px;
+  right: 15%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 메시지 박스 스타일 */
+.fun-message-box {
+  background-color: #4285F4;
+  color: white;
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 /* 콘텐츠 설명 영역 */
 .fun-explanation {
@@ -1530,6 +1555,7 @@
   line-height: 1.6;
   color: #555;
 }
+
 /* RESPONSIVE STYLES FOR fun SECTION */
 @media screen and (max-width: 1200px) {
   .fun-content {
@@ -1557,12 +1583,24 @@
     gap: 20px;
   }
   
-  .fun-phone-image {
+  .fun-phone-image1, .fun-phone-image2 {
     width: 70%;
     max-width: 300px;
   }
   
-  .contents-explanation {
+  .fun-message-boxes {
+    position: static;
+    margin: 20px auto;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .fun-message-box {
+    width: 80%;
+    max-width: 200px;
+  }
+  
+  .fun-explanation {
     position: static;
     width: 100%;
     max-width: 500px;
@@ -1572,7 +1610,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .fun-phone-image {
+  .fun-phone-image1, .fun-phone-image2 {
     width: 90%;
   }
   
@@ -1584,10 +1622,12 @@
   .fun-subheading {
     font-size: 28px;
   }
-}
-
   
-
+  .fun-message-box {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+}
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
       .timeline-container {
@@ -2213,7 +2253,7 @@
 
   </div>
 </section>
-  <!-- SECTION 10: Fun -->
+<!-- SECTION 10: Fun -->
 <section class="section fun-section">
   <h2 class="section-title">Solution</h2>
   <div class="fun-content">
@@ -2239,7 +2279,18 @@
       <!-- 두 번째 휴대폰 이미지 -->
       <img src="images/10_2.png" alt="아이파크 앱 UI 화면 2" class="fun-phone-image2">
       
- 
+      <!-- 겹쳐진 메시지 박스들 -->
+      <div class="fun-message-boxes">
+        <div class="fun-message-box">
+          왜<br>안들어와?!
+        </div>
+        <div class="fun-message-box">
+          엄마<br>생일 축하해요!
+        </div>
+        <div class="fun-message-box">
+          배달 음식을<br>줄이자!
+        </div>
+      </div>
     </div>
     
     <!-- 콘텐츠 설명 -->
@@ -2250,7 +2301,7 @@
         홈화면 문구 설정 기능으로.<br>
         <span class="highlight-d">재미와 커뮤니케이션을 제공합니다.</span><br>
         흔들면 주차위치 화면으로 이동하는<br>
-제스처 UI로       <span class="highlight-d">빠르고 새로운 경험을 제공합니다.</span><br>
+제스처 UI로 <span class="highlight-d">빠르고 새로운 경험을 제공합니다.</span><br>
       </p>
     </div>
 
