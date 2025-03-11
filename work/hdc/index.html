@@ -840,6 +840,7 @@
     position: relative;
     min-height: 120vh; /* 120vh에서 auto로 변경 */
     margin-top: -200px; /* 위로 올려서 간격 줄임 */
+      padding-bottom: 80px; /
   }
   
   .ui-structure-content {
@@ -891,15 +892,15 @@
   
   /* 모바일 UI 이미지 컨테이너 */
   .ui-image-container {
-    display: flex;
-    position: absolute;
-    left: 35%;
-    top: 10%;
-    width: 70%;
-    height: auto;
-    z-index: 2;
-    justify-content: space-between;
-  }
+  position: relative; /* absolute에서 relative로 변경 */
+  left: auto; /* 기존 left 속성 제거 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 70%; /* 너비 조정 */
+  margin-left: 25%; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 30px; /* 상단 마진 추가 */
+  display: flex;
+  justify-content: space-between;
+}
   
   .ui-phone-image {
     width: 31%;
@@ -911,10 +912,13 @@
   .consistency-explanation {
     position: absolute;
     bottom: 5%;
-    left: 35%;
-    width: 60%;
+    left: auto%;
+    width: 100%;
     text-align: left;
     z-index: 3;
+      padding-left: 60px; /* 왼쪽 여백 60px 추가 */
+  margin-top: 50px; /* 위쪽 여백 추가 */
+  clear: both; /* float 요소 이후 클리어 */
   }
   
   .consistency-title {
