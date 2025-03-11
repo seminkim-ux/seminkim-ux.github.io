@@ -1042,8 +1042,7 @@ body, h1, h2, h3, h4, p, span {
   @media screen and (max-width: 768px) {
     .ui-phone-image {
       width: 90%;
-    }
-    
+    }    
     .ui-structure-strategy-circle {
       width: 150px;
       height: 150px;
@@ -1053,7 +1052,29 @@ body, h1, h2, h3, h4, p, span {
       font-size: 28px;
     }
   }
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+/* 모바일 UI 이미지 컨테이너 */
+  .ui-image-container {
+  position: relative; /* absolute에서 relative로 변경 */
+  left: auto; /* 기존 left 속성 제거 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 100%; /* 너비 조정 */
+  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 90px; /* 상단 마진 추가 */
+  display: flex;
+ flex-direction: row; /* 가로 방향 배치 */
+  align-items: center; /* 가운데 정렬 */
+  gap: 0px; /* 이미지 사이 간격 */
+}
+  
+  .ui-phone-image {
+    width: 71%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
 
+    
 /* SECTION 8: USER CONTEXT STYLES */
   .user-context-section {
     background-color: var(--white);
