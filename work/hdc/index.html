@@ -993,7 +993,7 @@
     }
   }
 
-    /* SECTION 8: USER CONTEXT STYLES */
+   /* SECTION 8: USER CONTEXT STYLES */
   .user-context-section {
     background-color: var(--white);
     padding-bottom: 120px;
@@ -1014,12 +1014,12 @@
   .user-context-left {
     width: 100%;
     display: flex;
-    flex-direction: row; /* column에서 row로 변경 */
-    align-items: center; /* 중앙 정렬 */
+    flex-direction: row; 
+    align-items: center; 
     position: relative;
     z-index: 1;
     margin-bottom: 60px;
-    gap: 30px; /* 원과 텍스트 사이 간격 */
+    gap: 30px; 
   }
   
   .user-context-strategy-circle {
@@ -1035,7 +1035,7 @@
     font-weight: 700;
     text-align: center;
     line-height: 1.4;
-    flex-shrink: 0; /* 크기 유지 */
+    flex-shrink: 0;
   }
   
   .user-context-subheading {
@@ -1043,52 +1043,71 @@
     font-size: 32px;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 0; /* 여백 제거 */
+    margin-bottom: 0;
   }
   
-  /* 한 줄 배치 컨테이너 */
+  /* 이미지와 설명을 담는 전체 컨테이너 */
   .inline-content-container {
     position: relative;
     width: 100%;
-    margin-bottom: 80px;
     display: flex;
-    flex-direction: row;
-    align-items: stretch; /* stretch로 변경하여 다양한 높이 배치 가능 */
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 50px;
   }
   
-  /* 회색 박스와 이미지 - 중앙에 배치 */
+  /* 첫 번째 이미지와 설명을 담는 행 */
+  .content-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* 좌측 이미지 컨테이너 */
   .gray-box {
-    width: 30%; /* 20%에서 25%로 증가 */
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
     background-color: #F5F5F5;
     border-radius: 20px;
-    position: relative;
     overflow: hidden;
-    padding: 0;
-    align-self: center; /* 중앙 배치 */
+    margin-right: 40px;
   }
   
   .gray-box-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     border-radius: 20px;
   }
   
-  /* 최근 사용 메뉴 텍스트와 아이콘 - 하단에 배치 */
+  /* 우측 이미지 컨테이너 */
+  .right-phone-container {
+    width: 350px;
+    height: 450px;
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-left: 40px;
+  }
+  
+  .right-phone-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* 최근 사용 메뉴 설명 (우측에 배치) */
   .recent-menu-content {
-      margin-left: 10px; 
-    width: 35%;
-    min-width: 200px;
-    align-self: flex-end;
-   margin-bottom: 30px; /* 하단 여백 */
+    flex: 1;
+    padding-left: 20px;
   }
   
   .recent-menu-title {
     font-family: "pretendard-bold", sans-serif;
-   font-size: 24px;
+    font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
     margin-top: 0;
@@ -1106,8 +1125,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  border-radius: 50%; /* 원형 그림자를 위해 필요 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .circle-icon {
@@ -1122,21 +1141,16 @@
     color: #555;
   }
   
-  /* 버튼 편집 설명 - 오른쪽 이미지 왼쪽에 배치 */
+  /* 버튼 편집 설명 (좌측에 배치) */
   .feature-description {
-    width: 35%;
-    min-width: 200px;
-    align-self: center; /* 중앙 배치 */
-    margin-right: 10px; /* 오른쪽 이미지와 더 가깝게 */
-    position: relative;
-  top: -20px; /* 위로 20px 이동 */
-    text-align:right;
-}
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
   }
   
   .feature-title {
     font-family: "pretendard-bold", sans-serif;
-   font-size: 24px;
+    font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
   }
@@ -1148,25 +1162,10 @@
     color: #555;
   }
   
-  /* 오른쪽 휴대폰 이미지 - 오른쪽 끝에 배치 */
-  .right-phone-container {
-    width: 25%; /* 20%에서 25%로 증가 */
-    min-width: 220px; /* 180px에서 220px로 증가 */
-    max-width: 280px; /* 220px에서 280px로 증가 */
-    align-self: center; /* 중앙 배치 */
-    margin-left: -10px; /* 왼쪽 설명과 더 가깝게 */
-  }
-  
-  .right-phone-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* RESPONSIVE STYLES */
+  /* 반응형 스타일 */
   @media screen and (max-width: 1200px) {
     .user-context-left {
-      flex-direction: column; /* 작은 화면에서는 세로 배치 */
+      flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 20px;
@@ -1176,17 +1175,24 @@
       text-align: center;
     }
     
-    .inline-content-container {
+    .content-row {
       flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      gap: 30px;
     }
     
-    .gray-box, .recent-menu-content, .feature-description, .right-phone-container {
-      width: 80%;
+    .gray-box, .right-phone-container {
+      width: 90%;
       max-width: 350px;
-      min-width: auto;
+      height: auto;
+      margin: 0 auto;
+    }
+    
+    .recent-menu-content, .feature-description {
+      width: 90%;
+      max-width: 350px;
+      padding: 0;
       text-align: center;
+      margin: 0 auto 30px;
     }
     
     .menu-icons-container {
@@ -1202,10 +1208,6 @@
     
     .user-context-subheading {
       font-size: 24px;
-    }
-    
-    .gray-box, .recent-menu-content, .feature-description, .right-phone-container {
-      width: 90%;
     }
     
     .menu-icon {
