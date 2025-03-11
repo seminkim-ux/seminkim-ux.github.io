@@ -108,7 +108,18 @@
       width: 100%;
       background-color: var(--nav-bg);
     }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+}
 
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
     /* HEADER / NAVIGATION */
     .header {
       background-color: var(--nav-bg);
