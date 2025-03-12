@@ -2699,7 +2699,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userContextAnimationTriggered = true;
         
         // 딜레이 설정
-        const initialDelay = 800;
+        const initialDelay = 600;
         
         // 1. 왼쪽 콘텐츠 애니메이션 (그레이 박스와 최근 메뉴 컨텐츠 같이 나타남)
         setTimeout(() => {
@@ -2711,7 +2711,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           if (featureDescription) featureDescription.style.opacity = '1';
           if (rightPhoneContainer) rightPhoneContainer.style.opacity = '1';
-        }, initialDelay + 800); // 왼쪽 콘텐츠 후 800ms 지연
+        }, initialDelay + 600); // 왼쪽 콘텐츠 후 800ms 지연
       }
     }
     
@@ -2731,7 +2731,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneImages.forEach(img => {
       img.style.opacity = '0';
       img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
-      img.style.transition = 'opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      img.style.transition = 'opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
     });
     
     let understandingAnimationTriggered = false;
@@ -2742,7 +2742,7 @@ document.addEventListener('DOMContentLoaded', () => {
         understandingAnimationTriggered = true;
         
         // 첫 번째 이미지 딜레이를 섹션 7과 동일하게 설정
-        const initialDelay = 800;
+        const initialDelay = 600;
         
         // 이미지들을 순차적으로 애니메이션 적용
         phoneImages.forEach((img, index) => {
