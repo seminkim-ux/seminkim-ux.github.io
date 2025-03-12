@@ -2601,12 +2601,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 1000);
         }
         
-        // 3. 마지막으로 날씨 정보 애니메이션 - 1800ms로 늘림
+        // 3. 마지막으로 날씨 정보 애니메이션 - 1500ms로 늘림
         if (weatherInfo) {
           setTimeout(() => {
             weatherInfo.style.opacity = '1';
             weatherInfo.style.transform = 'translateX(0)';
-          }, 1800);
+          }, 1500);
         }
       }
     }
@@ -2638,14 +2638,14 @@ document.addEventListener('DOMContentLoaded', () => {
         uiAnimationTriggered = true;
         
         // 첫 번째 이미지 딜레이를 2배로 늘림 (600ms로)
-        const initialDelay = 600;
+        const initialDelay = 800;
         
         // 이미지들을 순차적으로 애니메이션 적용
         phoneImages.forEach((img, index) => {
           setTimeout(() => {
             img.style.opacity = '1';
             img.style.transform = 'translateY(0)';
-          }, initialDelay + (300 * index)); // 첫 이미지는 600ms 지연, 이후 각 이미지마다 300ms 추가 지연
+          }, initialDelay + (500 * index)); // 첫 이미지는 800ms 지연, 이후 각 이미지마다 300ms 추가 지연
         });
       }
     }
