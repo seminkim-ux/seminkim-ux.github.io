@@ -2627,7 +2627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneImages.forEach(img => {
       img.style.opacity = '0';
       img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
-      img.style.transition = 'opacity 0.7s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      img.style.transition = 'opacity 0.5s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
     });
     
     let uiAnimationTriggered = false;
@@ -2645,7 +2645,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             img.style.opacity = '1';
             img.style.transform = 'translateY(0)';
-          }, initialDelay + (500 * index)); // 첫 이미지는 800ms 지연, 이후 각 이미지마다 300ms 추가 지연
+          }, initialDelay + (900 * index)); // 첫 이미지는 800ms 지연, 이후 각 이미지마다 300ms 추가 지연
         });
       }
     }
