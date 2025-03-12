@@ -2657,6 +2657,110 @@ document.addEventListener('DOMContentLoaded', () => {
     animateUIImages();
   }
   
+  // SECTION 8: USER CONTEXT 애니메이션
+  const userContextSection = document.querySelector('.user-context-section');
+  if (userContextSection) {
+    // 왼쪽 콘텐츠 요소들
+    const grayBox = userContextSection.querySelector('.gray-box');
+    const recentMenuContent = userContextSection.querySelector('.recent-menu-content');
+    
+    // 오른쪽 콘텐츠 요소들
+    const featureDescription = userContextSection.querySelector('.feature-description');
+    const rightPhoneContainer = userContextSection.querySelector('.right-phone-container');
+    
+    // 초기 스타일 설정 - 페이드인만 (위로 올라오는 효과 없이)
+    // 왼쪽 콘텐츠
+    if (grayBox) {
+      grayBox.style.opacity = '0';
+      grayBox.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    if (recentMenuContent) {
+      recentMenuContent.style.opacity = '0';
+      recentMenuContent.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    // 오른쪽 콘텐츠
+    if (featureDescription) {
+      featureDescription.style.opacity = '0';
+      featureDescription.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    if (rightPhoneContainer) {
+      rightPhoneContainer.style.opacity = '0';
+      rightPhoneContainer.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    let userContextAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUserContextElements() {
+      if (isInViewport(userContextSection) && !userContextAnimationTriggered) {
+        userContextAnimationTriggered = true;
+        
+        // 딜레이 설정
+        const initialDelay = 800;
+        
+        // 1. 왼쪽 콘텐츠 애니메이션 (그레이 박스와 최근 메뉴 컨텐츠 같이 나타남)
+        setTimeout(() => {
+          if (grayBox) grayBox.style.opacity = '1';
+          if (recentMenuContent) recentMenuContent.style.opacity = '1';
+        }, initialDelay);
+        
+        // 2. 오른쪽 콘텐츠 애니메이션 (설명과 폰 이미지 같이 나타남)
+        setTimeout(() => {
+          if (featureDescription) featureDescription.style.opacity = '1';
+          if (rightPhoneContainer) rightPhoneContainer.style.opacity = '1';
+        }, initialDelay + 800); // 왼쪽 콘텐츠 후 800ms 지연
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUserContextElements, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUserContextElements();
+  }
+  
+  // SECTION 9: Understanding 이미지 애니메이션 (섹션 7과 동일한 효과)
+  const understandingSection = document.querySelector('.understanding-section');
+  if (understandingSection) {
+    const phoneImages = understandingSection.querySelectorAll('.uds-phone-image1, .uds-phone-image2, .uds-phone-image3');
+    
+    // 각 이미지에 초기 스타일 적용
+    phoneImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
+      img.style.transition = 'opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let understandingAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUnderstandingImages() {
+      if (isInViewport(understandingSection) && !understandingAnimationTriggered) {
+        understandingAnimationTriggered = true;
+        
+        // 첫 번째 이미지 딜레이를 섹션 7과 동일하게 설정
+        const initialDelay = 800;
+        
+        // 이미지들을 순차적으로 애니메이션 적용
+        phoneImages.forEach((img, index) => {
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+          }, initialDelay + (500 * index)); // 첫 이미지는 800ms 지연, 이후 각 이미지마다 500ms 추가 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUnderstandingImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUnderstandingImages();
+  }
+  
   // Function to check if element is in viewport with more sensitive threshold
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
