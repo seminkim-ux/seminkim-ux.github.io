@@ -2413,23 +2413,71 @@ body, h1, h2, h3, h4, p, span {
       <div class="top-button" id="topButton"></div>
 </body>
   <script>
-    // Top 버튼 기능 추가
-const topButton = document.getElementById('topButton');
-
-topButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Top 버튼 표시/숨김 처리
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        topButton.style.display = 'flex';
-    } else {
-        topButton.style.display = 'none';
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Hero image fade-in on page load
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    // Initially set opacity to 0
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1.5s ease-in';
+    
+    // After a short delay, fade in the image
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 300); // Small delay for better effect
+  }
+  
+  // Set up the scroll animation for the overview image
+  const overviewImage = document.querySelector('.overview-image');
+  if (overviewImage) {
+    // Initially hide the image
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transform = 'translateY(30px)';
+    overviewImage.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+  }
+  
+  // Function to check if element is in viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+      rect.bottom >= 0
+    );
+  }
+  
+  // Function to handle scroll animations
+  function handleScrollAnimations() {
+    if (overviewImage && isInViewport(overviewImage)) {
+      overviewImage.style.opacity = '1';
+      overviewImage.style.transform = 'translateY(0)';
     }
+  }
+  
+  // Listen for scroll events
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // Initial check in case elements are already in viewport
+  handleScrollAnimations();
+  
+  // Top button functionality (keeping existing code)
+  const topButton = document.getElementById('topButton');
+  
+  topButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Top button visibility
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+      topButton.style.display = 'flex';
+    } else {
+      topButton.style.display = 'none';
+    }
+  });
 });
 </script>
 </html>
