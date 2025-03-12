@@ -2593,20 +2593,20 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 400);
         }
         
-        // 2. 그 다음 제어 버튼 설명 애니메이션 - 2000ms로 늘림
+        // 2. 그 다음 제어 버튼 설명 애니메이션 - 1000ms로 늘림
         if (controlButtonDesc) {
           setTimeout(() => {
             controlButtonDesc.style.opacity = '1';
             controlButtonDesc.style.transform = 'translateX(0)';
-          }, 2000);
+          }, 1000);
         }
         
-        // 3. 마지막으로 날씨 정보 애니메이션 - 3200ms로 늘림
+        // 3. 마지막으로 날씨 정보 애니메이션 - 2000ms로 늘림
         if (weatherInfo) {
           setTimeout(() => {
             weatherInfo.style.opacity = '1';
             weatherInfo.style.transform = 'translateX(0)';
-          }, 3200);
+          }, 2000);
         }
       }
     }
