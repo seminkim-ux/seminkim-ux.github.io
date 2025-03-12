@@ -2607,60 +2607,22 @@ if (solutionSection) {
     }
   }
   
-// UI 구조 섹션(Section 7) 이미지 애니메이션
-document.addEventListener('DOMContentLoaded', () => {
-  // UI 구조 섹션과 이미지 요소 선택
-  const uiStructureSection = document.querySelector('.ui-structure-section');
-  
-  if (uiStructureSection) {
-    const phoneImages = uiStructureSection.querySelectorAll('.ui-phone-image');
-    
-    // 각 이미지에 초기 스타일 적용
-    phoneImages.forEach(img => {
-      img.style.opacity = '0';
-      img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
-      img.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)';
-    });
-    
-    let uiAnimationTriggered = false;
-    
-    // 애니메이션 함수
-    function animateUIImages() {
-      if (isInViewport(uiStructureSection) && !uiAnimationTriggered) {
-        uiAnimationTriggered = true;
-        
-        // 이미지들을 순차적으로 애니메이션 적용
-        phoneImages.forEach((img, index) => {
-          setTimeout(() => {
-            img.style.opacity = '1';
-            img.style.transform = 'translateY(0)';
-          }, 300 * index); // 각 이미지마다 300ms 지연 효과 적용
-        });
-      }
-    }
-    
-    // 스크롤 이벤트에 애니메이션 함수 추가
-    window.addEventListener('scroll', animateUIImages, { passive: true });
-    
-    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
-    animateUIImages();
-  }
-  
-  // 요소가 화면에 보이는지 확인하는 함수 (기존 함수 사용)
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
-      rect.bottom >= 0
-    );
-  }
-});
+  // 스크롤 이벤트에 애니메이션 함수 추가
+  window.addEventListener('scroll', animateSolutionElements, { passive: true });
   
   // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
   animateSolutionElements();
 }
   
-
+  // Function to check if element is in viewport with more sensitive threshold
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    // 더 빨리 애니메이션이 시작되도록 threshold 값 조정
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+      rect.bottom >= 0
+    );
+  }
   
   // Function to handle scroll animations for the overview image
   function handleScrollAnimations() {
