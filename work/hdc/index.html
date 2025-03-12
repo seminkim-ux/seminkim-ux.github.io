@@ -2471,6 +2471,37 @@ document.addEventListener('DOMContentLoaded', () => {
     animateProjectGoalImages();
   }
   
+  // Section 4: User Research 섹션의 라운드 박스 애니메이션
+  const userResearchSection = document.querySelector('.user-research-section');
+  if (userResearchSection) {
+    const feedbackBoxes = userResearchSection.querySelectorAll('.user-feedback-box');
+    
+    // 초기 스타일 설정
+    feedbackBoxes.forEach(box => {
+      box.style.opacity = '0';
+      box.style.transform = 'translateY(20px)';
+      box.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    // 애니메이션 함수
+    function animateFeedbackBoxes() {
+      if (isInViewport(userResearchSection)) {
+        feedbackBoxes.forEach((box, index) => {
+          setTimeout(() => {
+            box.style.opacity = '1';
+            box.style.transform = 'translateY(0)';
+          }, 120 * index); // 각 박스마다 120ms 지연 (조금 더 빠르게)
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateFeedbackBoxes, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateFeedbackBoxes();
+  }
+  
   // Function to check if element is in viewport
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
