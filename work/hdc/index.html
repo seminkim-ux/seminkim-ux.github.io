@@ -2547,72 +2547,108 @@ document.addEventListener('DOMContentLoaded', () => {
     animateStrategyCircles();
   }
   
- // Section 6: Solution 섹션의 방향별 애니메이션 (메인 폰 이미지 수정)
-const solutionSection = document.querySelector('.solution-section');
-if (solutionSection) {
-  // 애니메이션할 요소들 선택
-  const phoneImage = solutionSection.querySelector('.main-phone-container');
-  const controlButtonDesc = solutionSection.querySelector('.control-button-desc');
-  const weatherInfo = solutionSection.querySelector('.weather-info');
-  
-  // 요소들의 초기 스타일 설정
-  if (phoneImage) {
-    phoneImage.style.opacity = '0';
-    // 위로 올라오는 효과 제거 (translateY 없음)
-    phoneImage.style.transition = 'opacity 1s ease-out';
-  }
-  
-  if (controlButtonDesc) {
-    controlButtonDesc.style.opacity = '0';
-    controlButtonDesc.style.transform = 'translateX(30px)'; // 오른쪽에서 왼쪽으로
-    controlButtonDesc.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
-  }
-  
-  if (weatherInfo) {
-    weatherInfo.style.opacity = '0';
-    weatherInfo.style.transform = 'translateX(-30px)'; // 왼쪽에서 오른쪽으로
-    weatherInfo.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
-  }
-  
-  let solutionAnimationTriggered = false;
-  
-  // 애니메이션 함수
-  function animateSolutionElements() {
-    if (isInViewport(solutionSection) && !solutionAnimationTriggered) {
-      solutionAnimationTriggered = true;
-      
-      // 1. 먼저 전화 이미지 애니메이션 (페이드인만)
-      if (phoneImage) {
-        setTimeout(() => {
-          phoneImage.style.opacity = '1';
-          // transform 변경 없음
-        }, 200);
-      }
-      
-      // 2. 그 다음 제어 버튼 설명 애니메이션
-      if (controlButtonDesc) {
-        setTimeout(() => {
-          controlButtonDesc.style.opacity = '1';
-          controlButtonDesc.style.transform = 'translateX(0)';
-        }, 1000); // 전화 이미지 후 0.6초 후
-      }
-      
-      // 3. 마지막으로 날씨 정보 애니메이션
-      if (weatherInfo) {
-        setTimeout(() => {
-          weatherInfo.style.opacity = '1';
-          weatherInfo.style.transform = 'translateX(0)';
-        }, 1600); // 제어 버튼 후 0.6초 후
+  // Section 6: Solution 섹션의 방향별 애니메이션 (메인 폰 이미지 수정)
+  const solutionSection = document.querySelector('.solution-section');
+  if (solutionSection) {
+    // 애니메이션할 요소들 선택
+    const phoneImage = solutionSection.querySelector('.main-phone-container');
+    const controlButtonDesc = solutionSection.querySelector('.control-button-desc');
+    const weatherInfo = solutionSection.querySelector('.weather-info');
+    
+    // 요소들의 초기 스타일 설정
+    if (phoneImage) {
+      phoneImage.style.opacity = '0';
+      // 위로 올라오는 효과 제거 (translateY 없음)
+      phoneImage.style.transition = 'opacity 1s ease-out';
+    }
+    
+    if (controlButtonDesc) {
+      controlButtonDesc.style.opacity = '0';
+      controlButtonDesc.style.transform = 'translateX(30px)'; // 오른쪽에서 왼쪽으로
+      controlButtonDesc.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
+    }
+    
+    if (weatherInfo) {
+      weatherInfo.style.opacity = '0';
+      weatherInfo.style.transform = 'translateX(-30px)'; // 왼쪽에서 오른쪽으로
+      weatherInfo.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
+    }
+    
+    let solutionAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateSolutionElements() {
+      if (isInViewport(solutionSection) && !solutionAnimationTriggered) {
+        solutionAnimationTriggered = true;
+        
+        // 1. 먼저 전화 이미지 애니메이션 (페이드인만)
+        if (phoneImage) {
+          setTimeout(() => {
+            phoneImage.style.opacity = '1';
+            // transform 변경 없음
+          }, 200);
+        }
+        
+        // 2. 그 다음 제어 버튼 설명 애니메이션
+        if (controlButtonDesc) {
+          setTimeout(() => {
+            controlButtonDesc.style.opacity = '1';
+            controlButtonDesc.style.transform = 'translateX(0)';
+          }, 1000); // 전화 이미지 후 0.6초 후
+        }
+        
+        // 3. 마지막으로 날씨 정보 애니메이션
+        if (weatherInfo) {
+          setTimeout(() => {
+            weatherInfo.style.opacity = '1';
+            weatherInfo.style.transform = 'translateX(0)';
+          }, 1600); // 제어 버튼 후 0.6초 후
+        }
       }
     }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateSolutionElements, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateSolutionElements();
   }
   
-  // 스크롤 이벤트에 애니메이션 함수 추가
-  window.addEventListener('scroll', animateSolutionElements, { passive: true });
-  
-  // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
-  animateSolutionElements();
-}
+  // SECTION 7: UI 이미지 애니메이션
+  const uiStructureSection = document.querySelector('.ui-structure-section');
+  if (uiStructureSection) {
+    const phoneImages = uiStructureSection.querySelectorAll('.ui-phone-image');
+    
+    // 각 이미지에 초기 스타일 적용
+    phoneImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
+      img.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let uiAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUIImages() {
+      if (isInViewport(uiStructureSection) && !uiAnimationTriggered) {
+        uiAnimationTriggered = true;
+        
+        // 이미지들을 순차적으로 애니메이션 적용
+        phoneImages.forEach((img, index) => {
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+          }, 300 * index); // 각 이미지마다 300ms 지연 효과 적용
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUIImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUIImages();
+  }
   
   // Function to check if element is in viewport with more sensitive threshold
   function isInViewport(element) {
