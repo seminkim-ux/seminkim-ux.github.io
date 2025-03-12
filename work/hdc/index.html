@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HDC IoT App - Semin Kim Portfolio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.10/lottie.min.js"></script>
   <style>
 /* 폰트 설정 - Jost는 웹에서 가져오도록 변경 */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap');
@@ -806,6 +807,73 @@ body, h1, h2, h3, h4, p, span {
     color: #555;
     margin-top: 20px;
   }
+    /* story.json 버튼 스타일 */
+.story-json-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 5;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lottie-animation {
+  width: 50px;
+  height: 50px;
+}
+
+/* 팝업 스타일 */
+.story-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-popup-content {
+  background-color: white;
+  width: 500px;
+  height: 600px;
+  border: 1px solid #000;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.story-popup-header {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+}
+
+.story-popup-close {
+  color: #000;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.story-popup-body {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(600px - 50px);
+}
+
+.story-popup-text {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+}
   
   /* RESPONSIVE STYLES FOR SOLUTION SECTION */
   @media screen and (max-width: 1200px) {
@@ -2201,6 +2269,21 @@ body, h1, h2, h3, h4, p, span {
       </p>
     </div>
   </div>
+<!-- 애니메이션 버튼 추가 (텍스트 없이) -->
+<div class="story-json-button" id="storyButton">
+  <div id="lottie-animation"></div>
+</div>
+<!-- 팝업 추가 -->
+<div class="story-popup" id="storyPopup">
+  <div class="story-popup-content">
+    <div class="story-popup-header">
+      <span class="story-popup-close" id="closePopup">&times;</span>
+    </div>
+    <div class="story-popup-body">
+      <p class="story-popup-text">이 프로젝트는...</p>
+    </div>
+  </div>
+</div>
 </section>
   <!-- SECTION 7: UI 화면 구조 -->
 <section class="section ui-structure-section">
@@ -2617,7 +2700,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
     animateSolutionElements();
   }
+  // Lottie 애니메이션 및 팝업 기능
+document.addEventListener('DOMContentLoaded', () => {
+  // Lottie 애니메이션 로드
+  const animElement = document.getElementById('lottie-animation');
+  if (animElement) {
+    const anim = lottie.loadAnimation({
+      container: animElement,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'images/story.json' // 실제 파일 경로로 설정
+    });
+  }
   
+  // 팝업 기능
+  const storyButton = document.getElementById('storyButton');
+  const storyPopup = document.getElementById('storyPopup');
+  const closePopup = document.getElementById('closePopup');
+  
+  if (storyButton && storyPopup && closePopup) {
+    // 버튼 클릭 시 팝업 표시
+    storyButton.addEventListener('click', () => {
+      storyPopup.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+    });
+    
+    // 닫기 버튼 클릭 시 팝업 닫기
+    closePopup.addEventListener('click', () => {
+      storyPopup.style.display = 'none';
+      document.body.style.overflow = 'auto'; // 스크롤 활성화
+    });
+    
+    // 팝업 영역 외 클릭 시 닫기
+    storyPopup.addEventListener('click', (e) => {
+      if (e.target === storyPopup) {
+        storyPopup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+});
   // SECTION 7: UI 이미지 애니메이션
   const uiStructureSection = document.querySelector('.ui-structure-section');
   if (uiStructureSection) {
