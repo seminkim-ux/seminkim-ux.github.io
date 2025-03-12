@@ -2420,7 +2420,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroImage) {
     // Initially set opacity to 0
     heroImage.style.opacity = '0';
-    heroImage.style.transition = 'opacity 0.9s ease-in';
+    heroImage.style.transition = 'opacity 0.8s ease-in';
     
     // After a short delay, fade in the image
     setTimeout(() => {
@@ -2437,6 +2437,26 @@ document.addEventListener('DOMContentLoaded', () => {
     overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
   }
   
+  // Set up animations for the project goal images (04_1_9.png ~ 04_5_9.png)
+  // Get all project goal images (specifically targeting these elements)
+  const projectGoalImages = [
+    document.querySelector('div[style*="04_1_9.png"]'),
+    document.querySelector('div[style*="04_2_9.png"]'),
+    document.querySelector('div[style*="04_3_9.png"]'),
+    document.querySelector('div[style*="04_4_9.png"]'),
+    document.querySelector('div[style*="04_5_9.png"]')
+  ];
+  
+  // Filter out any null elements in case some images aren't found
+  const validProjectGoalImages = projectGoalImages.filter(img => img);
+  
+  // Set initial styles for all project goal images
+  validProjectGoalImages.forEach(imgDiv => {
+    imgDiv.style.opacity = '0';
+    imgDiv.style.transform = 'translateY(30px)';
+    imgDiv.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  });
+  
   // Function to check if element is in viewport
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -2448,9 +2468,21 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Function to handle scroll animations
   function handleScrollAnimations() {
+    // Overview image animation
     if (overviewImage && isInViewport(overviewImage)) {
       overviewImage.style.opacity = '1';
       overviewImage.style.transform = 'translateY(0)';
+    }
+    
+    // Project goal images animations with sequential delay
+    const projectSection = document.querySelector('div[style*="position: relative; margin-top: 40px;"]');
+    if (projectSection && isInViewport(projectSection)) {
+      validProjectGoalImages.forEach((imgDiv, index) => {
+        setTimeout(() => {
+          imgDiv.style.opacity = '1';
+          imgDiv.style.transform = 'translateY(0)';
+        }, 150 * index); // Sequential delay for each image (150ms between each)
+      });
     }
   }
   
@@ -2460,7 +2492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial check in case elements are already in viewport
   handleScrollAnimations();
   
-  // Top button functionality (keeping existing code)
+  // Top 버튼 기능 추가
   const topButton = document.getElementById('topButton');
   
   topButton.addEventListener('click', () => {
@@ -2470,7 +2502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // Top button visibility
+  // Top 버튼 표시/숨김 처리
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 100) {
       topButton.style.display = 'flex';
