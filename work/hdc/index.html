@@ -2411,7 +2411,7 @@ body, h1, h2, h3, h4, p, span {
   </div>
 </section>
       <div class="top-button" id="topButton"></div>
-</body>
+
   <script>
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -2471,26 +2471,35 @@ document.addEventListener('DOMContentLoaded', () => {
     animateProjectGoalImages();
   }
   
-  // Section 4: User Research 섹션의 라운드 박스 애니메이션
+  // Section 4: User Research 섹션의 라운드 박스 애니메이션 - 강화된 버전
   const userResearchSection = document.querySelector('.user-research-section');
   if (userResearchSection) {
     const feedbackBoxes = userResearchSection.querySelectorAll('.user-feedback-box');
     
-    // 초기 스타일 설정
+    // 기존 opacity 속성을 유지하기 위해 원래 값을 저장
     feedbackBoxes.forEach(box => {
+      const originalOpacity = window.getComputedStyle(box).opacity;
+      box.setAttribute('data-original-opacity', originalOpacity);
+      
+      // 초기 스타일 설정 - 더 큰 변형과 스케일 추가
       box.style.opacity = '0';
-      box.style.transform = 'translateY(20px)';
-      box.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      box.style.transform = 'translateY(50px) scale(0.95)'; // 더 큰 이동과 약간 작게 시작
+      box.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)'; // 더 역동적인 이징 함수
     });
+    
+    let animationTriggered = false; // 애니메이션이 한 번만 실행되도록 플래그 추가
     
     // 애니메이션 함수
     function animateFeedbackBoxes() {
-      if (isInViewport(userResearchSection)) {
+      if (isInViewport(userResearchSection) && !animationTriggered) {
+        animationTriggered = true; // 애니메이션이 실행됨을 표시
+        
         feedbackBoxes.forEach((box, index) => {
+          // 더 뚜렷한 지연 시간으로 설정
           setTimeout(() => {
-            box.style.opacity = '1';
-            box.style.transform = 'translateY(0)';
-          }, 120 * index); // 각 박스마다 120ms 지연 (조금 더 빠르게)
+            box.style.opacity = box.getAttribute('data-original-opacity') || '1';
+            box.style.transform = 'translateY(0) scale(1)';
+          }, 200 * index); // 각 박스마다 200ms 지연 (더 뚜렷한 순차 효과)
         });
       }
     }
@@ -2502,11 +2511,12 @@ document.addEventListener('DOMContentLoaded', () => {
     animateFeedbackBoxes();
   }
   
-  // Function to check if element is in viewport
+  // Function to check if element is in viewport with more sensitive threshold
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
+    // 더 빨리 애니메이션이 시작되도록 threshold 값 조정
     return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
       rect.bottom >= 0
     );
   }
@@ -2544,5 +2554,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-</script>
+  </script>
+  </body>
 </html>
