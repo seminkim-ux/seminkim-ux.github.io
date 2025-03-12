@@ -2511,6 +2511,42 @@ document.addEventListener('DOMContentLoaded', () => {
     animateFeedbackBoxes();
   }
   
+  // Section 5: Insight 섹션의 전략 원 애니메이션
+  const insightSection = document.querySelector('.insight-section');
+  if (insightSection) {
+    const strategyCircles = insightSection.querySelectorAll('.strategy-circle');
+    const strategyItems = insightSection.querySelectorAll('.strategy-item');
+    
+    // 초기 스타일 설정
+    strategyItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(40px)';
+      item.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let insightAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateStrategyCircles() {
+      if (isInViewport(insightSection) && !insightAnimationTriggered) {
+        insightAnimationTriggered = true;
+        
+        strategyItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 180 * index); // 각 원마다 180ms 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateStrategyCircles, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateStrategyCircles();
+  }
+  
   // Function to check if element is in viewport with more sensitive threshold
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
