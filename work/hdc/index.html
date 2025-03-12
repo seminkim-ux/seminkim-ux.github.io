@@ -2531,11 +2531,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isInViewport(insightSection) && !insightAnimationTriggered) {
         insightAnimationTriggered = true;
         
+        // 첫 번째 원의 딜레이를 2배로 늘림 (360ms로)
+        const initialDelay = 360;
+        
         strategyItems.forEach((item, index) => {
           setTimeout(() => {
             item.style.opacity = '1';
             item.style.transform = 'translateY(0)';
-          }, 180 * index); // 각 원마다 180ms 지연
+          }, initialDelay + (180 * index)); // 첫 번째 원은 360ms 지연, 이후 각 원마다 180ms 추가 지연
         });
       }
     }
@@ -2581,28 +2584,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isInViewport(solutionSection) && !solutionAnimationTriggered) {
         solutionAnimationTriggered = true;
         
-        // 1. 먼저 전화 이미지 애니메이션 (페이드인만)
+        // 딜레이 값을 2배로 늘림
+        // 1. 먼저 전화 이미지 애니메이션 (페이드인만) - 400ms로 늘림
         if (phoneImage) {
           setTimeout(() => {
             phoneImage.style.opacity = '1';
             // transform 변경 없음
-          }, 200);
+          }, 400);
         }
         
-        // 2. 그 다음 제어 버튼 설명 애니메이션
+        // 2. 그 다음 제어 버튼 설명 애니메이션 - 2000ms로 늘림
         if (controlButtonDesc) {
           setTimeout(() => {
             controlButtonDesc.style.opacity = '1';
             controlButtonDesc.style.transform = 'translateX(0)';
-          }, 1000); // 전화 이미지 후 0.6초 후
+          }, 2000);
         }
         
-        // 3. 마지막으로 날씨 정보 애니메이션
+        // 3. 마지막으로 날씨 정보 애니메이션 - 3200ms로 늘림
         if (weatherInfo) {
           setTimeout(() => {
             weatherInfo.style.opacity = '1';
             weatherInfo.style.transform = 'translateX(0)';
-          }, 1600); // 제어 버튼 후 0.6초 후
+          }, 3200);
         }
       }
     }
@@ -2633,12 +2637,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isInViewport(uiStructureSection) && !uiAnimationTriggered) {
         uiAnimationTriggered = true;
         
+        // 첫 번째 이미지 딜레이를 2배로 늘림 (600ms로)
+        const initialDelay = 600;
+        
         // 이미지들을 순차적으로 애니메이션 적용
         phoneImages.forEach((img, index) => {
           setTimeout(() => {
             img.style.opacity = '1';
             img.style.transform = 'translateY(0)';
-          }, 300 * index); // 각 이미지마다 300ms 지연 효과 적용
+          }, initialDelay + (300 * index)); // 첫 이미지는 600ms 지연, 이후 각 이미지마다 300ms 추가 지연
         });
       }
     }
