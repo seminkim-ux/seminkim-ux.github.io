@@ -2437,25 +2437,39 @@ document.addEventListener('DOMContentLoaded', () => {
     overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
   }
   
-  // Set up animations for the project goal images (04_1_9.png ~ 04_5_9.png)
-  // Get all project goal images (specifically targeting these elements)
-  const projectGoalImages = [
-    document.querySelector('div[style*="04_1_9.png"]'),
-    document.querySelector('div[style*="04_2_9.png"]'),
-    document.querySelector('div[style*="04_3_9.png"]'),
-    document.querySelector('div[style*="04_4_9.png"]'),
-    document.querySelector('div[style*="04_5_9.png"]')
-  ];
+  // 프로젝트 목표 이미지들을 보다 정확하게 선택
+  // 프로젝트 목표 이미지가 포함된 섹션을 먼저 찾음
+  const clientInterviewSection = document.querySelector('section.section[style*="position: relative; padding-bottom: 200px"]');
   
-  // Filter out any null elements in case some images aren't found
-  const validProjectGoalImages = projectGoalImages.filter(img => img);
-  
-  // Set initial styles for all project goal images
-  validProjectGoalImages.forEach(imgDiv => {
-    imgDiv.style.opacity = '0';
-    imgDiv.style.transform = 'translateY(30px)';
-    imgDiv.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-  });
+  if (clientInterviewSection) {
+    // 이 섹션 내의 모든 이미지 div를 찾음 (위치 속성이 absolute인 div)
+    const projectGoalImageDivs = clientInterviewSection.querySelectorAll('div[style*="position: absolute"][style*="z-index: 2"]');
+    
+    // 찾은 이미지 div들에 초기 스타일 적용
+    projectGoalImageDivs.forEach(imgDiv => {
+      imgDiv.style.opacity = '0';
+      imgDiv.style.transform = 'translateY(30px)';
+      imgDiv.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    // 애니메이션 처리를 위한 함수
+    function animateProjectGoalImages() {
+      if (isInViewport(clientInterviewSection)) {
+        projectGoalImageDivs.forEach((imgDiv, index) => {
+          setTimeout(() => {
+            imgDiv.style.opacity = '1';
+            imgDiv.style.transform = 'translateY(0)';
+          }, 150 * index); // 각 이미지마다 150ms 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateProjectGoalImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateProjectGoalImages();
+  }
   
   // Function to check if element is in viewport
   function isInViewport(element) {
@@ -2466,27 +2480,15 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
   
-  // Function to handle scroll animations
+  // Function to handle scroll animations for the overview image
   function handleScrollAnimations() {
-    // Overview image animation
     if (overviewImage && isInViewport(overviewImage)) {
       overviewImage.style.opacity = '1';
       overviewImage.style.transform = 'translateY(0)';
     }
-    
-    // Project goal images animations with sequential delay
-    const projectSection = document.querySelector('div[style*="position: relative; margin-top: 40px;"]');
-    if (projectSection && isInViewport(projectSection)) {
-      validProjectGoalImages.forEach((imgDiv, index) => {
-        setTimeout(() => {
-          imgDiv.style.opacity = '1';
-          imgDiv.style.transform = 'translateY(0)';
-        }, 150 * index); // Sequential delay for each image (150ms between each)
-      });
-    }
   }
   
-  // Listen for scroll events
+  // Listen for scroll events for overview image
   window.addEventListener('scroll', handleScrollAnimations, { passive: true });
   
   // Initial check in case elements are already in viewport
