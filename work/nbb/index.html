@@ -601,6 +601,15 @@ body, h1, h2, h3, h4, p, span {
   z-index: 1;
 }
 
+/* 3단계 노드 전체 컨테이너 */
+.third-level-nodes {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+
 /* 수직 연결선 */
 .vertical-lines {
   position: absolute;
@@ -643,39 +652,29 @@ body, h1, h2, h3, h4, p, span {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  position: absolute;
-  margin-top: 20px;
+  width: 210px; /* 1.5배로 증가 */
   z-index: 3;
+  position: relative;
 }
 
 .empty-container {
-  left: calc(20% + 105px - 210px - 105px);
-  top: 140px;
-  width: 210px; /* 1.5배로 증가 */
+  margin-top: 140px;
 }
 
 .coupon-container {
-  left: calc(20% + 105px - 105px);
-  top: 140px;
-  width: 210px; /* 1.5배로 증가 */
+  margin-top: 140px;
 }
 
 .order-container {
-  left: calc(40% + 105px - 105px);
-  top: 140px;
-  width: 210px; /* 1.5배로 증가 */
+  margin-top: 140px;
 }
 
 .my-container {
-  left: calc(60% + 105px - 105px);
-  top: 140px;
-  width: 210px; /* 1.5배로 증가 */
+  margin-top: 140px;
 }
 
 .more-container {
-  left: calc(80% + 105px - 105px);
-  top: 140px;
-  width: 210px; /* 1.5배로 증가 */
+  margin-top: 140px;
 }
 
 /* 기능 박스 스타일 */
@@ -719,7 +718,6 @@ body, h1, h2, h3, h4, p, span {
   left: 0;
   color: #555;
 }
-
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -855,7 +853,6 @@ body, h1, h2, h3, h4, p, span {
   .features-diagram {
     display: none; /* 모바일에서는 다이어그램 숨김 */
   }
-  
       
       /* 반응형 히어로 이미지 조정 */
       .hero-image, .hero-image2 {
@@ -1157,123 +1154,126 @@ body, h1, h2, h3, h4, p, span {
         <div class="vertical-line line5"></div>
       </div>
       
-      <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
-      <div class="third-level-container empty-container">
-        <div class="feature-box">
-          <h4 class="feature-title">회원가입</h4>
-          <ul class="feature-list">
-            <li>SNS 계정으로 입력없이 가입</li>
-            <li>자체 회원가입 입력항목 최소화</li>
-          </ul>
+      <!-- 3단계 노드들 전체 컨테이너 -->
+      <div class="third-level-nodes">
+        <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
+        <div class="third-level-container empty-container">
+          <div class="feature-box">
+            <h4 class="feature-title">회원가입</h4>
+            <ul class="feature-list">
+              <li>SNS 계정으로 입력없이 가입</li>
+              <li>자체 회원가입 입력항목 최소화</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">로그인</h4>
+            <ul class="feature-list">
+              <li>휴대폰 ID로 간편하게 로그인</li>
+            </ul>
+          </div>
         </div>
         
-        <div class="feature-box">
-          <h4 class="feature-title">로그인</h4>
-          <ul class="feature-list">
-            <li>휴대폰 ID로 간편하게 로그인</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 - 쿠폰 -->
-      <div class="third-level-container coupon-container">
-        <div class="feature-box">
-          <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
-          <ul class="feature-list">
-            <li>매장에서 바로 쿠폰 생성</li>
-            <li>주문 유형별 쿠폰 탐색</li>
-          </ul>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">쿠폰 상세</h4>
+        <!-- 3단계 노드들 - 쿠폰 -->
+        <div class="third-level-container coupon-container">
+          <div class="feature-box">
+            <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
+            <ul class="feature-list">
+              <li>매장에서 바로 쿠폰 생성</li>
+              <li>주문 유형별 쿠폰 탐색</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">쿠폰 상세</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">쿠폰 선물하기</h4>
+          </div>
         </div>
         
-        <div class="feature-box">
-          <h4 class="feature-title">쿠폰 선물하기</h4>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 - 주문 -->
-      <div class="third-level-container order-container">
-        <div class="feature-box">
-          <h4 class="feature-title">배달주문</h4>
-          <ul class="feature-list">
-            <li>배달지 설정</li>
-            <li>메뉴카테고리 내 메뉴 탐색</li>
-            <li>옵션메뉴 선택</li>
-          </ul>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">매장픽업</h4>
-          <ul class="feature-list">
-            <li>위치기반 매장 추천</li>
-            <li>매장 즐겨찾기</li>
-          </ul>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">간편주문</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">비회원주문</h4>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 - MY -->
-      <div class="third-level-container my-container">
-        <div class="feature-box">
-          <h4 class="feature-title">주문 내역조회</h4>
+        <!-- 3단계 노드들 - 주문 -->
+        <div class="third-level-container order-container">
+          <div class="feature-box">
+            <h4 class="feature-title">배달주문</h4>
+            <ul class="feature-list">
+              <li>배달지 설정</li>
+              <li>메뉴카테고리 내 메뉴 탐색</li>
+              <li>옵션메뉴 선택</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">매장픽업</h4>
+            <ul class="feature-list">
+              <li>위치기반 매장 추천</li>
+              <li>매장 즐겨찾기</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">간편주문</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">비회원주문</h4>
+          </div>
         </div>
         
-        <div class="feature-box">
-          <h4 class="feature-title">스탬프 적립</h4>
+        <!-- 3단계 노드들 - MY -->
+        <div class="third-level-container my-container">
+          <div class="feature-box">
+            <h4 class="feature-title">주문 내역조회</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">스탬프 적립</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">나의 배달지 / 매장</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">설문조사</h4>
+            <ul class="feature-list">
+              <li>전 회원 대상 설문조사</li>
+              <li>특정 세대 설문조사</li>
+              <li>특정 메뉴 주문고객 설문조사</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">정보변경</h4>
+          </div>
         </div>
         
-        <div class="feature-box">
-          <h4 class="feature-title">나의 배달지 / 매장</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">설문조사</h4>
-          <ul class="feature-list">
-            <li>전 회원 대상 설문조사</li>
-            <li>특정 세대 설문조사</li>
-            <li>특정 메뉴 주문고객 설문조사</li>
-          </ul>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">정보변경</h4>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 - 더보기 -->
-      <div class="third-level-container more-container">
-        <div class="feature-box">
-          <h4 class="feature-title">매장 찾기</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">메뉴보기</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">이벤트</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">고객센터</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">약관 및 정책</h4>
-        </div>
-        
-        <div class="feature-box">
-          <h4 class="feature-title">앱 설정</h4>
+        <!-- 3단계 노드들 - 더보기 -->
+        <div class="third-level-container more-container">
+          <div class="feature-box">
+            <h4 class="feature-title">매장 찾기</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">메뉴보기</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">이벤트</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">고객센터</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">약관 및 정책</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">앱 설정</h4>
+          </div>
         </div>
       </div>
     </div>
