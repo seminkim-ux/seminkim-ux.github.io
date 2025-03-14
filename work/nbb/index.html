@@ -229,15 +229,14 @@ body, h1, h2, h3, h4, p, span {
     }
 
     /* HERO IMAGE */
-   .hero-image-container {
-  position: absolute; /* fixed 대신 absolute 사용 */
-  right: 22%;
+.hero-image-container {
+  position: absolute;
+  right: 60px; /* % 대신 고정 픽셀 사용 */
   bottom: 0;
-  width: 40%; /* 100%에서 auto로 변경 */
-  height:100%;   
-  margin: 0; /* 마진 제거 */
+  width: 300px; /* % 대신 고정 픽셀 사용 */
+  height: 100%;
   z-index: 10;
-  pointer-events: none; /* 컨테이너가 마우스 이벤트에 반응하지 않도록 */
+  pointer-events: none;
 }
 
 .hero-image, .hero-image2 {
