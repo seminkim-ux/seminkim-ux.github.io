@@ -257,7 +257,7 @@ body, h1, h2, h3, h4, p, span {
 
 /* 팝업 창 스타일 */
 .popup-content {
-  top:5vh;
+  top:50%;
   left:2vw;
   width: 550px;
     height: 550px;
@@ -3070,62 +3070,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
  // 팝업 기능 구현 - 수정된 코드
-  document.addEventListener('DOMContentLoaded', function() {
-    // 각 팝업 버튼과 오버레이 선택
-    const popupButton1 = document.querySelector('.popup-button-1');
-    const popupOverlay1 = document.querySelector('.popup-overlay-1');
-    const closeButton1 = document.querySelector('.close-button-1');
-    
-    const popupButton2 = document.querySelector('.popup-button-2');
-    const popupOverlay2 = document.querySelector('.popup-overlay-2');
-    const closeButton2 = document.querySelector('.close-button-2');
-    
-    // 첫 번째 팝업 버튼 클릭 시 팝업 열기
-    if (popupButton1) {
-      popupButton1.addEventListener('click', function() {
-        popupOverlay1.classList.add('active');
-      });
-    }
-    
-    // 첫 번째 팝업 닫기 버튼 클릭 시 팝업 닫기
-    if (closeButton1) {
-      closeButton1.addEventListener('click', function() {
-        popupOverlay1.classList.remove('active');
-      });
-    }
-    
-    // 첫 번째 오버레이 클릭 시 팝업 닫기
-    if (popupOverlay1) {
-      popupOverlay1.addEventListener('click', function(e) {
-        if (e.target === popupOverlay1) {
-          popupOverlay1.classList.remove('active');
-        }
-      });
-    }
-    
-    // 두 번째 팝업 버튼 클릭 시 팝업 열기
-    if (popupButton2) {
-      popupButton2.addEventListener('click', function() {
-        popupOverlay2.classList.add('active');
-      });
-    }
-    
-    // 두 번째 팝업 닫기 버튼 클릭 시 팝업 닫기
-    if (closeButton2) {
-      closeButton2.addEventListener('click', function() {
-        popupOverlay2.classList.remove('active');
-      });
-    }
-    
-    // 두 번째 오버레이 클릭 시 팝업 닫기
-    if (popupOverlay2) {
-      popupOverlay2.addEventListener('click', function(e) {
-        if (e.target === popupOverlay2) {
-          popupOverlay2.classList.remove('active');
-        }
-      });
-    }
+document.addEventListener('DOMContentLoaded', function() {
+  // 팝업 관련 요소들 선택
+  const popupButtons = document.querySelectorAll('.popup-button-1, .popup-button-2');
+  const popupOverlays = document.querySelectorAll('.popup-overlay-1, .popup-overlay-2');
+  const closeButtons = document.querySelectorAll('.close-button-1, .close-button-2');
+  
+  // 모든 팝업 버튼에 클릭 이벤트 추가
+  popupButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      // 해당 버튼의 인덱스에 맞는 오버레이 찾기
+      const overlay = popupOverlays[index];
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 스크롤 막기
+      }
+    });
   });
+  
+  // 모든 닫기 버튼에 클릭 이벤트 추가
+  closeButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      // 해당 버튼의 인덱스에 맞는 오버레이 찾기
+      const overlay = popupOverlays[index];
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 복원
+      }
+    });
+  });
+  
+  // 모든 오버레이에 클릭 이벤트 추가
+  popupOverlays.forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      // 오버레이 자체를 클릭했을 때만 닫기
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 복원
+      }
+    });
+  });
+});
   </script>
   </body>
 </html>
