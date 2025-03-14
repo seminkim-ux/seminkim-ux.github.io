@@ -535,14 +535,15 @@ body, h1, h2, h3, h4, p, span {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 10px 20px;
   text-align: center;
 }
 
 .main-node {
   background-color: #fff5a0;
-  width: 150px;
+  border: 1px solid #e0e0e0;
+  width: 210px;
   height: 50px;
   margin-bottom: 30px;
   z-index: 2;
@@ -550,6 +551,7 @@ body, h1, h2, h3, h4, p, span {
 
 .second-node {
   background-color: #fff5a0;
+    border: 1px solid #e0e0e0;
   width: 210px; /* 1.5배로 증가 */
   height: 50px;
   z-index: 2;
@@ -569,7 +571,7 @@ body, h1, h2, h3, h4, p, span {
 /* 수직 연결선 */
 .vertical-lines {
   position: absolute;
-  top: 130px;
+  top: 106px;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -577,7 +579,7 @@ body, h1, h2, h3, h4, p, span {
 
 .vertical-line {
   position: absolute;
-  width: 2px;
+  width: 1px;
   background-color: #ccc;
   top: 0;
   height: 800px; /* 라인 길이 */
