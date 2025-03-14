@@ -342,62 +342,119 @@ body, h1, h2, h3, h4, p, span {
       color: #6e6e73;
     }
 
-    /* SECTION 2: MARKET RESEARCH */
-    .research-content {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      max-width: 100%;
-      margin: 0;
-      flex: 1;
-    }
-
-    .research-heading {
-      font-family: "pretendard-bold", sans-serif;
-      font-size: var(--font-size-xxxl);
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 40px;
-      max-width: 1100px;
-      text-align: left;
-    }
-    .research-text {
-      display: block; /* absolute 대신 block 사용 */
-      margin-top: 50px;
-      width: 100%;
-    }
-      .research-paragraph {
-      font-family: "pretendard-bold", sans-serif;
-      font-weight: 700; 
-      font-size: var(--font-size-m);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      color: #6e6e73;
+     /* PROCESS SECTION STYLES */
+  .process-section {
+    padding: 100px 60px;
+    background-color: var(--white);
+  }
+  
+  .process-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .process-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxxl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+  }
+  
+  .process-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .process-column {
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-box {
+    padding: 30px;
+    border-radius: 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .define-box {
+    background-color: #98dbf5;
+  }
+  
+  .ideation-box {
+    background-color: #a2d987;
+  }
+  
+  .prototype-box {
+    background-color: #ffbccd;
+  }
+  
+  .test-box {
+    background-color: #f3ca58;
+  }
+  
+  .box-title {
+    font-family: var(--font-family-jost);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .process-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .process-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--black);
+    padding-top: 15px;
+  }
+  
+  /* Responsive styles for process section */
+  @media screen and (max-width: 1024px) {
+    .process-grid {
+      flex-wrap: wrap;
     }
     
-
-
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .process-section {
+      padding: 80px 20px;
+    }
     
-    /* 결론 영역 스타일 */
-    .conclusion-content {
-      margin-top: 40px;
-      margin-bottom: 50px !important; /* !important로 우선순위 강제 */
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      text-align: left;
+    .process-heading {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .process-column {
       width: 100%;
     }
-
-    .conclusion-heading {
-      font-family: "pretendard-bold", sans-serif;
-      font-size: var(--font-size-xxl);
-      font-weight: 700;
-      line-height: 1.3;
-      text-align: left;
-      width: 100%;
-    }
+  }
 
     /* SECTION 3: CLIENT INTERVIEW */
     .cinterview-content {
@@ -553,10 +610,7 @@ body, h1, h2, h3, h4, p, span {
         font-size: var(--font-size-xxl);
       }
       
-      .conclusion-heading {
-        font-size: var(--font-size-xl);
-      }
-      
+  
   
       /* 반응형 히어로 이미지 조정 */
       .project-header {
@@ -718,31 +772,94 @@ body, h1, h2, h3, h4, p, span {
     </div>
   </section>
     
-  <!-- SECTION 2: MARKET RESEARCH -->
-  <section class="section">
-    <h2 class="section-title">Market Research</h2>
-    <div class="research-content">
-      <h3 class="research-heading">
-        IoT서비스는 사물인터넷이라는 이름으로<br>
-        기술혁신의 대표로 여겨졌으나, 적용 속도는 더뎠습니다.
-      </h3>
-        
-      <!-- 타임라인 영역 -->
+<!-- SECTION 2: PROCESS -->
+<section class="section process-section">
+  <h2 class="section-title">Process</h2>
+  <div class="process-content">
+    <h3 class="process-heading">
+      UX 기획 전체 과정을 총괄하여 진행하였습니다.
+    </h3>
     
-     
-          <div class="research-text">
-      <p class="research-paragraph">초기 예상보다 적용속도가 더딘 이유는 기기들이 서로 호환성되지 않는 <span class="highlight-d">기술적인 한계</span>가 존재하며,<br>
-비용과 투자면에서 인프라와 구축 비용이 상당하기 때문입니다. 새로운 기술에 대해 <span class="highlight-d">사용자 수용성과 일상의 필요성도 낮았습니다. </span> <br>
-<span class="highlight-d">다만 가속화되는 AI기술과 함께 더욱 보편화될 것으로 예상됩니다. IoT 데이터의 활용과 자동화는 생활의 변화를 더 빠르게 가져올 것입니다.  </span>  </p>
-          </div>
-      <!-- 결론 영역 -->
-      <div class="conclusion-content">
-        <h3 class="conclusion-heading">
-          중간단계에 있는 현재는 <span class="highlight-blue">익숙한 사용과 필요성</span>을 어필하는 UX가 필요합니다.
-        </h3>
-      </div> 
+    <div class="process-grid">
+      <!-- Define Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box define-box">
+          <h4 class="box-title">Define</h4>
+          <ul class="process-list">
+            <li>경쟁사 분석 및 평가</li>
+            <li>UX 트렌드 조사</li>
+            <li>서비스 트렌드 조사</li>
+            <li>브랜드 분석</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          다양한 프랜차이즈 앱을 휴리스틱 사용성<br>
+          관점에서 분석하였습니다.<br>
+          UX와 서비스 트렌드를 조사하고,<br>
+          브랜드 특성을 연구하였습니다.
+        </p>
+      </div>
+      
+      <!-- Ideation Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box ideation-box">
+          <h4 class="box-title">Ideation</h4>
+          <ul class="process-list">
+            <li>코크리에이션 워크샵</li>
+            <li>Service Concept</li>
+            <li>특색있는 Key 기능 연구</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          마케팅 부서, 개발팀, IT담과 정기적인<br>
+          워크샵을 통해 니즈를 분석하고<br>
+          Concept들을 수립하였습니다.<br>
+          서비스만의 특색있는 Key 기능들<br>
+          정의하였습니다.
+        </p>
+      </div>
+      
+      <!-- Prototype Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box prototype-box">
+          <h4 class="box-title">Prototype</h4>
+          <ul class="process-list">
+            <li>Information Architecture</li>
+            <li>Wireframe 작성</li>
+            <li>알림톡 메시지 작성</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          전체 구조를 설계하고,<br>
+          메인, 가입, 주문, 결제 등 각 세부화면의<br>
+          와이어프레임을 작성하였습니다.<br>
+          피드백 메시지로 발송되는 상황별 알림톡<br>
+          메시지를 작성하였습니다.
+        </p>
+      </div>
+      
+      <!-- Test Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box test-box">
+          <h4 class="box-title">Test</h4>
+          <ul class="process-list">
+            <li>테스트 시나리오 작성</li>
+            <li>임직원 대상 테스트 진행</li>
+            <li>알림톡 테스트</li>
+            <li>필드테스트</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          테스트 시나리오를 작성하였습니다.<br>
+          임직원 대상 테스트 시 진행을 맡아<br>
+          클라이언트와 개발자 사이를 조율하였습니다.<br>
+          알림톡 발송 규칙에 맞는지 확인하는 테스트와,<br>
+          실제 매장 내 주문 테스트도 진행하였습니다.
+        </p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
     
 <!-- SECTION 3: CLIENT INTERVIEW -->
 <section class="section" style="position: relative; padding-bottom: 200px; overflow: visible;">
