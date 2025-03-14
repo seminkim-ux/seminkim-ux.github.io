@@ -527,7 +527,7 @@ body, h1, h2, h3, h4, p, span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 600px; /* 다이어그램 하단 여백 */
+  padding-bottom: 800px; /* 다이어그램 하단 여백 */
 }
 
 /* 노드 스타일 */
@@ -538,7 +538,6 @@ body, h1, h2, h3, h4, p, span {
   border-radius: 20px;
   padding: 10px 20px;
   margin: 10px;
-  min-width: 100px;
   text-align: center;
 }
 
@@ -552,14 +551,14 @@ body, h1, h2, h3, h4, p, span {
 
 .second-node {
   background-color: #fff5a0;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
   height: 50px;
   z-index: 2;
 }
 
 .empty-node {
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
 }
 
 .node-text {
@@ -595,8 +594,8 @@ body, h1, h2, h3, h4, p, span {
   content: '';
   position: absolute;
   top: -1px;
-  left: calc(20% - 70px);
-  width: calc(60% + 140px);
+  left: calc(20% - 105px);
+  width: calc(60% + 210px);
   height: 2px;
   background-color: #ccc;
   z-index: 1;
@@ -616,23 +615,27 @@ body, h1, h2, h3, h4, p, span {
   width: 2px;
   background-color: #ccc;
   top: 0;
-  height: 600px; /* 라인 길이 */
+  height: 800px; /* 라인 길이 */
 }
 
 .line1 {
-  left: calc(20% + 70px);
+  left: calc(20% + 105px - 210px);
 }
 
 .line2 {
-  left: calc(40% + 70px);
+  left: calc(20% + 105px);
 }
 
 .line3 {
-  left: calc(60% + 70px);
+  left: calc(40% + 105px);
 }
 
 .line4 {
-  left: calc(80% + 70px);
+  left: calc(60% + 105px);
+}
+
+.line5 {
+  left: calc(80% + 105px);
 }
 
 /* 3단계 노드 컨테이너들 */
@@ -645,34 +648,34 @@ body, h1, h2, h3, h4, p, span {
   z-index: 3;
 }
 
-.left-container {
-  left: calc(20% - 70px);
+.empty-container {
+  left: calc(20% + 105px - 210px - 105px);
   top: 140px;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
 }
 
-.center-left-container {
-  left: calc(40% - 70px);
+.coupon-container {
+  left: calc(20% + 105px - 105px);
   top: 140px;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
 }
 
-.center-container {
-  left: calc(60% - 70px);
+.order-container {
+  left: calc(40% + 105px - 105px);
   top: 140px;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
 }
 
-.center-right-container {
-  left: calc(80% - 70px);
+.my-container {
+  left: calc(60% + 105px - 105px);
   top: 140px;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
 }
 
-.right-container {
-  left: calc(100% - 70px);
+.more-container {
+  left: calc(80% + 105px - 105px);
   top: 140px;
-  width: 140px;
+  width: 210px; /* 1.5배로 증가 */
 }
 
 /* 기능 박스 스타일 */
@@ -716,6 +719,7 @@ body, h1, h2, h3, h4, p, span {
   left: 0;
   color: #555;
 }
+
 
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -844,7 +848,7 @@ body, h1, h2, h3, h4, p, span {
       .overview-heading {
         font-size: var(--font-size-xl);
       }
-      .features-section {
+  .features-section {
     padding: 80px 20px;
   }
   
@@ -1127,6 +1131,9 @@ body, h1, h2, h3, h4, p, span {
       
       <!-- 2단계 노드들 -->
       <div class="second-level-nodes">
+        <div class="feature-node second-node empty-node">
+          <span class="node-text"></span>
+        </div>
         <div class="feature-node second-node">
           <span class="node-text">쿠폰</span>
         </div>
@@ -1139,9 +1146,6 @@ body, h1, h2, h3, h4, p, span {
         <div class="feature-node second-node">
           <span class="node-text">더보기</span>
         </div>
-        <div class="feature-node second-node empty-node">
-          <span class="node-text"></span>
-        </div>
       </div>
       
       <!-- 수직 연결선들 -->
@@ -1150,10 +1154,11 @@ body, h1, h2, h3, h4, p, span {
         <div class="vertical-line line2"></div>
         <div class="vertical-line line3"></div>
         <div class="vertical-line line4"></div>
+        <div class="vertical-line line5"></div>
       </div>
       
-      <!-- 3단계 노드들 - 좌측 -->
-      <div class="third-level-container left-container">
+      <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
+      <div class="third-level-container empty-container">
         <div class="feature-box">
           <h4 class="feature-title">회원가입</h4>
           <ul class="feature-list">
@@ -1170,8 +1175,8 @@ body, h1, h2, h3, h4, p, span {
         </div>
       </div>
       
-      <!-- 3단계 노드들 - 중앙 좌측 -->
-      <div class="third-level-container center-left-container">
+      <!-- 3단계 노드들 - 쿠폰 -->
+      <div class="third-level-container coupon-container">
         <div class="feature-box">
           <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
           <ul class="feature-list">
@@ -1189,8 +1194,8 @@ body, h1, h2, h3, h4, p, span {
         </div>
       </div>
       
-      <!-- 3단계 노드들 - 중앙 -->
-      <div class="third-level-container center-container">
+      <!-- 3단계 노드들 - 주문 -->
+      <div class="third-level-container order-container">
         <div class="feature-box">
           <h4 class="feature-title">배달주문</h4>
           <ul class="feature-list">
@@ -1217,8 +1222,8 @@ body, h1, h2, h3, h4, p, span {
         </div>
       </div>
       
-      <!-- 3단계 노드들 - 중앙 우측 -->
-      <div class="third-level-container center-right-container">
+      <!-- 3단계 노드들 - MY -->
+      <div class="third-level-container my-container">
         <div class="feature-box">
           <h4 class="feature-title">주문 내역조회</h4>
         </div>
@@ -1245,8 +1250,8 @@ body, h1, h2, h3, h4, p, span {
         </div>
       </div>
       
-      <!-- 3단계 노드들 - 우측 -->
-      <div class="third-level-container right-container">
+      <!-- 3단계 노드들 - 더보기 -->
+      <div class="third-level-container more-container">
         <div class="feature-box">
           <h4 class="feature-title">매장 찾기</h4>
         </div>
