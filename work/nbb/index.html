@@ -704,6 +704,62 @@ body, h1, h2, h3, h4, p, span {
   color: #555;
 }
 
+ /* SECTION 7: SOLUTION */
+.solution-section {
+    padding: 100px 60px;
+   background-color: var(--white);
+    min-height:100vh;
+  }
+ .solution-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+    position:relative;
+    display: flex; /* flex 유지 */
+   flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소 사이 공간 확보 */
+  align-items: flex-start; 
+  min-height: 70vh;
+}
+  
+    .solution-images {
+      position: absolute;  
+      width: 70%;
+      margin-top:-12vh; 
+      right: -2%;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+     .solution-image {
+       max-width: 100%; /* 이미지 최대 너비 설정 */
+      height: auto;
+      display: block; /* margin auto 허용을 위해 block으로 설정 */
+}
+
+
+  /* 설명 영역 */
+  .solution-explanation {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: left;
+    z-index: 3;
+    padding-left: 0px; /* 왼쪽 여백 60px 추가 */
+    margin-top: 750px; /* 위쪽 여백 추가 */
+    clear: both; /* float 요소 이후 클리어 */
+  }
+  
+  .section-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+    
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
    
@@ -1268,6 +1324,32 @@ body, h1, h2, h3, h4, p, span {
   </div>
 </section>
 
+    
+<!-- SECTION 7 : solution -->
+<section class="solution-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="solution-content">
+    <h3 class="section-heading">
+      주문 서비스의 첫 화면은<br>
+      다양한 필요를<br>
+	<span class="highlight-yellow”>빠르게 충족</span>하도록.
+    </h3>
+        <div class="solution-images”>
+          <img src="images/07.png" alt="노브랜드버거 앱 이미지 class="solution-image">
+     </div>
+
+
+    <div class=“solution-explanation">
+      <p class="section-description">
+      <span class="highlight-d”> 주문 앱의 홈 화면에 꼭 필요한 요소를 정의하였습니다.</span> <br>
+     우선 주문 버튼을 화면 내에 눈에 띄게 두었습니다.
+매장의 테이블에 있는 QR을 스캔하여 바로 주문하는 버튼과<br>
+키오스크 주문 시 사용하는 멤버십 바코드 조회 버튼도<br>
+    바로 꺼내 써야하기에 홈 화면에 배치하였습니다.<br> 
+    </p>
+    </div> 
+  </div>
+    </section>
 
       <div class="top-button" id="topButton"></div>
 </body>
