@@ -704,66 +704,49 @@ body, h1, h2, h3, h4, p, span {
 }
 
 /* SECTION 7: SOLUTION */
-.solution-section {
-  padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
-  position: relative;
-}
-
 .solution-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .solution-text {
-  width: 50%;
+  width: 45%;
   position: relative;
   z-index: 2;
   margin-bottom: 40px;
 }
+
 .solution-text2 {
-  width: 50%;
-  position: relative;
+  width: 45%;
+  position: absolute;
+  right: 0;
+  top: 0;
   z-index: 2;
   margin-bottom: 40px;
 }
+
 .solution-images {
   position: absolute;
-  width: 25%;
-  right: 30vw;
-  top: -8vh;
+  width: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
   z-index: 1;
 }
 
-.solution-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 .solution-description {
-  width: 100%;
-  margin-top: -7vh; /* Adjust based on image height */
-  clear: both;
-}
-.solution-description2 {
-  width: 100%;
-  margin-top: 30vh; /* Adjust based on image height */
-right: 80vw;
+  width: 45%;
+  margin-top: 400px;
   clear: both;
 }
 
-.section-description {
-font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
+.solution-description2 {
+  width: 45%;
+  margin-top: 400px;
+  position: absolute;
+  right: 0;
+  clear: both;
 }
 
 .highlight-yellow {
@@ -1373,6 +1356,13 @@ font-family: "pretendard-bold", sans-serif;
       </h3>
     </div>
     
+    <div class="solution-text2">
+      <h3 class="section-heading">
+        작지만, 사용자와 <br>
+        함께하는 <span class="highlight-yellow">개인화 요소</span><br>
+      </h3>
+    </div>
+    
     <div class="solution-images">
       <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
     </div>
@@ -1387,23 +1377,16 @@ font-family: "pretendard-bold", sans-serif;
       </p>
     </div>
 
-    <div class="solution-text2">
-      <h3 class="section-heading">
-        작지만, 사용자와 <br>
-        함께하는 <span class="highlight-yellow"> 개인화 요소</span><<br>
-      </h3>
-    </div>
-	      <div class="solution-description2">
+    <div class="solution-description2">
       <p class="section-description">
-      개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
+        개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
         지난 주문을 간편하게 다시 주문하는 간편 주문으로 <br>
         사용자 맞춤형 빠른 주문을 제공합니다.<br>
-       닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
+        닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
         쿠폰 보유 현황을 상단에 표시하여, 사용자 관점으로<br>
-	      필요한 요소를 전달합니다.
+        필요한 요소를 전달합니다.
       </p>
     </div>
-	  
   </div>
 </section>
 
