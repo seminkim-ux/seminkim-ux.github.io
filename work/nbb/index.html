@@ -229,21 +229,32 @@ body, h1, h2, h3, h4, p, span {
     }
 
     /* HERO IMAGE */
-    .hero-image {
-      position: absolute; 
-      bottom: -6px;
-      right: 0px;
-      width: 42%;
-      height: auto;
-      overflow: hidden;
-      z-index: 10;
+    .hero-image container {
+   position: relative;
+  left: -7%;
+  top: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
     }
     
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 0; 
+    .hero-image {
+      position:absolute;
+  width: 38%;
+  top: 0%; /* 상단으로 살짝 올림 */
+  height: auto;
+  border-radius: 15px;
+    }
+    .hero-image2 {
+     position:absolute;
+  width: 38%;
+  top: -5%; /* 섹션 내 제일 높은 위치로 */
+  height: auto;
+  border-radius: 15px;
     }
 
     /* SECTION COMMON STYLES */
@@ -700,12 +711,18 @@ body, h1, h2, h3, h4, p, span {
           <span class="stat-value">Increased 20% App Order </span>
         </div>
       </div>
-  
-     <div class="hero-image">
-        <img src="images/01_9.jpg" alt="nbb 이미지">
+      <!-- 모바일 UI 이미지 컨테이너 -->
+    <div class="hero-image-container">
+        <div class="hero-image">
+        <img src="images/01_p.png" alt="nbb 이미지">
       </div>
-    </section>
+     <div class="hero-image2">
+        <img src="images/01_p2.png" alt="nbb 이미지">
+      </div>
+
+
   </div>
+    </section>
     
   <!-- SECTION 1: OVERVIEW -->
   <section class="section">
