@@ -170,7 +170,6 @@ body, h1, h2, h3, h4, p, span {
         }
     /* PROJECT HEADER SECTION */
     .project-header {
-      position:relative;
       padding: 0 60px;
       height: 100vh;
       display: flex;
@@ -230,10 +229,21 @@ body, h1, h2, h3, h4, p, span {
     }
 
     /* HERO IMAGE */
-    
+    .hero-image-container {
+  position: relative;
+  left: -7%;
+  top: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
     .hero-image {
       position:absolute;
-      width: 15%;
+      width: 32%;
       right: 20%
   top: 3%; /* 상단으로 살짝 올림 */
   height: auto;
@@ -701,13 +711,15 @@ body, h1, h2, h3, h4, p, span {
           <span class="stat-value">Increased 20% App Order </span>
         </div>
       </div>
-      <!-- 모바일 UI 이미지 컨테이너 -->
+ !-- 모바일 UI 이미지 컨테이너 -->
+    <div class="uds-image-container">
         <div class="hero-image">
         <img src="images/01_p.png" alt="nbb 이미지">
       </div>
      <div class="hero-image2">
         <img src="images/01_p2.png" alt="nbb 이미지">
       </div>
+    </div>
     </section>
     
   <!-- SECTION 1: OVERVIEW -->
