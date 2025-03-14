@@ -229,33 +229,34 @@ body, h1, h2, h3, h4, p, span {
     }
 
     /* HERO IMAGE */
-    .hero-image-container {
-  position: relative;
-  left: -7%;
-  top: auto;
-  width: 100%;
-  margin-left: 0;
-  margin-top: 90px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
+   .hero-image-container {
+  position: absolute; /* fixed 대신 absolute 사용 */
+  right: 0;
+  bottom: 0;
+  width: auto; /* 100%에서 auto로 변경 */
+  margin: 0; /* 마진 제거 */
+  z-index: 10;
+  pointer-events: none; /* 컨테이너가 마우스 이벤트에 반응하지 않도록 */
 }
-    .hero-image {
-      position:absolute;
-      width: 32%;
-      right: 20%
-  top: 3%; /* 상단으로 살짝 올림 */
+
+.hero-image, .hero-image2 {
+  position: absolute;
+  width: 38%;
   height: auto;
   border-radius: 15px;
-    }
-    .hero-image2 {
-     position:absolute;
-  width: 32%;
-  top: -5%; /* 섹션 내 제일 높은 위치로 */
-  height: auto;
-  border-radius: 15px;
-    }
+}
+
+.hero-image {
+  right: 5%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.hero-image2 {
+  right: 15%; /* 약간 겹치도록 */
+  bottom: 10%; /* 약간 위에 배치 */
+  z-index: 1;
+}
 
     /* SECTION COMMON STYLES */
     .section {
