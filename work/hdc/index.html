@@ -242,7 +242,7 @@ body, h1, h2, h3, h4, p, span {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 1000;
     opacity: 0;
@@ -257,12 +257,14 @@ body, h1, h2, h3, h4, p, span {
 
 /* 팝업 창 스타일 */
 .popup-content {
-    width: 700px;
-    height: 500px;
+  top:5vh;
+  left:1vw;
+  width: 550px;
+    height: 550px;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 15px;
     padding: 30px;
-    position: relative;
+    position: absolute;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transform: scale(0.9);
     opacity: 0;
