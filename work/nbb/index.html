@@ -291,7 +291,7 @@ body, h1, h2, h3, h4, p, span {
       color : #000;
     }
 
-    /* SECTION 1: OVERVIEW */
+    /* SECTION 2: OVERVIEW */
     .overview-content {
       display: flex;
       position: relative; 
@@ -342,7 +342,7 @@ body, h1, h2, h3, h4, p, span {
       color: #6e6e73;
     }
 
-     /* PROCESS SECTION STYLES */
+/* SECTION 3: PROCESS  */
   .process-section {
     padding: 100px 60px;
     background-color: var(--white);
@@ -430,64 +430,23 @@ body, h1, h2, h3, h4, p, span {
     padding-top: 15px;
   }
   
-  /* Responsive styles for process section */
-  @media screen and (max-width: 1024px) {
-    .process-grid {
-      flex-wrap: wrap;
-    }
-    
-    .process-column {
-      width: calc(50% - 10px);
-      margin-bottom: 20px;
-    }
-  }
   
-  @media screen and (max-width: 768px) {
-    .process-section {
-      padding: 80px 20px;
-    }
     
-    .section-heading {
-      font-size: var(--font-size-xl);
+    
+      /* SECTION 4: INSIGHT */
+    .insight-images      {
+    position: absolute;  
+      width: 30%;
+      margin-top: 8vh; 
+      right: 100px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
     }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .process-column {
-      width: 100%;
-    }
-  }
+ 
 
-    /* SECTION 3: CLIENT INTERVIEW */
-    .cinterview-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      max-width: 100%;
-      margin: 0;
-      margin-right: auto;
-      padding-top: 30px;
-    }
-
-    .cinterview-text {
-      display: block; /* absolute 대신 block 사용 */
-      margin-top: 30px;
-      width: 100%;
-    }
-
-    .cinterview-heading {
-      font-family: "pretendard-bold", sans-serif;
-      font-size: var(--font-size-xxl);
-      font-weight: 700;
-      line-height: 1.3;
-      text-align: left;
-      width: 100%;
-      margin-bottom: 24px; /* 헤딩과 텍스트 사이 간격 추가 */
-    }
-
-    /* SECTION 4: USER RESEARCH STYLES */
+    /* SECTION 5: USER RESEARCH STYLES */
   .user-research-section {
     background-color: var(--light-bg);
     padding-bottom: 120px;
@@ -569,12 +528,11 @@ body, h1, h2, h3, h4, p, span {
   }
 
 
- 
+
+  
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
    
-      
-      /* 반응형 히어로 이미지 조정 */
       .project-header-content {
         flex: 0 0 60%;
         max-width: 60%;
@@ -595,6 +553,8 @@ body, h1, h2, h3, h4, p, span {
     }
 
     @media screen and (max-width: 1024px) {
+      
+  
       .project-title {
         font-size: var(--font-size-xxxl);
       }
@@ -612,7 +572,6 @@ body, h1, h2, h3, h4, p, span {
         font-size: var(--font-size-xxl);
       }
       
-  
   
       /* 반응형 히어로 이미지 조정 */
       .project-header {
@@ -647,7 +606,17 @@ body, h1, h2, h3, h4, p, span {
         transform: translateX(50%);
         bottom: 15%;
       }
+          .process-grid {
+      flex-wrap: wrap;
     }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+  }
+  
+
 
     @media screen and (max-width: 768px) {
       .header {
@@ -670,11 +639,7 @@ body, h1, h2, h3, h4, p, span {
         font-size: var(--font-size-xl);
       }
       
-      .research-heading {
-        font-size: var(--font-size-xl);
-      }
       
-  
       /* 반응형 히어로 이미지 조정 */
       .hero-image, .hero-image2 {
         width: 200px;
@@ -689,7 +654,7 @@ body, h1, h2, h3, h4, p, span {
         right: calc(50% + 40px);
         transform: translateX(50%);
       }
-    }
+   
 
     @media screen and (max-width: 480px) {
       .project-stats {
@@ -754,7 +719,7 @@ body, h1, h2, h3, h4, p, span {
       </div>
     </section>
     
-  <!-- SECTION 1: OVERVIEW -->
+  <!-- SECTION 2: OVERVIEW -->
   <section class="section">
     <h2 class="section-title">Overview</h2>
     <div class="overview-content">
@@ -774,7 +739,7 @@ body, h1, h2, h3, h4, p, span {
     </div>
   </section>
     
-<!-- SECTION 2: PROCESS -->
+<!-- SECTION 3: PROCESS -->
 <section class="section process-section">
   <h2 class="section-title">Process</h2>
   <div class="process-content">
@@ -863,55 +828,20 @@ body, h1, h2, h3, h4, p, span {
   </div>
 </section>
     
-<!-- SECTION 3: CLIENT INTERVIEW -->
-<section class="section" style="position: relative; padding-bottom: 200px; overflow: visible;">
-  <h2 class="section-title">Client Interview</h2>
-  <div class="cinterview-content" style="width: 100%;">
-    <div class="cinterview-text">
-      <h3 class="cinterview-heading">
-        <span class="highlight-blue">사용성에 공감</span>할 수 있는 서비스를 만든 후,<br>
-        더욱 <span class="highlight-blue">확장된 플랫폼</span>으로 발전해야 합니다. 
-      </h3>
-      <p class="overview-paragraph">HDC와 HDC랩스 임직원을 대상으로 인터뷰를 진행하였습니다.<br>
-       기능만 제공했던 기존의 서비스에서, 사용자 관점의 UX를 제공하는 목표를 가지고 있었습니다.<br>
-      다양한 기능을 통합하여 잘 제공한 후, 추후에는 아이파크몰과 연계한 세일즈까지 염두에 두었습니다.</p>
-    </div>
-  </div>
-  
-  <!-- 이미지 배치를 위한 컨테이너 -->
-  <div style="position: relative; margin-top: 40px; height: 300px; width: 90%;">
-    <!-- PROJECT GOAL 배경 텍스트 이미지: 왼쪽에 배치하고 z-index 낮게 설정 -->
-    <div style="position: absolute; top: 0; left: 0; z-index: 1;">
-      <img src="images/04_b_9.png" style="width: 110%; max-width: 1200px; height: auto;">
-    </div>
+<!-- SECTION 4 : insight -->
+<section class="insight-section">
+  <h2 class="section-title">Overview</h2>
+  <div class="process-content">
+    <h3 class="section-heading">
+      주문 서비스에 필요한 기준으로<br>
+      경쟁사 앱을 분석하고<br>
+      주요 강점을 탐색했습니다.
+    </h3>
+        <div class="insight-images">
+          <img src="images/04.png" alt="노브랜드버거 앱 스크린샷" class="insight-image">
+     </div>
+    </section>
     
-    <!-- 5개 이미지: 배경 이미지 위에 겹쳐서 배치 -->
-    <!-- 기존 분산된 앱 통합 - 왼쪽 상단 -->
-    <div style="position: absolute; top: 10%; left: 5%; z-index: 2;">
-      <img src="images/04_1_9.png" style="width: 277px; height: auto;">
-    </div>
-    
-    <!-- 태블릿 버전은 아이파크몰 콘텐츠 일부 제공 - 좌측 하단 -->
-    <div style="position: absolute; top: 75%; left: 15%; z-index: 2;">
-      <img src="images/04_2_9.png" style="width: 449px; height: auto;">
-    </div>
-    
-    <!-- 사용자 관점의 IoT 서비스 - 중앙 -->
-    <div style="position: absolute; top: 35%; left: 45%; z-index: 2;">
-      <img src="images/04_3_9.png" style="width: 314px; height: auto;">
-    </div>
-    
-    <!-- 삼성, LG 앱과 연동한 가전제어 - 오른쪽 상단 -->
-    <div style="position: absolute; top: 10%; right: -9%; z-index: 2;">
-      <img src="images/04_4_9.png" style="width: 349px; height: auto;">
-    </div>
-    
-    <!-- 자동화, 실험실 등 고도화 기능 - 오른쪽 하단 -->
-    <div style="position: absolute; top: 70%; right: 1%; z-index: 2;">
-      <img src="images/04_5_9.png" style="width: 336px; height: auto;">
-    </div>
-  </div>
-</section>
   <!-- SECTION 4: USER RESEARCH -->
 <section class="section user-research-section">
   <h2 class="section-title">User Research</h2>
