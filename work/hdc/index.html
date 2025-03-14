@@ -169,149 +169,149 @@ body, h1, h2, h3, h4, p, span {
             margin-top: 4px;
         }
 
-   /* 팝업 버튼 스타일 */
-        .popup-button {
-            position: absolute;
-            top: 1%;
-            left: 90%;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .small-circle {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background-color: #517fff;
-            border-radius: 50%;
-            z-index: 2;
-            animation: small-bounce 1.5s ease-out infinite;
-        }
-        
-        .large-circle {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(81, 127, 255, 0.6);
-            border-radius: 50%;
-            animation: pulse 1.5s ease-out infinite;
-            z-index: 1;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes small-bounce {
-            0%, 50% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.2);
-            }
-            40% {
-                transform: scale(0.9);
-            }
-        }
-        
-        /* 팝업 배경 스타일 */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* 팝업 창 스타일 */
-        .popup-content {
-            width: 700px;
-            height: 500px;
-            background-color: rgba(255, 255, 255, 1);
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .popup-overlay.active .popup-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-        
-        /* 닫기 버튼 스타일 */
-        .close-button {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .close-button:before, .close-button:after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background-color: #333;
-            top: 50%;
-            left: 50%;
-        }
-        
-        .close-button:before {
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-        
-        .close-button:after {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-        
-        /* 팝업 내용 스타일 */
-        .popup-text {
-            font-family: "Pretendard-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-            margin-top: 20px;
-        }
+/* 팝업 버튼 스타일 - ID에서 클래스로 변경 */
+.popup-button {
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-circle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #517fff;
+    border-radius: 50%;
+    z-index: 2;
+    animation: small-bounce 1.5s ease-out infinite;
+}
+
+.large-circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(81, 127, 255, 0.6);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes small-bounce {
+    0%, 50% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    40% {
+        transform: scale(0.9);
+    }
+}
+
+/* 팝업 배경 스타일 - ID에서 클래스로 변경 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 팝업 창 스타일 */
+.popup-content {
+    width: 700px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* 닫기 버튼 스타일 - ID에서 클래스로 변경 */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button:before, .close-button:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    left: 50%;
+}
+
+.close-button:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 팝업 내용 스타일 */
+.popup-text {
+    font-family: "Pretendard-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 20px;
+}
 
     /* PROJECT HEADER SECTION */
     .project-header {
@@ -2346,29 +2346,25 @@ body, h1, h2, h3, h4, p, span {
       </p>
     </div>
 
-  <div class="popup-button" id="popupButton">
-        <div class="small-circle"></div>
-        <div class="large-circle"></div>
-    </div>
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <button class="close-button" id="closeButton"></button>
-            <div class="popup-text">
-                메인 화면에 날씨 정보를 제공하는 것은 이미 고객사에서 결정된 사항이었습니다. <br>
-다만 디자인 시안은 좀처럼 좋은 평가를 받지 못했습니다. <br> <br>
-          날씨 아이콘을 심플한 것으로 바꾸고 애니메이션 인터랙션을 요청하였습니다. <br>
-        저는 레퍼런스를 많이 수집하는 편으로, 네이버 와치의 날씨 디자인과 효과를 참고로 하여 전달하였습니다.  
-디자이너에게 온도 표기 등 크게 적용되는 글자를 light 서체로 바꿔달라고 하였습니다. <br> <br>
-        
-          다른 작업을 하는 동료에게 피드백을 하는 것이 쉽지 않습니다.<br>
-          다른 팀원들에게 동의를 구하고, 공감이 되지 않는다면 더 주장하지는 않습니다.<br>
-          그래서 방향성에 공감하고, 뛰어난 작업을 해내는 동료가 참 중요하다고 생각합니다.<br>
-
+      <!-- 첫 번째 팝업 오버레이 (ID에서 클래스로 변경) -->
+      <div class="popup-overlay popup-overlay-1">
+          <div class="popup-content">
+              <button class="close-button close-button-1"></button>
+              <div class="popup-text">
+                  메인 화면에 날씨 정보를 제공하는 것은 이미 고객사에서 결정된 사항이었습니다. <br>
+                  다만 디자인 시안은 좀처럼 좋은 평가를 받지 못했습니다. <br> <br>
+                  날씨 아이콘을 심플한 것으로 바꾸고 애니메이션 인터랙션을 요청하였습니다. <br>
+                  저는 레퍼런스를 많이 수집하는 편으로, 네이버 와치의 날씨 디자인과 효과를 참고로 하여 전달하였습니다.  
+                  디자이너에게 온도 표기 등 크게 적용되는 글자를 light 서체로 바꿔달라고 하였습니다. <br> <br>
+              
+                  다른 작업을 하는 동료에게 피드백을 하는 것이 쉽지 않습니다.<br>
+                  다른 팀원들에게 동의를 구하고, 공감이 되지 않는다면 더 주장하지는 않습니다.<br>
+                  그래서 방향성에 공감하고, 뛰어난 작업을 해내는 동료가 참 중요하다고 생각합니다.<br>
               </div>
-        </div>
+          </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- SECTION 7: UI 화면 구조 -->
 <section class="section ui-structure-section">
   <h2 class="section-title">Solution</h2>
@@ -2521,31 +2517,32 @@ body, h1, h2, h3, h4, p, span {
       </p>
     </div>
 
-  <div class="popup-button" id="popupButton">
-        <div class="small-circle"></div>
-        <div class="large-circle"></div>
-    </div>
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <button class="close-button" id="closeButton"></button>
-            <div class="popup-text">
-             자동화 기능은 2차 프로젝트에 도입되었습니다. <br> <br>
-          자동화, 실험실 등의 기능이 도입된 것은 고객사의 사정때문입니다. 새로운 기능과 고도화를 꾸준히
-진행하고 있음을 어필해야 했기 때문입니다.  <br>
-        1차에서 진행한 제어 기능도 사용자에게 익숙하지 않은데, 자동화는 사용자가 어떻게 받아들일까 생각했습니다.  <br> <br>
-        
-          기능이 결정되었다고 하더라도, 단순히 기능만 제공하지 않는 것이 중요하다고 판단했습니다.<br>
-         애플 홈이나 네이버페이 등도 콘텐츠 형태의 안내 화면을 제공하고 있었습니다.<br>
-         보다 잘 이해되기 위해, 누가+언제+무엇을 형태의 콘텐츠를 작성하고, 이 예시를 바탕으로 조금만 바꿔
-템플릿을 설정할 수 있도록 하였습니다. 템플릿 기능은 이전 회사의 전자책 프로그램 기획 당시, 사용성을 염두하여
-만들었던 템플릿 작업 경험으로 기획할 수 있었습니다. <br>
-
+      <!-- 두 번째 팝업 버튼 (ID에서 클래스로 변경) -->
+      <div class="popup-button popup-button-2">
+          <div class="small-circle"></div>
+          <div class="large-circle"></div>
+      </div>
+      
+      <!-- 두 번째 팝업 오버레이 (ID에서 클래스로 변경) -->
+      <div class="popup-overlay popup-overlay-2">
+          <div class="popup-content">
+              <button class="close-button close-button-2"></button>
+              <div class="popup-text">
+                  자동화 기능은 2차 프로젝트에 도입되었습니다. <br> <br>
+                  자동화, 실험실 등의 기능이 도입된 것은 고객사의 사정때문입니다. 새로운 기능과 고도화를 꾸준히
+                  진행하고 있음을 어필해야 했기 때문입니다.  <br>
+                  1차에서 진행한 제어 기능도 사용자에게 익숙하지 않은데, 자동화는 사용자가 어떻게 받아들일까 생각했습니다.  <br> <br>
+              
+                  기능이 결정되었다고 하더라도, 단순히 기능만 제공하지 않는 것이 중요하다고 판단했습니다.<br>
+                  애플 홈이나 네이버페이 등도 콘텐츠 형태의 안내 화면을 제공하고 있었습니다.<br>
+                  보다 잘 이해되기 위해, 누가+언제+무엇을 형태의 콘텐츠를 작성하고, 이 예시를 바탕으로 조금만 바꿔
+                  템플릿을 설정할 수 있도록 하였습니다. 템플릿 기능은 이전 회사의 전자책 프로그램 기획 당시, 사용성을 염두하여
+                  만들었던 템플릿 작업 경험으로 기획할 수 있었습니다. <br>
               </div>
-        </div>
+          </div>
+      </div>
     </div>
-    
-  </div>
-</section>
+  </section>
 <!-- SECTION 10: Fun -->
 <section class="section fun-section">
   <h2 class="section-title">Solution</h2>
@@ -3066,29 +3063,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-      // 팝업 기능 구현
-        document.addEventListener('DOMContentLoaded', function() {
-            const popupButton = document.getElementById('popupButton');
-            const popupOverlay = document.getElementById('popupOverlay');
-            const closeButton = document.getElementById('closeButton');
-            
-            // 팝업 버튼 클릭 시 팝업 열기
-            popupButton.addEventListener('click', function() {
-                popupOverlay.classList.add('active');
-            });
-            
-            // 닫기 버튼 클릭 시 팝업 닫기
-            closeButton.addEventListener('click', function() {
-                popupOverlay.classList.remove('active');
-            });
-            
-            // 오버레이 클릭 시 팝업 닫기
-            popupOverlay.addEventListener('click', function(e) {
-                if (e.target === popupOverlay) {
-                    popupOverlay.classList.remove('active');
-                }
-            });
-        });
+ // 팝업 기능 구현 - 수정된 코드
+  document.addEventListener('DOMContentLoaded', function() {
+    // 각 팝업 버튼과 오버레이 선택
+    const popupButton1 = document.querySelector('.popup-button-1');
+    const popupOverlay1 = document.querySelector('.popup-overlay-1');
+    const closeButton1 = document.querySelector('.close-button-1');
+    
+    const popupButton2 = document.querySelector('.popup-button-2');
+    const popupOverlay2 = document.querySelector('.popup-overlay-2');
+    const closeButton2 = document.querySelector('.close-button-2');
+    
+    // 첫 번째 팝업 버튼 클릭 시 팝업 열기
+    if (popupButton1) {
+      popupButton1.addEventListener('click', function() {
+        popupOverlay1.classList.add('active');
+      });
+    }
+    
+    // 첫 번째 팝업 닫기 버튼 클릭 시 팝업 닫기
+    if (closeButton1) {
+      closeButton1.addEventListener('click', function() {
+        popupOverlay1.classList.remove('active');
+      });
+    }
+    
+    // 첫 번째 오버레이 클릭 시 팝업 닫기
+    if (popupOverlay1) {
+      popupOverlay1.addEventListener('click', function(e) {
+        if (e.target === popupOverlay1) {
+          popupOverlay1.classList.remove('active');
+        }
+      });
+    }
+    
+    // 두 번째 팝업 버튼 클릭 시 팝업 열기
+    if (popupButton2) {
+      popupButton2.addEventListener('click', function() {
+        popupOverlay2.classList.add('active');
+      });
+    }
+    
+    // 두 번째 팝업 닫기 버튼 클릭 시 팝업 닫기
+    if (closeButton2) {
+      closeButton2.addEventListener('click', function() {
+        popupOverlay2.classList.remove('active');
+      });
+    }
+    
+    // 두 번째 오버레이 클릭 시 팝업 닫기
+    if (popupOverlay2) {
+      popupOverlay2.addEventListener('click', function(e) {
+        if (e.target === popupOverlay2) {
+          popupOverlay2.classList.remove('active');
+        }
+      });
+    }
+  });
   </script>
   </body>
 </html>
