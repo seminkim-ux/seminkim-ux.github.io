@@ -434,7 +434,7 @@ body, h1, h2, h3, h4, p, span {
   
     
     
-      /* SECTION 4: INSIGHT */
+/* SECTION 4: INSIGHT */
   .insight-section {
     padding: 100px 60px;
     background-color: var(--light-gray);
@@ -446,10 +446,9 @@ body, h1, h2, h3, h4, p, span {
     text-align:left;
   }
   
-    
-    .insight-images      {
-    position: absolute;  
-      width: 30%;
+    .insight-images {
+      position: absolute;  
+      width: 100%;
       margin-top: 8vh; 
       right: 100px;
       aspect-ratio: 1 / 1;
@@ -457,7 +456,11 @@ body, h1, h2, h3, h4, p, span {
       border-radius: 0px;
       order: 10;
     }
- 
+     .insight-image {
+      right: 22vw;
+      bottom: 6vh;
+      z-index: 2;
+    }
 
     /* SECTION 5: USER RESEARCH STYLES */
   .user-research-section {
