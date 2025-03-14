@@ -438,12 +438,16 @@ body, h1, h2, h3, h4, p, span {
   .insight-section {
     padding: 100px 60px;
     background-color: var(--light-gray);
+    min-height:100vh;
   }
  .insight-content {
     width: 100%;
     max-width: 90vw;
     margin: 0;
-    text-align:left;
+  text-align:left;
+   position:relative;
+  flex-direction: column;
+  min-height: 70vh; /* 컨텐츠를 위한 충분한 높이 */
   }
   
     .insight-images {
@@ -457,10 +461,10 @@ body, h1, h2, h3, h4, p, span {
       order: 10;
     }
      .insight-image {
-      right: 22vw;
-      bottom: 6vh;
-      z-index: 2;
-    }
+       max-width: 80%; /* 이미지 최대 너비 설정 */
+      height: auto;
+      display: block; /* margin auto 허용을 위해 block으로 설정 */
+}
 
     /* SECTION 5: USER RESEARCH STYLES */
   .user-research-section {
@@ -670,15 +674,16 @@ body, h1, h2, h3, h4, p, span {
         right: calc(50% + 40px);
         transform: translateX(50%);
       }
-   
+    .insight-image {
+      max-width: 100%;
+    }
+    }
 
     @media screen and (max-width: 480px) {
       .project-stats {
         flex-wrap: wrap;
       }
-      
    
-      /* 반응형 히어로 이미지 조정 */
       .hero-image, .hero-image2 {
         width: 150px;
       }
