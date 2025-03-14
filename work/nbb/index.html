@@ -168,23 +168,24 @@ body, h1, h2, h3, h4, p, span {
             transform: rotate(-45deg);
             margin-top: 4px;
         }
-    /* PROJECT HEADER SECTION */
+    /* PROJECT HEADER SECTION - 새로 작성 */
     .project-header {
-      padding: 0 60px;
-      height: 90vh;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      height: 90vh;
+      padding: 0 60px;
       background-color: var(--nav-bg);
-      position: relative; 
+      position: relative;
+      overflow: hidden;
     }
     
     .project-header-content {
-      flex: 1;
-      max-width: 60%;
+      flex: 0 0 50%;
+      max-width: 50%;
       align-self: flex-start;
       margin-top: 19vh;
+      z-index: 2;
     }
     
     .project-meta {
@@ -228,35 +229,37 @@ body, h1, h2, h3, h4, p, span {
       margin-right: 15px;
     }
 
-    /* HERO IMAGE */
-.hero-image-container {
-  position: absolute;
-  right: 60px; /* % 대신 고정 픽셀 사용 */
-  bottom: 0;
-  width: 300px; /* % 대신 고정 픽셀 사용 */
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+    }
 
-.hero-image, .hero-image2 {
-  position: absolute;
-  width: 180px;
-  height: auto;
-  border-radius: 15px;
-}
+    .hero-image, .hero-image2 {
+      position: absolute;
+      width: 280px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
 
-.hero-image {
-  right: 5%;
-  bottom: 0;
-  z-index: 2;
-}
+    .hero-image {
+      right: 0;
+      bottom: 10%;
+      z-index: 2;
+    }
 
-.hero-image2 {
-  right: 15%; /* 약간 겹치도록 */
-  bottom: 10%; /* 약간 위에 배치 */
-  z-index: 1;
-}
+    .hero-image2 {
+      right: 120px;
+      bottom: 25%;
+      z-index: 1;
+    }
 
     /* SECTION COMMON STYLES */
     .section {
@@ -610,6 +613,25 @@ body, h1, h2, h3, h4, p, span {
         top: 40px;
         bottom: auto;
       }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, .hero-image2 {
+        width: 230px;
+      }
+      
+      .hero-image2 {
+        right: 100px;
+      }
     }
 
     @media screen and (max-width: 1024px) {
@@ -637,6 +659,40 @@ body, h1, h2, h3, h4, p, span {
       .timeline-item {
         width: 30%;
       }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 80px);
+        transform: translateX(50%);
+        bottom: 15%;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -645,7 +701,7 @@ body, h1, h2, h3, h4, p, span {
       }
       
       .project-header {
-        padding: 0 20px;
+        padding: 60px 20px;
       }
       
       .section {
@@ -667,6 +723,21 @@ body, h1, h2, h3, h4, p, span {
       .timeline-item {
         width: 45%;
       }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 40px);
+        transform: translateX(50%);
+      }
     }
 
     @media screen and (max-width: 480px) {
@@ -676,6 +747,23 @@ body, h1, h2, h3, h4, p, span {
       
       .timeline-item {
         width: 100%;
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 20px);
+        transform: translateX(50%);
+        bottom: 25%;
       }
     }
   </style>
@@ -693,34 +781,33 @@ body, h1, h2, h3, h4, p, span {
       </nav>
     </header>
     
-    <!-- PROJECT HEADER SECTION -->
+    <!-- PROJECT HEADER SECTION - 새로 작성 -->
     <section class="project-header">
       <div class="project-header-content">
         <div class="project-meta">2021.01 - 2021.09</div>
         <h1 class="project-title">No Brand Burger<br> APP</h1>
         <div class="project-description">
-          <p>노브랜드버거의 주문채널(앱, 모바일웹, PC웹) 구축 프로젝트에서 메인으로 기획을 진행하였습니다. </p>
-    <p>가입부터 주문, 주문 후 피드백, 사용자 이벤트 등 전체 영역을 설계하였습니다..</p>
-      <p>테스트를 통해 오류를 보완하고, 서비스를 런칭하였습니다.  </p>
-
+          <p>노브랜드버거의 주문채널(앱, 모바일웹, PC웹) 구축 프로젝트에서 메인으로 기획을 진행하였습니다.</p>
+          <p>가입부터 주문, 주문 후 피드백, 사용자 이벤트 등 전체 영역을 설계하였습니다.</p>
+          <p>테스트를 통해 오류를 보완하고, 서비스를 런칭하였습니다.</p>
         </div>
-          
         <div class="project-stats">
           <span class="stat-label">ROLE</span>
           <span class="stat-value">UX PLANNING / 70%</span>
           <span class="stat-label">PROGRESS</span>
-          <span class="stat-value">Increased 20% App Order </span>
+          <span class="stat-value">Increased 20% App Order</span>
         </div>
       </div>
- <!-- 모바일 UI 이미지 컨테이너 -->
-    <div class="hero-image-container">
+      
+      <!-- 모바일 UI 이미지 -->
+      <div class="project-images">
         <div class="hero-image">
-        <img src="images/01_p.png" alt="nbb 이미지">
+          <img src="images/01_p.png" alt="노브랜드버거 앱 스크린샷">
+        </div>
+        <div class="hero-image2">
+          <img src="images/01_p2.png" alt="노브랜드버거 앱 스크린샷">
+        </div>
       </div>
-     <div class="hero-image2">
-        <img src="images/01_p2.png" alt="nbb 이미지">
-      </div>
-    </div>
     </section>
     
   <!-- SECTION 1: OVERVIEW -->
@@ -734,11 +821,11 @@ body, h1, h2, h3, h4, p, span {
         </h3>
         <p class="overview-paragraph"> 노브랜드버거는 배민, 요기요 등 외부 채널로만 온라인 주문을 운영하고 있었습니다..<br>
         자체 채널로 비용을 절감하고, 사용자와 관계를 구축해야 했습니다..<br>
-        특히 Why pay more라는 브랜드 콘셉트와 어울리는 합리적인 주문 UX를 이루기 위해, <br>
+        특히 Why pay more라는 브랜드 콘셉트와 어울리는 합리적인 주문 UX를 이루기 위해,<br>
          빠른 가입과 주문이라는 목표를 실현했습니다. </p>
       </div>
       <div class="overview-image">
-        <img src="images/02.png" alt="HDC IoT App 프로젝트 이미지">
+        <img src="images/02_9.png" alt="HDC IoT App 프로젝트 이미지">
       </div>
     </div>
   </section>
