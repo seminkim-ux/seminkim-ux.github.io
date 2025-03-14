@@ -721,10 +721,20 @@ body, h1, h2, h3, h4, p, span {
   align-items: flex-start; 
   min-height: 70vh;
 }
+    .solution-text {
+position:relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    padding-right: 20px;
+  }
   
     .solution-images {
       position: absolute;  
-      width: 70%;
+      width: 50%;
       margin-top:-12vh; 
       right: -2%;
       aspect-ratio: 1 / 1;
@@ -1328,15 +1338,16 @@ body, h1, h2, h3, h4, p, span {
 <section class="solution-section">
   <h2 class="section-title">Insight</h2>
   <div class="solution-content">
+<div class="solution-text">
     <h3 class="section-heading">
       주문 서비스의 첫 화면은<br>
       다양한 필요를<br>
 	<span class="highlight-yellow”>빠르게 충족</span>하도록. </h3>
- </div>
+
         <div class="solution-images”>
           <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
      </div>
-
+	</div>
 
     <div class=“solution-explanation">
       <p class="section-description">
