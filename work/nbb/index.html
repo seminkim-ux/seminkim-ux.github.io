@@ -434,40 +434,115 @@ body, h1, h2, h3, h4, p, span {
   
     
     
-/* SECTION 4: INSIGHT */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:120vh;
-  }
- .insight-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
+/* SECTION 4: INSIGHT STYLING */
+.insight-section {
+  padding: 100px 60px;
+  background-color: var(--light-gray);
+  min-height: 120vh;
+  position: relative;
 }
-  
-    .insight-images {
-      position: absolute;  
-      width: 60%;
-      margin-top:-4vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 80%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
+
+.insight-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
 }
+
+.section-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 60px;
+  text-align: left;
+  max-width: 600px;
+}
+
+.insight-hexagon-container {
+  position: relative;
+  width: 100%;
+  height: 650px;
+}
+
+.insight-images {
+  position: absolute;
+  width: 60%;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.insight-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hexagon text positioning */
+.hexagon-text-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hexagon-text {
+  position: absolute;
+  max-width: 280px;
+}
+
+.hexagon-title {
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+
+.hexagon-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6e6e73;
+}
+
+/* Positioning for each point of the hexagon */
+.top-text {
+  top: 5%;
+  left: 40%;
+  transform: translateX(-50%);
+}
+
+.right-top-text {
+  top: 22%;
+  right: 5%;
+}
+
+.right-bottom-text {
+  top: 55%;
+  right: 5%;
+}
+
+.bottom-text {
+  bottom: 5%;
+  left: 40%;
+  transform: translateX(-50%);
+}
+
+.left-bottom-text {
+  bottom: 30%;
+  left: 5%;
+}
+
+.left-top-text {
+  top: 22%;
+  left: 5%;
+}
+
 
     /* SECTION 5: USER RESEARCH STYLES */
   .user-research-section {
@@ -573,6 +648,14 @@ body, h1, h2, h3, h4, p, span {
       .hero-image2 {
         right: 100px;
       }
+        .insight-images {
+    width: 55%;
+  }
+  
+  .hexagon-text {
+    max-width: 240px;
+  }
+}
     }
 
     @media screen and (max-width: 1024px) {
@@ -594,6 +677,46 @@ body, h1, h2, h3, h4, p, span {
       .overview-heading {
         font-size: var(--font-size-xxl);
       }
+        .insight-hexagon-container {
+    height: 800px;
+  }
+  
+  .insight-images {
+    width: 80%;
+    right: 10%;
+  }
+  
+  .top-text {
+    top: 0;
+    left: 30%;
+  }
+  
+  .right-top-text {
+    top: 22%;
+    right: 0;
+  }
+  
+  .right-bottom-text {
+    top: 55%;
+    right: 0;
+  }
+  
+  .bottom-text {
+    bottom: 0;
+    left: 30%;
+  }
+  
+  .left-bottom-text {
+    bottom: 30%;
+    left: 0;
+  }
+  
+  .left-top-text {
+    top: 22%;
+    left: 0;
+  }
+  }
+      
       
   
       /* 반응형 히어로 이미지 조정 */
@@ -708,6 +831,17 @@ body, h1, h2, h3, h4, p, span {
         transform: translateX(50%);
         bottom: 25%;
       }
+        .hexagon-title {
+    font-size: 18px;
+  }
+  
+  .hexagon-description {
+    font-size: 13px;
+  }
+  
+  .insight-section {
+    padding: 40px 15px;
+  }
     }
   </style>
 </head>
@@ -870,8 +1004,63 @@ body, h1, h2, h3, h4, p, span {
         <div class="insight-images">
           <img src="images/04.png" alt="노브랜드버거 앱 스크린샷" class="insight-image">
      </div>
+      <!-- 헥사곤 텍스트 영역 -->
+      <div class="hexagon-text-container">
+        <!-- 접근성 -->
+        <div class="hexagon-text top-text">
+          <h4 class="hexagon-title">접근성</h4>
+          <p class="hexagon-description">
+            쉽게 가입하고 로그인할 수 있는가?<br>
+            상품의 결제가 쉽게 진행되는가?<br>
+            주문 시작 – 완료까지 쉽고 빠르게 도달할 수 있는가?
+          </p>
+        </div>
+        
+        <!-- 이해 용이성 -->
+        <div class="hexagon-text right-top-text">
+          <h4 class="hexagon-title">이해 용이성</h4>
+          <p class="hexagon-description">
+            고객이 이해하기에 쉬운 UI를 제공하는가?
+          </p>
+        </div>
+        
+        <!-- 심미성 -->
+        <div class="hexagon-text right-bottom-text">
+          <h4 class="hexagon-title">심미성</h4>
+          <p class="hexagon-description">
+            브랜드의 아이덴티티가 잘 나타나 있는가?
+          </p>
+        </div>
+        
+        <!-- 일관성 -->
+        <div class="hexagon-text bottom-text">
+          <h4 class="hexagon-title">일관성</h4>
+          <p class="hexagon-description">
+            앱/웹/키오스크 등 각 주문채널에서<br>
+            일관된 프로세스와 디자인을 제공하고 있는가?
+          </p>
+        </div>
+        
+        <!-- 리워드 -->
+        <div class="hexagon-text left-bottom-text">
+          <h4 class="hexagon-title">리워드</h4>
+          <p class="hexagon-description">
+            고객에게 특화된 리워드가 제공되는가?<br>
+            리워드의 적립과 사용이 용이한가?
+          </p>
+        </div>
+        
+        <!-- 개인화 -->
+        <div class="hexagon-text left-top-text">
+          <h4 class="hexagon-title">개인화</h4>
+          <p class="hexagon-description">
+            맞춤형 개인화 서비스를 제공하는가?
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-    </section>
+</section>
     
   <!-- SECTION 5: USER RESEARCH -->
 <section class="section user-research-section">
