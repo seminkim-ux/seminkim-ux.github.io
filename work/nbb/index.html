@@ -537,7 +537,6 @@ body, h1, h2, h3, h4, p, span {
   align-items: center;
   border-radius: 20px;
   padding: 10px 20px;
-  margin: 10px;
   text-align: center;
 }
 
@@ -567,49 +566,6 @@ body, h1, h2, h3, h4, p, span {
   font-size: 18px;
 }
 
-/* 2단계 노드 컨테이너 */
-.second-level-nodes {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 80px;
-  position: relative;
-  width: 100%;
-}
-
-/* 메인 노드에서 아래로 내려오는 선 */
-.second-level-nodes::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  width: 2px;
-  height: 30px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 2단계 노드들을 가로로 연결하는 선 */
-.second-level-nodes::after {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: calc(20% - 105px);
-  width: calc(60% + 210px);
-  height: 2px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 3단계 노드 전체 컨테이너 */
-.third-level-nodes {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 30px;
-  position: relative;
-}
-
 /* 수직 연결선 */
 .vertical-lines {
   position: absolute;
@@ -628,23 +584,66 @@ body, h1, h2, h3, h4, p, span {
 }
 
 .line1 {
-  left: calc(20% + 105px - 210px);
+  left: 10%;
 }
 
 .line2 {
-  left: calc(20% + 105px);
+  left: 30%;
 }
 
 .line3 {
-  left: calc(40% + 105px);
+  left: 50%;
 }
 
 .line4 {
-  left: calc(60% + 105px);
+  left: 70%;
 }
 
 .line5 {
-  left: calc(80% + 105px);
+  left: 90%;
+}
+
+/* 2단계 노드 컨테이너 */
+.second-level-nodes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  margin-bottom: 80px;
+  position: relative;
+  justify-items: center;
+}
+
+/* 메인 노드에서 아래로 내려오는 선 */
+.second-level-nodes::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* 2단계 노드들을 가로로 연결하는 선 */
+.second-level-nodes::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* 3단계 노드 전체 컨테이너 */
+.third-level-nodes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  position: relative;
+  justify-items: center;
 }
 
 /* 3단계 노드 컨테이너들 */
@@ -654,27 +653,7 @@ body, h1, h2, h3, h4, p, span {
   gap: 20px;
   width: 210px; /* 1.5배로 증가 */
   z-index: 3;
-  position: relative;
-}
-
-.empty-container {
-  margin-top: 140px;
-}
-
-.coupon-container {
-  margin-top: 140px;
-}
-
-.order-container {
-  margin-top: 140px;
-}
-
-.my-container {
-  margin-top: 140px;
-}
-
-.more-container {
-  margin-top: 140px;
+  margin-top: 50px;
 }
 
 /* 기능 박스 스타일 */
@@ -846,13 +825,13 @@ body, h1, h2, h3, h4, p, span {
       .overview-heading {
         font-size: var(--font-size-xl);
       }
-  .features-section {
-    padding: 80px 20px;
-  }
-  
-  .features-diagram {
-    display: none; /* 모바일에서는 다이어그램 숨김 */
-  }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
       
       /* 반응형 히어로 이미지 조정 */
       .hero-image, .hero-image2 {
@@ -1110,6 +1089,9 @@ body, h1, h2, h3, h4, p, span {
      </div>
   </div>
     </section>
+
+
+    
 <!-- SECTION 6: CORE FEATURES -->
 <section class="features-section">
   <h2 class="section-title">Insight</h2>
@@ -1124,6 +1106,15 @@ body, h1, h2, h3, h4, p, span {
       <!-- 메인 노드 - 홈 -->
       <div class="feature-node main-node">
         <span class="node-text">홈</span>
+      </div>
+      
+      <!-- 수직 연결선들 -->
+      <div class="vertical-lines">
+        <div class="vertical-line line1"></div>
+        <div class="vertical-line line2"></div>
+        <div class="vertical-line line3"></div>
+        <div class="vertical-line line4"></div>
+        <div class="vertical-line line5"></div>
       </div>
       
       <!-- 2단계 노드들 -->
@@ -1143,15 +1134,6 @@ body, h1, h2, h3, h4, p, span {
         <div class="feature-node second-node">
           <span class="node-text">더보기</span>
         </div>
-      </div>
-      
-      <!-- 수직 연결선들 -->
-      <div class="vertical-lines">
-        <div class="vertical-line line1"></div>
-        <div class="vertical-line line2"></div>
-        <div class="vertical-line line3"></div>
-        <div class="vertical-line line4"></div>
-        <div class="vertical-line line5"></div>
       </div>
       
       <!-- 3단계 노드들 전체 컨테이너 -->
