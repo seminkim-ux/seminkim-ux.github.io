@@ -778,7 +778,8 @@ font-family: "pretendard-bold", sans-serif;
   font-weight: 700;
 }
 
-/* SECTION 8: SOLUTION */
+
+/* SECTION 8: SOLUTION2  */
 .solution2-section {
   padding: 100px 60px;
   background-color: var(--white);
@@ -791,9 +792,9 @@ font-family: "pretendard-bold", sans-serif;
   max-width: 90vw;
   margin: 0;
   text-align: left;
- position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction:
+  position: relative;
+  display: flex;
+  flex-direction: column; /* column으로 변경 */
 }
 
 .solution2-text {
@@ -803,41 +804,42 @@ font-family: "pretendard-bold", sans-serif;
   margin-bottom: 40px;
 }
 
-    .solution2-images {
-      position: relative;
-      flex: 0 0 40%;
-      max-width: 40%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      z-index: 1;
-    }
+.solution2-images {
+  position: relative;
+  width: 100%; /* 전체 너비로 변경 */
+  height: 60vh; /* 이미지 컨테이너 높이 설정 */
+  margin-top: 20px; /* 텍스트와 이미지 사이 간격 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
 
- .solution2-image1, .solution2-image2, .solution2-image3 {
-      position: absolute;
-      width: 20vw;
-      height: auto;
-    }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  bottom: 10%; /* 아래에서부터의 위치 변경 */
+}
+
 .solution2-image1 {
-  right: 40vw;
-      bottom: -20vh;
-      z-index: 2;
-    }
+  right: 60%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
 .solution2-image2 {
-  right: 20vw;
-      bottom: -20vh;
-      z-index: 3;
-    }
+  right: 40%;
+  z-index: 3;
+}
+
 .solution2-image3 {
-  right: 0vw;
-      bottom: -19.5vh;
-      z-index: 4;
-    }
+  right: 20%;
+  z-index: 4;
+}
 
 .solution2-description {
   width: 100%;
-  margin-top: -7vh; /* Adjust based on image height */
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
   clear: both;
 }
 
