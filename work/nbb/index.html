@@ -851,6 +851,76 @@ font-family: "pretendard-bold", sans-serif;
 }
 
 
+/* SECTION 9: solution3  */
+.solution3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution3-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* column으로 변경 */
+}
+
+.solution3-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution3-images {
+  position: relative;
+  width: 100%; /* 전체 너비로 변경 */
+  height: 60vh; /* 이미지 컨테이너 높이 설정 */
+  margin-top: 20px; /* 텍스트와 이미지 사이 간격 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  bottom: 83%; /* 아래에서부터의 위치 변경 */
+}
+
+.solution3-image1 {
+  right: 45%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution3-image2 {
+  right: 23%;
+  z-index: 3;
+}
+
+.solution3-image3 {
+  right: 1%;
+  z-index: 4;
+}
+
+.solution3-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+  .solution3-me{
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+  }
 
     
     /* RESPONSIVE STYLES */
@@ -1511,6 +1581,44 @@ font-family: "pretendard-bold", sans-serif;
       <img src="images/08_3.png" alt="노브랜드버거 앱 이미지" class="solution2-image3">
     </div>
   </div>
+
+
+<!-- SECTION 9: SOLUTION3 -->
+<section class="solution3-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution3-content">
+    <div class="solution3-text">
+      <h3 class="section-heading">
+        편안한 주문이<br>
+        <span class="highlight-yellow">빠른 주문.</span>.
+      </h3>
+
+ <div class="solution3-description">
+      <p class="section-description">
+       사용자가 주문 과정에서 필요한 요소를<br>
+         <span class="highlight-d">먼저 제공하여 진입장벽을 낮춥니다.</span><br>
+        고려해야 할 요소, 직접 선택해야 할 요소를 <br>
+       줄이면서, 안내도 충실히 제공하는<br>
+            <span class="highlight-d"> 편안한 주문이 서비스와 사용자가 함께<br>
+동의를 이루어가는 필수적인 UX입니다.</span>
+      </p>
+    </div>
+
+<div class=“solution3-me”>
+1. 기존 배달지와 현재 위치를 비교하고<br> 물어보아서, 오류가 없도록 합니다.<br><br>
+2. 로그인 하지 않을 때도, 주문 과정을 모두 경험 후,<br> 최종 단계에서 회원/비회원 주문을 선택하도록 합니다.<br><br>
+3. 지난 주문이나 미리 설정한 간편주문으로<br> 더 쉽게 주문할 수 있습니다. <br><br>
+
+    </div>
+    
+
+    <div class="solution3-images">
+      <img src="images/09_1.png" alt="노브랜드버거 앱 이미지" class="solution3-image1”>
+     <img src="images/09_2.png" alt="노브랜드버거 앱 이미지" class="solution3-image2”>
+     <img src="images/09_3.png" alt="노브랜드버거 앱 이미지" class="solution3-image3”>
+    </div>
+ </div>
+	
 </section>
 <div class="top-button" id="topButton"></div>
 </body>
