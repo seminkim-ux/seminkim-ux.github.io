@@ -1053,8 +1053,83 @@ bottom:-76vh;
 }
   }
   
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+      right: 17vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
 
+    .hero-image2 {
+      right: -1vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+.overview-image {
+      position: absolute;  
+      width: 36%;
+      margin-top: 8vh; 
+      right: 10px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+.process-box {
+    padding: 30px;
+    width : 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 21vw;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
 
+.solution2-image1 {
+  right: 40%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 17%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -6%;
+  z-index: 4;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 34%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+}
+
+	
     @media screen and (max-width: 768px) {
       .header {
         padding: 0 20px;
