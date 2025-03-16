@@ -304,21 +304,36 @@ body, h1, h2, h3, h4, p, span {
       background-color: var(--white);
     }
 
-    .overview-image {
-      position: absolute;  
-      width: 30%;
-      margin-top: 8vh; 
-      right: 100px;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
+.overview-images {
+  position: relative;
+  width: 100%; /* 전체 너비로 변경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
 
-    .overview-image img {
-      width: 100%;
-      height: auto;
-    }
+.overview-image1, .overview-image2, .overview-image3 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  bottom: -20vh; /* 아래에서부터의 위치 변경 */
+}
+
+.overview-image1 {
+  right: 45%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.overview-image2 {
+  right: 23%;
+  z-index: 3;
+}
+
+.overview-image3 {
+  right: 1%;
+  z-index: 4;
+}
 
     .overview-text {
       display: block; /* absolute 대신 block 사용 */
@@ -1300,9 +1315,12 @@ bottom:-76vh;
         특히 Why pay more라는 브랜드 콘셉트와 어울리는 합리적인 주문 UX를 이루기 위해,<br>
          빠른 가입과 주문이라는 목표를 실현했습니다. </p>
       </div>
-      <div class="overview-image">
-        <img src="images/02.png" alt="NBB Icon 이미지">
-      </div>
+    <div class="overview-images">
+      <img src="images/02_1.svg" alt="옴니채널 이미지" class="overview-image1">
+      <img src="images/02_2.svg" alt="옴니채널 앱 이미지" class="overview-image2">
+      <img src="images/02_3.svg" alt="옴니채널 앱 이미지" class="overview-image3">
+    </div>
+  </div>
     </div>
   </section>
     
