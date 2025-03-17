@@ -468,40 +468,88 @@ z-index: 4;
   
     
     
-/* SECTION 4: INSIGHT */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:100vh;
+ /* SECTION 4: field RESEARCH STYLES */
+  .field-research-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
   }
- .insight-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
   
-    .insight-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-10vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 90%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
+  .field-research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .field-research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  
+  .field-research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .field-feedback-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  
+  .field-feedback-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .field-feedback-box {
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+    position: relative;
+    min-height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .field-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+  .field-feedback-text {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 700;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .field-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-medium);
+  }
 
  /* SECTION 5: INSIGHT 2*/
   .insight2-section {
@@ -1435,20 +1483,69 @@ bottom:-76vh;
   </div>
 </section>
     
-<!-- SECTION 4 : insight -->
-<section class="insight-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight-content">
-    <h3 class="section-heading">
-      주문 서비스에 필요한 기준으로<br>
-      경쟁사 앱을 분석하고<br>
-      주요 강점을 탐색했습니다.
-    </h3>
-        <div class="insight-images">
-          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
-     </div>
+ <!-- SECTION 4: Field RESEARCH -->
+<section class="section field-research-section">
+  <h2 class="section-title">Field Research</h2>
+  <div class="field-research-content">
+    <div class="field-research-text">
+      <h3 class="field-research-heading">
+        현지 매장과 경쟁사 매장을 방문하여,<br>
+        브랜드와 시장조사를 진행했습니다.
+      </h3>
+      <p class="overview-paragraph">
+        매장의 분위기와 제품을 확인하며 현지 내 브랜드를 소비자로서 체험했습니다.<br>
+        비교적 안정적으로 주문을 제공하고 있는 현지 스타벅스를 방문, 조사하였습니다.
+      </p>
+    </div>
+    
+    <!-- field feedback boxes -->
+    <div class="field-feedback-container">
+      <!-- Left column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_1_g.png" alt="피드백 이미지" class="field-image">
+		<!--
+          <p class="field-feedback-text">나에게 필요한 기능이 무엇인지<br>모르겠어요.</p>
+          <span class="field-label">field 1</span>
+		-->
+        </div>
+        
+        <div class="field-feedback-box">
+          <p class="field-feedback-text">잘못되지 않을까 걱정되요.</p>
+          <span class="field-label">field 2</span>
+        </div>
+      </div>
+      
+      <!-- Middle column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+          <p class="field-feedback-text">복잡해보이고, 익숙하지 않아요.</p>
+          <span class="field-label">field 2</span>
+        </div>
+        
+        <div class="field-feedback-box">
+          <p class="field-feedback-text">이전에 쓴 것이 뭔지 알고 싶어요.</p>
+          <span class="field-label">field 4</span>
+        </div>
+      </div>
+      
+      <!-- Right column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+          <p class="field-feedback-text">화면이 다 달라서 어려워요.</p>
+          <span class="field-label">field 3</span>
+        </div>
+        
+        <div class="field-feedback-box">
+          <p class="field-feedback-text">우리 단지에서 안되는 기능도 있어요.</p>
+          <span class="field-label">field 1</span>
+        </div>
+        
+        </div>
+      </div>
+    </div>
   </div>
-    </section>
+</section>
     
 <!-- SECTION 5 : insight2 -->
 <section class="insight2-section">
