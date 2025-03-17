@@ -1007,7 +1007,7 @@ font-family: "pretendard-bold", sans-serif;
   color: var(--black);
 }
 
-//* SECTION 8: PROTOTYPE */
+/* SECTION 8: PROTOTYPE */
 .prototype-section {
   padding: 100px 60px;
   background-color: var(--white);
@@ -1018,13 +1018,13 @@ font-family: "pretendard-bold", sans-serif;
 .prototype-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
 }
 
 .prototype-text {
-  width: 100%;
-  margin-bottom: 40px;
+  width: 50%;
+  margin-bottom: 60px;
 }
 
 .section-heading {
@@ -1040,22 +1040,27 @@ font-family: "pretendard-bold", sans-serif;
   justify-content: space-between;
   position: relative;
   width: 100%;
-}
-
-.left-image-container, .right-image-container {
-  width: 48%;
+  height: 550px; /* 기존 이미지 영역 높이와 비슷하게 설정 */
+  margin-top: 40px;
 }
 
 .prototype-image-left, .prototype-image-right {
-  width: 100%;
-  height: auto;
+  width: 48%;
+  height: 100%;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.prototype-image-left img, .prototype-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .burger-circle {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -30px;
+  right: -30px;
   width: 130px;
   height: 130px;
   background-color: #F37021; /* 버거킹 오렌지 컬러 */
@@ -1069,32 +1074,7 @@ font-family: "pretendard-bold", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.3;
-  transform: translate(50%, -50%);
-}
-
-/* 반응형 스타일 */
-@media screen and (max-width: 1024px) {
-  .prototype-images-container {
-    flex-direction: column;
-  }
-  
-  .left-image-container, .right-image-container {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .burger-circle {
-    right: 10%;
-    transform: translateY(-50%);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .burger-circle {
-    width: 100px;
-    height: 100px;
-    font-size: 14px;
-  }
+  z-index: 10;
 }
 
 
@@ -1952,7 +1932,7 @@ bottom:-76vh;
 </section>
 	  
 <!-- SECTION 8: PROTOTYPE -->
-<section class="prototype-section">
+<section class="section prototype-section">
   <h2 class="section-title">Prototype</h2>
   <div class="prototype-content">
     <div class="prototype-text">
@@ -1963,11 +1943,11 @@ bottom:-76vh;
     </div>
 
     <div class="prototype-images-container">
-      <div class="left-image-container">
-        <img src="images/prototype-left.png" alt="프로토타입 왼쪽 이미지" class="prototype-image-left">
+      <div class="prototype-image-left">
+        <img src="images/prototype-left.jpg" alt="프로토타입 왼쪽 이미지">
       </div>
-      <div class="right-image-container">
-        <img src="images/prototype-right.png" alt="프로토타입 오른쪽 이미지" class="prototype-image-right">
+      <div class="prototype-image-right">
+        <img src="images/prototype-right.jpg" alt="프로토타입 오른쪽 이미지">
       </div>
       <div class="burger-circle">
         <p>버거킹 고유의<br>감성</p>
@@ -1975,7 +1955,6 @@ bottom:-76vh;
     </div>
   </div>
 </section>
-
 
 <!-- SECTION 9: SOLUTION3 -->
 <section class="solution3-section">
