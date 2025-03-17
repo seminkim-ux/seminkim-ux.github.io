@@ -439,112 +439,79 @@ padding-bottom: 120px;
 
     
 /* SECTION 4: UI 화면 구조 STYLES */
- .ui-structure-section {
-background-color: var(--white);
-padding: 100px 60px;
-padding-bottom: 120px;
-  }
-  
- .ui-structure-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    max-width: 100%;
-    margin: 0;
-  }
-  
-  .ui-structure-text {
-    display: block;
-    margin-top: 30px;
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  
-  .ui-structure-heading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 24px;
-  }
-  
-  
-  /* 왼쪽 규칙성 영역 스타일 */
-  .ui-structure-left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    z-index: 1;
-    padding-right: 20px;
-  }
-  
-  
-  .ui-structure-subheading {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 20px;
-  }
-  
-  .ui-structure-description {
-    font-family: var(--font-family-pretendard);
-    font-size: 13px;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  /* 키오스크 UI 이미지 컨테이너 */
-  .ui-image-container {
-  position: relative; /* absolute에서 relative로 변경 */
-  left: -5%; /* 기존 left 속성 제거 */
-  top: auto; /* 기존 top 속성 제거 */
-  width: 100%; /* 너비 조정 */
-  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
-  margin-top: 90px; /* 상단 마진 추가 */
-  display: flex;
- flex-direction: row; /* 가로 방향 배치 */
-  align-items: center; /* 가운데 정렬 */
-  gap: 10px; /* 이미지 사이 간격 */
+.ui-structure-section {
+  background-color: #f5f7f9; /* 라이트 그레이 색상으로 변경 */
+  padding: 100px 60px;
+  padding-bottom: 120px;
 }
   
-  .ui-kiosk-image {
-    width: 36%;
-    height: auto;
-    border-radius: 15px;
-  }
+.ui-structure-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  max-width: 100%;
+  margin: 0;
+}
   
-  /* 일관성 설명 영역 */
-  .consistency-explanation {
-    position: absolute;
-    bottom: 5%;
-    width: 100%;
-    text-align: left;
-    z-index: 3;
-    padding-left: 0px; /* 왼쪽 여백 60px 추가 */
-    margin-top: 750px; /* 위쪽 여백 추가 */
-    clear: both; /* float 요소 이후 클리어 */
-  }
+.ui-structure-text {
+  display: block;
+  margin-top: 30px;
+  width: 100%;
+  margin-bottom: 40px;
+}
   
-  .consistency-title {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
+.ui-structure-heading {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 24px;
+}
   
-  .consistency-description {
-    font-family: "pretendard-bold", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-  }
+.ui-image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+}
+  
+.ui-kiosk-image {
+  width: 36%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+  
+/* 일관성 설명 영역 */
+.consistency-explanation {
+  width: 100%;
+  text-align: left;
+  margin-top: 60px;
+  position: relative;
+  z-index: 3;
+}
+  
+.consistency-title {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+  
+.consistency-description {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
 
  /* SECTION 5: INSIGHT 2*/
   .insight2-section {
@@ -1465,12 +1432,12 @@ bottom:-76vh;
 
 	  
 
- <!-- SECTION 4: Insight2 -->
-<section class=“ui-structure-section">
+<!-- SECTION 4: Insight2 -->
+<section class="ui-structure-section">
   <h2 class="section-title">Insight</h2>
   <div class="ui-structure-content">
     <div class="ui-structure-text">
-      <h3 class=“ui-structure-heading">
+      <h3 class="ui-structure-heading">
         주요 커피브랜드의 키오스크 UX를<br>
        조사하며, 장/단점을 파악하였습니다.
       </h3>
@@ -1479,11 +1446,10 @@ bottom:-76vh;
     <!-- 키오스크 UI 이미지 컨테이너 -->
     <div class="ui-image-container">
       <!-- 첫 번째 이미지 -->
-      <img src="images/04_1.svg” alt=“키오스크 UI 화면 1" class="ui-kiosk-image">
+      <img src="images/04_1.svg" alt="키오스크 UI 화면 1" class="ui-kiosk-image">
       
-      <!-- 두 번째  이미지 -->
+      <!-- 두 번째 이미지 -->
       <img src="images/04_2.svg" alt="키오스크 UI 화면 2" class="ui-kiosk-image">
-    
     </div>
     
     <!-- 일관성 설명 -->
