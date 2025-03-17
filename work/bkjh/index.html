@@ -615,205 +615,199 @@ padding-bottom: 120px;
     color: #808284;
   }
 
-/* SECTION 6: CORE FEATURES */
-.features-section {
+/* SECTION 6: IDEATION */
+.ideation-section {
   padding: 100px 60px;
   background-color: var(--white);
   min-height: 100vh;
   position: relative;
 }
 
-.features-content {
+.ideation-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
-  position: relative;
 }
 
-.features-diagram {
-  margin-top: 60px;
-  position: relative;
-  width: 100%;
+.ideation-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 60px;
+}
+
+.research-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
 }
 
-/* 노드 스타일 */
-.feature-node {
+.research-column {
+  flex: 1;
+}
+
+.research-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.research-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  padding: 10px 20px;
+  width: 150px;
+  height: 150px;
   text-align: center;
 }
 
-.main-node {
-  background-color: #fff5a0;
-  border: 1px solid #e0e0e0;
-  width: 210px;
-  height: 50px;
-  margin-bottom: 30px;
-  z-index: 2;
-}
-
-.second-node {
-  background-color: #fff5a0;
-    border: 1px solid #e0e0e0;
-  width: 210px; /* 1.5배로 증가 */
-  height: 50px;
-  z-index: 2;
-}
-
-.empty-node {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.node-text {
-  font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 18px;
-}
-
-/* 수직 연결선 */
-.vertical-lines {
-  position: absolute;
-  top: 106px;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.vertical-line {
-  position: absolute;
-  width: 1px;
-  background-color: #ccc;
-  top: 0;
-  height: 500px; /* 라인 길이 */
-}
-
-.line1 {
-  left: 10%;
-  height: 200px;
-}
-
-.line2 {
-  left: 30%;
-    height: 300px;
-}
-
-.line3 {
-  left: 50%;
-  height: 440px;
-}
-
-.line4 {
-  left: 70%;
-}
-
-.line5 {
-  left: 90%;
-}
-
-/* 2단계 노드 컨테이너 */
-.second-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 100%;
-  margin-bottom: 80px;
-  position: relative;
-  justify-items: center;
-}
-
-/* 메인 노드에서 아래로 내려오는 선 */
-.second-level-nodes::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  width: 1px;
-  height: 30px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 2단계 노드들을 가로로 연결하는 선 */
-.second-level-nodes::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 10%;
-  width: 80%;
-  height: 1px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 3단계 노드 전체 컨테이너 */
-.third-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 100%;
-  position: relative;
-  justify-items: center;
-  top : -12vh; 
-}
-
-/* 3단계 노드 컨테이너들 */
-.third-level-container {
+.circle-content {
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 210px; /* 1.5배로 증가 */
-  z-index: 3;
-  margin-top: 50px;
-}
-
-/* 기능 박스 스타일 */
-.feature-box {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: white;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  min-height: 60px;
+  height: 100%;
+}
+
+.circle-text-jp, .circle-text-ko {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+.circle-text-emphasis {
+  font-weight: bold;
+  color: #c00;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.circle-emoji {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.circle-image {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 원 위치 조정 */
+.taste-circle {
+  top: 50px;
+  left: 50px;
+}
+
+.price-circle {
+  top: 30px;
+  left: 220px;
+}
+
+.size-circle {
+  top: 200px;
+  left: 150px;
+}
+
+.face-circle {
+  top: 150px;
+  left: 320px;
+}
+
+.unknown-circle {
+  top: 350px;
+  left: 50px;
+}
+
+.strange-circle {
+  top: 320px;
+  left: 240px;
+}
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
   position: relative;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  height: 500px;
 }
 
-.feature-title {
-  font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.feature-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.feature-list li {
-  font-family: var(--font-family-pretendard);
-  font-size: 14px;
-  margin-bottom: 5px;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 12px;
-}
-
-.feature-list li::before {
-  content: '•';
+.bubble {
   position: absolute;
-  left: 0;
-  color: #555;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  width: 180px;
+  height: 180px;
 }
 
+.bubble-text-jp {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.bubble-text-ko {
+  font-size: 13px;
+  color: #666;
+}
+
+/* 버블 위치 조정 */
+.brand-bubble {
+  top: 50px;
+  left: 50px;
+}
+
+.visual-bubble {
+  top: 30px;
+  right: 30px;
+}
+
+.design-bubble {
+  top: 80px;
+  right: -80px;
+}
+
+.condiment-bubble {
+  top: 240px;
+  left: 80px;
+}
+
+.point-bubble {
+  top: 280px;
+  right: 50px;
+}
 /* SECTION 7: SOLUTION */
 .solution-section {
   padding: 100px 60px;
@@ -1645,176 +1639,118 @@ bottom:-76vh;
 
 
     
-<!-- SECTION 6: CORE FEATURES -->
-<section class="features-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="features-content">
-    <h3 class="section-heading">
-      전체 구조를 작성하고<br>
-      UX Concept에 맞는 핵심 기능을<br>
-      세부 화면에 정의하였습니다.
+<!-- SECTION 6: IDEATION -->
+<section class="ideation-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ideation-content">
+    <h3 class="ideation-heading">
+      콘셉트 선정을 위해 소셜미디어에서 브랜드 이미지를 조사하고,<br>
+      스테이크홀더 인터뷰를 진행하였습니다.
     </h3>
     
-    <div class="features-diagram">
-      <!-- 메인 노드 - 홈 -->
-      <div class="feature-node main-node">
-        <span class="node-text">홈</span>
+    <div class="research-container">
+      <!-- 왼쪽 SNS Research 영역 -->
+      <div class="research-column sns-research">
+        <h4 class="research-title">SNS Research</h4>
+        <p class="research-subtitle">트위터, 인스타그램 Data 2019.07</p>
+        
+        <div class="circles-container">
+          <!-- 맛있다 원 -->
+          <div class="circle taste-circle">
+            <div class="circle-content">
+              <p class="circle-text-jp">おいしい!</p>
+              <p class="circle-text-emphasis">100</p>
+            </div>
+          </div>
+          
+          <!-- 가격이 비싸다 원 -->
+          <div class="circle price-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">가격이 비싸다</p>
+              <p class="circle-text-jp">値段が高い</p>
+              <p class="circle-emoji">😂</p>
+            </div>
+          </div>
+          
+          <!-- 크다 원 -->
+          <div class="circle size-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">크다</p>
+              <p class="circle-text-jp">大きい</p>
+              <p class="circle-emoji">🍔</p>
+            </div>
+          </div>
+          
+          <!-- 얼굴 표정 원 -->
+          <div class="circle face-circle">
+            <div class="circle-content">
+              <p class="circle-text-jp">(^-^)</p>
+            </div>
+          </div>
+          
+          <!-- 잘 모름 원 -->
+          <div class="circle unknown-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">잘 모름...</p>
+              <p class="circle-text-jp">よく分からない...</p>
+              <div class="circle-image">
+                <img src="images/menu-unclear.jpg" alt="메뉴 이미지">
+              </div>
+            </div>
+          </div>
+          
+          <!-- 기묘한 이야기 원 -->
+          <div class="circle strange-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">기묘한 이야기</p>
+              <p class="circle-text-jp">ストレンジャーシングス</p>
+              <div class="circle-image">
+                <img src="images/stranger-things.jpg" alt="스트레인저 씽스">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <!-- 수직 연결선들 -->
-      <div class="vertical-lines">
-        <div class="vertical-line line1"></div>
-        <div class="vertical-line line2"></div>
-        <div class="vertical-line line3"></div>
-        <div class="vertical-line line4"></div>
-        <div class="vertical-line line5"></div>
-      </div>
-      
-      <!-- 2단계 노드들 -->
-      <div class="second-level-nodes">
-        <div class="feature-node second-node empty-node">
-          <span class="node-text"></span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">쿠폰</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">주문</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">MY</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">더보기</span>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 전체 컨테이너 -->
-      <div class="third-level-nodes">
-        <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
-        <div class="third-level-container empty-container">
-          <div class="feature-box">
-            <h4 class="feature-title">회원가입</h4>
-            <ul class="feature-list">
-              <li>SNS 계정으로 입력없이 가입</li>
-              <li>자체 회원가입 입력 최소화</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">로그인</h4>
-            <ul class="feature-list">
-              <li>휴대폰 ID로 간편하게 로그인</li>
-            </ul>
-          </div>
-        </div>
+      <!-- 오른쪽 Stakeholder Interview 영역 -->
+      <div class="research-column stakeholder-interview">
+        <h4 class="research-title">Stakeholder Interview</h4>
         
-        <!-- 3단계 노드들 - 쿠폰 -->
-        <div class="third-level-container coupon-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
-            <ul class="feature-list">
-              <li>매장에서 바로 쿠폰 생성</li>
-              <li>주문 유형별 쿠폰 탐색</li>
-            </ul>
+        <div class="bubbles-container">
+          <!-- 브랜드 인지도 버블 -->
+          <div class="bubble brand-bubble">
+            <p class="bubble-text-jp">バーガーキング<br>ブランド認知度を<br>高める必要がある。</p>
+            <p class="bubble-text-ko">브랜드 인지도</p>
           </div>
           
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 상세</h4>
+          <!-- 글로벌 비주얼 가이드라인 버블 -->
+          <div class="bubble visual-bubble">
+            <p class="bubble-text-jp">バーガーキングの<br>グローバルビジュアル<br>ガイドラインと<br>クリエイティブなアイデア。</p>
+            <p class="bubble-text-ko">글로벌비주얼가이드와<br>크리에이티브한 표현</p>
           </div>
           
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 선물하기</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 주문 -->
-        <div class="third-level-container order-container">
-          <div class="feature-box">
-            <h4 class="feature-title">배달주문</h4>
-            <ul class="feature-list">
-              <li>배달지 설정</li>
-              <li>메뉴카테고리 내 메뉴 탐색</li>
-              <li>옵션메뉴 선택</li>
-            </ul>
+          <!-- 다양한 완성도 버블 -->
+          <div class="bubble design-bubble">
+            <p class="bubble-text-jp">多数が共感できる<br>(universal)<br>デザインの完成度。</p>
+            <p class="bubble-text-ko">다양한 완성도</p>
           </div>
           
-          <div class="feature-box">
-            <h4 class="feature-title">매장픽업</h4>
-            <ul class="feature-list">
-              <li>위치기반 매장 추천</li>
-              <li>매장 즐겨찾기</li>
-            </ul>
+          <!-- 버거킹만의 특성 버블 -->
+          <div class="bubble condiment-bubble">
+            <p class="bubble-text-jp">バーガーキングだけの<br>特性(Condiment)。</p>
+            <p class="bubble-text-ko">버거킹만의 특성</p>
           </div>
           
-          <div class="feature-box">
-            <h4 class="feature-title">간편주문</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">비회원주문</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - MY -->
-        <div class="third-level-container my-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문 내역조회</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">스탬프 적립</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">나의 배달지 / 매장</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">설문조사</h4>
-            <ul class="feature-list">
-              <li>전 회원 대상 설문조사</li>
-              <li>특정 세대 설문조사</li>
-              <li>특정 메뉴 주문고객 설문조사</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">정보변경</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 더보기 -->
-        <div class="third-level-container more-container">
-          <div class="feature-box">
-            <h4 class="feature-title">매장 찾기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">메뉴보기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">이벤트</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">고객센터</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">약관 및 정책</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">앱 설정</h4>
+          <!-- 마음을 움직이는 포인트 버블 -->
+          <div class="bubble point-bubble">
+            <p class="bubble-text-jp">人の心を動かす<br>ポイントと<br>物語がほしい。</p>
+            <p class="bubble-text-ko">마음을 움직이는 포인트</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
     
 <!-- SECTION 7: SOLUTION -->
 <section class="solution-section">
