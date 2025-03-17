@@ -600,8 +600,7 @@ padding-bottom: 120px;
   }
 .cpt {
     position: relative;
-    padding-left: 18px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     font-family: "pretendard-bold", sans-serif;
     font-size: 20px;
     color: #808284;
@@ -924,30 +923,31 @@ height:160px;
   position: relative;
 }
 
+/* 원의 첫 번째 투명 배경 */
 .concept-circle::before {
   content: '';
   position: absolute;
-  top: -20px;
-  left: -20px;
-  width: calc(100% + 40px);
-  height: calc(100% + 40px);
+  top: -25px;
+  left: -25px;
+  width: calc(100% + 50px);
+  height: calc(100% + 50px);
   border-radius: 50%;
-  opacity: 0.3;
   z-index: -1;
 }
 
+/* 원의 두 번째 투명 배경 */
 .concept-circle::after {
   content: '';
   position: absolute;
-  top: -40px;
-  left: -40px;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
+  top: -50px;
+  left: -50px;
+  width: calc(100% + 100px);
+  height: calc(100% + 100px);
   border-radius: 50%;
-  opacity: 0.15;
   z-index: -2;
 }
 
+/* Originality 원 스타일 */
 .originality-circle {
   background-color: #f37021;
   color: white;
@@ -955,12 +955,15 @@ height:160px;
 
 .originality-circle::before {
   background-color: #f37021;
+  opacity: 0.3;
 }
 
 .originality-circle::after {
   background-color: #f37021;
+  opacity: 0.15;
 }
 
+/* Consistency 원 스타일 */
 .consistency-circle {
   background-color: #f7ce1e;
   color: white;
@@ -968,12 +971,15 @@ height:160px;
 
 .consistency-circle::before {
   background-color: #f7ce1e;
+  opacity: 0.3;
 }
 
 .consistency-circle::after {
   background-color: #f7ce1e;
+  opacity: 0.15;
 }
 
+/* Consideration 원 스타일 */
 .consideration-circle {
   background-color: #70b865;
   color: white;
@@ -981,10 +987,12 @@ height:160px;
 
 .consideration-circle::before {
   background-color: #70b865;
+  opacity: 0.3;
 }
 
 .consideration-circle::after {
   background-color: #70b865;
+  opacity: 0.15;
 }
 
 .concept-title {
@@ -1023,8 +1031,49 @@ height:160px;
   color: var(--black);
 }
 
+/* 반응형 스타일 */
+@media screen and (max-width: 1024px) {
+  .concept-circles-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  
+  .concept-circle-wrapper {
+    width: 100%;
+    max-width: 280px;
+  }
+}
 
-
+@media screen and (max-width: 768px) {
+  .ux-concept-section {
+    padding: 80px 20px;
+  }
+  
+  .concept-circle {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .concept-circle::before {
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    top: -20px;
+    left: -20px;
+  }
+  
+  .concept-circle::after {
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -40px;
+  }
+  
+  .ux-concept-heading {
+    font-size: var(--font-size-xl);
+    margin-bottom: 40px;
+  }
+}
 
 /* SECTION 8: SOLUTION2  */
 .solution2-section {
@@ -1712,7 +1761,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_1.png" alt="앱1" class="competitive-image">
         <ul class="competitive-points">
-		<p class="cpt">스타벅스</p>
+	<p class="cpt">스타벅스</p>
             <li>이메일 인증의 회원가입</li>
             <li>가장 활성화된 브랜드 주문앱</li>
         </ul>
@@ -1721,7 +1770,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_2.png" alt="앱2" class="competitive-image">
         <ul class="competitive-points">
-		롯데리아
+		<p class="cpt">롯데리아</p>
             <li>이메일 인증의 회원가입</li>
             <li>가장 활발한 브랜드 주문앱</li>
 	 <li>스타벅스 카드 등록절차 복잡 </li>
@@ -1731,7 +1780,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_3.png" alt="앱3" class="competitive-image">
         <ul class="competitive-points">
-		맥도날드 브랜드 앱
+		<p class="cpt">맥도날드 브랜드 앱</p>
             <li>프로모션, 쿠폰 기능</li>
             <li>메뉴, 매장 등 정보 제공</li>
         </ul>
@@ -1740,7 +1789,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_4.png" alt="앱4" class="competitive-image">
         <ul class="competitive-points">
-		맥도날드 딜리버리 앱
+		<p class="cpt">맥도날드 딜리버리 앱</p>
 	<li>배달주문 전용</li>
         <li>결제수단은 카드결제 및 현장결제</li>
 	<li>인증절차 거치지 않음 </li>
@@ -1750,7 +1799,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_5.png" alt="앱5" class="competitive-image">
         <ul class="competitive-points">
-		도미너피자
+		<p class="cpt">도미노피자</p>
            <li>배달과 픽업 주문 제공</li>
             <li>인증절차 없음</li>
         </ul>
@@ -1760,7 +1809,7 @@ bottom:-76vh;
     <div class="competitive-item">
         <img src="images/05_6.png" alt="앱6" class="competitive-image">
         <ul class="competitive-points">
-		모스버거
+		<p class="cpt">모스버거</p>
             <li>픽업주문 일부매장 적용</li>
           <li>메뉴, 매장 등 정보 제공</li>
         </ul>
