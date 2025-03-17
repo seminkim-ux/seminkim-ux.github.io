@@ -528,16 +528,16 @@ z-index: 4;
   .field-image {
   width: 100%;
 border-radius: 20px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   height: auto;
   display: block;
 }
 
-    /* SECTION 5: INSIGHT STYLES */
+/* SECTION 5: INSIGHT STYLES */
   .competitive-section {
-    background-color: var(--white);
+background-color: var(--white);
 padding: 100px 60px;
-    padding-bottom: 120px;
+padding-bottom: 120px;
   }
   
   .competitive-content {
@@ -568,13 +568,24 @@ padding: 100px 60px;
   }
   
   .competitive-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 30px;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  align-items: flex-start;
+  justify-content: space-between;
+gap: 10px;
   }
-  
+.competitive-image {
+width: 100%;
+border-radius: 20px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+height: auto;
+display: block;
+}
   .competitive-item {
     display: flex;
     flex-direction: column;
@@ -1566,18 +1577,76 @@ bottom:-76vh;
       </h3>
     </div>
     
-
     <!-- research images -->
     <div class=“competitive-container">
     <div class=“competitive-1">
+ <div class="competitive-image">
       <img src="images/05_1.png" alt="앱1">
     </div>
+	<div class="competitive-detail>
         <ul class="competitive-points">
           <li>이메일 인증의 회원가입</li>
           <li>가장 활발한 브랜드 주문앱</li>
         </ul>
       </div>
-  </div>
+    </div>
+<div class=“competitive-2">
+ <div class="competitive-image">
+      <img src="images/05_2.png" alt="앱1">
+    </div>
+	<div class="competitive-detail>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
+    </div>
+<div class=“competitive-3">
+ <div class="competitive-image">
+      <img src="images/05_3.png" alt="앱1">
+    </div>
+	<div class="competitive-detail>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
+    </div>
+<div class=“competitive-4">
+ <div class="competitive-image">
+      <img src="images/05_4.png" alt="앱1">
+    </div>
+	<div class="competitive-detail>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
+    </div>
+<div class=“competitive-5">
+ <div class="competitive-image">
+      <img src="images/05_5.png" alt="앱1">
+    </div>
+	<div class="competitive-detail>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
+    </div>
+<div class=“competitive-6">
+ <div class="competitive-image">
+      <img src="images/05_6.png" alt="앱1">
+    </div>
+	<div class="competitive-detail>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
+    </div>
+	    
+</div>
 </section>
 
 	  
