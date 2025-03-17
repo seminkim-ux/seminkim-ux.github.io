@@ -639,15 +639,52 @@ padding-bottom: 120px;
 }
 
 .research-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-top: 40px;
 }
 
-.research-column {
-  flex: 1;
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
 }
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+/* 버블 위치 재조정 */
+.brand-bubble {
+  top: 50px;
+  left: 30px;
+}
+
+.visual-bubble {
+  top: 20px;
+  right: 30px;
+}
+
+.design-bubble {
+  top: 210px;
+  right: 20px;
+}
+
+.condiment-bubble {
+  top: 350px;
+  left: 30px;
+}
+
+.point-bubble {
+  top: 350px;
+  right: 80px;
+}
+
 
 .research-title {
   font-size: 28px;
