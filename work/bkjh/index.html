@@ -648,14 +648,21 @@ padding-bottom: 120px;
 .research-container {
   display: flex; /* 그리드 대신 flex로 변경 */
   flex-direction: row; /* 가로 방향 배치 확실히 */
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start; /* 상단 정렬 */
-  gap: 10px;
+  gap: 0;
   margin-top: 40px;
 }
-.research-column {
-  width: 48%; /* 그리드 대신 width 지정 */
-  flex: 0 0 48%; /* flex-basis 추가 */
+.research-column.sns-research {
+  width: 45%; /* SNS Research 영역 축소 */
+  flex: 0 0 45%;
+  margin-right: 2%; /* 오른쪽에 약간의 여백 추가 */
+}
+
+.research-column.stakeholder-interview {
+  width: 55%; /* Stakeholder Interview 영역 확장 */
+  flex: 0 0 55%;
+  padding-left: 0; /* 왼쪽 padding 제거 */
 }
 /* 컨테이너 높이 통일 */
 .circles-container, .bubbles-container {
