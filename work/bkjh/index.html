@@ -863,86 +863,159 @@ height:160px;
   top: 280px;
   right: 50px;
 }
-/* SECTION 7: SOLUTION */
-.solution-section {
+/* SECTION 7: UX CONCEPT */
+.ux-concept-section {
   padding: 100px 60px;
   background-color: var(--white);
-  min-height: 120vh;
+  min-height: 100vh;
   position: relative;
 }
 
-.solution-content {
+.ux-concept-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ux-concept-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+/* 콘셉트 원형 컨테이너 */
+.concept-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.concept-circle-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: calc(100% / 3 - 30px);
+  max-width: 300px;
 }
 
-.solution-text {
-  width: 50%;
+.concept-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
   position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
 }
-.solution-text2 {
-  width: 50%;
+
+.concept-circle::before {
+  content: '';
   position: absolute;
-right:-17vw;
-bottom:-18vh;	
-  z-index: 2;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: -1;
 }
-.solution-images {
+
+.concept-circle::after {
+  content: '';
   position: absolute;
-  width: 25%;
-  right: 30vw;
-  top: -8vh;
-  z-index: 1;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: -2;
 }
 
-.solution-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.originality-circle {
+  background-color: #f37021;
+  color: white;
 }
 
-.solution-description {
-  width: 100%;
-  margin-top: -7vh; /* Adjust based on image height */
-  clear: both;
-}
-.solution-description2 {
-position:absolute;	
-width: 50%;
-margin-top: 30vh; /* Adjust based on image height */
-right: -17vw;
-bottom:-33vh;
-  clear: both;
+.originality-circle::before {
+  background-color: #f37021;
 }
 
-.section-description {
-font-family: "pretendard-bold", sans-serif;
+.originality-circle::after {
+  background-color: #f37021;
+}
+
+.consistency-circle {
+  background-color: #f7ce1e;
+  color: white;
+}
+
+.consistency-circle::before {
+  background-color: #f7ce1e;
+}
+
+.consistency-circle::after {
+  background-color: #f7ce1e;
+}
+
+.consideration-circle {
+  background-color: #70b865;
+  color: white;
+}
+
+.consideration-circle::before {
+  background-color: #70b865;
+}
+
+.consideration-circle::after {
+  background-color: #70b865;
+}
+
+.concept-title {
+  font-family: var(--font-family-jost);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.concept-subtitle {
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.concept-description {
+  font-family: var(--font-family-pretendard);
   font-size: 16px;
   line-height: 1.6;
   color: #555;
-}
- .solution-ex {
-    font-family: var(--font-family-pretendard);
-    font-size: 13px;
-    line-height: 1.6;
-	 margin-top:30px;
-    color: #555;
-  }
-.highlight-yellow {
-  color: var(--yellow-medium);
+  text-align: center;
+  margin-top: 20px;
 }
 
-.highlight-d {
-  color: #000;
-  font-weight: 700;
+.concept-summary {
+  margin-top: 80px;
+  text-align: left;
 }
+
+.concept-summary-text {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+
 
 
 /* SECTION 8: SOLUTION2  */
@@ -1794,53 +1867,56 @@ bottom:-76vh;
   </div>
 </section>
     
-<!-- SECTION 7: SOLUTION -->
-<section class="solution-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution-content">
-    <div class="solution-text">
-      <h3 class="section-heading">
-        주문 서비스의 첫 화면은<br>
-        다양한 필요를<br>
-        <span class="highlight-yellow">빠르게 충족</span>하도록.
-      </h3>
-	
+<!-- SECTION 7: UX CONCEPT -->
+<section class="ux-concept-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ux-concept-content">
+    <h3 class="ux-concept-heading">
+      브랜드의 첫번째 주문 및 옴니채널 서비스
+    </h3>
+    
+    <div class="concept-circles-container">
+      <!-- 왼쪽 Originality 원 -->
+      <div class="concept-circle-wrapper originality-wrapper">
+        <div class="concept-circle originality-circle">
+          <h4 class="concept-title">Originality</h4>
+          <p class="concept-subtitle">버거킹 고유의<br>감성</p>
+        </div>
+        <p class="concept-description">
+          버거킹을 좋아하고, 관심있는 사람들이<br>
+          브랜드를 더 경험하도록
+        </p>
+      </div>
+      
+      <!-- 가운데 Consistency 원 -->
+      <div class="concept-circle-wrapper consistency-wrapper">
+        <div class="concept-circle consistency-circle">
+          <h4 class="concept-title">Consistency</h4>
+          <p class="concept-subtitle">체계적이고<br>일관된</p>
+        </div>
+        <p class="concept-description">
+          앱, 웹, 키오스크의 경험을<br>
+          체계적이고 일관되게
+        </p>
+      </div>
+      
+      <!-- 오른쪽 Consideration 원 -->
+      <div class="concept-circle-wrapper consideration-wrapper">
+        <div class="concept-circle consideration-circle">
+          <h4 class="concept-title">Consideration</h4>
+          <p class="concept-subtitle">배려 깊고<br>친절하고</p>
+        </div>
+        <p class="concept-description">
+          필요한 정보를 최적의 방법으로 제공하여<br>
+          사용자를 배려한 UX
+        </p>
+      </div>
     </div>
     
-    <div class="solution-text2">
-      <h3 class="section-heading">
-        작지만, 사용자와 <br>
-        함께하는 <span class="highlight-yellow">개인화 요소</span><br>
-      </h3>
-    </div>
-    
-    <div class="solution-images">
-      <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
-    </div>
-    
-    <div class="solution-description">
-      <p class="section-description">
-        <span class="highlight-d">주문 앱의 홈 화면에 꼭 필요한 요소를 정의하였습니다.</span><br>
-        우선 주문 버튼을 화면 내에 눈에 띄게 두었습니다.<br>
-        매장의 테이블에 있는 QR을 스캔하여 바로 주문하는 버튼과<br>
-        키오스크 주문 시 사용하는 멤버십 바코드 조회 버튼도<br>
-        바로 꺼내 써야하기에 홈 화면에 배치하였습니다.
-      </p>
-	<p class="solution-ex">
-        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
-        실제로는 와이어프레임과 기획 작업을 하였습니다.
-      </p>
-    </div>
-	
-
-    <div class="solution-description2">
-      <p class="section-description">
-        개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
-        지난 주문을 간편하게 다시 주문하는 간편 주문으로 <br>
-        사용자 맞춤형 빠른 주문을 제공합니다.<br>
-        닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
-        쿠폰 보유 현황을 상단에 표시하여, 사용자 관점으로<br>
-        필요한 요소를 전달합니다.
+    <div class="concept-summary">
+      <p class="concept-summary-text">
+        조사 분석과 Stakeholder 인터뷰를 바탕으로<br>
+        UX 콘셉트를 수립하였습니다.
       </p>
     </div>
   </div>
