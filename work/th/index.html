@@ -511,39 +511,108 @@ padding-bottom: 120px;
   color: #555;
 }
 
- /* SECTION 5: INSIGHT 2*/
-  .insight2-section {
-    padding: 100px 60px;
-   background-color: var(--white);
-    min-height:100vh;
-  }
- .insight2-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
+ /* SECTION 5: INSIGHT 3*/
+.insight-section {
+  padding: 100px 60px;
+  background-color: #f5f7f9;
+  min-height: 100vh;
 }
-  
-    .insight2-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-5vh; 
-      right: 6vw;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight2-image {
-       max-width: 100%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
+
+.insight-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+}
+
+.insight-text {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.insight-heading {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.case-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+.case-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-title {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #BD0000;
+  margin-bottom: 16px;
+}
+
+.case-subtitle {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.case-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  height: 120px;
+}
+
+.case-image {
+  width: 100px;
+  height: 120px;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.case-image-single {
+  margin-right: 0;
+}
+
+.arrow-right {
+  width: 30px;
+  height: 1px;
+  background-color: #888;
+  position: relative;
+  margin: 0 10px;
+}
+
+.arrow-right:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid #888;
+  border-right: 1px solid #888;
+  transform: rotate(45deg);
+}
+
+.case-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
 }
 
 /* SECTION 6: CORE FEATURES */
@@ -1462,20 +1531,53 @@ bottom:-76vh;
   </div>
 </section>
     
-<!-- SECTION 5 : insight2 -->
-<section class="insight2-section">
+<!-- SECTION 5: INSIGHT 3 -->
+<section class="insight-section">
   <h2 class="section-title">Insight</h2>
-  <div class="insight2-content">
-    <h3 class="section-heading">
-      선행된 조사, 분석을 바탕으로<br>
-      UX Concept을 수립하고<br>
-      핵심 기능을 정의하였습니다.
-    </h3>
-        <div class="insight2-images">
-          <img src="images/05_2.svg" alt="노브랜드버거 콘셉트" class="insight2-image">
-     </div>
+  <div class="insight-content">
+    <div class="insight-text">
+      <h3 class="insight-heading">
+        메뉴 목록에서 메뉴 선택 후 진행되는 옵션<br>
+        선택 화면은 3가지 케이스가 확인됩니다.
+      </h3>
+    </div>
+    
+    <div class="case-container">
+      <!-- Case 1 -->
+      <div class="case-item">
+        <h4 class="case-title">Case1.</h4>
+        <p class="case-subtitle">첫번째 옵션화면에서<br>모든 옵션을 제공하는 경우</p>
+        <div class="case-image-container">
+          <div class="case-image case-image-single"></div>
+        </div>
+        <p class="case-description">하나의 화면에 내용 너무 많음.</p>
+      </div>
+      
+      <!-- Case 2 -->
+      <div class="case-item">
+        <h4 class="case-title">Case2.</h4>
+        <p class="case-subtitle">첫번째 기본 옵션화면 이후<br>사용자 추가 옵션 선택 시 제공</p>
+        <div class="case-image-container">
+          <div class="case-image"></div>
+          <div class="arrow-right"></div>
+          <div class="case-image"></div>
+        </div>
+        <p class="case-description">사용자 선택 시 제공함으로<br>단계 생략할 수 있음</p>
+      </div>
+      
+      <!-- Case 3 -->
+      <div class="case-item">
+        <h4 class="case-title">Case3.</h4>
+        <p class="case-subtitle">첫번째 기본 옵션화면 이후<br>추가 옵션 필수로 제공</p>
+        <div class="case-image-container">
+          <div class="case-image"></div>
+          <div class="case-image"></div>
+        </div>
+        <p class="case-description">프로세스가 많음.</p>
+      </div>
+    </div>
   </div>
-    </section>
+</section>
 
 
     
