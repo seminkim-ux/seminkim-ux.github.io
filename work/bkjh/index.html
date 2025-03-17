@@ -893,6 +893,28 @@ height:160px;
   max-width: 300px;
 }
 
+/* 바깥쪽 원 */
+.concept-circle-outer {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* 중간 원 */
+.concept-circle-middle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 안쪽 원 (메인 컨텐츠) */
 .concept-circle {
   width: 220px;
   height: 220px;
@@ -901,80 +923,46 @@ height:160px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-  position: relative;
+  color: white;
 }
 
-/* 원의 첫 번째 투명 배경 */
-.concept-circle::before {
-  content: '';
-  position: absolute;
-  top: -25px;
-  left: -25px;
-  width: calc(100% + 50px);
-  height: calc(100% + 50px);
-  border-radius: 50%;
-  z-index: -1;
+/* Originality 색상 */
+.originality-outer {
+  background-color: rgba(243, 112, 33, 0.15);
 }
 
-/* 원의 두 번째 투명 배경 */
-.concept-circle::after {
-  content: '';
-  position: absolute;
-  top: -50px;
-  left: -50px;
-  width: calc(100% + 100px);
-  height: calc(100% + 100px);
-  border-radius: 50%;
-  z-index: -2;
+.originality-middle {
+  background-color: rgba(243, 112, 33, 0.3);
 }
 
-/* Originality 원 스타일 */
 .originality-circle {
-  background-color: #f37021;
-  color: white;
+  background-color: rgba(243, 112, 33, 1);
 }
 
-.originality-circle::before {
-  background-color: #f37021;
-  opacity: 0.3;
+/* Consistency 색상 */
+.consistency-outer {
+  background-color: rgba(247, 206, 30, 0.15);
 }
 
-.originality-circle::after {
-  background-color: #f37021;
-  opacity: 0.15;
+.consistency-middle {
+  background-color: rgba(247, 206, 30, 0.3);
 }
 
-/* Consistency 원 스타일 */
 .consistency-circle {
-  background-color: #f7ce1e;
-  color: white;
+  background-color: rgba(247, 206, 30, 1);
 }
 
-.consistency-circle::before {
-  background-color: #f7ce1e;
-  opacity: 0.3;
+/* Consideration 색상 */
+.consideration-outer {
+  background-color: rgba(112, 184, 101, 0.15);
 }
 
-.consistency-circle::after {
-  background-color: #f7ce1e;
-  opacity: 0.15;
+.consideration-middle {
+  background-color: rgba(112, 184, 101, 0.3);
 }
 
-/* Consideration 원 스타일 */
 .consideration-circle {
-  background-color: #70b865;
-  color: white;
-}
-
-.consideration-circle::before {
-  background-color: #70b865;
-  opacity: 0.3;
-}
-
-.consideration-circle::after {
-  background-color: #70b865;
-  opacity: 0.15;
+  background-color: rgba(112, 184, 101, 1);
 }
 
 .concept-title {
@@ -1013,49 +1001,8 @@ height:160px;
   color: var(--black);
 }
 
-/* 반응형 스타일 */
-@media screen and (max-width: 1024px) {
-  .concept-circles-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
-  }
-  
-  .concept-circle-wrapper {
-    width: 100%;
-    max-width: 280px;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .ux-concept-section {
-    padding: 80px 20px;
-  }
-  
-  .concept-circle {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .concept-circle::before {
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    top: -20px;
-    left: -20px;
-  }
-  
-  .concept-circle::after {
-    width: calc(100% + 80px);
-    height: calc(100% + 80px);
-    top: -40px;
-    left: -40px;
-  }
-  
-  .ux-concept-heading {
-    font-size: var(--font-size-xl);
-    margin-bottom: 40px;
-  }
-}
+
 
 /* SECTION 8: SOLUTION2  */
 .solution2-section {
@@ -1916,10 +1863,14 @@ bottom:-76vh;
     
     <div class="concept-circles-container">
       <!-- 왼쪽 Originality 원 -->
-      <div class="concept-circle-wrapper originality-wrapper">
-        <div class="concept-circle originality-circle">
-          <h4 class="concept-title">Originality</h4>
-          <p class="concept-subtitle">버거킹 고유의<br>감성</p>
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer originality-outer">
+          <div class="concept-circle-middle originality-middle">
+            <div class="concept-circle originality-circle">
+              <h4 class="concept-title">Originality</h4>
+              <p class="concept-subtitle">버거킹 고유의<br>감성</p>
+            </div>
+          </div>
         </div>
         <p class="concept-description">
           버거킹을 좋아하고, 관심있는 사람들이<br>
@@ -1928,10 +1879,14 @@ bottom:-76vh;
       </div>
       
       <!-- 가운데 Consistency 원 -->
-      <div class="concept-circle-wrapper consistency-wrapper">
-        <div class="concept-circle consistency-circle">
-          <h4 class="concept-title">Consistency</h4>
-          <p class="concept-subtitle">체계적이고<br>일관된</p>
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consistency-outer">
+          <div class="concept-circle-middle consistency-middle">
+            <div class="concept-circle consistency-circle">
+              <h4 class="concept-title">Consistency</h4>
+              <p class="concept-subtitle">체계적이고<br>일관된</p>
+            </div>
+          </div>
         </div>
         <p class="concept-description">
           앱, 웹, 키오스크의 경험을<br>
@@ -1940,10 +1895,14 @@ bottom:-76vh;
       </div>
       
       <!-- 오른쪽 Consideration 원 -->
-      <div class="concept-circle-wrapper consideration-wrapper">
-        <div class="concept-circle consideration-circle">
-          <h4 class="concept-title">Consideration</h4>
-          <p class="concept-subtitle">배려 깊고<br>친절하고</p>
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consideration-outer">
+          <div class="concept-circle-middle consideration-middle">
+            <div class="concept-circle consideration-circle">
+              <h4 class="concept-title">Consideration</h4>
+              <p class="concept-subtitle">배려 깊고<br>친절하고</p>
+            </div>
+          </div>
         </div>
         <p class="concept-description">
           필요한 정보를 최적의 방법으로 제공하여<br>
