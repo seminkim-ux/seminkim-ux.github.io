@@ -533,40 +533,75 @@ box-shadow: 0 2px 10px rgba(0,0,0,0.01);
   display: block;
 }
 
- /* SECTION 5: INSIGHT 2*/
-  .insight2-section {
-    padding: 100px 60px;
-   background-color: var(--white);
-    min-height:100vh;
+    /* SECTION 5: INSIGHT STYLES */
+  .competitive-section {
+    background-color: var(--white);
+    padding-bottom: 120px;
   }
- .insight2-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
   
-    .insight2-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-5vh; 
-      right: 6vw;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight2-image {
-       max-width: 100%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
+  .competitive-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .competitive-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  
+  .competitive-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .competitive-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 30px;
+  }
+  
+  .competitive-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .competitive-points {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  .competitive-points li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 20px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #808284;
+  }
+  .competitive-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #808284;
+  }
 
 /* SECTION 6: CORE FEATURES */
 .features-section {
@@ -1467,7 +1502,7 @@ bottom:-76vh;
     
  <!-- SECTION 4: Field RESEARCH -->
 <section class="section field-research-section">
-  <h2 class="section-title">Field Research</h2>
+  <h2 class="section-title">Define_ Field Research</h2>
   <div class="field-research-content">
     <div class="field-research-text">
       <h3 class="field-research-heading">
@@ -1519,20 +1554,34 @@ bottom:-76vh;
   </div>
 </section>
     
-<!-- SECTION 5 : insight2 -->
-<section class="insight2-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight2-content">
-    <h3 class="section-heading">
-      선행된 조사, 분석을 바탕으로<br>
-      UX Concept을 수립하고<br>
-      핵심 기능을 정의하였습니다.
-    </h3>
-        <div class="insight2-images">
-          <img src="images/05_2.svg" alt="노브랜드버거 콘셉트" class="insight2-image">
-     </div>
+<!-- SECTION 5: Define -->
+<section class="competive-section">
+  <h2 class="section-title”>Define_ Competitive Analysis
+ </h2>
+  <div class="competitive-content">
+    <div class="competitive-text">
+      <h3 class="competitive-heading">
+        일본시장 내 경쟁사 앱을 조사하고<br>
+       현지 시장의 특징을 확인했습니다.
+      </h3>
+    </div>
+    
+
+    <!-- research images -->
+    <div class=“competitive-container">
+    <div class=“competitive-1">
+      <img src="images/05_1.png" alt="앱1">
+    </div>
+        <ul class="competitive-points">
+          <li>이메일 인증의 회원가입</li>
+          <li>가장 활발한 브랜드 주문앱</li>
+        </ul>
+      </div>
   </div>
-    </section>
+</section>
+
+	  
+      
 
 
     
