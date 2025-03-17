@@ -318,17 +318,30 @@ border-radius: 0px;
 order: 10;
 }
 	  
-.image-theme{
-    font-family: var(--font-family-jost);
-    font-size: 40px;
-    font-weight: 700;
-color:#585858;
-position:absolute;
-top:3vh;
-right:7vw;
-    margin-bottom: 20px;
-  }
-  
+/* 이미지 테마 컨테이너 스타일 */
+.image-theme-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3vh;
+  right: 7vw;
+}
+
+/* 기존 image-theme 스타일 수정 */
+.image-theme {
+  font-family: var(--font-family-jost);
+  font-size: 40px;
+  font-weight: 700;
+  color: #585858;
+  margin-bottom: 0; /* 기존 마진 제거 */
+  margin-right: 16px; /* 오른쪽에 여백 추가하여 로고와 간격 확보 */
+}
+
+/* 로고 스타일 */
+.theme-logo {
+  height: 40px; /* 로고 높이 설정 (텍스트와 비슷한 높이로) */
+  width: auto; /* 비율 유지 */
+}
 
 .overview-image1 {
 position:absolute;
@@ -1685,14 +1698,16 @@ bottom:-76vh;
         현지 리서치 및 인터뷰 후, 프로젝트 UX콘셉트를 재정의하며 옴니채널을 런칭하였습니다.  </p>
       </div>
 	    
-    <div class="overview-images">
-<p class ="image-theme">Consistency for Every channel</p>	    
+<div class="overview-images">
+<div class="image-theme-container">
+<img src="images/02_logo.svg" alt="버거킹 로고" class="theme-logo">
+<p class ="image-theme">Consistency for Every channel</p>
+ </div>
       <img src="images/02_1.svg" alt="옴니채널 이미지" class="overview-image1">
       <img src="images/02_2.svg" alt="옴니채널 앱 이미지" class="overview-image2">
       <img src="images/02_3.svg" alt="옴니채널 앱 이미지" class="overview-image3">
     </div>
   </div>
-    </div>
   </section>
     
 <!-- SECTION 3: PROCESS -->
