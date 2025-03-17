@@ -438,40 +438,95 @@ padding-bottom: 120px;
   }
 
     
-/* SECTION 4: INSIGHT */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:100vh;
+/* SECTION 4: UI 화면 구조 STYLES */
+  .ui-structure-section {
+    background-color: var(--light-g);
+    padding-bottom: 120px;
+    overflow: visible;
+    position: relative;
+    min-height: 120vh; /* 120vh에서 auto로 변경 */
+    padding-bottom: 80px; /
   }
- .insight-content {
+  
+  .ui-structure-content {
+    display: flex;
+    position: relative;
     width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
+    height: 100%;
+  }
+  
+  /* 왼쪽 규칙성 영역 스타일 */
+  .ui-structure-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    padding-right: 20px;
+  }
+  
+  
+  .ui-structure-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .ui-structure-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* 키오스크 UI 이미지 컨테이너 */
+  .ui-image-container {
+  position: relative; /* absolute에서 relative로 변경 */
+  left: -5%; /* 기존 left 속성 제거 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 100%; /* 너비 조정 */
+  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 90px; /* 상단 마진 추가 */
+  display: flex;
+ flex-direction: row; /* 가로 방향 배치 */
+  align-items: center; /* 가운데 정렬 */
+  gap: 10px; /* 이미지 사이 간격 */
 }
   
-    .insight-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-10vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 90%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
+  .ui-kiosk-image {
+    width: 36%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  /* 일관성 설명 영역 */
+  .consistency-explanation {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: left;
+    z-index: 3;
+    padding-left: 0px; /* 왼쪽 여백 60px 추가 */
+    margin-top: 750px; /* 위쪽 여백 추가 */
+    clear: both; /* float 요소 이후 클리어 */
+  }
+  
+  .consistency-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .consistency-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
 
  /* SECTION 5: INSIGHT 2*/
   .insight2-section {
@@ -1391,21 +1446,42 @@ bottom:-76vh;
 </section>
 
 	  
+
+ <!-- SECTION 4: Insight2 -->
+<section class=“ui-structure-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="ui-structure-content">
+
+
+      <h3 class="ui-structure-subheading">
+        <span class="highlight-blue">커피 브랜드의 메뉴 화면은<br>
+             크게  <span class="highlight-blue">2가지</span>로 제공됩니다. <br>
+      </h3>
+      
+    </div>
     
-<!-- SECTION 4 : insight -->
-<section class="insight-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight-content">
-    <h3 class="section-heading">
-      주문 서비스에 필요한 기준으로<br>
-      경쟁사 앱을 분석하고<br>
-      주요 강점을 탐색했습니다.
-    </h3>
-        <div class="insight-images">
-          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
-     </div>
+    <!-- 키오스크 UI 이미지 컨테이너 -->
+    <div class="ui-image-container">
+      <!-- 첫 번째 이미지 -->
+      <img src="images/04_1.svg” alt=“키오스크 UI 화면 1" class="ui-kiosk-image">
+      
+      <!-- 두 번째  이미지 -->
+      <img src="images/04_2.svg" alt="키오스크 UI 화면 2" class="ui-kiosk-image">
+      
+    
+    </div>
+    
+    <!-- 일관성 설명 -->
+    <div class="consistency-explanation">
+      <h4 class="consistency-title">UI 화면 구조</h4>
+      <p class="consistency-description">
+        대메뉴 - 제어메뉴 - 현재상태 - 개별제어 구역 및 <br>
+      기기 - 컨트롤순으로, <span class="highlight-d"> 메뉴가 달라도<br>
+    컨트롤을 쉽게 예상할 수 있습니다.</span><br> 
+      </p>
+    </div>
   </div>
-    </section>
+</section>
     
 <!-- SECTION 5 : insight2 -->
 <section class="insight2-section">
