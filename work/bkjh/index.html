@@ -308,12 +308,14 @@ body, h1, h2, h3, h4, p, span {
     }
 
 .overview-images {
-  position: relative;
-  width: 100%; /* 전체 너비로 변경 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+  position: absolute;
+  width: 50%; /* 전체 너비로 변경 */
+margin-top: 15vh; 
+right: 100px;
+aspect-ratio: 1 / 1;
+background-color: transparent;
+border-radius: 0px;
+order: 10;
 }
 
 .overview-image1, .overview-image2, .overview-image3 {
