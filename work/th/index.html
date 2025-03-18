@@ -922,7 +922,58 @@ right:62vw;
   right: 2vw;
   z-index: 4;
 }
+/* 라인 이미지 스타일 */
+.solution2-line1, .solution2-line2 {
+  position: absolute;
+  height: auto;
+  z-index: 5; /* 이미지 위에 표시되도록 z-index 높게 설정 */
+}
 
+.solution2-line1 {
+  width: 10vw; /* 적절한 크기로 조정 */
+  right: 47vw; /* 첫 번째와 두 번째 이미지 사이 위치 */
+  bottom: -10vh;
+}
+
+.solution2-line2 {
+  width: 10vw; /* 적절한 크기로 조정 */
+  right: 17vw; /* 두 번째와 세 번째 이미지 사이 위치 */
+  bottom: -10vh;
+}
+
+/* 반응형을 위한 미디어 쿼리 추가 */
+@media screen and (max-width: 1200px) {
+  .solution2-line1 {
+    right: 37.5%;
+    width: 8vw;
+  }
+  
+  .solution2-line2 {
+    right: 12.5%;
+    width: 8vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .solution2-line1, .solution2-line2 {
+    display: none; /* 모바일에서는 라인 숨김 처리 */
+  }
+}
+
+/* 1201px에서 1440px 사이의 화면 크기에 대한 조정 */
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .solution2-line1 {
+    right: 28.5%;
+    width: 8vw;
+    bottom: -10vh;
+  }
+  
+  .solution2-line2 {
+    right: 5.5%;
+    width: 8vw;
+    bottom: -10vh;
+  }
+}
 /* 반응형 스타일 */
 @media screen and (max-width: 1200px) {
   .solution2-text {
@@ -1587,11 +1638,13 @@ bottom:-76vh;
       </h3>
     </div>
     
-    <div class="solution2-images">
-      <img src="images/08_1.png" alt="메뉴 화면" class="solution2-image1">
-      <img src="images/08_2.png" alt="필수옵션 화면" class="solution2-image2">
-      <img src="images/08_3.png" alt="추가옵션 화면" class="solution2-image3">
-    </div>
+<div class="solution2-images">
+  <img src="images/08_1.png" alt="메뉴 화면" class="solution2-image1">
+  <img src="images/08_line1.svg" alt="연결선 1" class="solution2-line1">
+  <img src="images/08_2.png" alt="필수옵션 화면" class="solution2-image2">
+  <img src="images/08_line2_2.svg" alt="연결선 2" class="solution2-line2">
+  <img src="images/08_3.png" alt="추가옵션 화면" class="solution2-image3">
+</div>
   </div>
 </section>
 	  
