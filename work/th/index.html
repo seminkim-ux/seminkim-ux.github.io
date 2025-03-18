@@ -566,26 +566,24 @@ top:-20vh;
     width: 48%;
   }
 
-/* SECTION 5: INSIGHT 3 */
+ /* SECTION 5: INSIGHT 3*/
 .insight-section {
   padding: 100px 60px;
   background-color: #ffffff;
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
 }
 
 .insight-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0 auto;
+  margin: 0;
   text-align: left;
   position: relative;
 }
 
 .insight-text {
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .insight-heading {
@@ -607,10 +605,6 @@ top:-20vh;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .case-title {
@@ -674,24 +668,19 @@ top:-20vh;
   font-size: 16px;
   line-height: 1.5;
   color: #555;
-  margin-top: auto; /* 설명을 아래쪽에 붙이기 */
-  padding-top: 15px;
 }
 
-	
 /* SECTION 6: SOLUTION PROTOTYPE STYLES */
 .solution-proto-section {
   padding: 100px 60px;
   background-color: #ffffff;
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
 }
 
 .solution-proto-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0 auto;
+  margin: 0;
   text-align: left;
   position: relative;
 }
@@ -733,57 +722,9 @@ top:-20vh;
 
 .case-proto-image {
   width: 100%;
-  height: auto;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.case-proto-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 반응형 스타일 */
-@media screen and (max-width: 1024px) {
-  .case-container {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .case-item {
-    flex: 0 0 calc(50% - 20px);
-    margin-bottom: 20px;
-  }
-  
-  .case-proto-container {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .case-proto-item {
-    flex: 0 0 calc(50% - 15px);
-    margin-bottom: 30px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .insight-section,
-  .solution-proto-section {
-    padding: 80px 20px;
-  }
-  
-  .case-item,
-  .case-proto-item {
-    flex: 0 0 100%;
-  }
-  
-  .case-container,
-  .case-proto-container {
-    flex-direction: column;
-  }
+  height: 500px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
 
 
@@ -1575,25 +1516,19 @@ bottom:-76vh;
       <!-- Case 1 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 1</h4>
-        <div class="case-proto-image">
-          <img src="images/06_1.png" alt="키오스크 UI 1" class="case-proto-image1">
-        </div>
+        <div class="case-proto-image">    <img src="images/06_1.png" alt="키오스크 UI 1" class="case-proto-image1"></div>
       </div>
       
       <!-- Case 2 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 2</h4>
-        <div class="case-proto-image">
-          <img src="images/06_2.png" alt="키오스크 UI 2" class="case-proto-image2">
-        </div>
+        <div class="case-proto-image"> <img src="images/06_2.png" alt="키오스크 UI 2" class="case-proto-image2"></div>
       </div>
       
       <!-- Case 3 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 3</h4>
-        <div class="case-proto-image">
-          <img src="images/06_3.png" alt="키오스크 UI 3" class="case-proto-image3">
-        </div>
+        <div class="case-proto-image"> <img src="images/06_3.png" alt="키오스크 UI 3" class="case-proto-image3"></div>
       </div>
     </div>
   </div>
@@ -1653,73 +1588,6 @@ bottom:-76vh;
   </div>
 </section>
 	  
-<!-- SECTION 8: SOLUTION2 -->
-<section class="solution2-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution2-content">
-    <div class="solution2-text">
-      <h3 class="section-heading">
-        빠르게 가입하고<br>
-        로그인하여<br>
-        <span class="highlight-yellow">진입 장벽을 낮게.</span>
-      </h3>
-
-      <div class="solution2-description">
-        <p class="section-description">
-         SNS 간편 가입 시, 정보 제공 동의 버튼 선택만으로 <br>
-           <span class="highlight-d">입력 없이 빠르게 가입할 수 있습니다.</span><br>
-          자체 회원가입을 한다면, 로그인 아이디를 찾는 고민이 없도록 <br>
-         아이디는 휴대폰번호로 정하였습니다.<br>
-          가입할 때 작성하는 정보도 최소화하였습니다. <br>
-        휴대폰 번호 변경에 따른 방안도 마련하였습니다.
-        </p>
-      </div>
-    </div>
-
-    <div class="solution2-images">
-      <img src="images/08_1.png" alt="노브랜드버거 앱 이미지" class="solution2-image1">
-      <img src="images/08_2.png" alt="노브랜드버거 앱 이미지" class="solution2-image2">
-      <img src="images/08_3.png" alt="노브랜드버거 앱 이미지" class="solution2-image3">
-    </div>
-  </div>
-</section>
-
-
-<!-- SECTION 9: SOLUTION3 -->
-<section class="solution3-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution3-content">
-    <div class="solution3-text">
-      <h3 class="section9-heading">
-        편안한 주문이<br>
-        <span class="highlight-yellow">빠른 주문.</span>
-      </h3>
-
-      <div class="solution3-description">
-        <p class="section-description">
-          사용자가 주문 과정에서 필요한 요소를<br>
-          <span class="highlight-d">먼저 제공하여 진입장벽을 낮춥니다.</span><br>
-          고려해야 할 요소, 직접 선택해야 할 요소를 <br>
-          줄이면서, 안내도 충실히 제공하는<br>
-          <span class="highlight-d"> 편안한 주문이 서비스와 사용자가 함께<br>
-          동의를 이루어가는 필수적인 UX입니다.</span>
-        </p>
-      </div>
-
-      <div class="solution3-me">
-        1. 기존 배달지와 현재 위치를 비교하고<br> 물어보아서, 오류가 없도록 합니다.<br><br>
-        2. 로그인 하지 않을 때도, 주문 과정을 모두 경험 후,<br> 최종 단계에서 회원/비회원 주문을 선택하도록 합니다.<br><br>
-        3. 지난 주문이나 미리 설정한 간편주문으로<br> 더 쉽게 주문할 수 있습니다. <br><br>
-      </div>
-    </div>
-
-    <div class="solution3-images">
-      <img src="images/09_1.png" alt="노브랜드버거 앱 이미지" class="solution3-image1">
-      <img src="images/09_2.png" alt="노브랜드버거 앱 이미지" class="solution3-image2">
-      <img src="images/09_3.png" alt="노브랜드버거 앱 이미지" class="solution3-image3">
-    </div>
-  </div>
-</section>
 	
 
 
