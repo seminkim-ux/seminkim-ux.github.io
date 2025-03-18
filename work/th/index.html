@@ -566,24 +566,26 @@ padding-bottom: 120px;
     width: 48%;
   }
 
- /* SECTION 5: INSIGHT 3*/
+/* SECTION 5: INSIGHT 3 */
 .insight-section {
   padding: 100px 60px;
   background-color: #ffffff;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .insight-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
   position: relative;
 }
 
 .insight-text {
   width: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .insight-heading {
@@ -605,6 +607,10 @@ padding-bottom: 120px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .case-title {
@@ -668,19 +674,24 @@ padding-bottom: 120px;
   font-size: 16px;
   line-height: 1.5;
   color: #555;
+  margin-top: auto; /* 설명을 아래쪽에 붙이기 */
+  padding-top: 15px;
 }
 
+	
 /* SECTION 6: SOLUTION PROTOTYPE STYLES */
 .solution-proto-section {
   padding: 100px 60px;
   background-color: #ffffff;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .solution-proto-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
   position: relative;
 }
@@ -721,17 +732,59 @@ padding-bottom: 120px;
 }
 
 .case-proto-image {
-  width: 80%;
+  width: 100%;
   height: auto;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* 이미지 자체의 크기도 조정 */
-.case-proto-image1, .case-proto-image2, .case-proto-image3 {
-  max-width: 100%;
+.case-proto-image img {
+  width: 100%;
   height: auto;
-  object-fit: contain; /* 이미지 비율 유지 */
+  display: block;
 }
 
+/* 반응형 스타일 */
+@media screen and (max-width: 1024px) {
+  .case-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .case-item {
+    flex: 0 0 calc(50% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  .case-proto-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .case-proto-item {
+    flex: 0 0 calc(50% - 15px);
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insight-section,
+  .solution-proto-section {
+    padding: 80px 20px;
+  }
+  
+  .case-item,
+  .case-proto-item {
+    flex: 0 0 100%;
+  }
+  
+  .case-container,
+  .case-proto-container {
+    flex-direction: column;
+  }
+}
 
 
 /* SECTION 7: SOLUTION */
@@ -1521,19 +1574,25 @@ bottom:-76vh;
       <!-- Case 1 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 1</h4>
-        <div class="case-proto-image">    <img src="images/06_1.png" alt="키오스크 UI 1" class="case-proto-image1"></div>
+        <div class="case-proto-image">
+          <img src="images/06_1.png" alt="키오스크 UI 1" class="case-proto-image1">
+        </div>
       </div>
       
       <!-- Case 2 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 2</h4>
-        <div class="case-proto-image"> <img src="images/06_2.png" alt="키오스크 UI 2" class="case-proto-image2"></div>
+        <div class="case-proto-image">
+          <img src="images/06_2.png" alt="키오스크 UI 2" class="case-proto-image2">
+        </div>
       </div>
       
       <!-- Case 3 -->
       <div class="case-proto-item">
         <h4 class="case-proto-title">Case. 3</h4>
-        <div class="case-proto-image"> <img src="images/06_3.png" alt="키오스크 UI 3" class="case-proto-image3"></div>
+        <div class="case-proto-image">
+          <img src="images/06_3.png" alt="키오스크 UI 3" class="case-proto-image3">
+        </div>
       </div>
     </div>
   </div>
