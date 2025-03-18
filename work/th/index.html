@@ -439,15 +439,15 @@ padding-bottom: 120px;
 
     
 /* SECTION 4: UI 화면 구조 STYLES */
+/* SECTION 4: UI 화면 구조 STYLES */
 .ui-structure-section {
   background-color: #f5f7f9; /* 라이트 그레이 색상으로 변경 */
   padding: 100px 60px;
-height:100vh;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
   
-
-  
-/* ui-structure-content를 가로 레이아웃으로 변경 */
 .ui-structure-content {
   display: flex;
   flex-direction: column;
@@ -456,51 +456,8 @@ height:100vh;
   text-align: left;
   max-width: 100%;
   margin: 0;
-}
-
-/* 이미지 컨테이너와 설명을 감싸는 새로운 래퍼 추가 */
-.ui-image-and-explanation-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  gap: 40px;
-  margin-top: 40px;
-}
-
-
-
-/* 설명 영역 너비 조정 */
-.consistency-explanation {
-  flex: 1;  /* 1:1 비율로 공간 차지 */
-  text-align: left;
-  margin-top: 0;  /* 원래 margin-top 제거 */
   position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* 세로 중앙 정렬 */
 }
-
-/* 이미지 컨테이너 너비 조정 */
-.ui-image-container {
-  flex: 1;  /* 1:1 비율로 공간 차지 */
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-width:75vw;
-position:absolute;
-right:-30vw;
-top:0vh;	
-	  
-.ui-kiosk-image {
-  width: 26%;
-  height: auto;
-}
-
-
   
 .ui-structure-text {
   display: block;
@@ -517,7 +474,49 @@ top:0vh;
   text-align: left;
   width: 100%;
   margin-bottom: 24px;
-}  
+}
+  
+/* 이미지 컨테이너와 설명을 감싸는 래퍼 */
+.ui-image-and-explanation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+/* 설명 영역 */
+.consistency-explanation {
+  flex: 0 0 40%; /* 너비 고정 */
+  text-align: left;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 이미지 컨테이너 */
+.ui-image-container {
+  flex: 0 0 60%; /* 너비 고정 */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* 키오스크 이미지 */
+.ui-kiosk-image {
+  width: 40%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* 타이틀 스타일 */
 .consistency-title {
   font-family: "pretendard-bold", sans-serif;
   font-size: 24px;
@@ -531,6 +530,41 @@ top:0vh;
   line-height: 1.6;
   color: #555;
 }
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .ui-structure-section {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .ui-image-container {
+    justify-content: center;
+  }
+  
+  .ui-kiosk-image {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ui-image-and-explanation-wrapper {
+    flex-direction: column;
+  }
+  
+  .consistency-explanation,
+  .ui-image-container {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  
+  .ui-image-container {
+    margin-top: 30px;
+  }
+  
+  .ui-kiosk-image {
+    width: 48%;
+  }
 
  /* SECTION 5: INSIGHT 3*/
 .insight-section {
