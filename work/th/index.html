@@ -445,6 +445,9 @@ padding-bottom: 120px;
   padding-bottom: 120px;
 }
   
+
+  
+/* ui-structure-content를 가로 레이아웃으로 변경 */
 .ui-structure-content {
   display: flex;
   flex-direction: column;
@@ -454,6 +457,46 @@ padding-bottom: 120px;
   max-width: 100%;
   margin: 0;
 }
+
+/* 이미지 컨테이너와 설명을 감싸는 새로운 래퍼 추가 */
+.ui-image-and-explanation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* 이미지 컨테이너 너비 조정 */
+.ui-image-container {
+  flex: 1;  /* 1:1 비율로 공간 차지 */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-top: 0;  /* 원래 margin-top 제거 */
+}
+
+/* 설명 영역 너비 조정 */
+.consistency-explanation {
+  flex: 1;  /* 1:1 비율로 공간 차지 */
+  text-align: left;
+  margin-top: 0;  /* 원래 margin-top 제거 */
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* 세로 중앙 정렬 */
+}
+  
+.ui-kiosk-image {
+  width: 26%;
+  height: auto;
+}
+
+
   
 .ui-structure-text {
   display: block;
@@ -470,33 +513,7 @@ padding-bottom: 120px;
   text-align: left;
   width: 100%;
   margin-bottom: 24px;
-}
-  
-.ui-image-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 40px;
-  position: relative;
-}
-  
-.ui-kiosk-image {
-  width: 26%;
-  height: auto;
-}
-  
-/* 일관성 설명 영역 */
-.consistency-explanation {
-  width: 100%;
-  text-align: left;
-  margin-top: 60px;
-  position: relative;
-  z-index: 3;
-}
-  
+}  
 .consistency-title {
   font-family: "pretendard-bold", sans-serif;
   font-size: 24px;
@@ -1371,23 +1388,26 @@ bottom:-76vh;
       </h3>
     </div>
     
-    <!-- 키오스크 UI 이미지 컨테이너 -->
-    <div class="ui-image-container">
-      <!-- 첫 번째 이미지 -->
-      <img src="images/04_1.svg" alt="키오스크 UI 화면 1" class="ui-kiosk-image">
+  <!-- 새로운 래퍼 추가: 이미지 컨테이너와 설명을 함께 감싸는 div -->
+    <div class="ui-image-and-explanation-wrapper">
+      <!-- 키오스크 UI 이미지 컨테이너 -->
+      <div class="ui-image-container">
+        <!-- 첫 번째 이미지 -->
+        <img src="images/04_1.svg" alt="키오스크 UI 화면 1" class="ui-kiosk-image">
+        
+        <!-- 두 번째 이미지 -->
+        <img src="images/04_2.svg" alt="키오스크 UI 화면 2" class="ui-kiosk-image">
+      </div>
       
-      <!-- 두 번째 이미지 -->
-      <img src="images/04_2.svg" alt="키오스크 UI 화면 2" class="ui-kiosk-image">
-    </div>
-    
-    <!-- 일관성 설명 -->
-    <div class="consistency-explanation">
-      <h4 class="consistency-title">UI 화면 구조</h4>
-      <p class="consistency-description">
-        대메뉴 - 제어메뉴 - 현재상태 - 개별제어 구역 및 <br>
-      기기 - 컨트롤순으로, <span class="highlight-d"> 메뉴가 달라도<br>
-    컨트롤을 쉽게 예상할 수 있습니다.</span><br> 
-      </p>
+      <!-- 일관성 설명 -->
+      <div class="consistency-explanation">
+        <h4 class="consistency-title">UI 화면 구조</h4>
+        <p class="consistency-description">
+          대메뉴 - 제어메뉴 - 현재상태 - 개별제어 구역 및 <br>
+          기기 - 컨트롤순으로, <span class="highlight-d"> 메뉴가 달라도<br>
+          컨트롤을 쉽게 예상할 수 있습니다.</span><br> 
+        </p>
+      </div>
     </div>
   </div>
 </section>
