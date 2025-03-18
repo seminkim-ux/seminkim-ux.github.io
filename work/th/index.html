@@ -739,94 +739,127 @@ padding-bottom: 120px;
 .solution-section {
   padding: 100px 60px;
   background-color: var(--white);
-  min-height: 120vh;
+  min-height: 100vh;
   position: relative;
 }
 
 .solution-content {
   width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}
+
+.solution-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.solution-text {
-  width: 50%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
-}
-.solution-text2 {
-  width: 50%;
-  position: absolute;
-  right:-17vw;
-  bottom:-18vh;	
-  z-index: 2;
-}
-.solution-images {
-  position: absolute;
-  width: 25%;
-  right: 30vw;
-  top: -8vh;
-  z-index: 1;
+.solution-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 60px;
 }
 
-.solution-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.highlight-red {
+  color: #BD0000;
 }
 
-.solution-description {
-  width: 100%;
-  margin-top: -7vh; /* Adjust based on image height */
-  clear: both;
-}
-.solution-description2 {
-  position:absolute;	
-  width: 50%;
-  margin-top: 30vh; /* Adjust based on image height */
-  right: -17vw;
-  bottom:-33vh;
-  clear: both;
+.solution-features {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.section-description {
-  font-family: "pretendard-bold", sans-serif;
+.feature-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.feature-number {
+  background-color: #BD0000;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.feature-text h4 {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-text p {
+  font-family: var(--font-family-pretendard);
   font-size: 16px;
   line-height: 1.6;
   color: #555;
 }
-.solution-ex {
-  font-family: var(--font-family-pretendard);
-  font-size: 13px;
-  line-height: 1.6;
-  margin-top:30px;
-  color: #555;
+
+.solution-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.section-heading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: var(--font-size-xxl);
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: left;
-  margin-bottom: 24px;
+.solution-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.highlight-yellow {
-  color: var(--yellow-medium);
+/* Responsive styles for Solution section */
+@media screen and (max-width: 1024px) {
+  .solution-content {
+    flex-direction: column;
+  }
+  
+  .solution-heading {
+    font-size: 28px;
+    margin-top: 40px;
+  }
 }
 
-.highlight-d {
-  color: #000;
-  font-weight: 700;
+@media screen and (max-width: 768px) {
+  .solution-section {
+    padding: 80px 20px;
+  }
+  
+  .solution-heading {
+    font-size: 24px;
+  }
+  
+  .feature-text h4 {
+    font-size: 18px;
+  }
+  
+  .feature-text p {
+    font-size: 14px;
+  }
 }
-
-
 /* SECTION 8: SOLUTION2  */
 .solution2-section {
   padding: 100px 60px;
@@ -1533,50 +1566,45 @@ bottom:-76vh;
 <section class="solution-section">
   <h2 class="section-title">Solution</h2>
   <div class="solution-content">
-    <div class="solution-text">
-      <h3 class="section-heading">
-        주문 서비스의 첫 화면은<br>
-        다양한 필요를<br>
-        <span class="highlight-yellow">빠르게 충족</span>하도록.
+    <div class="solution-left">
+      <div class="solution-image-container">
+        <img src="images/07.png" alt="Tim Hortons Kiosk Interface" class="solution-image">
+      </div>
+    </div>
+    
+    <div class="solution-right">
+      <h3 class="solution-heading">
+        메뉴 화면은 <span class="highlight-red">영역별 구분</span>이 확실하여,<br>
+        메뉴 확인이 명확하도록 설계했습니다.
       </h3>
-	
-    </div>
-    
-    <div class="solution-text2">
-      <h3 class="section-heading">
-        작지만, 사용자와 <br>
-        함께하는 <span class="highlight-yellow">개인화 요소</span><br>
-      </h3>
-    </div>
-    
-    <div class="solution-images">
-      <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
-    </div>
-    
-    <div class="solution-description">
-      <p class="section-description">
-        <span class="highlight-d">주문 앱의 홈 화면에 꼭 필요한 요소를 정의하였습니다.</span><br>
-        우선 주문 버튼을 화면 내에 눈에 띄게 두었습니다.<br>
-        매장의 테이블에 있는 QR을 스캔하여 바로 주문하는 버튼과<br>
-        키오스크 주문 시 사용하는 멤버십 바코드 조회 버튼도<br>
-        바로 꺼내 써야하기에 홈 화면에 배치하였습니다.
-      </p>
-	<p class="solution-ex">
-        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
-        실제로는 와이어프레임과 기획 작업을 하였습니다.
-      </p>
-    </div>
-	
-
-    <div class="solution-description2">
-      <p class="section-description">
-        개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
-        지난 주문을 간편하게 다시 주문하는 간편 주문으로 <br>
-        사용자 맞춤형 빠른 주문을 제공합니다.<br>
-        닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
-        쿠폰 보유 현황을 상단에 표시하여, 사용자 관점으로<br>
-        필요한 요소를 전달합니다.
-      </p>
+      
+      <div class="solution-features">
+        <div class="feature-item">
+          <div class="feature-number">1</div>
+          <div class="feature-text">
+            <h4>카테고리</h4>
+            <p>스크롤을 없애 메뉴 인지를 도움.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-number">2</div>
+          <div class="feature-text">
+            <h4>4x3 레이아웃</h4>
+            <p>고정된 레이아웃. 직관한 크기로 메뉴 표시<br>
+            12개 이상의 메뉴가 있을 경우 다음 버튼으로 이동 가능<br>
+            버거컨셉 다양한 레이아웃은 다시 사선의 분선이 발생하므로 제외</p>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-number">3</div>
+          <div class="feature-text">
+            <h4>장바구니</h4>
+            <p>담은 메뉴와 결제 금액 을 나누어 정보를 구분</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
