@@ -858,7 +858,7 @@ position:relative;
     font-size: 14px;
   }
 }
-/* SECTION 8: SOLUTION2  */
+/* SECTION 8: SOLUTION2 */
 .solution2-section {
   padding: 100px 60px;
   background-color: var(--white);
@@ -873,7 +873,7 @@ position:relative;
   text-align: left;
   position: relative;
   display: flex;
-  flex-direction: column; /* column으로 변경 */
+  flex-direction: column;
 }
 
 .solution2-text {
@@ -883,9 +883,18 @@ position:relative;
   margin-bottom: 40px;
 }
 
+.solution2-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+
 .solution2-images {
   position: relative;
-  width: 100%; /* 전체 너비로 변경 */
+  width: 100%;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -896,11 +905,13 @@ position:relative;
   position: absolute;
   width: 20vw;
   height: auto;
-  bottom: -20vh; /* 아래에서부터의 위치 변경 */
+  bottom: -20vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
 }
 
 .solution2-image1 {
-  right: 45%; /* 오른쪽에서부터의 위치 */
+  right: 45%;
   z-index: 2;
 }
 
@@ -914,97 +925,57 @@ position:relative;
   z-index: 4;
 }
 
-.solution2-description {
-  width: 100%;
-  margin-top: 30px; /* 이미지와 설명 사이 간격 */
-  clear: both;
-}
-
-
-/* SECTION 9: solution3  */
-.solution3-section {
-  padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
-  position: relative;
-}
-
-.solution3-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: row; /* column에서 row로 변경 */
-  flex-wrap: wrap; /* 필요시 줄바꿈 */
-  align-items: flex-start;
-  justify-content: space-between;
-}
-  .section9-heading {
-    font-family: var(--font-family-pretendard);
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    text-align:left;
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .solution2-text {
+    width: 70%;
   }
-.solution3-text {
-  width: 30%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
+  
+  .solution2-image1, .solution2-image2, .solution2-image3 {
+    width: 22vw;
+    bottom: -10vh;
+  }
+  
+  .solution2-image1 {
+    right: 50%;
+  }
+  
+  .solution2-image2 {
+    right: 25%;
+  }
+  
+  .solution2-image3 {
+    right: 0%;
+  }
 }
 
-.solution3-images {
-  position: relative;
-  width: 70%; /* 전체 너비로 변경 */
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding-top: 40px; /* 상단 여백 */
+@media screen and (max-width: 768px) {
+  .solution2-section {
+    padding: 80px 20px;
+  }
+  
+  .solution2-text {
+    width: 100%;
+  }
+  
+  .solution2-heading {
+    font-size: 28px;
+  }
+  
+  .solution2-images {
+    height: 50vh;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .solution2-image1, .solution2-image2, .solution2-image3 {
+    position: relative;
+    width: 80%;
+    margin-bottom: 20px;
+    right: auto;
+    bottom: auto;
+  }
 }
-.solution3-image1, .solution3-image2, .solution3-image3 {
-  position: absolute;
-  width: 32%;
-  height: auto;
-}
-
-.solution3-image1 {
-  right: 40vw; /* 오른쪽에서부터의 위치 */
-  z-index: 2;
-  bottom:-78vh;
-}
-
-.solution3-image2 {
-  right: 20vw;
-  z-index: 3;
-  bottom:-82vh;
-}
-
-.solution3-image3 {
-  right: 0vw;
-  z-index: 4;
-  bottom:-76vh;
-}
-
-.solution3-description {
-  width: 100%;
-  margin-top: 30px; /* 이미지와 설명 사이 간격 */
-  clear: both;
-}
-
-.solution3-me {
-  font-family: var(--font-family-pretendard);
-  font-size: 15px;
-  position: relative; 
-  margin-top:10vh;
-  line-height: 1.6;
-  color: #000;
-}
-
     
 /* RESPONSIVE STYLES */
 @media screen and (max-width: 1200px) {
@@ -1603,6 +1574,25 @@ bottom:-76vh;
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+	  <!-- SECTION 8: SOLUTION2 -->
+<section class="solution2-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution2-content">
+    <div class="solution2-text">
+      <h3 class="solution2-heading">
+        메뉴 선택 후, 필수옵션 선택을 바로 제공합니다.<br>
+        추가 옵션이 필요하면, 선택하여 순차적으로 이루어집니다.
+      </h3>
+    </div>
+    
+    <div class="solution2-images">
+      <img src="images/08_1.png" alt="메뉴 화면" class="solution2-image1">
+      <img src="images/08_2.png" alt="필수옵션 화면" class="solution2-image2">
+      <img src="images/08_3.png" alt="추가옵션 화면" class="solution2-image3">
     </div>
   </div>
 </section>
