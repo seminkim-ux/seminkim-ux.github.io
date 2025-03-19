@@ -1080,6 +1080,215 @@ padding-bottom: 120px;
     font-size: 12px;
   }
 }
+
+/* 섹션 8: 브랜드 아이덴티티 섹션 스타일 */
+.brand-identity-section {
+  background-color: var(--white);
+  padding: 100px 60px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.brand-content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+}
+
+/* 왼쪽 상단 콘텐츠 스타일 */
+.left-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.left-image-container {
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.content-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.content-heading {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.highlight-green {
+  color: #65c479;
+}
+
+.subheading {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content-description {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #6e6e73;
+  margin-bottom: 20px;
+}
+
+/* 오른쪽 하단 브랜드 아이덴티티 영역 스타일 */
+.right-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.brand-logo {
+  margin-bottom: 24px;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+}
+
+.brand-heading {
+  margin-bottom: 60px;
+}
+
+.brand-title {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.red-text {
+  color: #ff6250;
+}
+
+.brand-description {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #6e6e73;
+}
+
+/* 아이콘 그리드 스타일 */
+.icon-grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 18%;
+}
+
+.icon-image {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.icon-label {
+  font-family: "Pretendard-Medium", sans-serif;
+  font-size: 16px;
+  color: #404040;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .left-content {
+    flex-direction: column;
+  }
+  
+  .left-image-container, 
+  .content-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .content-image {
+    margin-bottom: 30px;
+  }
+  
+  .content-heading {
+    font-size: 32px;
+  }
+  
+  .brand-title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .brand-identity-section {
+    padding: 80px 20px;
+  }
+  
+  .content-heading, 
+  .brand-title {
+    font-size: 28px;
+  }
+  
+  .icon-grid {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .icon-item {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-heading, 
+  .brand-title {
+    font-size: 24px;
+  }
+  
+  .subheading {
+    font-size: 20px;
+  }
+  
+  .content-description, 
+  .brand-description {
+    font-size: 15px;
+  }
+  
+  .icon-item {
+    width: 45%;
+  }
+}
+	  
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
    
@@ -1625,7 +1834,82 @@ bottom:-76vh;
     </div>
   </div>
 </section>
-
+<!-- SECTION 8: 브랜드 아이덴티티 섹션 -->
+<section class="brand-identity-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="brand-content">
+    <!-- 왼쪽 상단 이미지 -->
+    <div class="left-content">
+      <div class="left-image-container">
+        <img src="images/08_1.svg" alt="학습지 콘텐츠 이미지" class="content-image">
+      </div>
+      
+      <div class="content-text">
+        <h3 class="content-heading">
+          <span class="highlight-green">사용자가 공감하는 브랜드 요소</span>를<br>
+          콘셉트와 함께 <span class="highlight-green">디자인</span>합니다.
+        </h3>
+        
+        <h4 class="subheading">구몬 학습지</h4>
+        
+        <p class="content-description">
+          매주 정해진 분량의 학습지를 풀어야하던 기억은 지 당시 가지고 있습니다.<br>
+          사용자가 실제 경험으로 썼던 브랜드에 대한 기억은 매우 소중한 자산입니다.<br>
+          이것을 <strong>스터디 비타민</strong>이라는 콘셉트에 맞게 일러스트레이션 버튼으로 디자인하였습니다.<br>
+          매회화면의 학습 현황 버튼으로 서비스의 메인 비주얼 역할을 합니다.
+        </p>
+      </div>
+    </div>
+    
+    <!-- 오른쪽 하단 브랜드 아이덴티티 영역 -->
+    <div class="right-content">
+      <div class="brand-logo">
+        <img src="images/bi.svg" alt="구몬 로고" class="logo-image">
+      </div>
+      
+      <div class="brand-heading">
+        <h3 class="brand-title">
+          <span class="red-text">브랜드 아이덴티티</span>에서 확장된<br>
+          학습 콘텐츠 버튼을 디자인합니다.
+        </h3>
+        
+        <p class="brand-description">
+          서비스 핵심 기능 중 하나인 스마트 콘텐츠 관련 버튼은 구몬구몬의 BI와 연결성있는<br>
+          디자인으로 통일성있고 강화된 아이덴티티를 구축합니다.
+        </p>
+      </div>
+      
+      <!-- 아이콘 그리드 -->
+      <div class="icon-grid">
+        <div class="icon-item">
+          <img src="images/08_2_1.svg" alt="스마트펜" class="icon-image">
+          <span class="icon-label">스마트펜</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_2.svg" alt="MP3음원" class="icon-image">
+          <span class="icon-label">MP3음원</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_3.svg" alt="동영상강의" class="icon-image">
+          <span class="icon-label">동영상강의</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_4.svg" alt="스마트AR앱" class="icon-image">
+          <span class="icon-label">스마트AR앱</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_5.svg" alt="내공100" class="icon-image">
+          <span class="icon-label">내공100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="top-button" id="topButton"></div>
 </body>
 	
