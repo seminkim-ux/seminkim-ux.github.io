@@ -881,7 +881,7 @@ padding-bottom: 120px;
   position: relative;
 }
 
-.section-title {
+.solution-section .section-title {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 64px;
@@ -890,7 +890,7 @@ padding-bottom: 120px;
   max-width: 1200px;
 }
 
-.solution-container {
+.solution-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -898,11 +898,20 @@ padding-bottom: 120px;
   position: relative;
 }
 
-.left-column, .right-column {
+.left-side, .right-side {
+  width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 30%;
+}
+
+.left-side {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.right-side {
+  align-items: flex-end;
+  text-align: right;
 }
 
 .phone-container {
@@ -913,12 +922,12 @@ padding-bottom: 120px;
 }
 
 .phone-image {
-  width: auto;
   height: 70vh;
   max-height: 700px;
+  width: auto;
 }
 
-.text-study, .text-vitamin {
+.text-left, .text-right {
   color: #d1d3d4;
   font-family: "Pretendard-Black", sans-serif;
   font-weight: 900;
@@ -930,14 +939,15 @@ padding-bottom: 120px;
 
 .vitamin-circles {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
+  justify-content: flex-end;
   margin-top: 20px;
 }
 
 .circle {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -945,7 +955,7 @@ padding-bottom: 120px;
   color: white;
   font-family: "Jost", sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -962,8 +972,8 @@ padding-bottom: 120px;
 }
 
 .solution-description {
-  text-align: left;
   margin-top: 20px;
+  max-width: 400px;
 }
 
 .solution-heading {
@@ -982,13 +992,19 @@ padding-bottom: 120px;
 
 /* 반응형 스타일 */
 @media screen and (max-width: 1200px) {
-  .text-study, .text-vitamin {
+  .text-left, .text-right {
     font-size: 120px;
+  }
+  
+  .circle {
+    width: 90px;
+    height: 90px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 992px) {
-  .text-study, .text-vitamin {
+  .text-left, .text-right {
     font-size: 90px;
   }
   
@@ -997,8 +1013,13 @@ padding-bottom: 120px;
   }
   
   .circle {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    font-size: 14px;
+  }
+  
+  .vitamin-circles {
+    gap: 10px;
   }
 }
 
@@ -1007,24 +1028,24 @@ padding-bottom: 120px;
     padding: 80px 20px;
   }
   
-  .solution-container {
+  .solution-content {
     flex-direction: column;
     align-items: center;
   }
   
-  .left-column, .right-column {
+  .left-side, .right-side {
     width: 100%;
     align-items: center;
+    text-align: center;
     margin-bottom: 30px;
   }
   
-  .text-study, .text-vitamin {
+  .text-left, .text-right {
     font-size: 80px;
-    text-align: center;
+    margin-bottom: 20px;
   }
   
   .phone-container {
-    order: 2;
     width: 100%;
     margin: 30px 0;
   }
@@ -1034,24 +1055,29 @@ padding-bottom: 120px;
   }
   
   .vitamin-circles {
-    flex-direction: row;
-    gap: 15px;
+    justify-content: center;
   }
   
   .solution-description {
     text-align: center;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .text-study, .text-vitamin {
+  .text-left, .text-right {
     font-size: 60px;
   }
   
+  .vitamin-circles {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
   .circle {
-    width: 80px;
-    height: 80px;
-    font-size: 14px;
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
   }
 }
     /* RESPONSIVE STYLES */
@@ -1575,9 +1601,9 @@ bottom:-76vh;
 <section class="solution-section">
   <h2 class="section-title">Solution</h2>
   
-  <div class="solution-container">
-    <div class="left-column">
-      <div class="text-study">STUDY</div>
+  <div class="solution-content">
+    <div class="left-side">
+      <div class="text-left">STUDY</div>
       <div class="solution-description">
         <h3 class="solution-heading">'스터디비타민'이라는 콘셉트로 발전, 생기있는 이미지를 강조했습니다.</h3>
         <p class="solution-paragraph">주사용자인 학부모와 학생들이 일상에서 자주 사용하는 소프트웨어,<br>
@@ -1589,8 +1615,8 @@ bottom:-76vh;
       <img src="images/07.png" alt="Kumon App UI" class="phone-image">
     </div>
     
-    <div class="right-column">
-      <div class="text-vitamin">VITAMIN</div>
+    <div class="right-side">
+      <div class="text-right">VITAMIN</div>
       <div class="vitamin-circles">
         <div class="circle bright-circle">BRIGHT</div>
         <div class="circle lively-circle">LIVELY</div>
