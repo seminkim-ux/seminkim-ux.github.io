@@ -391,274 +391,338 @@ min-height:110vh;
   
     
     
-/* SECTION 4: INSIGHT */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:100vh;
-  }
- .insight-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
-  
-    .insight-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-9vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 90%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
-
- /* SECTION 5: INSIGHT 2*/
-  .insight2-section {
-    padding: 100px 60px;
-   background-color: var(--white);
-    min-height:100vh;
-  }
- .insight2-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
-  
-    .insight2-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-5vh; 
-      right: 6vw;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight2-image {
-       max-width: 100%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
-
-/* SECTION 6: CORE FEATURES */
-.features-section {
+/* SECTION 4: INSIGHT 스타일 */
+.insight-section {
   padding: 100px 60px;
-  background-color: var(--white);
+  background-color: var(--light-gray);
   min-height: 100vh;
   position: relative;
 }
 
-.features-content {
+.insight-content {
   width: 100%;
   max-width: 90vw;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
   position: relative;
-}
-
-.features-diagram {
-  margin-top: 60px;
-  position: relative;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 70vh;
 }
 
-/* 노드 스타일 */
-.feature-node {
+/* 코어 밸류 타이틀과 설명 */
+.core-value {
+  width: 100%;
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.value-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.value-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* 콘텐츠 및 학습상태 영역 */
+.kumon-features {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.feature-column {
+  width: 45%;
+}
+
+.left-column {
+  text-align: left;
+}
+
+.right-column {
+  text-align: right;
+}
+
+.feature-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.feature-items {
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #6e6e73;
+}
+
+/* 원형 컨테이너 스타일 */
+.value-circles-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+  height: 300px;
+}
+
+.circle-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 -30px; /* 원이 겹치도록 설정 */
+}
+
+.circle-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-.main-node {
-  background-color: #fff5a0;
-  border: 1px solid #e0e0e0;
-  width: 210px;
-  height: 50px;
-  margin-bottom: 30px;
   z-index: 2;
 }
 
-.second-node {
-  background-color: #fff5a0;
-    border: 1px solid #e0e0e0;
-  width: 210px; /* 1.5배로 증가 */
-  height: 50px;
-  z-index: 2;
-}
-
-.empty-node {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.node-text {
+.circle-text {
   font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 500;
+  color: var(--black);
+  max-width: 80%;
 }
 
-/* 수직 연결선 */
-.vertical-lines {
+/* 원의 장식 (동심원) */
+.circle-decorations {
   position: absolute;
-  top: 106px;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   z-index: 1;
 }
 
-.vertical-line {
-  position: absolute;
-  width: 1px;
-  background-color: #ccc;
-  top: 0;
-  height: 500px; /* 라인 길이 */
+.left-decorations {
+  border: 1px solid rgba(255, 200, 0, 0.5);
 }
 
-.line1 {
-  left: 10%;
-  height: 200px;
-}
-
-.line2 {
-  left: 30%;
-    height: 300px;
-}
-
-.line3 {
-  left: 50%;
-  height: 440px;
-}
-
-.line4 {
-  left: 70%;
-}
-
-.line5 {
-  left: 90%;
-}
-
-/* 2단계 노드 컨테이너 */
-.second-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 100%;
-  margin-bottom: 80px;
-  position: relative;
-  justify-items: center;
-}
-
-/* 메인 노드에서 아래로 내려오는 선 */
-.second-level-nodes::before {
+.left-decorations::before,
+.left-decorations::after {
   content: '';
   position: absolute;
-  top: -30px;
-  left: 50%;
-  width: 1px;
-  height: 30px;
-  background-color: #ccc;
-  z-index: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 200, 0, 0.5);
 }
 
-/* 2단계 노드들을 가로로 연결하는 선 */
-.second-level-nodes::after {
+.left-decorations::before {
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.left-decorations::after {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+.right-decorations {
+  border: 1px solid rgba(100, 180, 70, 0.5);
+}
+
+.right-decorations::before,
+.right-decorations::after {
   content: '';
   position: absolute;
-  top: 25px;
-  left: 10%;
-  width: 80%;
-  height: 1px;
-  background-color: #ccc;
-  z-index: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 180, 70, 0.5);
 }
 
-/* 3단계 노드 전체 컨테이너 */
-.third-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+.right-decorations::before {
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.right-decorations::after {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+/* 태그 스타일 */
+.value-tags {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   position: relative;
-  justify-items: center;
-  top : -12vh; 
+  margin-top: 30px;
 }
 
-/* 3단계 노드 컨테이너들 */
-.third-level-container {
+.tag-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 210px; /* 1.5배로 증가 */
-  z-index: 3;
-  margin-top: 50px;
 }
 
-/* 기능 박스 스타일 */
-.feature-box {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: white;
-  width: 100%;
-  min-height: 60px;
-  position: relative;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+.left-tags {
+  align-items: flex-start;
+  margin-left: 100px;
 }
 
-.feature-title {
-  font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 10px;
+.right-tags {
+  align-items: flex-end;
+  margin-right: 100px;
+}
+
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px 40px;
+  min-width: 160px;
   text-align: center;
 }
 
-.feature-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
+.tag-text {
+  font-family: var(--font-family-jost);
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
 }
 
-.feature-list li {
-  font-family: var(--font-family-pretendard);
-  font-size: 14px;
-  margin-bottom: 5px;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 12px;
+.tag-yellow {
+  background-color: #ffcf00;
 }
 
-.feature-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #555;
+.tag-red {
+  background-color: #ff6b6b;
 }
+
+.tag-green {
+  background-color: #90d45d;
+}
+
+.tag-blue {
+  background-color: #4bb5e8;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .kumon-features {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .feature-column {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .right-column {
+    text-align: left;
+  }
+  
+  .value-circles-container {
+    flex-direction: column;
+    height: auto;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .circle-container {
+    margin: 0;
+  }
+  
+  .value-tags {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .left-tags, .right-tags {
+    margin: 0;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insight-section {
+    padding: 80px 20px;
+  }
+  
+  .value-description {
+    font-size: 24px;
+  }
+  
+  .feature-heading {
+    font-size: 28px;
+  }
+  
+  .circle-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .tag {
+    min-width: 140px;
+    padding: 12px 30px;
+  }
+  
+  .tag-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .value-description {
+    font-size: 20px;
+  }
+  
+  .feature-heading {
+    font-size: 24px;
+  }
+  
+  .feature-items {
+    font-size: 16px;
+  }
+  
+  .circle-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .circle-text {
+    font-size: 14px;
+  }
+  
+  .tag {
+    min-width: 120px;
+    padding: 10px 25px;
+  }
+  
+  .tag-text {
+    font-size: 18px;
+  }
+}
+
+
 
 /* SECTION 7: SOLUTION */
 .solution-section {
@@ -1267,203 +1331,77 @@ bottom:-76vh;
 <section class="insight-section">
   <h2 class="section-title">Insight</h2>
   <div class="insight-content">
-    <h3 class="section-heading">
-      주문 서비스에 필요한 기준으로<br>
-      경쟁사 앱을 분석하고<br>
-      주요 강점을 탐색했습니다.
-    </h3>
-        <div class="insight-images">
-          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
-     </div>
-  </div>
-    </section>
+    <div class="core-value">
+      <h3 class="value-heading">CORE VALUE</h3>
+      <p class="value-description">
+        콘텐츠와 학습상태 안내, 2가지 핵심 기능을 중심으로<br>
+        사용자에게 전달해야 할 가치를 설정했습니다.
+      </p>
+    </div>
     
-<!-- SECTION 5 : insight2 -->
-<section class="insight2-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight2-content">
-    <h3 class="section-heading">
-      선행된 조사, 분석을 바탕으로<br>
-      UX Concept을 수립하고<br>
-      핵심 기능을 정의하였습니다.
-    </h3>
-        <div class="insight2-images">
-          <img src="images/05_2.svg" alt="노브랜드버거 콘셉트" class="insight2-image">
-     </div>
-  </div>
-    </section>
-
-
-    
-<!-- SECTION 6: CORE FEATURES -->
-<section class="features-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="features-content">
-    <h3 class="section-heading">
-      전체 구조를 작성하고<br>
-      UX Concept에 맞는 핵심 기능을<br>
-      세부 화면에 정의하였습니다.
-    </h3>
-    
-    <div class="features-diagram">
-      <!-- 메인 노드 - 홈 -->
-      <div class="feature-node main-node">
-        <span class="node-text">홈</span>
+    <div class="kumon-features">
+      <div class="feature-column left-column">
+        <h3 class="feature-heading">KUMON CONTENTS</h3>
+        <p class="feature-items">키즈 / 성인학습 / 스마트구몬 / 이벤트 / 혜택 / 자료실</p>
       </div>
       
-      <!-- 수직 연결선들 -->
-      <div class="vertical-lines">
-        <div class="vertical-line line1"></div>
-        <div class="vertical-line line2"></div>
-        <div class="vertical-line line3"></div>
-        <div class="vertical-line line4"></div>
-        <div class="vertical-line line5"></div>
+      <div class="feature-column right-column">
+        <h3 class="feature-heading">STUDY STATUS</h3>
+        <p class="feature-items">학습진도 / 학습내용 / 학습목표 / 수료증 / 선생님께 연락하기 / 풀이시간 타이머</p>
+      </div>
+    </div>
+    
+    <div class="value-circles-container">
+      <!-- 왼쪽 원 -->
+      <div class="circle-container left-circle">
+        <div class="circle-content">
+          <p class="circle-text">
+            정돈되고 밝은 디자인으로<br>
+            No1. 교육브랜드의<br>
+            콘텐츠를 전달함.
+          </p>
+        </div>
+        <div class="circle-decorations left-decorations"></div>
       </div>
       
-      <!-- 2단계 노드들 -->
-      <div class="second-level-nodes">
-        <div class="feature-node second-node empty-node">
-          <span class="node-text"></span>
+      <!-- 오른쪽 원 -->
+      <div class="circle-container right-circle">
+        <div class="circle-content">
+          <p class="circle-text">
+            사용자 맞춤형의<br>
+            친절한 학습 현황 표시,<br>
+            효과적인 정보 제공으로<br>
+            스마트 이미지를 강화함.
+          </p>
         </div>
-        <div class="feature-node second-node">
-          <span class="node-text">쿠폰</span>
+        <div class="circle-decorations right-decorations"></div>
+      </div>
+    </div>
+    
+    <div class="value-tags">
+      <!-- 왼쪽 태그들 -->
+      <div class="tag-container left-tags">
+        <div class="tag tag-yellow">
+          <span class="tag-text">Lively</span>
         </div>
-        <div class="feature-node second-node">
-          <span class="node-text">주문</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">MY</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">더보기</span>
+        <div class="tag tag-red">
+          <span class="tag-text">Neat</span>
         </div>
       </div>
       
-      <!-- 3단계 노드들 전체 컨테이너 -->
-      <div class="third-level-nodes">
-        <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
-        <div class="third-level-container empty-container">
-          <div class="feature-box">
-            <h4 class="feature-title">회원가입</h4>
-            <ul class="feature-list">
-              <li>SNS 계정으로 입력없이 가입</li>
-              <li>자체 회원가입 입력 최소화</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">로그인</h4>
-            <ul class="feature-list">
-              <li>휴대폰 ID로 간편하게 로그인</li>
-            </ul>
-          </div>
+      <!-- 오른쪽 태그들 -->
+      <div class="tag-container right-tags">
+        <div class="tag tag-green">
+          <span class="tag-text">Friendly</span>
         </div>
-        
-        <!-- 3단계 노드들 - 쿠폰 -->
-        <div class="third-level-container coupon-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
-            <ul class="feature-list">
-              <li>매장에서 바로 쿠폰 생성</li>
-              <li>주문 유형별 쿠폰 탐색</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 상세</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 선물하기</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 주문 -->
-        <div class="third-level-container order-container">
-          <div class="feature-box">
-            <h4 class="feature-title">배달주문</h4>
-            <ul class="feature-list">
-              <li>배달지 설정</li>
-              <li>메뉴카테고리 내 메뉴 탐색</li>
-              <li>옵션메뉴 선택</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">매장픽업</h4>
-            <ul class="feature-list">
-              <li>위치기반 매장 추천</li>
-              <li>매장 즐겨찾기</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">간편주문</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">비회원주문</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - MY -->
-        <div class="third-level-container my-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문 내역조회</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">스탬프 적립</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">나의 배달지 / 매장</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">설문조사</h4>
-            <ul class="feature-list">
-              <li>전 회원 대상 설문조사</li>
-              <li>특정 세대 설문조사</li>
-              <li>특정 메뉴 주문고객 설문조사</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">정보변경</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 더보기 -->
-        <div class="third-level-container more-container">
-          <div class="feature-box">
-            <h4 class="feature-title">매장 찾기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">메뉴보기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">이벤트</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">고객센터</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">약관 및 정책</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">앱 설정</h4>
-          </div>
+        <div class="tag tag-blue">
+          <span class="tag-text">Smart</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+	  
 
     
 <!-- SECTION 7: SOLUTION -->
