@@ -873,7 +873,166 @@ padding-bottom: 120px;
   }
 
 
-
+   /* SECTION 7:  Solution */
+    .solution-section {
+      background-color: #efefef;
+      padding: 100px 60px;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 64px;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+    }
+    
+    .solution-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+    
+    .phone-container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .phone-image {
+      width: auto;
+      height: 70vh;
+      max-height: 700px;
+    }
+    
+    .text-left, .text-right {
+      position: absolute;
+      color: #d1d3d4;
+      font-family: "Pretendard-Black", sans-serif;
+      font-weight: 900;
+      font-size: 150px;
+      line-height: 0.9;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+    
+    .text-left {
+      left: 0;
+      text-align: right;
+    }
+    
+    .text-right {
+      right: 0;
+      text-align: left;
+    }
+    
+    .vitamin-circles {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: "Jost", sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+    }
+    
+    .bright-circle {
+      background-color: #ff9b9b;
+    }
+    
+    .lively-circle {
+      background-color: #41d9ff;
+    }
+    
+    .colorful-circle {
+      background-color: #ffd453;
+    }
+    
+    .solution-description {
+      text-align: center;
+      margin-top: 50px;
+      max-width: 600px;
+    }
+    
+    .solution-heading {
+      font-family: "Pretendard-Black", sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    
+    .solution-paragraph {
+      font-family: "Pretendard-Regular", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #6e6e73;
+    }
+    
+    /* Responsive styles */
+    @media screen and (max-width: 1200px) {
+      .text-left, .text-right {
+        font-size: 120px;
+      }
+    }
+    
+    @media screen and (max-width: 992px) {
+      .text-left, .text-right {
+        font-size: 90px;
+      }
+      
+      .phone-image {
+        height: 60vh;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .solution-section {
+        padding: 80px 20px;
+      }
+      
+      .text-left, .text-right {
+        position: static;
+        font-size: 60px;
+        text-align: center;
+        margin: 20px 0;
+      }
+      
+      .solution-content {
+        flex-direction: column;
+      }
+      
+      .phone-container {
+        order: 1;
+      }
+      
+      .phone-image {
+        height: 50vh;
+      }
+      
+      .vitamin-circles {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+    }
     
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -1201,6 +1360,8 @@ bottom:-76vh;
           <img src="images/01.png" alt="노브랜드버거 앱 스크린샷" class="hero-image">
       </div>
     </section>
+
+	  
     
   <!-- SECTION 2: OVERVIEW -->
   <section class="section">
@@ -1390,6 +1551,32 @@ bottom:-76vh;
 </div>
 </section>
 
+<!-- SECTION 7: solution -->
+  <section class="solution-section">
+    <h2 class="section-title">Solution</h2>
+    
+    <div class="solution-content">
+      <div class="text-left">STUDY</div>
+      
+      <div class="phone-container">
+        <img src="images/07.png" alt="Kumon App UI" class="phone-image">
+      </div>
+      
+      <div class="text-right">VITAMIN</div>
+    </div>
+    
+    <div class="vitamin-circles">
+      <div class="circle bright-circle">BRIGHT</div>
+      <div class="circle lively-circle">LIVELY</div>
+      <div class="circle colorful-circle">COLORFUL</div>
+    </div>
+    
+    <div class="solution-description">
+      <h3 class="solution-heading">'스터디비타민'이라는 콘셉트로 발전, 생기있는 이미지를 강조했습니다.</h3>
+      <p class="solution-paragraph">주사용자인 학부모와 학생들이 일상에서 자주 사용하는 소프트웨어,<br>
+      소셜앱처럼 가깝게 다가가도록 하였습니다.</p>
+    </div>
+  </section>
 
 <div class="top-button" id="topButton"></div>
 </body>
