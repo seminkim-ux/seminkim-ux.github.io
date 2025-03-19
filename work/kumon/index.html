@@ -52,7 +52,7 @@
       --white: #ffffff;
       --light-gray:#f2f9fc;
       --blue-light: #41d9ff;
-      --yellow-medium: #e1a317;
+      --green-medium: #8ebb37;
       --yellow: #ffd453;
       --bg-blue: #87a0ae;
       --light-bg: #f5f7f9;
@@ -280,8 +280,8 @@ bottom:-9vh;
     }
 
     /* 하이라이트 스타일 */
-    .highlight-yellow {
-      color: var(--yellow-medium);
+    .highlight-green {
+      color: var(--green-medium);
     }
 
     .highlight-regular {
@@ -724,6 +724,80 @@ min-height:110vh;
   }
 }
 
+/* SECTION 5: Research  */
+  .research-section {
+background-color: var(--white);
+padding: 100px 60px;
+padding-bottom: 120px;
+  }
+  
+  .research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+      .research-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+.research-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6개 열로 설정 */
+  gap: 3vw; /* 아이템 간 간격 */
+  width: 100%;
+}
+
+.research-item {
+  width: 100%;
+}
+
+.research-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+  .research-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+.cpt {
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 20px;
+    color: #808284;
+  }
+
 
 
 /* SECTION 7: SOLUTION */
@@ -798,8 +872,8 @@ font-family: "pretendard-bold", sans-serif;
 	 margin-top:30px;
     color: #555;
   }
-.highlight-yellow {
-  color: var(--yellow-medium);
+.highlight-green {
+  color: var(--green-medium);
 }
 
 .highlight-d {
@@ -1331,7 +1405,7 @@ bottom:-76vh;
     
 <!-- SECTION 4 : insight -->
 <section class="insight-section">
-  <h2 class="section-title">CORE VALUE</h2>
+  <h2 class="section-title">Core Value</h2>
   <div class="insight-content">
     <div class="core-value">
       <p class="value-description">
@@ -1401,127 +1475,46 @@ bottom:-76vh;
   </div>
 </section>
 
-    
-<!-- SECTION 7: SOLUTION -->
-<section class="solution-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution-content">
-    <div class="solution-text">
-      <h3 class="section-heading">
-        주문 서비스의 첫 화면은<br>
-        다양한 필요를<br>
-        <span class="highlight-yellow">빠르게 충족</span>하도록.
+<!-- SECTION 5: research -->
+<section class="research-section">
+<h2 class="section-title">Research</h2>
+  <div class="research-content">
+    <div class="research-text">
+      <h3 class="research-heading">
+ 효과적인 기능 설명을 위한<br>
+    <span class="highlight-green">일러스트 아이콘.</span> 
       </h3>
-	
-    </div>
-    
-    <div class="solution-text2">
-      <h3 class="section-heading">
-        작지만, 사용자와 <br>
-        함께하는 <span class="highlight-yellow">개인화 요소</span><br>
-      </h3>
-    </div>
-    
-    <div class="solution-images">
-      <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
-    </div>
-    
-    <div class="solution-description">
-      <p class="section-description">
-        <span class="highlight-d">주문 앱의 홈 화면에 꼭 필요한 요소를 정의하였습니다.</span><br>
-        우선 주문 버튼을 화면 내에 눈에 띄게 두었습니다.<br>
-        매장의 테이블에 있는 QR을 스캔하여 바로 주문하는 버튼과<br>
-        키오스크 주문 시 사용하는 멤버십 바코드 조회 버튼도<br>
-        바로 꺼내 써야하기에 홈 화면에 배치하였습니다.
-      </p>
-	<p class="solution-ex">
-        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
-        실제로는 와이어프레임과 기획 작업을 하였습니다.
-      </p>
-    </div>
-	
-
-    <div class="solution-description2">
-      <p class="section-description">
-        개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
-        지난 주문을 간편하게 다시 주문하는 간편 주문으로 <br>
-        사용자 맞춤형 빠른 주문을 제공합니다.<br>
-        닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
-        쿠폰 보유 현황을 상단에 표시하여, 사용자 관점으로<br>
-        필요한 요소를 전달합니다.
-      </p>
-    </div>
-  </div>
-</section>
-	  
-<!-- SECTION 8: SOLUTION2 -->
-<section class="solution2-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution2-content">
-    <div class="solution2-text">
-      <h3 class="section-heading">
-        빠르게 가입하고<br>
-        로그인하여<br>
-        <span class="highlight-yellow">진입 장벽을 낮게.</span>
-      </h3>
-
-      <div class="solution2-description">
-        <p class="section-description">
-         SNS 간편 가입 시, 정보 제공 동의 버튼 선택만으로 <br>
-           <span class="highlight-d">입력 없이 빠르게 가입할 수 있습니다.</span><br>
-          자체 회원가입을 한다면, 로그인 아이디를 찾는 고민이 없도록 <br>
-         아이디는 휴대폰번호로 정하였습니다.<br>
-          가입할 때 작성하는 정보도 최소화하였습니다. <br>
-        휴대폰 번호 변경에 따른 방안도 마련하였습니다.
-        </p>
+	<p class="research-paragraph"> 모바일에서 효과적인 기능 설명을 위해 일러스트 아이콘들이 다양하게 사용되고 있습니다.<br>
+       <span class="highlight-d">사용자에게 친근하게 다가가며, 친절한 사용자 경험을 제공하기 위해</span> 일러스트 아이콘들의 사용을 조사하였습니다.</p>
       </div>
     </div>
-
-    <div class="solution2-images">
-      <img src="images/08_1.png" alt="노브랜드버거 앱 이미지" class="solution2-image1">
-      <img src="images/08_2.png" alt="노브랜드버거 앱 이미지" class="solution2-image2">
-      <img src="images/08_3.png" alt="노브랜드버거 앱 이미지" class="solution2-image3">
+    
+    <!-- research images -->
+ <div class="research-container">
+    <div class="research-item">
+        <img src="images/05_1.jpg" alt="리서치1" class="research-image">
     </div>
-  </div>
+    
+    <div class="research-item">
+        <img src="images/05_2.jpg" alt="리서치2" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_3.jpg" alt="리서치3" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_4.jpg" alt="리서치4" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_5.jpg" alt="리서치5" class="research-image">
+    </div>
+
+</div>	    
+</div>
 </section>
-
-
-<!-- SECTION 9: SOLUTION3 -->
-<section class="solution3-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution3-content">
-    <div class="solution3-text">
-      <h3 class="section9-heading">
-        편안한 주문이<br>
-        <span class="highlight-yellow">빠른 주문.</span>
-      </h3>
-
-      <div class="solution3-description">
-        <p class="section-description">
-          사용자가 주문 과정에서 필요한 요소를<br>
-          <span class="highlight-d">먼저 제공하여 진입장벽을 낮춥니다.</span><br>
-          고려해야 할 요소, 직접 선택해야 할 요소를 <br>
-          줄이면서, 안내도 충실히 제공하는<br>
-          <span class="highlight-d"> 편안한 주문이 서비스와 사용자가 함께<br>
-          동의를 이루어가는 필수적인 UX입니다.</span>
-        </p>
-      </div>
-
-      <div class="solution3-me">
-        1. 기존 배달지와 현재 위치를 비교하고<br> 물어보아서, 오류가 없도록 합니다.<br><br>
-        2. 로그인 하지 않을 때도, 주문 과정을 모두 경험 후,<br> 최종 단계에서 회원/비회원 주문을 선택하도록 합니다.<br><br>
-        3. 지난 주문이나 미리 설정한 간편주문으로<br> 더 쉽게 주문할 수 있습니다. <br><br>
-      </div>
-    </div>
-
-    <div class="solution3-images">
-      <img src="images/09_1.png" alt="노브랜드버거 앱 이미지" class="solution3-image1">
-      <img src="images/09_2.png" alt="노브랜드버거 앱 이미지" class="solution3-image2">
-      <img src="images/09_3.png" alt="노브랜드버거 앱 이미지" class="solution3-image3">
-    </div>
-  </div>
-</section>
-	
+    
 
 
 <div class="top-button" id="topButton"></div>
