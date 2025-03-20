@@ -604,135 +604,142 @@ body, h1, h2, h3, h4, p, span {
     margin-bottom: 0;
   }
 }
-/* SECTION 4: UI 화면 구조 STYLES */
-.ui-structure-section {
-  background-color: #f5f7f9; /* 라이트 그레이 색상으로 변경 */
+
+/* SECTION 4: UX Concept 스타일 */
+.ux-concept-section {
+  background-color: #ffffff;
   padding: 100px 60px;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+  min-height: 80vh;
 }
-  
-.ui-structure-content {
+
+.concept-content {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.concept-main-title {
+  flex: 0 0 35%;
+  padding-right: 40px;
+}
+
+.concept-main-title h3 {
+  font-family: var(--font-family-pretendard);
+  font-weight: 400;
+  color: #6e6e73;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-  max-width: 100%;
-  margin: 0;
-  position: relative;
+  line-height: 1.2;
+  font-size: 48px;
 }
-  
-.ui-structure-text {
-  display: block;
-  margin-top: 30px;
-  width: 100%;
-  margin-bottom: 40px;
+
+.title-line1, .title-line2, .title-line3, .title-line4 {
+  margin-bottom: 10px;
 }
-  
-.ui-structure-heading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: var(--font-size-xxl);
+
+.title-line2 strong, .title-line4 strong {
+  color: #2d2d2d;
   font-weight: 700;
-  line-height: 1.3;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 24px;
 }
-  
-/* 이미지 컨테이너와 설명을 감싸는 래퍼 */
-.ui-image-and-explanation-wrapper {
+
+.concept-details {
+  flex: 0 0 65%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  gap: 40px;
-  margin-top: 40px;
-  position: relative;
 }
 
-/* 설명 영역 */
-.consistency-explanation {
-  flex: 0 0 40%; /* 너비 고정 */
-  text-align: left;
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.concept-item {
+  margin-bottom: 60px;
 }
 
-/* 이미지 컨테이너 */
-.ui-image-container {
-  flex: 0 0 60%; /* 너비 고정 */
+.concept-header {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 20px;
-  position: relative;
-  top:-20vh;
-}
-
-/* 키오스크 이미지 */
-.ui-kiosk-image {
-  width: 40%;
-  height: auto;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
-/* 타이틀 스타일 */
-.consistency-title {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
   margin-bottom: 15px;
 }
-  
-.consistency-description {
-  font-family: "pretendard-bold", sans-serif;
+
+.concept-condition {
+  font-family: var(--font-family-pretendard);
   font-size: 16px;
-  line-height: 1.6;
-  color: #555;
+  color: #888;
+  white-space: nowrap;
+}
+
+.line-decoration {
+  height: 1px;
+  background-color: #ddd;
+  flex-grow: 1;
+  margin: 0 15px;
+}
+
+.concept-focus {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.concept-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d2d2d;
+}
+
+.concept-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  color: #6e6e73;
 }
 
 /* 반응형 스타일 */
-@media screen and (max-width: 1200px) {
-  .ui-structure-section {
-    height: auto;
-    min-height: 100vh;
+@media screen and (max-width: 1024px) {
+  .concept-content {
+    flex-direction: column;
   }
   
-  .ui-image-container {
-    justify-content: center;
+  .concept-main-title {
+    flex: 0 0 100%;
+    padding-right: 0;
+    margin-bottom: 50px;
   }
   
-  .ui-kiosk-image {
-    width: 45%;
+  .concept-details {
+    flex: 0 0 100%;
+  }
+  
+  .concept-main-title h3 {
+    font-size: 42px;
+  }
+  
+  .concept-title {
+    font-size: 32px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .ui-image-and-explanation-wrapper {
-    flex-direction: column;
+  .ux-concept-section {
+    padding: 80px 20px;
   }
   
-  .consistency-explanation,
-  .ui-image-container {
-    flex: 0 0 100%;
-    width: 100%;
+  .concept-main-title h3 {
+    font-size: 36px;
   }
   
-  .ui-image-container {
-    margin-top: 30px;
+  .concept-title {
+    font-size: 28px;
   }
   
-  .ui-kiosk-image {
-    width: 48%;
+  .concept-condition, .concept-focus {
+    font-size: 14px;
+  }
+  
+  .concept-description {
+    font-size: 14px;
   }
 }
-
 /* SECTION 5: INSIGHT 3*/
 .insight-section {
   padding: 100px 60px;
@@ -1562,43 +1569,65 @@ bottom:-76vh;
 </section>
 
 
-<!-- SECTION 4: Insight2 -->
-<section class="ui-structure-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="ui-structure-content">
-    <div class="ui-structure-text">
-      <h3 class="ui-structure-heading">
-       대표 화면인 메뉴 목록은 크게 <br>
-       카트 하단형과 우측형 2가지로 나타났습니다.
+
+<!-- SECTION 4: UX Concept -->
+<section class="ux-concept-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="concept-content">
+    <!-- 왼쪽 메인 타이틀 -->
+    <div class="concept-main-title">
+      <h3>
+        <span class="title-line1">더욱</span>
+        <span class="title-line2"><strong>집중도 있는</strong></span>
+        <span class="title-line3">모바일</span>
+        <span class="title-line4"><strong>업무 경험</strong></span>
       </h3>
     </div>
     
-  <!-- 새로운 래퍼 추가: 이미지 컨테이너와 설명을 함께 감싸는 div -->
-    <div class="ui-image-and-explanation-wrapper">
-      
-	     <!-- 일관성 설명 -->
-      <div class="consistency-explanation">
-        <h4 class="consistency-title">레이아웃 2가지 유형</h4>
-        <p class="consistency-description">
-          카드 하단 또는 우측으로 나뉜 2가지 레이아웃은  <br>
-        <span class="highlight-d"> 사용성에 차등이 있기 보다는 개인에 따라 다르게 느껴지는 정도입니다.</span><br>
-          우측 레이아웃이 담은 상품에 대해 확인이 잘되는 측면이 있으나, <br> 
-	시선이 분산되어, 메뉴 집중도를 해치는 경향도 있습니다. <br> 
-        </p>
-      </div>
-	    <!-- 키오스크 UI 이미지 컨테이너 -->
-      <div class="ui-image-container">
-        <!-- 첫 번째 이미지 -->
-        <img src="images/04_1.svg" alt="키오스크 UI 화면 1" class="ui-kiosk-image">
-        
-        <!-- 두 번째 이미지 -->
-        <img src="images/04_2.svg" alt="키오스크 UI 화면 2" class="ui-kiosk-image">
+    <!-- 오른쪽 컨셉 설명 영역 -->
+    <div class="concept-details">
+      <!-- 첫 번째 컨셉 -->
+      <div class="concept-item">
+        <div class="concept-header">
+          <span class="concept-condition">집중하려면</span>
+          <div class="line-decoration"></div>
+          <span class="concept-focus">시각적으로</span>
+        </div>
+        <h4 class="concept-title">조용하게</h4>
+        <p class="concept-description">요소에 콘터라스트를 제거</p>
       </div>
       
-     
+      <!-- 두 번째 컨셉 -->
+      <div class="concept-item">
+        <div class="concept-header">
+          <span class="concept-condition">인지적으로</span>
+        </div>
+        <h4 class="concept-title">메뉴명, 버튼을 직관적으로</h4>
+        <p class="concept-description">잘못 선택하는 방해 요소 제거</p>
+      </div>
+      
+      <!-- 세 번째 컨셉 -->
+      <div class="concept-item">
+        <div class="concept-header">
+          <span class="concept-condition">명확하게</span>
+        </div>
+        <h4 class="concept-title">정보를 간결하게</h4>
+        <p class="concept-description">요소에 콘터라스트를 제거</p>
+      </div>
+      
+      <!-- 네 번째 컨셉 -->
+      <div class="concept-item">
+        <div class="concept-header">
+          <span class="concept-condition">구성적으로</span>
+        </div>
+        <h4 class="concept-title">대표 기능/화면 위주로</h4>
+        <p class="concept-description">전체 나열이 아닌 핵심 우선 제공</p>
+      </div>
     </div>
   </div>
 </section>
+
     
 <!-- SECTION 5: INSIGHT 3 -->
 <section class="insight-section">
