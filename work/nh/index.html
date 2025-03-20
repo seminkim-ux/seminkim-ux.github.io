@@ -851,7 +851,8 @@ left:-30vw;
   width: 100%;
   margin-top: 60px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 .wireframe-description {
@@ -877,7 +878,22 @@ left:-30vw;
 }
 
 .wireframe-text-container {
-  min-height: 200px; /* 텍스트 내용이 이미지에 포함되어 있으므로 공간만 확보 */
+  margin-top: 100px;
+}
+
+.nav-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.nav-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
 }
 
 .wireframe-image-container {
@@ -893,29 +909,97 @@ left:-30vw;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.wireframe-right-info {
+  position: absolute;
+  top: 0;
+  right: -350px;
+  width: 300px;
+  z-index: 2;
+}
+
+.info-block {
+  margin-bottom: 80px;
+}
+
+.info-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.info-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.key-info {
+  margin-top: 50px;
+}
+
+.main-info {
+  margin-top: 120px;
+}
+
+.custom-info {
+  margin-top: 150px;
 }
 
 /* 반응형 스타일 */
-@media screen and (max-width: 1024px) {
-  .wireframe-content {
-    flex-direction: column;
-    align-items: flex-start;
+@media screen and (max-width: 1440px) {
+  .wireframe-right-info {
+    right: -250px;
+    width: 250px;
   }
   
-  .wireframe-description {
-    flex: 0 0 100%;
-    margin-bottom: 40px;
-    padding-right: 0;
+  .info-title {
+    font-size: 18px;
+  }
+  
+  .info-description {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wireframe-content {
+    display: block;
+  }
+  
+  .wireframe-description, 
+  .wireframe-image-container {
+    width: 100%;
+    flex: none;
   }
   
   .wireframe-image-container {
-    flex: 0 0 100%;
-    width: 100%;
     left: 0;
+    margin-top: 50px;
   }
   
-  .wireframe-title {
-    font-size: 36px;
+  .wireframe-right-info {
+    position: static;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .info-block {
+    flex: 0 0 48%;
+    margin: 20px 0;
+  }
+  
+  .key-info, .main-info, .custom-info {
+    margin-top: 0;
   }
 }
 
@@ -930,6 +1014,18 @@ left:-30vw;
   
   .wireframe-label {
     font-size: 20px;
+  }
+  
+  .nav-title {
+    font-size: 20px;
+  }
+  
+  .nav-description {
+    font-size: 15px;
+  }
+  
+  .info-block {
+    flex: 0 0 100%;
   }
 }
 /* SECTION 7: SOLUTION */
@@ -1688,18 +1784,41 @@ bottom:-76vh;
     <div class="wireframe-description">
       <h3 class="wireframe-label">Main</h3>
       <h4 class="wireframe-title">화면을 구조화하여<br>정보를 체계적으로 접근</h4>
+      
+      <!-- 왼쪽 하단 설명 -->
       <div class="wireframe-text-container">
-        <!-- 텍스트 내용은 이미지에 포함되어 있으므로 공백으로 유지 -->
+        <h5 class="nav-title">하단 Navigation</h5>
+        <p class="nav-description">
+          모바일 오피스에서 가장 많이 사용하는<br>
+          주요 메뉴를 배치. 효율적이고 빠른 탐색을 도움.
+        </p>
       </div>
     </div>
     
     <!-- 오른쪽 화면 이미지 -->
     <div class="wireframe-image-container">
       <img src="images/04_2.png" alt="NH 그룹웨어 와이어프레임" class="wireframe-image">
+      
+      <!-- 오른쪽 설명 텍스트 영역 -->
+      <div class="wireframe-right-info">
+        <div class="info-block key-info">
+          <h5 class="info-title">Key Information 상단 배치</h5>
+          <p class="info-description">메일과 결재 상태를 빠르게 확인하도록 제일 상단에 배치</p>
+        </div>
+        
+        <div class="info-block main-info">
+          <h5 class="info-title">주요 조회 정보 배치</h5>
+          <p class="info-description">직원 검색 기능을 사용하기 편하도록 메인에 배치</p>
+        </div>
+        
+        <div class="info-block custom-info">
+          <h5 class="info-title">내 메뉴 개인화</h5>
+          <p class="info-description">하단 Nav 버튼을 제외하고 많이 쓰는<br>개별 메뉴를 먼저 디폴트로 설정한 후,<br>개인 사용자가 원하는 메뉴로 수정할 수 있도록 함.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
 
     
 <!-- SECTION 7: SOLUTION -->
