@@ -299,11 +299,9 @@ body, h1, h2, h3, h4, p, span {
 
     /* SECTION 2: OVERVIEW */
     .overview-content {
-      display: flex;
       position: relative; 
-      gap: 16px;
-      align-items: center;
       max-width: 100%;
+	min-height:100vh;
       margin: 0;
       flex: 1;
       background-color: var(--white);
@@ -311,20 +309,25 @@ body, h1, h2, h3, h4, p, span {
 
     .overview-image {
       position: absolute;  
-      width: 45%;
-      margin-top: 8vh; 
-      right: 0vw;
-      aspect-ratio: 1 / 1;
+	display:flex;	    
+      margin-top: 10vh; 
       background-color: transparent;
       border-radius: 0px;
       order: 10;
     }
 
-    .overview-image img {
-      width: 100%;
+    .overview-image1 {
+      width: 20vw;
       height: auto;
     }
-
+    .overview-image2 {
+      width: 35vw;
+      height: auto;
+    }
+.overview-image3 {
+      width: 25vw;
+      height: auto;
+    }
     .overview-text {
       display: block; /* absolute 대신 block 사용 */
       width: 100%;
@@ -1372,16 +1375,16 @@ bottom:-76vh;
     <div class="overview-content">
       <div class="overview-text">
         <h3 class="overview-heading">
-        프리미엄 브랜드 런칭을 위한<br>
-        최적의 키오스크 UX.
+     디자인 및 사용성 업그레이드
         </h3>
-        <p class="overview-paragraph"> 2023년 팀홀튼 코리아 런칭을 앞두고 키오스크 UX를 기획하였습니다.<br>
-       짧은 기간내에 런칭해야 하므로, 기존 개발소스와 연결된<br>
-	 버거킹 키오스크 UX를 바탕으로 커피 브랜드에 적합한 UX를 기획했습니다.<br>
-       짧은 기간내에 개발을 고려하며, 프로젝트를 완료하여 런칭하였습니다.  </p>
+        <p class="overview-paragraph"> NH투자증권 모바일 오피스는 2014년, 다양한 기능과 콘텐츠를 담아 시작되었습니다.<br>
+계속하여 추가된 화면들을 아우르는 디자인 통합과 업그레이드가 필요합니다.<br>
+또한 지금 시점의 모바일 유저의 사용성을 고려한 UX 업그레이드가 필요합니다.</p>
       </div>
       <div class="overview-image">
-        <img src="images/02.svg" alt="로고 이미지">
+        <img src="images/02_1.svg" alt="구몬 개요 이미지1" class="overview-image1">
+	<img src="images/02_2.svg" alt="구몬 개요 이미지2" class="overview-image2">
+	<img src="images/02_3.svg" alt="구몬 개요 이미지3" class="overview-image3">
       </div>
     </div>
   </section>
