@@ -297,58 +297,234 @@ body, h1, h2, h3, h4, p, span {
     }
 
     /* SECTION 2: OVERVIEW */
-    .overview-content {
-      position: relative; 
-      max-width: 100%;
-	min-height:100vh;
-      margin: 0;
-      flex: 1;
-      background-color: var(--white);
-    }
+.section {
+  padding: 100px 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
 
-    .overview-image {
-      position: absolute;  
-	display:flex;	    
-      margin-top: 10vh; 
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
+.section-title {
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  margin-bottom: 64px;
+  margin-left: 0;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+}
 
-    .overview-image1 {
-      width: 20vw;
-      height: auto;
-    }
-    .overview-image2 {
-      width: 35vw;
-      height: auto;
-    }
+/* 하이라이트 스타일 */
+.highlight-yellow {
+  color: var(--yellow-medium);
+}
+
+.highlight-regular {
+  color: var(--black);
+}
+
+.highlight-d {
+  color: #000;
+}
+
+/* SECTION 2: OVERVIEW - 기존 CSS */
+.overview-content {
+  position: relative; 
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  flex: 1;
+  background-color: var(--white);
+}
+
+.overview-image {
+  position: absolute;  
+  display: flex;    
+  margin-top: 10vh; 
+  background-color: transparent;
+  border-radius: 0px;
+  order: 10;
+}
+
+.overview-image1 {
+  width: 20vw;
+  height: auto;
+}
+
+.overview-image2 {
+  width: 35vw;
+  height: auto;
+}
+
 .overview-image3 {
-      width: 25vw;
-      height: auto;
-    }
-    .overview-text {
-      display: block; /* absolute 대신 block 사용 */
-      width: 100%;
-      order: 1;
-    }
+  width: 25vw;
+  height: auto;
+}
 
-    .overview-heading {
-      font-family: "pretendard-bold", sans-serif;
-      font-size: var(--font-size-xxxxxl);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 32px;
-    }
+.overview-text {
+  display: block;
+  width: 100%;
+  order: 1;
+}
 
-    .overview-paragraph {
-      font-family: "pretendard-bold", sans-serif;
-      font-weight: 700; 
-      font-size: var(--font-size-m);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      color: #6e6e73;
-    }
+.overview-heading {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: var(--font-size-xxxxxl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+.overview-paragraph {
+  font-family: "pretendard-bold", sans-serif;
+  font-weight: 700; 
+  font-size: var(--font-size-m);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #6e6e73;
+}
+
+/* 새로 추가한 업그레이드 섹션을 위한 CSS */
+.upgrade-container {
+  display: flex;
+  width: 100%;
+  gap: 5vw;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.upgrade-column {
+  flex: 1;
+}
+
+.upgrade-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  position: relative;
+}
+
+.upgrade-subtitle {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.upgrade-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.upgrade-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-family-pretendard);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.upgrade-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #555;
+}
+
+.usability-section {
+  margin-bottom: 1.5rem;
+}
+
+.usability-subheading {
+  font-family: var(--font-family-pretendard);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+/* 반응형 스타일 - 기존 + 새로 추가된 요소 */
+@media screen and (max-width: 1200px) {
+  .project-header-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+  
+  .project-images {
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
+  
+  .hero-image, .hero-image2 {
+    width: 230px;
+  }
+  
+  .hero-image2 {
+    right: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .project-title {
+    font-size: var(--font-size-xxxl);
+  }
+  
+  .overview-content {
+    flex-direction: column;
+  }
+  
+  .overview-image, .overview-text {
+    width: 100%;
+    position: relative;
+  }
+  
+  .overview-heading {
+    font-size: var(--font-size-xxl);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 20px;
+  }
+  
+  .project-header {
+    padding: 60px 20px;
+  }
+  
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .project-title {
+    font-size: var(--font-size-xxl);
+  }
+  
+  .overview-heading {
+    font-size: var(--font-size-xl);
+  }
+  
+  /* 새로 추가한 반응형 스타일 */
+  .upgrade-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .upgrade-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project-stats {
+    flex-wrap: wrap;
+  }
+}
 
 /* SECTION 3: Research  */
   .competitive-section {
@@ -1368,26 +1544,70 @@ bottom:-76vh;
       </div>
     </section>
     
-  <!-- SECTION 2: OVERVIEW -->
-  <section class="section">
-    <h2 class="section-title">Overview</h2>
-    <div class="overview-content">
-      <div class="overview-text">
-        <h3 class="overview-heading">
-     디자인 및 사용성 업그레이드
-        </h3>
-        <p class="overview-paragraph"> NH투자증권 모바일 오피스는 2014년, 다양한 기능과 콘텐츠를 담아 시작되었습니다.<br>
+<!-- SECTION 2: OVERVIEW -->
+<section class="section">
+  <h2 class="section-title">Overview</h2>
+  <div class="overview-content">
+    <div class="overview-text">
+      <h3 class="overview-heading">
+        디자인 및 사용성 업그레이드
+      </h3>
+      <p class="overview-paragraph">NH투자증권 모바일 오피스는 2014년, 다양한 기능과 콘텐츠를 담아 시작되었습니다.<br>
 계속하여 추가된 화면들을 아우르는 디자인 통합과 업그레이드가 필요합니다.<br>
 또한 지금 시점의 모바일 유저의 사용성을 고려한 UX 업그레이드가 필요합니다.</p>
+    </div>
+
+    <!-- 새로운 디자인 & 사용성 업그레이드 섹션 -->
+    <div class="upgrade-container">
+      <div class="upgrade-column">
+        <h3 class="upgrade-title">Design <span class="upgrade-subtitle">Upgrade</span></h3>
+        <ul class="upgrade-list">
+          <li>NH투자증권 아이덴티티 적용</li>
+          <li>2024년도에 맞는 디자인</li>
+          <li>개별적으로 진행된 디자인을 통일</li>
+        </ul>
       </div>
-      <div class="overview-image">
-        <img src="images/02_1.svg" alt="구몬 개요 이미지1" class="overview-image1">
-	<img src="images/02_2.svg" alt="구몬 개요 이미지2" class="overview-image2">
-	<img src="images/02_3.svg" alt="구몬 개요 이미지3" class="overview-image3">
+      
+      <div class="upgrade-column">
+        <h3 class="upgrade-title">Usability <span class="upgrade-subtitle">Upgrade</span></h3>
+        
+        <div class="usability-section">
+          <h4 class="usability-subheading">접근 구조 개선</h4>
+          <ul class="upgrade-list">
+            <li>하단 Navigation 버튼으로 주요메뉴 빠르게 이동</li>
+            <li>추가/수정된 화면들의 버튼 중복 등 내비게이션 개선</li>
+            <li>모든 기능보다 자주쓰는 메뉴 중심으로 버튼을 구성한 메인 화면</li>
+            <li>모든 목록을 표시하기 전에 디폴트 접근을 우선(메일함, 결재함 등)</li>
+          </ul>
+        </div>
+        
+        <div class="usability-section">
+          <h4 class="usability-subheading">가독성 중심의 화면 개선</h4>
+          <ul class="upgrade-list">
+            <li>집중을 방해하는 불필요한 버튼 제거</li>
+            <li>노후화된 UI를 가독성 중심으로 개편</li>
+          </ul>
+        </div>
+        
+        <div class="usability-section">
+          <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
+          <ul class="upgrade-list">
+            <li>태블릿에 적합한 UI 적용</li>
+            <li>넓은 화면에서 효과적인 시각적 구조화</li>
+            <li>태블릿 전용 메뉴를 태블릿 내에서 더 강조</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
-    
+
+    <div class="overview-image">
+      <img src="images/02_1.svg" alt="구몬 개요 이미지1" class="overview-image1">
+      <img src="images/02_2.svg" alt="구몬 개요 이미지2" class="overview-image2">
+      <img src="images/02_3.svg" alt="구몬 개요 이미지3" class="overview-image3">
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 3: research -->
 <section class="competitive-section">
 <h2 class="section-title">Insight</h2>
