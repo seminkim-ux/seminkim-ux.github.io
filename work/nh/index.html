@@ -1028,127 +1028,197 @@ left:-30vw;
     flex: 0 0 100%;
   }
 }
-/* SECTION 7: SOLUTION */
-.solution-section {
+/* SECTION 7: 메일 첫화면 스타일 */
+.mail-section {
+  background-color: #ffffff;
   padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
 }
 
-.solution-content {
+.mail-content {
+  display: flex;
   width: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-}
-
-.solution-left {
-  flex: 1.2;
-  display: flex;
-  justify-content: left;
-}
-
-.solution-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-left:-6vw;
-top:20vh;
-position:relative;
-}
-
-.solution-heading {
-  font-family: var(--font-family-pretendard);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 60px;
-}
-
-.highlight-red {
-  color: #BD0000;
-}
-
-.solution-features {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.feature-item {
-  display: flex;
-  gap: 15px;
+  margin-top: 60px;
+  justify-content: space-between;
   align-items: flex-start;
+  position: relative;
 }
 
-.feature-number {
-  background-color: #BD0000;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.mail-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
+}
+
+.mail-label {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.mail-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.mail-text {
+  margin-bottom: 40px;
+}
+
+.mail-paragraph {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.mail-flow-images {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.mail-flow-icon {
+  width: 60px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.mail-flow-screen {
+  width: 200px;
+  height: auto;
+}
+
+.mail-screen-container {
+  flex: 0 0 45%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  flex-shrink: 0;
+  align-items: flex-start;
+  position: relative;
+  left: -30vw;
 }
 
-.feature-text h4 {
-  font-family: var(--font-family-pretendard);
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
+.mail-main-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 
-.feature-text p {
+.mail-notification {
+  position: absolute;
+  top: 80px;
+  right: -300px;
+  display: flex;
+  align-items: flex-start;
+  width: 250px;
+  z-index: 2;
+}
+
+.mail-notify-icon {
+  width: 120px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.mail-notify-text {
   font-family: var(--font-family-pretendard);
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
   color: #555;
 }
 
-.solution-image-container {
-  width: 78%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+.mail-popup {
+  position: absolute;
+  top: 220px;
+  right: -200px;
+  z-index: 3;
 }
 
-.solution-image {
-  width: 100%;
+.mail-popup-image {
+  width: 200px;
   height: auto;
-  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-/* Responsive styles for Solution section */
-@media screen and (max-width: 1024px) {
-  .solution-content {
+/* 반응형 스타일 */
+@media screen and (max-width: 1440px) {
+  .mail-notification {
+    right: -200px;
+    width: 200px;
+  }
+  
+  .mail-popup {
+    right: -150px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mail-content {
     flex-direction: column;
   }
   
-  .solution-heading {
-    font-size: 28px;
+  .mail-description, 
+  .mail-screen-container {
+    width: 100%;
+    flex: none;
+  }
+  
+  .mail-screen-container {
+    left: 0;
+    margin-top: 60px;
+  }
+  
+  .mail-notification {
+    position: static;
+    width: 100%;
     margin-top: 40px;
+  }
+  
+  .mail-popup {
+    position: static;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .mail-popup-image {
+    width: 250px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .solution-section {
+  .mail-section {
     padding: 80px 20px;
   }
   
-  .solution-heading {
-    font-size: 24px;
+  .mail-title {
+    font-size: 32px;
   }
   
-  .feature-text h4 {
-    font-size: 18px;
+  .mail-label {
+    font-size: 20px;
   }
   
-  .feature-text p {
-    font-size: 14px;
+  .mail-paragraph {
+    font-size: 15px;
+  }
+  
+  .mail-flow-images {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mail-flow-icon {
+    margin-bottom: 15px;
   }
 }
 /* SECTION 8: SOLUTION2 */
@@ -1821,48 +1891,51 @@ bottom:-76vh;
 </section>
 
     
-<!-- SECTION 7: SOLUTION -->
-<section class="solution-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution-content">
-    <div class="solution-left">
-      <div class="solution-image-container">
-        <img src="images/07_1.png" alt="Tim Hortons Kiosk Interface" class="solution-image">
+<!-- SECTION 7: 메일 첫화면 -->
+<section class="mail-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="mail-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="mail-description">
+      <h3 class="mail-label">Main</h3>
+      <h4 class="mail-title">필요하다면,<br>첫 화면 메일로 설정</h4>
+      
+      <div class="mail-text">
+        <p class="mail-paragraph">
+          설정 이후, 앱 접속 시<br>
+          제일 먼저 메일 화면이 열림
+        </p>
+        <p class="mail-paragraph">
+          홈화면은 유지하되, 메일(발은메일함)<br>
+          화면이 첫 화면으로 열림.
+        </p>
+      </div>
+      
+      <!-- 왼쪽 하단 이미지 -->
+      <div class="mail-flow-images">
+        <img src="images/05_3.svg" alt="앱 아이콘" class="mail-flow-icon">
+        <img src="images/05_4.svg" alt="메일함 화면" class="mail-flow-screen">
       </div>
     </div>
     
-    <div class="solution-right">
-      <h3 class="solution-heading">
-        메뉴 화면은 <span class="highlight-red">영역별 구분</span>이 확실하여,<br>
-        메뉴 확인이 명확하도록 설계했습니다.
-      </h3>
+    <!-- 오른쪽 화면 이미지 및 팝업 -->
+    <div class="mail-screen-container">
+      <!-- 메인 화면 이미지 -->
+      <img src="images/04.png" alt="NH 그룹웨어 메인 화면" class="mail-main-image">
       
-      <div class="solution-features">
-        <div class="feature-item">
-          <div class="feature-number">1</div>
-          <div class="feature-text">
-            <h4>카테고리</h4>
-            <p>스크롤을 없애 메뉴 인지를 도움.</p>
-          </div>
+      <!-- 오른쪽 상단 메일 알림 영역 -->
+      <div class="mail-notification">
+        <img src="images/05_1.svg" alt="메일 알림" class="mail-notify-icon">
+        <div class="mail-notify-text">
+          <p>독굴비트 선택하면 확인범업 이후, On상태로 변경됨.</p>
+          <p>다음 접근부터 메일화면이 첫 화면으로 열림</p>
         </div>
-        
-        <div class="feature-item">
-          <div class="feature-number">2</div>
-          <div class="feature-text">
-            <h4>4x3 레이아웃</h4>
-            <p>고정된 레이아웃. 직관한 크기로 메뉴 표시<br>
-            12개 이상의 메뉴가 있을 경우 다음 버튼으로 이동 가능<br>
-            버거컨셉 다양한 레이아웃은 다시 사선의 분선이 발생하므로 제외</p>
-          </div>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-number">3</div>
-          <div class="feature-text">
-            <h4>장바구니</h4>
-            <p>담은 메뉴와 결제 금액 을 나누어 정보를 구분</p>
-          </div>
-        </div>
+      </div>
+      
+      <!-- 팝업 이미지 -->
+      <div class="mail-popup">
+        <img src="images/05_2.svg" alt="첫 화면 메일로 설정 팝업" class="mail-popup-image">
       </div>
     </div>
   </div>
