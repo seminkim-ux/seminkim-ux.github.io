@@ -1384,6 +1384,90 @@ font-family: "pretendard-bold", sans-serif;
   line-height: 1.6;
   color: #555;
 }
+
+/* SECTION 10: solution3  */
+.solution3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution3-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  align-items: flex-start;
+  justify-content: space-between;
+}
+  .section9-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align:left;
+  }
+.solution3-text {
+  width: 30%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution3-images {
+  position: relative;
+  width: 70%; /* 전체 너비로 변경 */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px; /* 상단 여백 */
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 32%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 40vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 20vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: 0vw;
+  z-index: 4;
+bottom:-76vh;
+}
+
+.solution3-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+  .solution3-me{
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+  position: relative; 
+    margin-top:10vh;
+    line-height: 1.6;
+    color: #000;
+  }
 	  
     /* RESPONSIVE STYLES */
     @media screen and (max-width: 1200px) {
@@ -2039,6 +2123,39 @@ bottom:-76vh;
   </div>
 </section>
 
+<!-- SECTION 10: SOLUTION3 -->
+<section class="solution3-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution3-content">
+    <div class="solution3-text">
+      <h3 class="section9-heading">
+       명확한 학습 진도 표시와<br>
+        <span class="highlight-green">과목별 컬러 지정.</span>
+      </h3>
+
+      <div class="solution3-description">
+        <p class="section-description">
+          단계별 학습 진도를 파악하고<br>
+	복습 및 예습할 내용을 체계적으로 점검합니다.<br>
+	과목군별로 컬러를 지정하여(수학계열-레드,<br>
+	국어계열-그린, 영어계열-블루) 규칙성을 부여하였습니다. <br>
+        </p>
+      </div>
+
+      <div class="solution3-me">
+        1. 기존 배달지와 현재 위치를 비교하고<br> 물어보아서, 오류가 없도록 합니다.<br><br>
+        2. 로그인 하지 않을 때도, 주문 과정을 모두 경험 후,<br> 최종 단계에서 회원/비회원 주문을 선택하도록 합니다.<br><br>
+        3. 지난 주문이나 미리 설정한 간편주문으로<br> 더 쉽게 주문할 수 있습니다. <br><br>
+      </div>
+    </div>
+
+    <div class="solution3-images">
+      <img src="images/10_1b.png" alt="구몬앱 이미지" class="solution3-image1">
+      <img src="images/10_2b.png" alt="구몬앱 이미지" class="solution3-image2">
+      <img src="images/10_3b.png" alt="구몬앱 이미지" class="solution3-image3">
+    </div>
+  </div>
+</section>
 	
 <div class="top-button" id="topButton"></div>
 </body>
