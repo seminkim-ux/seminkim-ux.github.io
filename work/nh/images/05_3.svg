@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 97.63 164.51">
+  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #404040;
+      }
+
+      .st1, .st2, .st3, .st4, .st5 {
+        fill: none;
+      }
+
+      .st2 {
+        stroke: #a6a6a6;
+      }
+
+      .st2, .st3, .st4, .st5 {
+        stroke-miterlimit: 8;
+      }
+
+      .st2, .st5 {
+        stroke-width: .5px;
+      }
+
+      .st3 {
+        stroke: #bfbfbf;
+        stroke-width: 2.25px;
+      }
+
+      .st4 {
+        stroke: #595959;
+        stroke-width: .25px;
+      }
+
+      .st5 {
+        stroke: #d9d9d9;
+      }
+
+      .st6 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st1" x="24.84" y="146.81" width="10.8" height="10.08"/>
+    </clipPath>
+  </defs>
+  <rect class="st4" x="7.58" y="7.05" width="79.74" height="154.03"/>
+  <g class="st6">
+    <image width="45" height="42" transform="translate(24.84 146.81) scale(.24)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAqCAYAAAAnH9IiAAAACXBIWXMAAC4jAAAuIwF4pT92AAAC60lEQVRYhe3YS4xURRTG8R8oj5FHxHF4TCKCL3ws1GjEVzQGjOwwuHQSXZlIonGnLtiaGHXphq0L3RgXPiLGiDEaILpABUTZAKMIxjijw4yghOuiTucWbd/px8x0E+2TnOTWqa+6/tVd51adpm9961vf/jc2L3sewXZc3iOWRvYnPsKLVYJhHERxEfk47msEuw7Xx/MgvrwIYAv8gtuDaynuzqG34iRujfYyfNpj4FFsCJ4rsA+v5NDbQvhbtpoBvN8j4CPSrw+r8U3EX2sEXeA0NkV8Ad7qMvC3AQpXxwJqfZXQBc5IWwbmY2eXgPdJW4G0NUbr+qeFLvA3Hs80r84x8G4pl+A2nGqgaQpd4DyeznQ75gj4XSyOOe7BWIWuJeiaP59pn4nFzBbwm1LuwGYpp6q0bUEXeCnTP4FzswC8U8oZeFTKpen0bUMXeF157G/D2RkA5+/cESmHmo3pCLrAG7g0xj2MyQ6Ad2Rzb9f6dusYusA7WBRj71WdOPV+Hs9m877Q5rwzgi6kjK9Z1Ssq93N4MhvzXAdzzgh6StoauW3A8Qr9WTxWpx/G992CnlIe8wulhBqK9lr8UKefxCPRfwleVt4rhnF4rqEn8VCMWYT3In4YV0V8Fb6K+K+4P1vg2xE/ivURX9MGeNvQp/FgBvxBXf8x5Z18gXSyrYj2ZdjVQH9N9K/Gd7MNPYEHQrsYH1boTkmnWm7rsbdCfxzXZuCHZgt6QvkTD0j1WrNvZL90PO/GX020o7guPn+V6cu9lqD/UNZnA/i4BeBO/McMfOU04E2hf5f2JWlPfjJHwDl4LSdW4kC70OPYGH1LdK9e/Ak3xLxDUhXTEvQ47or4UnzWJeCan1AWtEPK+vBf0FsjOIY7I7YMn3cZuOY/48bguBJfR/yCavwWqRK/I9rL8UWPgGt+Ejdl4PvxlDqrnVDLsafHwDn4zcE1qKwhL/gvb550X95Sv6Ie2lHpcjbWY46+9a1v/wn7B4ZNqryj6eoWAAAAAElFTkSuQmCC"/>
+  </g>
+  <g>
+    <path class="st0" d="M16.01,15.17h1.27v-.79h.88v2.96h-3.01v-2.96h.87v.79ZM19.93,18.62h-3.23v.85h3.35v.68h-4.22v-2.23h4.1v.69ZM17.29,16.65v-.81h-1.27v.81h1.27ZM19.9,15.43h.84v.72h-.84v1.5h-.88v-3.63h.88v1.42Z"/>
+    <path class="st0" d="M26.64,17.89h-5.67v-.7h5.67v.7ZM26.06,15.48c0,.79-.9,1.29-2.26,1.29s-2.27-.49-2.27-1.29.9-1.28,2.27-1.27c1.36,0,2.26.48,2.26,1.27ZM25.99,20.13h-4.35v-1.82h.88v1.12h3.47v.7ZM22.44,15.48c0,.39.5.58,1.36.58s1.36-.19,1.36-.58-.5-.58-1.36-.59c-.86,0-1.37.21-1.36.59Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M31.24,16.28h.62v-2.17h.82v5.84h-.82v-2.97h-.62v1.7h-2.47v-4.01h2.47v1.62ZM29.58,17.99h.85v-2.64h-.85v2.64ZM33.98,20.24h-.83v-6.22h.83v6.22Z"/>
+    <path class="st0" d="M38.02,15.62c0,.82-.72,1.42-1.66,1.42s-1.67-.59-1.67-1.42.71-1.42,1.67-1.42,1.66.59,1.66,1.42ZM35.53,15.62c0,.44.35.71.83.71s.82-.27.82-.71-.35-.71-.82-.71-.83.26-.83.71ZM39.8,19.08h-3.31v.4h3.48v.68h-4.33v-1.72h3.29v-.38h-3.31v-.67h4.18v1.69ZM39.8,17.13h-.88v-3.12h.88v3.12Z"/>
+    <path class="st0" d="M44.28,15.27h-3.69v-.69h1.42v-.59h.87v.59h1.41v.69ZM43.97,16.57c0,.68-.63,1.13-1.53,1.13s-1.54-.45-1.54-1.13.63-1.11,1.54-1.11,1.53.46,1.53,1.11ZM45.52,20.17h-4.07v-2.13h4.07v2.13ZM41.74,16.57c0,.31.27.49.69.49s.7-.17.7-.49c0-.29-.29-.46-.7-.46s-.7.16-.69.46ZM42.32,19.47h2.34v-.75h-2.34v.75ZM45.52,15.55h.84v.73h-.84v1.49h-.88v-3.75h.88v1.53Z"/>
+  </g>
+  <line class="st2" x1="7.58" y1="142.94" x2="87.32" y2="142.94"/>
+  <line class="st5" x1="7.58" y1="46.13" x2="87.32" y2="46.13"/>
+  <line class="st5" x1="7.58" y1="70.33" x2="87.32" y2="70.33"/>
+  <line class="st5" x1="7.58" y1="93.67" x2="87.32" y2="93.67"/>
+  <line class="st5" x1="7.58" y1="119.52" x2="87.32" y2="119.52"/>
+  <line class="st3" x1="15.45" y1="30.33" x2="43.63" y2="30.33"/>
+  <line class="st3" x1="15.45" y1="37.48" x2="74.27" y2="37.48"/>
+  <line class="st3" x1="15.45" y1="55.09" x2="82.52" y2="55.09"/>
+  <line class="st3" x1="15.45" y1="62.24" x2="74.27" y2="62.24"/>
+  <line class="st3" x1="15.45" y1="78.19" x2="82.52" y2="78.19"/>
+  <line class="st3" x1="15.45" y1="85.34" x2="74.27" y2="85.34"/>
+  <line class="st3" x1="15.45" y1="104.59" x2="82.52" y2="104.59"/>
+  <line class="st3" x1="15.45" y1="111.74" x2="74.27" y2="111.74"/>
+  <line class="st3" x1="15.45" y1="126.59" x2="82.52" y2="126.59"/>
+  <line class="st3" x1="15.45" y1="133.75" x2="74.27" y2="133.75"/>
+</svg>
