@@ -1221,171 +1221,235 @@ left:-30vw;
     margin-bottom: 15px;
   }
 }
-/* SECTION 8: SOLUTION2 */
-.solution2-section {
+/* SECTION 8: 메일 첫화면 스타일 */
+.mail-section {
+  background-color: #ffffff;
   padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
 }
 
-.solution2-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
+.mail-content {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
 }
 
-.solution2-text {
-  width: 100%;
-  position: relative;
-  z-index: 2;
+.mail-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
+}
+
+.mail-label {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.mail-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.mail-text {
   margin-bottom: 40px;
 }
 
-.solution2-heading {
+.mail-paragraph {
   font-family: var(--font-family-pretendard);
-  font-size: var(--font-size-xxl);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.mail-preview, .mail-buttons {
+  margin-bottom: 30px;
+}
+
+.preview-title, .buttons-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.3;
-  text-align: left;
+  color: #000;
+  margin-bottom: 10px;
 }
 
-.solution2-images {
-  position: relative;
-  width: 100%;
-  height: 70vh;
+.preview-text, .buttons-text {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.mail-screen-container {
+  flex: 0 0 45%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1;
-top:10vh;
+  align-items: flex-start;
+  position: relative;
+  left: -30vw;
 }
 
-.solution2-image1, .solution2-image2, .solution2-image3 {
-  position: absolute;
-  width: 27vw;
+.mail-main-image {
+  max-width: 100%;
   height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.solution2-image1 {
-  z-index: 2;
-right:62vw;
+/* SECTION 9: 미결함 먼저 표시 스타일 */
+.approval-section {
+  background-color: #ffffff;
+  padding: 100px 60px;
+  min-height: 80vh;
+  position: relative;
 }
 
-.solution2-image2 {
-  right: 32vw;
-  z-index: 3;
+.approval-content {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
 }
 
-.solution2-image3 {
-  right: 2vw;
-  z-index: 4;
+.approval-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
 }
-/* 라인 이미지 스타일 */
-.solution2-line1, .solution2-line2 {
-  position: absolute;
+
+.approval-label {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.approval-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.approval-text {
+  margin-bottom: 40px;
+}
+
+.approval-paragraph {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.other-approval {
+  margin-bottom: 30px;
+}
+
+.other-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.other-text {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.approval-screen-container {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  left: -30vw;
+}
+
+.approval-main-image {
+  max-width: 100%;
   height: auto;
-  z-index: 5; /* 이미지 위에 표시되도록 z-index 높게 설정 */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.solution2-line1 {
-  width: 12vw; /* 적절한 크기로 조정 */
-  right: 54vw; /* 첫 번째와 두 번째 이미지 사이 위치 */
-  bottom: 50vh;
-}
-
-.solution2-line2 {
-  width: 12vw; /* 적절한 크기로 조정 */
-  right: 26vw; /* 두 번째와 세 번째 이미지 사이 위치 */
-  bottom: 21vh;
-}
-
-/* 반응형을 위한 미디어 쿼리 추가 */
-@media screen and (max-width: 1200px) {
-  .solution2-line1 {
-    right: 37.5%;
-    width: 8vw;
-  }
-  
-  .solution2-line2 {
-    right: 12.5%;
-    width: 8vw;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .solution2-line1, .solution2-line2 {
-    display: none; /* 모바일에서는 라인 숨김 처리 */
-  }
-}
-
-/* 1201px에서 1440px 사이의 화면 크기에 대한 조정 */
-@media screen and (min-width: 1201px) and (max-width: 1440px) {
-  .solution2-line1 {
-    right: 28.5%;
-    width: 8vw;
-    bottom: -10vh;
-  }
-  
-  .solution2-line2 {
-    right: 5.5%;
-    width: 8vw;
-    bottom: -10vh;
-  }
-}
 /* 반응형 스타일 */
+@media screen and (max-width: 1440px) {
+  .mail-screen-container,
+  .approval-screen-container {
+    left: -20vw;
+  }
+}
+
 @media screen and (max-width: 1200px) {
-  .solution2-text {
-    width: 70%;
+  .mail-content,
+  .approval-content {
+    flex-direction: column;
   }
   
-  .solution2-image1, .solution2-image2, .solution2-image3 {
-    width: 22vw;
-    bottom: -10vh;
+  .mail-description, 
+  .mail-screen-container,
+  .approval-description,
+  .approval-screen-container {
+    width: 100%;
+    flex: none;
   }
   
-  .solution2-image1 {
-    right: 50%;
-  }
-  
-  .solution2-image2 {
-    right: 25%;
-  }
-  
-  .solution2-image3 {
-    right: 0%;
+  .mail-screen-container,
+  .approval-screen-container {
+    left: 0;
+    margin-top: 60px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .solution2-section {
+  .mail-section,
+  .approval-section {
     padding: 80px 20px;
   }
   
-  .solution2-text {
-    width: 100%;
+  .mail-title,
+  .approval-title {
+    font-size: 32px;
   }
   
-  .solution2-heading {
-    font-size: 28px;
+  .mail-label,
+  .approval-label {
+    font-size: 20px;
   }
   
-  .solution2-images {
-    height: 50vh;
-    flex-direction: column;
-    align-items: center;
+  .mail-paragraph,
+  .approval-paragraph,
+  .preview-text,
+  .buttons-text,
+  .other-text {
+    font-size: 15px;
   }
   
-  .solution2-image1, .solution2-image2, .solution2-image3 {
-    position: relative;
-    width: 80%;
-    margin-bottom: 20px;
-    right: auto;
-    bottom: auto;
+  .preview-title,
+  .buttons-title,
+  .other-title {
+    font-size: 18px;
   }
 }
     
@@ -1941,26 +2005,91 @@ bottom:-76vh;
   </div>
 </section>
 
-<!-- SECTION 8: SOLUTION2 -->
-<section class="solution2-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution2-content">
-    <div class="solution2-text">
-      <h3 class="solution2-heading">
-        메뉴 선택 후, 필수옵션 선택을 바로 제공합니다.<br>
-        추가 옵션이 필요하면, 선택하여 순차적으로 이루어집니다.
-      </h3>
+<!-- SECTION 8: 메일 첫화면 -->
+<section class="mail-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="mail-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="mail-description">
+      <h3 class="mail-label">Mail</h3>
+      <h4 class="mail-title">메일 접근성 향상</h4>
+      
+      <div class="mail-text">
+        <p class="mail-paragraph">
+          메일 확인이 첫번째 Task이므로<br>
+          디폴트 메일함 목록을 바로 보여줍니다.
+        </p>
+        <p class="mail-paragraph">
+          메일함 선택은 추가 버튼을 누르면 나오는<br>
+          후차적인 선택으로 분류합니다.
+        </p>
+      </div>
+      
+      <!-- 내용 미리보기 영역 -->
+      <div class="mail-preview">
+        <h5 class="preview-title">내용 미리보기</h5>
+        <p class="preview-text">
+          기존에 보낸 사람과 제목만 표시되었다면<br>
+          목록 내에 메일 본문 미리보기를 제공하여,<br>
+          빠른 확인을 도움.
+        </p>
+      </div>
+      
+      <!-- 버튼 간략화 영역 -->
+      <div class="mail-buttons">
+        <h5 class="buttons-title">버튼 간략화</h5>
+        <p class="buttons-text">
+          메일 목록 내에 필요한 버튼만 간략하게 남김.
+        </p>
+      </div>
     </div>
     
-<div class="solution2-images">
-  <img src="images/08_1.png" alt="메뉴 화면" class="solution2-image1">
-  <img src="images/08_line1.svg" alt="연결선 1" class="solution2-line1">
-  <img src="images/08_2.png" alt="필수옵션 화면" class="solution2-image2">
-  <img src="images/08_line2_2.svg" alt="연결선 2" class="solution2-line2">
-  <img src="images/08_3.png" alt="추가옵션 화면" class="solution2-image3">
-</div>
+    <!-- 오른쪽 화면 이미지 -->
+    <div class="mail-screen-container">
+      <img src="images/06.png" alt="NH 그룹웨어 메일 화면" class="mail-main-image">
+    </div>
   </div>
 </section>
+
+<!-- SECTION 9: 미결함 먼저 표시 -->
+<section class="approval-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="approval-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="approval-description">
+      <h3 class="approval-label">Approval</h3>
+      <h4 class="approval-title">미결함 먼저 표시</h4>
+      
+      <div class="approval-text">
+        <p class="approval-paragraph">
+          모바일 결재는 미결함을 먼저 표시합니다.
+        </p>
+        <p class="approval-paragraph">
+          다른 결재함 상태를 같이 확인할 수 있어<br>
+          결재함 선택 화면이 별도로 필요없습니다.
+        </p>
+      </div>
+      
+      <!-- 다른 결재함 표시 영역 -->
+      <div class="other-approval">
+        <h5 class="other-title">다른 결재함 건수 표시</h5>
+        <p class="other-text">
+          디폴트 미결함 외에 다른 결재함의 건수를<br>
+          함께 표시하여, 한 눈에 확인하고 바로 이동합니다.
+        </p>
+      </div>
+    </div>
+    
+    <!-- 오른쪽 화면 이미지 -->
+    <div class="approval-screen-container">
+      <img src="images/07.png" alt="NH 그룹웨어 미결함 화면" class="approval-main-image">
+    </div>
+  </div>
+</section>
+
+<style>
 	  
 <div class="top-button" id="topButton"></div>
 
