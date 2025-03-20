@@ -111,6 +111,8 @@ body, h1, h2, h3, h4, p, span {
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
+      position: relative;
+      z-index: 100;
     }
 
     .logo {
@@ -171,11 +173,14 @@ body, h1, h2, h3, h4, p, span {
     /* PROJECT HEADER SECTION - 새로 작성 */
     .project-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       height: 90vh;
       padding: 0 60px;
-      background-color: var(--nav-bg);
+      background-image: url('images/01.jpg');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
     }
@@ -186,6 +191,9 @@ body, h1, h2, h3, h4, p, span {
       align-self: flex-start;
       margin-top: 17.5vh;
       z-index: 2;
+      background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 추가 */
+      padding: 30px;
+      border-radius: 10px;
     }
     
     .project-meta {
@@ -231,37 +239,6 @@ body, h1, h2, h3, h4, p, span {
       font-weight: 700;
       margin-right: 15px;
 	color: #ffffff;
-    }
-
-    /* HERO IMAGES - 새로 작성 */
-    .project-images {
-      position: relative;
-      flex: 0 0 40%;
-      max-width: 40%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      z-index: 1;
-    }
-
-    .hero-image, .hero-image2 {
-      position: absolute;
-      width: 30vw;
-      height: auto;
-    }
-
-    .hero-image {
-      right: 0vw;
-      bottom: -2vh;
-      z-index: 2;
-    }
-
-    .hero-image2 {
-      right: 13vw;
-      bottom: -2vh;
-      z-index: 1;
-	width:40vw;
     }
 
     /* SECTION COMMON STYLES */
@@ -451,21 +428,8 @@ body, h1, h2, h3, h4, p, span {
 /* 반응형 스타일 - 기존 + 새로 추가된 요소 */
 @media screen and (max-width: 1200px) {
   .project-header-content {
-    flex: 0 0 60%;
-    max-width: 60%;
-  }
-  
-  .project-images {
-    flex: 0 0 35%;
-    max-width: 35%;
-  }
-  
-  .hero-image, .hero-image2 {
-    width: 230px;
-  }
-  
-  .hero-image2 {
-    right: 100px;
+    flex: 0 0 70%;
+    max-width: 70%;
   }
 }
 
@@ -1212,18 +1176,6 @@ right:62vw;
     max-width: 60%;
   }
   
-  .project-images {
-    flex: 0 0 35%;
-    max-width: 35%;
-  }
-  
-  .hero-image, .hero-image2 {
-    width: 230px;
-  }
-  
-  .hero-image2 {
-    right: 100px;
-  }
   .features-diagram {
     overflow-x: auto;
     padding-bottom: 40px;
@@ -1276,24 +1228,6 @@ right:62vw;
     margin-bottom: 60px;
   }
   
-  .project-images {
-    flex: 0 0 100%;
-    max-width: 100%;
-    height: 400px;
-    justify-content: center;
-  }
-  
-  .hero-image {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 0;
-  }
-  
-  .hero-image2 {
-    right: calc(50% + 80px);
-    transform: translateX(50%);
-    bottom: 15%;
-  }
   .process-grid {
     flex-wrap: wrap;
   }
@@ -1319,17 +1253,6 @@ right:62vw;
   
   
 @media screen and (min-width: 1201px) and (max-width: 1440px) {
-  .hero-image {
-      right: 17vw;
-      bottom: 4vh;
-      z-index: 2;
-    }
-
-    .hero-image2 {
-      right: -1vw;
-      bottom: -4vh;
-      z-index: 1;
-    }
 .overview-image {
       position: absolute;  
       width: 36%;
@@ -1423,20 +1346,6 @@ bottom:-76vh;
     display: none; /* 모바일에서는 다이어그램 숨김 */
   }
   
-  /* 반응형 히어로 이미지 조정 */
-  .hero-image, .hero-image2 {
-    width: 200px;
-  }
-  
-  .hero-image {
-    right: 50%;
-    transform: translateX(40%);
-  }
-  
-  .hero-image2 {
-    right: calc(50% + 40px);
-    transform: translateX(50%);
-  }
   .insight-content {
     flex-direction: column; /* 모바일에서는 세로 배치 */
     gap: 30px; /* 요소 간 간격 */
@@ -1488,24 +1397,7 @@ bottom:-76vh;
   .project-stats {
     flex-wrap: wrap;
   }
-
-  .hero-image, .hero-image2 {
-    width: 150px;
-  }
-  
-  .hero-image {
-    right: 50%;
-    transform: translateX(30%);
-    bottom: 10%;
-  }
-  
-  .hero-image2 {
-    right: calc(50% + 20px);
-    transform: translateX(50%);
-    bottom: 25%;
-  }
-}
-  </style>
+}</style>
 </head>
 <body>
   <div class="container">
@@ -1520,7 +1412,7 @@ bottom:-76vh;
       </nav>
     </header>
     
-    <!-- PROJECT HEADER SECTION - 새로 작성 -->
+    <!-- PROJECT HEADER SECTION - 수정된 부분 -->
     <section class="project-header">
       <div class="project-header-content">
         <div class="project-meta">2023.05 - 2023.08</div>
@@ -1535,12 +1427,6 @@ bottom:-76vh;
           <span class="stat-label">PROGRESS</span>
           <span class="stat-value">-</span>
         </div>
-      </div>
-      
-      <!-- 키오스크 이미지 -->
-      <div class="project-images">
-	<img src="images/01_2.png" alt="팀홀튼 이미지" class="hero-image2">
-          <img src="images/01_1.png" alt="팀홀튼 키오스크 이미지" class="hero-image">
       </div>
     </section>
     
