@@ -1002,6 +1002,7 @@ padding-bottom: 120px;
     font-size: 14px;
   }
 }
+	
 
 @media screen and (max-width: 992px) {
   .text-left, .text-right {
@@ -1230,6 +1231,9 @@ padding-bottom: 120px;
   color: #404040;
 }
 
+
+	  
+
 /* 반응형 스타일 */
 @media screen and (max-width: 1200px) {
   .top-content {
@@ -1303,6 +1307,75 @@ padding-bottom: 120px;
   .icon-item {
     width: 45%;
   }
+}
+
+/* SECTION 9: SOLUTION2  */
+.solution2-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution2-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* column으로 변경 */
+}
+
+.solution2-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution2-images {
+  position: relative;
+  width: 100%; /* 전체 너비로 변경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  bottom: -20vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 45%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 23%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: 1%;
+  z-index: 4;
+}
+
+.solution2-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+.section-description {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
 }
 	  
     /* RESPONSIVE STYLES */
@@ -1927,6 +2000,40 @@ bottom:-76vh;
     </div>
   </div>
 </section>
+
+<!-- SECTION 9: SOLUTION 2 -->
+<section class="solution2-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution2-content">
+    <div class="solution2-text">
+      <h3 class="section-heading">
+        산뜻한 인상을 위한<br>
+        비주얼 계획<br>
+        <span class="highlight-yellow">진입 장벽을 낮게.</span>
+      </h3>
+
+      <div class="solution2-description">
+        <p class="section-description">
+         깔끔하고 분명한 첫 인상을 전달하기 위해, <br>
+	<span class="highlight-d">홈 배너 디자인 가이드를 작성하여 </span>퀄리티가 <br>
+	유지되도록 하였습니다. 배너 제작을 위한 이미지와 <br>
+	타이포그래피 규칙이 정의되어있습니다. <br><br>
+	홈화면 팝업과 마이페이지에도, <br>
+	정돈되고 밝은 느낌을 위한 비주얼 가이드를 정의하여<br>
+	지속적으로 반영되도록 하였습니다. <br>
+        </p>
+      </div>
+    </div>
+
+    <div class="solution2-images">
+      <img src="images/09_1b.png" alt="구몬 앱 이미지" class="solution2-image1">
+      <img src="images/09_2b.png" alt="구몬 앱 이미지" class="solution2-image2">
+      <img src="images/09_3b.png" alt="구몬 앱 이미지" class="solution2-image3">
+    </div>
+  </div>
+</section>
+
+	
 <div class="top-button" id="topButton"></div>
 </body>
 	
