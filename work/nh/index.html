@@ -88,7 +88,6 @@
     }
     .container {
       width: 100%;
-      background-color: var(--nav-bg);
     }
 /* 기존 코드에 추가/보완할 내용 */
 body, h1, h2, h3, h4, p, span {
@@ -102,17 +101,19 @@ body, h1, h2, h3, h4, p, span {
 :root {
   --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
 }
-    /* HEADER / NAVIGATION */
+    /* HEADER / NAVIGATION - 수정된 부분 */
     .header {
-      background-color: var(--nav-bg);
       width: 100%;
       height: 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       z-index: 100;
+      background-color: transparent;
     }
 
     .logo {
@@ -170,12 +171,12 @@ body, h1, h2, h3, h4, p, span {
             transform: rotate(-45deg);
             margin-top: 4px;
         }
-    /* PROJECT HEADER SECTION - 새로 작성 */
+    /* PROJECT HEADER SECTION - 수정된 부분 */
     .project-header {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      height: 90vh;
+      height: 100vh;
       padding: 0 60px;
       background-image: url('images/01.jpg');
       background-size: cover;
@@ -183,17 +184,15 @@ body, h1, h2, h3, h4, p, span {
       background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
+      margin-top: 0;
     }
     
     .project-header-content {
       flex: 0 0 60%;
       max-width: 60%;
       align-self: flex-start;
-      margin-top: 17.5vh;
+      margin-top: 25vh;
       z-index: 2;
-      background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 추가 */
-      padding: 30px;
-      border-radius: 10px;
     }
     
     .project-meta {
@@ -1397,7 +1396,8 @@ bottom:-76vh;
   .project-stats {
     flex-wrap: wrap;
   }
-}</style>
+}
+  </style>
 </head>
 <body>
   <div class="container">
@@ -1429,7 +1429,7 @@ bottom:-76vh;
         </div>
       </div>
     </section>
-    
+
 <!-- SECTION 2: OVERVIEW -->
 <section class="section">
   <h2 class="section-title">Overview</h2>
@@ -1735,7 +1735,7 @@ bottom:-76vh;
   </div>
 </section>
 
-	  <!-- SECTION 8: SOLUTION2 -->
+<!-- SECTION 8: SOLUTION2 -->
 <section class="solution2-section">
   <h2 class="section-title">Solution</h2>
   <div class="solution2-content">
