@@ -839,70 +839,99 @@ left:-30vw;
     font-size: 15px;
   }
 }
-/* SECTION 6: SOLUTION PROTOTYPE STYLES */
-.solution-proto-section {
-  padding: 100px 60px;
+/* SECTION 6: 화면 구조화 스타일 */
+.wireframe-section {
   background-color: #ffffff;
-  min-height: 100vh;
+  padding: 100px 60px;
+  min-height: 80vh;
 }
 
-.solution-proto-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
-}
-
-.solution-proto-text {
-  width: 100%;
-  margin-bottom: 60px;
-}
-
-.solution-proto-heading {
-  font-family: "pretendard-bold", sans-serif;
-  font-size: var(--font-size-xxl);
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: left;
-}
-
-.case-proto-container {
+.wireframe-content {
   display: flex;
+  width: 100%;
+  margin-top: 60px;
   justify-content: space-between;
-  width: 80%;
-  gap: 30px;
+  align-items: center;
 }
 
-.case-proto-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.wireframe-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
 }
 
-.case-proto-title {
-  font-family: "pretendard-bold", sans-serif;
+.wireframe-label {
+  font-family: var(--font-family-pretendard);
   font-size: 24px;
-  font-weight: 700;
-  color: #BD0000;
+  font-weight: 500;
+  color: #000;
   margin-bottom: 20px;
 }
 
-.case-proto-image {
-  width:21vw;
-  height: auto;
+.wireframe-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
 }
 
-.case-proto-image1,
-.case-proto-image2,
-.case-proto-image3 {
-  width: 100%;
-  height: auto;
-  display: block;
+.wireframe-text-container {
+  min-height: 200px; /* 텍스트 내용이 이미지에 포함되어 있으므로 공간만 확보 */
 }
 
+.wireframe-image-container {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: -30vw;
+}
 
+.wireframe-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1024px) {
+  .wireframe-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .wireframe-description {
+    flex: 0 0 100%;
+    margin-bottom: 40px;
+    padding-right: 0;
+  }
+  
+  .wireframe-image-container {
+    flex: 0 0 100%;
+    width: 100%;
+    left: 0;
+  }
+  
+  .wireframe-title {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wireframe-section {
+    padding: 80px 20px;
+  }
+  
+  .wireframe-title {
+    font-size: 32px;
+  }
+  
+  .wireframe-label {
+    font-size: 20px;
+  }
+}
 /* SECTION 7: SOLUTION */
 .solution-section {
   padding: 100px 60px;
@@ -1650,35 +1679,23 @@ bottom:-76vh;
 
 
     
-<!-- SECTION 6: SOLUTION -->
-<section class="solution-proto-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution-proto-content">
-    <div class="solution-proto-text">
-      <h3 class="solution-proto-heading">
-        가장 적합한 레이아웃을 찾기 위해<br>
-        3가지 타입을 프로토타입으로 제작하고, 논의하였습니다.
-      </h3>
+<!-- SECTION 6: 화면 구조화 -->
+<section class="wireframe-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="wireframe-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="wireframe-description">
+      <h3 class="wireframe-label">Main</h3>
+      <h4 class="wireframe-title">화면을 구조화하여<br>정보를 체계적으로 접근</h4>
+      <div class="wireframe-text-container">
+        <!-- 텍스트 내용은 이미지에 포함되어 있으므로 공백으로 유지 -->
+      </div>
     </div>
     
-    <div class="case-proto-container">
-      <!-- Case 1 -->
-      <div class="case-proto-item">
-        <h4 class="case-proto-title">Case. 1</h4>
-        <img src="images/06_1b.svg" alt="키오스크 UI 1" class="case-proto-image">
-      </div>
-      
-      <!-- Case 2 -->
-      <div class="case-proto-item">
-        <h4 class="case-proto-title">Case. 2</h4>
-        <img src="images/06_2b.svg" alt="키오스크 UI 2" class="case-proto-image">
-      </div>
-      
-      <!-- Case 3 -->
-      <div class="case-proto-item">
-        <h4 class="case-proto-title">Case. 3</h4>
-        <img src="images/06_3b.svg" alt="키오스크 UI 3" class="case-proto-image">
-      </div>
+    <!-- 오른쪽 화면 이미지 -->
+    <div class="wireframe-image-container">
+      <img src="images/04_2.png" alt="NH 그룹웨어 와이어프레임" class="wireframe-image">
     </div>
   </div>
 </section>
