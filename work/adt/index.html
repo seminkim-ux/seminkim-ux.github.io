@@ -490,510 +490,148 @@ width:37vw;
   
     
     
-/* SECTION 4: INSIGHT */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:100vh;
-  }
- .insight-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
-  
-    .insight-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-10vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 90%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
-
- /* SECTION 5: INSIGHT 2*/
-  .insight2-section {
-    padding: 100px 60px;
-   background-color: var(--white);
-    min-height:100vh;
-  }
- .insight2-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
-}
-  
-    .insight2-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-5vh; 
-      right: 6vw;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight2-image {
-       max-width: 100%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
-}
-
-/* SECTION 6: CORE FEATURES */
-.features-section {
+/* SECTION 4: B2B 섹션 스타일 */
+.b2b-section {
   padding: 100px 60px;
-  background-color: var(--white);
+  background-color: var(--light-gray);
   min-height: 100vh;
   position: relative;
 }
 
-.features-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
-}
-
-.features-diagram {
-  margin-top: 60px;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 노드 스타일 */
-.feature-node {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-.main-node {
-  background-color: #fff5a0;
-  border: 1px solid #e0e0e0;
-  width: 210px;
-  height: 50px;
-  margin-bottom: 30px;
-  z-index: 2;
-}
-
-.second-node {
-  background-color: #fff5a0;
-    border: 1px solid #e0e0e0;
-  width: 210px; /* 1.5배로 증가 */
-  height: 50px;
-  z-index: 2;
-}
-
-.empty-node {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.node-text {
-  font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 18px;
-}
-
-/* 수직 연결선 */
-.vertical-lines {
-  position: absolute;
-  top: 106px;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.vertical-line {
-  position: absolute;
-  width: 1px;
-  background-color: #ccc;
-  top: 0;
-  height: 500px; /* 라인 길이 */
-}
-
-.line1 {
-  left: 10%;
-  height: 200px;
-}
-
-.line2 {
-  left: 30%;
-    height: 300px;
-}
-
-.line3 {
-  left: 50%;
-  height: 440px;
-}
-
-.line4 {
-  left: 70%;
-}
-
-.line5 {
-  left: 90%;
-}
-
-/* 2단계 노드 컨테이너 */
-.second-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 100%;
-  margin-bottom: 80px;
-  position: relative;
-  justify-items: center;
-}
-
-/* 메인 노드에서 아래로 내려오는 선 */
-.second-level-nodes::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  width: 1px;
-  height: 30px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 2단계 노드들을 가로로 연결하는 선 */
-.second-level-nodes::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 10%;
-  width: 80%;
-  height: 1px;
-  background-color: #ccc;
-  z-index: 1;
-}
-
-/* 3단계 노드 전체 컨테이너 */
-.third-level-nodes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 100%;
-  position: relative;
-  justify-items: center;
-  top : -12vh; 
-}
-
-/* 3단계 노드 컨테이너들 */
-.third-level-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 210px; /* 1.5배로 증가 */
-  z-index: 3;
-  margin-top: 50px;
-}
-
-/* 기능 박스 스타일 */
-.feature-box {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: white;
-  width: 100%;
-  min-height: 60px;
-  position: relative;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.feature-title {
-  font-family: var(--font-family-pretendard);
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.feature-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.feature-list li {
-  font-family: var(--font-family-pretendard);
-  font-size: 14px;
-  margin-bottom: 5px;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 12px;
-}
-
-.feature-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #555;
-}
-
-/* SECTION 7: SOLUTION */
-.solution-section {
-  padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 120vh;
-  position: relative;
-}
-
-.solution-content {
+.b2b-content {
   width: 100%;
   max-width: 90vw;
   margin: 0;
   text-align: left;
   position: relative;
   display: flex;
-  flex-direction: column;
-}
-
-.solution-text {
-  width: 50%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
-}
-.solution-text2 {
-  width: 50%;
-  position: absolute;
-right:-17vw;
-bottom:-18vh;	
-  z-index: 2;
-}
-.solution-images {
-  position: absolute;
-  width: 25%;
-  right: 30vw;
-  top: -8vh;
-  z-index: 1;
-}
-
-.solution-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.solution-description {
-  width: 100%;
-  margin-top: -7vh; /* Adjust based on image height */
-  clear: both;
-}
-.solution-description2 {
-position:absolute;	
-width: 50%;
-margin-top: 30vh; /* Adjust based on image height */
-right: -17vw;
-bottom:-33vh;
-  clear: both;
-}
-
-.section-description {
-font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
- .solution-ex {
-    font-family: var(--font-family-pretendard);
-    font-size: 13px;
-    line-height: 1.6;
-	 margin-top:30px;
-    color: #555;
-  }
-.highlight-yellow {
-  color: var(--yellow-medium);
-}
-
-.highlight-d {
-  color: #000;
-  font-weight: 700;
-}
-
-
-/* SECTION 8: SOLUTION2  */
-.solution2-section {
-  padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
-  position: relative;
-}
-
-.solution2-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: column; /* column으로 변경 */
-}
-
-.solution2-text {
-  width: 50%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
-}
-
-.solution2-images {
-  position: relative;
-  width: 100%; /* 전체 너비로 변경 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.solution2-image1, .solution2-image2, .solution2-image3 {
-  position: absolute;
-  width: 20vw;
-  height: auto;
-  bottom: -20vh; /* 아래에서부터의 위치 변경 */
-}
-
-.solution2-image1 {
-  right: 45%; /* 오른쪽에서부터의 위치 */
-  z-index: 2;
-}
-
-.solution2-image2 {
-  right: 23%;
-  z-index: 3;
-}
-
-.solution2-image3 {
-  right: 1%;
-  z-index: 4;
-}
-
-.solution2-description {
-  width: 100%;
-  margin-top: 30px; /* 이미지와 설명 사이 간격 */
-  clear: both;
-}
-
-.section-description {
-font-family: "pretendard-bold", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
-
-
-/* SECTION 9: solution3  */
-.solution3-section {
-  padding: 100px 60px;
-  background-color: var(--white);
-  min-height: 100vh;
-  position: relative;
-}
-
-.solution3-content {
-  width: 100%;
-  max-width: 90vw;
-  margin: 0;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: row; /* column에서 row로 변경 */
-  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
-  justify-content: space-between;
-}
-  .section9-heading {
-    font-family: var(--font-family-pretendard);
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    text-align:left;
-  }
-.solution3-text {
-  width: 30%;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 40px;
+  min-height: 70vh;
 }
 
-.solution3-images {
+.b2b-text {
+  width: 40%;
   position: relative;
-  width: 70%; /* 전체 너비로 변경 */
+  z-index: 2;
+  padding-right: 40px;
+}
+
+.b2b-images {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
+
+.b2b-image-left,
+.b2b-image-right {
+  max-width: 48%;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.b2b-description {
+  margin-top: 30px;
+}
+
+/* SECTION 5: B2C 섹션 스타일 */
+.b2c-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.b2c-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding-top: 40px; /* 상단 여백 */
-}
-.solution3-image1, .solution3-image2, .solution3-image3 {
-  position: absolute;
-  width: 32%;
-  height: auto;
+  align-items: flex-start;
+  min-height: 70vh;
 }
 
-.solution3-image1 {
-  right: 40vw; /* 오른쪽에서부터의 위치 */
+.b2c-text {
+  width: 40%;
+  position: relative;
   z-index: 2;
-bottom:-78vh;
+  padding-right: 40px;
 }
 
-.solution3-image2 {
-  right: 20vw;
-  z-index: 3;
-bottom:-82vh;
+.b2c-images {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
 }
 
-.solution3-image3 {
-  right: 0vw;
-  z-index: 4;
-bottom:-76vh;
+.b2c-image-left,
+.b2c-image-right {
+  max-width: 48%;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
-.solution3-description {
-  width: 100%;
-  margin-top: 30px; /* 이미지와 설명 사이 간격 */
-  clear: both;
+.b2c-description {
+  margin-top: 30px;
 }
 
-  .solution3-me{
-    font-family: var(--font-family-pretendard);
-    font-size: 15px;
-  position: relative; 
-    margin-top:10vh;
-    line-height: 1.6;
-    color: #000;
+/* 반응형 미디어 쿼리 */
+@media screen and (max-width: 1200px) {
+  .b2b-content,
+  .b2c-content {
+    flex-direction: column;
   }
+  
+  .b2b-text,
+  .b2c-text {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  .b2b-images,
+  .b2c-images {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .b2b-section,
+  .b2c-section {
+    padding: 80px 20px;
+  }
+  
+  .b2b-images,
+  .b2c-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .b2b-image-left,
+  .b2b-image-right,
+  .b2c-image-left,
+  .b2c-image-right {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+  
+  .section-heading {
+    font-size: 32px;
+  }
+}
 
     
     /* RESPONSIVE STYLES */
@@ -1408,329 +1046,72 @@ bottom:-76vh;
     </div>
   </div>
 </section>
-<!-- SECTION 4 : insight -->
-<section class="insight-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight-content">
-    <h3 class="section-heading">
-      주문 서비스에 필요한 기준으로<br>
-      경쟁사 앱을 분석하고<br>
-      주요 강점을 탐색했습니다.
-    </h3>
-        <div class="insight-images">
-          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
-     </div>
-  </div>
-    </section>
-    
-<!-- SECTION 5 : insight2 -->
-<section class="insight2-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight2-content">
-    <h3 class="section-heading">
-      선행된 조사, 분석을 바탕으로<br>
-      UX Concept을 수립하고<br>
-      핵심 기능을 정의하였습니다.
-    </h3>
-        <div class="insight2-images">
-          <img src="images/05_2.svg" alt="노브랜드버거 콘셉트" class="insight2-image">
-     </div>
-  </div>
-    </section>
-
-
-    
-<!-- SECTION 6: CORE FEATURES -->
-<section class="features-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="features-content">
-    <h3 class="section-heading">
-      전체 구조를 작성하고<br>
-      UX Concept에 맞는 핵심 기능을<br>
-      세부 화면에 정의하였습니다.
-    </h3>
-    
-    <div class="features-diagram">
-      <!-- 메인 노드 - 홈 -->
-      <div class="feature-node main-node">
-        <span class="node-text">홈</span>
-      </div>
-      
-      <!-- 수직 연결선들 -->
-      <div class="vertical-lines">
-        <div class="vertical-line line1"></div>
-        <div class="vertical-line line2"></div>
-        <div class="vertical-line line3"></div>
-        <div class="vertical-line line4"></div>
-        <div class="vertical-line line5"></div>
-      </div>
-      
-      <!-- 2단계 노드들 -->
-      <div class="second-level-nodes">
-        <div class="feature-node second-node empty-node">
-          <span class="node-text"></span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">쿠폰</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">주문</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">MY</span>
-        </div>
-        <div class="feature-node second-node">
-          <span class="node-text">더보기</span>
-        </div>
-      </div>
-      
-      <!-- 3단계 노드들 전체 컨테이너 -->
-      <div class="third-level-nodes">
-        <!-- 3단계 노드들 - 왼쪽 (비어있는 second-level-node 아래) -->
-        <div class="third-level-container empty-container">
-          <div class="feature-box">
-            <h4 class="feature-title">회원가입</h4>
-            <ul class="feature-list">
-              <li>SNS 계정으로 입력없이 가입</li>
-              <li>자체 회원가입 입력 최소화</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">로그인</h4>
-            <ul class="feature-list">
-              <li>휴대폰 ID로 간편하게 로그인</li>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 쿠폰 -->
-        <div class="third-level-container coupon-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문유형별 쿠폰 목록</h4>
-            <ul class="feature-list">
-              <li>매장에서 바로 쿠폰 생성</li>
-              <li>주문 유형별 쿠폰 탐색</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 상세</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">쿠폰 선물하기</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 주문 -->
-        <div class="third-level-container order-container">
-          <div class="feature-box">
-            <h4 class="feature-title">배달주문</h4>
-            <ul class="feature-list">
-              <li>배달지 설정</li>
-              <li>메뉴카테고리 내 메뉴 탐색</li>
-              <li>옵션메뉴 선택</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">매장픽업</h4>
-            <ul class="feature-list">
-              <li>위치기반 매장 추천</li>
-              <li>매장 즐겨찾기</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">간편주문</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">비회원주문</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - MY -->
-        <div class="third-level-container my-container">
-          <div class="feature-box">
-            <h4 class="feature-title">주문 내역조회</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">스탬프 적립</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">나의 배달지 / 매장</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">설문조사</h4>
-            <ul class="feature-list">
-              <li>전 회원 대상 설문조사</li>
-              <li>특정 세대 설문조사</li>
-              <li>특정 메뉴 주문고객 설문조사</li>
-            </ul>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">정보변경</h4>
-          </div>
-        </div>
-        
-        <!-- 3단계 노드들 - 더보기 -->
-        <div class="third-level-container more-container">
-          <div class="feature-box">
-            <h4 class="feature-title">매장 찾기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">메뉴보기</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">이벤트</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">고객센터</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">약관 및 정책</h4>
-          </div>
-          
-          <div class="feature-box">
-            <h4 class="feature-title">앱 설정</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    
-<!-- SECTION 7: SOLUTION -->
-<section class="solution-section">
+<!-- SECTION 4: B2B 섹션 -->
+<section class="b2b-section">
   <h2 class="section-title">Solution</h2>
-  <div class="solution-content">
-    <div class="solution-text">
+  
+  <div class="b2b-content">
+    <!-- 왼쪽 텍스트 영역 -->
+    <div class="b2b-text">
       <h3 class="section-heading">
-        주문 서비스의 첫 화면은<br>
-        다양한 필요를<br>
-        <span class="highlight-yellow">빠르게 충족</span>하도록.
+        전문성 있는 보안을<br>
+        제공하는 B2B 메인.
       </h3>
-	
-    </div>
-    
-    <div class="solution-text2">
-      <h3 class="section-heading">
-        작지만, 사용자와 <br>
-        함께하는 <span class="highlight-yellow">개인화 요소</span><br>
-      </h3>
-    </div>
-    
-    <div class="solution-images">
-      <img src="images/07.png" alt="노브랜드버거 앱 이미지" class="solution-image">
-    </div>
-    
-    <div class="solution-description">
-      <p class="section-description">
-        <span class="highlight-d">주문 앱의 홈 화면에 꼭 필요한 요소를 정의하였습니다.</span><br>
-        우선 주문 버튼을 화면 내에 눈에 띄게 두었습니다.<br>
-        매장의 테이블에 있는 QR을 스캔하여 바로 주문하는 버튼과<br>
-        키오스크 주문 시 사용하는 멤버십 바코드 조회 버튼도<br>
-        바로 꺼내 써야하기에 홈 화면에 배치하였습니다.
-      </p>
-	<p class="solution-ex">
-        • 효과적인 설명을 위해 디자인 이미지를 사용하였으나,<br>
-        실제로는 와이어프레임과 기획 작업을 하였습니다.
-      </p>
-    </div>
-	
-
-    <div class="solution-description2">
-      <p class="section-description">
-        개인화된 서비스는 홈 화면에도 볼 수 있습니다.<br>
-        지난 주문을 간편하게 다시 주문하는 간편 주문으로 <br>
-        사용자 맞춤형 빠른 주문을 제공합니다.<br>
-        닉네임을 활용한 그리팅 메시지와 사용자의 스탬프,<br>
-        쿠폰 보유 현황을 상단에 표시하여, 사용자 관점으로<br>
-        필요한 요소를 전달합니다.
-      </p>
-    </div>
-  </div>
-</section>
-	  
-<!-- SECTION 8: SOLUTION2 -->
-<section class="solution2-section">
-  <h2 class="section-title">Solution</h2>
-  <div class="solution2-content">
-    <div class="solution2-text">
-      <h3 class="section-heading">
-        빠르게 가입하고<br>
-        로그인하여<br>
-        <span class="highlight-yellow">진입 장벽을 낮게.</span>
-      </h3>
-
-      <div class="solution2-description">
+      
+      <div class="b2b-description">
         <p class="section-description">
-         SNS 간편 가입 시, 정보 제공 동의 버튼 선택만으로 <br>
-           <span class="highlight-d">입력 없이 빠르게 가입할 수 있습니다.</span><br>
-          자체 회원가입을 한다면, 로그인 아이디를 찾는 고민이 없도록 <br>
-         아이디는 휴대폰번호로 정하였습니다.<br>
-          가입할 때 작성하는 정보도 최소화하였습니다. <br>
-        휴대폰 번호 변경에 따른 방안도 마련하였습니다.
+          금융 고객 대상 메인화면은 지점과 본점 2가지 유형으로 나뉘어 있습니다.<br>
+          각 은행에 해당하는 로고타입을 직접 표시하여,<br>
+          관리 사용자가 업무와 연관된 전문화된 서비스를 이용 중임을<br>
+          느끼게 하였습니다.<br>
+          본점에서는 각 지점별 상태를 명확하게 알 수 있도록<br>
+          디자인하였습니다.
         </p>
       </div>
     </div>
-
-    <div class="solution2-images">
-      <img src="images/08_1.png" alt="노브랜드버거 앱 이미지" class="solution2-image1">
-      <img src="images/08_2.png" alt="노브랜드버거 앱 이미지" class="solution2-image2">
-      <img src="images/08_3.png" alt="노브랜드버거 앱 이미지" class="solution2-image3">
+    
+    <!-- 오른쪽 이미지 영역 -->
+    <div class="b2b-images">
+      <img src="images/04_1.png" alt="ADT 캡스 B2B 메인화면 - 좌측" class="b2b-image-left">
+      <img src="images/04_2.png" alt="ADT 캡스 B2B 메인화면 - 우측" class="b2b-image-right">
     </div>
   </div>
 </section>
 
-
-<!-- SECTION 9: SOLUTION3 -->
-<section class="solution3-section">
+<!-- SECTION 5: B2C 섹션 -->
+<section class="b2c-section">
   <h2 class="section-title">Solution</h2>
-  <div class="solution3-content">
-    <div class="solution3-text">
-      <h3 class="section9-heading">
-        편안한 주문이<br>
-        <span class="highlight-yellow">빠른 주문.</span>
+  
+  <div class="b2c-content">
+    <!-- 왼쪽 텍스트 영역 -->
+    <div class="b2c-text">
+      <h3 class="section-heading">
+        전문성 있는 보안을<br>
+        제공하는 B2C.
       </h3>
-
-      <div class="solution3-description">
+      
+      <div class="b2c-description">
         <p class="section-description">
-          사용자가 주문 과정에서 필요한 요소를<br>
-          <span class="highlight-d">먼저 제공하여 진입장벽을 낮춥니다.</span><br>
-          고려해야 할 요소, 직접 선택해야 할 요소를 <br>
-          줄이면서, 안내도 충실히 제공하는<br>
-          <span class="highlight-d"> 편안한 주문이 서비스와 사용자가 함께<br>
-          동의를 이루어가는 필수적인 UX입니다.</span>
+          금융 고객 대상 메인화면은 지점과 본점 2가지 유형으로 나뉘어 있습니<br>
+          다.<br>
+          각 은행에 해당하는 로고타입을 직접 표시하여,<br>
+          관리 사용자가 업무와 연관된 전문화된 서비스를 이용 중임을<br>
+          느끼게 하였습니다.<br>
+          본점에서는 각 지점별 상태를 명확하게 알 수 있도록<br>
+          디자인하였습니다.
         </p>
       </div>
-
-      <div class="solution3-me">
-        1. 기존 배달지와 현재 위치를 비교하고<br> 물어보아서, 오류가 없도록 합니다.<br><br>
-        2. 로그인 하지 않을 때도, 주문 과정을 모두 경험 후,<br> 최종 단계에서 회원/비회원 주문을 선택하도록 합니다.<br><br>
-        3. 지난 주문이나 미리 설정한 간편주문으로<br> 더 쉽게 주문할 수 있습니다. <br><br>
-      </div>
     </div>
-
-    <div class="solution3-images">
-      <img src="images/09_1.png" alt="노브랜드버거 앱 이미지" class="solution3-image1">
-      <img src="images/09_2.png" alt="노브랜드버거 앱 이미지" class="solution3-image2">
-      <img src="images/09_3.png" alt="노브랜드버거 앱 이미지" class="solution3-image3">
+    
+    <!-- 오른쪽 이미지 영역 -->
+    <div class="b2c-images">
+      <img src="images/05_1.png" alt="ADT 캡스 B2C 메인화면 - 좌측" class="b2c-image-left">
+      <img src="images/05_2.png" alt="ADT 캡스 B2C 메인화면 - 우측" class="b2c-image-right">
     </div>
   </div>
 </section>
-	
+
+    
 
 
 <div class="top-button" id="topButton"></div>
