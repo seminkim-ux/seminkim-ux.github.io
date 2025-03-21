@@ -1452,7 +1452,186 @@ left:-30vw;
     font-size: 18px;
   }
 }
-    
+
+/* SECTION 10: 태블릿 메인 화면 스타일 */
+.tablet-main-section {
+  background-color: #ffffff;
+  padding: 100px 60px;
+  min-height: 80vh;
+  position: relative;
+}
+
+.tablet-content {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tablet-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
+}
+
+.tablet-label {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.tablet-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.tablet-text {
+  margin-bottom: 40px;
+}
+
+.tablet-paragraph {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tablet-image-container {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  left: -30vw;
+}
+
+.tablet-main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* SECTION 11: 태블릿 결재 화면 스타일 */
+.tablet-approve-section {
+  background-color: #ffffff;
+  padding: 100px 60px;
+  min-height: 80vh;
+  position: relative;
+}
+
+.tablet-approve-content {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tablet-approve-description {
+  flex: 0 0 45%;
+  padding-right: 40px;
+}
+
+.tablet-approve-label {
+  font-family: var(--font-family-pretendard);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.tablet-approve-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.tablet-approve-text {
+  margin-bottom: 40px;
+}
+
+.tablet-approve-paragraph {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tablet-approve-image-container {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  left: -30vw;
+}
+
+.tablet-approve-main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1440px) {
+  .tablet-image-container,
+  .tablet-approve-image-container {
+    left: -20vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .tablet-content,
+  .tablet-approve-content {
+    flex-direction: column;
+  }
+  
+  .tablet-description, 
+  .tablet-image-container,
+  .tablet-approve-description,
+  .tablet-approve-image-container {
+    width: 100%;
+    flex: none;
+  }
+  
+  .tablet-image-container,
+  .tablet-approve-image-container {
+    left: 0;
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tablet-main-section,
+  .tablet-approve-section {
+    padding: 80px 20px;
+  }
+  
+  .tablet-title,
+  .tablet-approve-title {
+    font-size: 32px;
+  }
+  
+  .tablet-label,
+  .tablet-approve-label {
+    font-size: 20px;
+  }
+  
+  .tablet-paragraph,
+  .tablet-approve-paragraph {
+    font-size: 15px;
+  }
+}
+	  
 /* RESPONSIVE STYLES */
 @media screen and (max-width: 1200px) {
    
@@ -2088,6 +2267,63 @@ bottom:-76vh;
     </div>
   </div>
 </section>
+
+<!-- SECTION 10: 태블릿 메인 화면 -->
+<section class="tablet-main-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="tablet-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="tablet-description">
+      <h3 class="tablet-label">Tablet Main</h3>
+      <h4 class="tablet-title">주요 기능을 더욱 상세하게</h4>
+      
+      <div class="tablet-text">
+        <p class="tablet-paragraph">
+          태블릿의 넓은 화면을 활용하여,<br>
+          메인화면에서도 주요 기능을<br>
+          더욱 상세하게 조회할 수 있습니다.
+        </p>
+      </div>
+    </div>
+    
+    <!-- 오른쪽 화면 이미지 -->
+    <div class="tablet-image-container">
+      <img src="images/08.png" alt="NH 그룹웨어 태블릿 메인 화면" class="tablet-main-image">
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: 태블릿 결재 화면 -->
+<section class="tablet-approve-section">
+  <h2 class="section-title">UX Concept</h2>
+  
+  <div class="tablet-approve-content">
+    <!-- 왼쪽 설명 영역 -->
+    <div class="tablet-approve-description">
+      <h3 class="tablet-approve-label">Tablet Approve</h3>
+      <h4 class="tablet-approve-title">접근과 탐색이 용이한<br>레이아웃</h4>
+      
+      <div class="tablet-approve-text">
+        <p class="tablet-approve-paragraph">
+          모바일과 공통으로 하단 내비게이션을 제공하고,<br>
+          결재함 선택 화면 대신 상태 영역으로 이동을<br>
+          제공하였습니다.
+        </p>
+        <p class="tablet-approve-paragraph">
+          목록과 상세가 한눈에 적용되어<br>
+          접근과 탐색이 더욱 용이해집니다.
+        </p>
+      </div>
+    </div>
+    
+    <!-- 오른쪽 화면 이미지 -->
+    <div class="tablet-approve-image-container">
+      <img src="images/09.png" alt="NH 그룹웨어 태블릿 결재 화면" class="tablet-approve-main-image">
+    </div>
+  </div>
+</section>
+	  
 
 <style>
 	  
