@@ -337,93 +337,40 @@ position:absolute;
       color: #6e6e73;
     }
 
-/* SECTION 3: PROCESS  */
-  .process-section {
+/* SECTION 3: Solution adt */
+  .insight-section {
     padding: 100px 60px;
-    background-color: var(--white);
+    background-color: var(--light-gray);
+    min-height:100vh;
   }
-  
-  .process-content {
+ .insight-content {
     width: 100%;
     max-width: 90vw;
     margin: 0;
     text-align:left;
-  }
+    position:relative;
+    display: flex; /* flex 유지 */
+   flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소 사이 공간 확보 */
+  align-items: flex-start; 
+  min-height: 70vh;
+}
   
-  .section-heading {
-    font-family: var(--font-family-pretendard);
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 60px;
-    text-align:left;
-  }
-  
-  .process-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    margin-top: 40px;
-  }
-  
-  .process-column {
-    width: calc(25% - 15px);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .process-box {
-    padding: 30px;
-    width : 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .define-box {
-    background-color: #98dbf5;
-  }
-  
-  .ideation-box {
-    background-color: #a2d987;
-  }
-  
-  .prototype-box {
-    background-color: #ffbccd;
-  }
-  
-  .test-box {
-    background-color: #f3ca58;
-  }
-  
-  .box-title {
-    font-family: var(--font-family-jost);
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .process-list {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .process-list li {
-    font-family: var(--font-family-pretendard);
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  
-  .process-description {
-    font-family: var(--font-family-pretendard);
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--black);
-    padding-top: 15px;
-  }
+    .insight-images {
+      position: absolute;  
+      width: 65%;
+      margin-top:-10vh; 
+      right: -2%;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+     .insight-image {
+       max-width: 90%; /* 이미지 최대 너비 설정 */
+      height: auto;
+      display: block; /* margin auto 허용을 위해 block으로 설정 */
+}
   
   
     
@@ -1297,94 +1244,20 @@ bottom:-76vh;
     </div>
   </section>
     
-<!-- SECTION 3: PROCESS -->
-<section class="section process-section">
-  <h2 class="section-title">Process</h2>
-  <div class="process-content">
+<!-- SECTION 3 : Solution adt -->
+<section class="insight-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="insight-content">
     <h3 class="section-heading">
-      UX 기획 전체 과정을 총괄하여 진행하였습니다.
+      주문 서비스에 필요한 기준으로<br>
+      경쟁사 앱을 분석하고<br>
+      주요 강점을 탐색했습니다.
     </h3>
-    
-    <div class="process-grid">
-      <!-- Define Box with Description Below -->
-      <div class="process-column">
-        <div class="process-box define-box">
-          <h4 class="box-title">Define</h4>
-          <ul class="process-list">
-            <li>경쟁사 분석 및 평가</li>
-            <li>UX 트렌드 조사</li>
-            <li>서비스 트렌드 조사</li>
-            <li>브랜드 분석</li>
-          </ul>
-        </div>
-        <p class="process-description">
-          다양한 프랜차이즈 앱을 휴리스틱 사용성<br>
-          관점에서 분석하였습니다.<br>
-          UX와 서비스 트렌드를 조사하고,<br>
-          브랜드 특성을 연구하였습니다.
-        </p>
-      </div>
-      
-      <!-- Ideation Box with Description Below -->
-      <div class="process-column">
-        <div class="process-box ideation-box">
-          <h4 class="box-title">Ideation</h4>
-          <ul class="process-list">
-            <li>코크리에이션 워크샵</li>
-            <li>Service Concept</li>
-            <li>특색있는 Key 기능 연구</li>
-          </ul>
-        </div>
-        <p class="process-description">
-          마케팅 부서, 개발팀, IT담과 정기적인<br>
-          워크샵을 통해 니즈를 분석하고<br>
-          Concept를 수립하였습니다.<br>
-          서비스만의 특색있는 Key 기능을<br>
-          정의하였습니다.
-        </p>
-      </div>
-      
-      <!-- Prototype Box with Description Below -->
-      <div class="process-column">
-        <div class="process-box prototype-box">
-          <h4 class="box-title">Prototype</h4>
-          <ul class="process-list">
-            <li>Information Architecture</li>
-            <li>Wireframe 작성</li>
-            <li>알림톡 메시지 작성</li>
-          </ul>
-        </div>
-        <p class="process-description">
-          전체 구조를 설계하고,<br>
-          메인, 가입, 주문, 결제 등 각 세부화면의<br>
-          와이어프레임을 작성하였습니다.<br>
-          피드백 메시지로 발송되는 상황별 알림톡<br>
-          메시지를 작성하였습니다.
-        </p>
-      </div>
-      
-      <!-- Test Box with Description Below -->
-      <div class="process-column">
-        <div class="process-box test-box">
-          <h4 class="box-title">Test</h4>
-          <ul class="process-list">
-            <li>테스트 시나리오 작성</li>
-            <li>임직원 대상 테스트 진행</li>
-            <li>알림톡 테스트</li>
-            <li>필드테스트</li>
-          </ul>
-        </div>
-        <p class="process-description">
-          테스트 시나리오를 작성하였습니다.<br>
-          임직원 대상 테스트 시 진행을 맡아<br>
-          클라이언트와 개발자 사이를 조율하였습니다.<br>
-          알림톡 발송 규칙에 맞는지 확인하는 테스트와,<br>
-          매장 내 주문 테스트도 진행하였습니다.
-        </p>
-      </div>
-    </div>
+        <div class="insight-images">
+          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
+     </div>
   </div>
-</section>
+    </section>
     
 <!-- SECTION 4 : insight -->
 <section class="insight-section">
