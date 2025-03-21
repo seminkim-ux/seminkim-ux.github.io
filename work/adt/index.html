@@ -337,39 +337,158 @@ position:absolute;
       color: #6e6e73;
     }
 
-/* SECTION 3: Solution adt */
-  .insight-section {
-    padding: 100px 60px;
-    background-color: var(--light-gray);
-    min-height:100vh;
-  }
- .insight-content {
-    width: 100%;
-    max-width: 90vw;
-    margin: 0;
-    text-align:left;
-    position:relative;
-    display: flex; /* flex 유지 */
-   flex-direction: row; /* column에서 row로 변경 */
-  justify-content: space-between; /* 요소 사이 공간 확보 */
-  align-items: flex-start; 
-  min-height: 70vh;
+/* SECTION 3: 브랜드 아이덴티티 스타일 */
+.solution-section {
+  padding: 100px 60px;
+  background-color: #f5f7f9;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
+
+.solution-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.solution-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  color: #000;
+}
+
+.section-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 스마트폰 이미지 컨테이너 */
+.solution-image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.solution-image {
+  max-width: 60%;
+  height: auto;
+}
+
+/* 출입 기기 섹션 스타일 */
+.access-device-section {
+  position: absolute;
+  top: 150px;
+  right: 60px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.access-device-text {
+  flex: 1;
+}
+
+.access-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.access-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.access-hexagon {
+  width: 120px;
+  height: 120px;
+  margin-left: 20px;
+}
+
+.hexagon-image {
+  width: 100%;
+  height: auto;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .solution-text {
+    width: 100%;
+  }
   
-    .insight-images {
-      position: absolute;  
-      width: 65%;
-      margin-top:-10vh; 
-      right: -2%;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
-     .insight-image {
-       max-width: 90%; /* 이미지 최대 너비 설정 */
-      height: auto;
-      display: block; /* margin auto 허용을 위해 block으로 설정 */
+  .access-device-section {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .solution-image {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .solution-section {
+    padding: 80px 20px;
+  }
+  
+  .section-heading {
+    font-size: 36px;
+  }
+  
+  .access-title {
+    font-size: 24px;
+  }
+  
+  .access-device-section {
+    flex-direction: column;
+  }
+  
+  .access-hexagon {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  
+  .solution-image {
+    max-width: 100%;
+  }
 }
   
   
@@ -1245,21 +1364,54 @@ bottom:-76vh;
     </div>
   </section>
     
-<!-- SECTION 3 : Solution adt -->
-<section class="insight-section">
-  <h2 class="section-title">Insight</h2>
-  <div class="insight-content">
-    <h3 class="section-heading">
-      주문 서비스에 필요한 기준으로<br>
-      경쟁사 앱을 분석하고<br>
-      주요 강점을 탐색했습니다.
-    </h3>
-        <div class="insight-images">
-          <img src="images/04_2.svg" alt="노브랜드버거 가치분석" class="insight-image">
-     </div>
-  </div>
-    </section>
+<!-- SECTION 3: 브랜드 아이덴티티 -->
+<section class="solution-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="solution-content">
+    <!-- 왼쪽 텍스트 영역 -->
+    <div class="solution-text">
+      <h3 class="section-heading">
+        브랜드 아이덴티티를 활용한<br>
+        서비스 효용성.
+      </h3>
+      
+      <div class="solution-description">
+        <p class="section-description">
+          SK셀러스로 사명 개편 전, ADT캡스는 단일 브랜드로서 파란 필각형 아이덴티티로<br>
+          서비스 인지도와 신뢰도를 대표하고 있었습니다. 집 밖에 볼이는 파란 필각형 표시와 출입기기의 점등 표시는<br>
+          보안이 실시중이라는 상징이었습니다. 이를 활용하여, 온라인에서도 확장된 통일성과 신뢰감을 부여하였습니다.
+        </p>
+      </div>
+    </div>
     
+    <!-- 오른쪽 "출입 기기에 점등되는" 텍스트와 이미지 영역 -->
+    <div class="access-device-section">
+      <div class="access-device-text">
+        <h4 class="access-title">
+          출입 기기에 점등되는<br>
+          사인이 손 안의 앱에서도.
+        </h4>
+        
+        <div class="access-description">
+          <p>보안을 상징하는 아이덴티티를<br>
+          서비스 내에 동일하게 유지하는 것이<br>
+          최초의 통합 대고객 앱에서 주효했습니다.</p>
+        </div>
+      </div>
+      
+      <!-- 육각형 해제 이미지 -->
+      <div class="access-hexagon">
+        <img src="images/03_2.png" alt="육각형 해제 버튼" class="hexagon-image">
+      </div>
+    </div>
+    
+    <!-- 중앙 스마트폰 이미지 -->
+    <div class="solution-image-container">
+      <img src="images/03_1.png" alt="ADT 캡스 앱 화면" class="solution-image">
+    </div>
+  </div>
+</section>
 <!-- SECTION 4 : insight -->
 <section class="insight-section">
   <h2 class="section-title">Insight</h2>
