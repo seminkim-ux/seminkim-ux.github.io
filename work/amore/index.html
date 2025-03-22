@@ -583,12 +583,14 @@ right:5vw;
 
 
 /* SECTION 5: solution */
-.solutiona-section {
-  padding: 100px 60px;
-  background-color: #e2e6e8;
-  min-height: 100vh;
-  position: relative;
+.solutiona-content {
+  max-width: 100%;
+  min-height: auto; /* 110vh에서 auto로 변경하여 내용에 맞게 조정 */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
+
     .solutiona-content {
       max-width: 100%;
 	min-height:110vh;
@@ -596,18 +598,21 @@ right:5vw;
       flex: 1;
     }
 
-    .solutiona-image {
-      position: absolute;  
-      width: 80vw;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-	left:7vw;
-    }
-    .solutiona-image1 {
-      width: 100vw;
-      height: auto;
-    }
+
+.solutiona-image {
+  position: relative; /* absolute에서 relative로 변경 */
+  width: 100%;
+  margin-top: 40px; /* 텍스트와의 간격 */
+  text-align: center; /* 이미지 중앙 정렬 */
+  left: auto; /* left 위치 속성 제거 */
+}
+
+.solutiona-image1 {
+  width: 90%; /* 100vw에서 90%로 변경하여 화면 내에 표시 */
+  max-width: 1200px; /* 최대 너비 설정 */
+  height: auto;
+  margin: 0 auto; /* 중앙 정렬 */
+}
     .solutiona-text {
       display: block; /* absolute 대신 block 사용 */
       width: 100%;
@@ -639,25 +644,30 @@ right:5vw;
   min-height: 100vh;
   position: relative;
 }
-    .solutionb-content {
-      max-width: 100%;
-	min-height:110vh;
-      margin: 0;
-      flex: 1;
-    }
+.solutionb-content {
+  max-width: 100%;
+  min-height: auto; /* 110vh에서 auto로 변경 */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
-    .solutionb-image {
-      position: absolute;  
-      width: 80vw;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-	left:7vw;
-    }
-    .solutionb-image1 {
-      width: 100vw;
-      height: auto;
-    }
+
+
+.solutionb-image {
+  position: relative; /* absolute에서 relative로 변경 */
+  width: 100%;
+  margin-top: 40px; /* 텍스트와의 간격 */
+  text-align: center; /* 이미지 중앙 정렬 */
+  left: auto; /* left 위치 속성 제거 */
+}
+
+.solutionb-image1 {
+  width: 90%; /* 100vw에서 90%로 변경 */
+  max-width: 1200px; /* 최대 너비 설정 */
+  height: auto;
+  margin: 0 auto; /* 중앙 정렬 */
+}
     .solutionb-text {
       display: block; /* absolute 대신 block 사용 */
       width: 100%;
