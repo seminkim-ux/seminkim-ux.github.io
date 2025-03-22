@@ -294,40 +294,34 @@ body, h1, h2, h3, h4, p, span {
   position: relative;
 background-color: var(--white);
 }
-    .overview-content {
-      display: flex;
-      position: relative; 
-      gap: 16px;
-      align-items: center;
-      max-width: 100%;
-      margin: 0;
-      flex: 1;
-      background-color: var(--white);
-    }
+.overview-content {
+  display: flex;
+  flex-direction: column; /* 수평에서 수직 방향으로 변경 */
+  position: relative;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+  flex: 1;
+  background-color: var(--white);
+}
 
-
-    .overview-image {
-      position: absolute;  
-      width: 45%;
-      margin-top: 8vh; 
-      right: 0vw;
-      aspect-ratio: 1 / 1;
-      background-color: transparent;
-      border-radius: 0px;
-      order: 10;
-    }
+.overview-image {
+  position: relative; /* absolute에서 relative로 변경 */
+  width: 45%;
+  margin-top: 40px; /* 텍스트와의 간격 조정 */
+  order: 2; /* 순서 조정 */
+}
 
     .overview-image img {
       width: 100%;
       height: auto;
     }
 
-    .overview-text {
-      display: block; /* absolute 대신 block 사용 */
-      width: 100%;
-      order: 1;
-    }
-
+.overview-text {
+  display: block;
+  width: 100%;
+  order: 1; /* 순서 조정 */
+}
     .overview-heading {
       font-family: "pretendard-bold", sans-serif;
       font-size: var(--font-size-xxxxxl);
@@ -361,11 +355,12 @@ background-color: var(--white);
   text-align: left;
   position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column; /* 수평에서 수직 방향으로 변경 */
+  align-items: center;
   min-height: 70vh;
 }
+
+
 
 .target-section-title {
 font-size: var(--font-size-m);
@@ -388,11 +383,13 @@ margin-bottom: 32px;
  }
 	
 .target-text {
-  width: 40%;
+  width: 100%; /* 너비 100%로 설정 */
   position: relative;
   z-index: 2;
-  padding-right: 40px;
+  padding-right: 0; /* 패딩 제거 */
+  margin-bottom: 40px; /* 텍스트와 이미지 사이 간격 */
 }
+
 
 .target-description {
       font-family: "pretendard-bold", sans-serif;
@@ -405,7 +402,7 @@ margin-bottom: 32px;
 
 .target-images {
   position: relative;
-  width: 60%;
+  width: 80%; /* 너비 조정 */
   display: flex;
   justify-content: space-between;
   gap: 20px;
