@@ -344,7 +344,8 @@ body, h1, h2, h3, h4, p, span {
   min-height: 100vh;
   position: relative;
 }
-
+	  
+  
 .target-content {
   width: 100%;
   max-width: 90vw;
@@ -357,13 +358,30 @@ body, h1, h2, h3, h4, p, span {
   align-items: flex-start;
   min-height: 70vh;
 }
-
+.target-heading {
+font-family: "pretendard-bold", sans-serif;
+font-size: var(--font-size-xxxxxl);
+color:#ffffff;
+font-weight: 700;
+line-height: 1.2;
+margin-bottom: 32px;
+ }
+	
 .target-text {
   width: 40%;
   position: relative;
   z-index: 2;
   padding-right: 40px;
 }
+
+.target-description {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
 
 .target-images {
   position: relative;
@@ -1385,13 +1403,13 @@ PC로 국한되었던 판매등록, 영업관리, 조회 업무를 모바일 환
   <div class="target-content">
     <!-- 왼쪽 텍스트 영역 -->
     <div class="target-text">
-      <h3 class="section-heading">
+      <h3 class="target-heading">
         전문성 있는 보안을<br>
         제공하는 target.
       </h3>
       
       <div class="target-description">
-        <p class="section-description">
+        <p class="target-description">
           금융 고객 대상 메인화면은 지점과 본점 2가지 유형으로 나뉘어 있습니<br>
           다.<br>
           각 은행에 해당하는 로고타입을 직접 표시하여,<br>
