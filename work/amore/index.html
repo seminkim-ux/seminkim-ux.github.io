@@ -512,20 +512,21 @@ margin-bottom: 32px;
       color: #ffffff;
     }
 
+
+
+/* 이미지 컨테이너도 수정 */
 .concise-images {
   position: relative;
   width: 60%;
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center; /* 가운데 정렬로 변경 */
   z-index: 1;
 }
-
-.concise-image1, {
-  max-width: 48%;
+.concise-image1 {
+  max-width: 25%; /* 48%에서 25%로 줄임 */
   height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  margin: 0 auto; /* 가운데 정렬을 위해 추가 */
+  display: block; /* 가운데 정렬이 제대로 적용되도록 block으로 설정 */
 }
 
 .concise-description {
