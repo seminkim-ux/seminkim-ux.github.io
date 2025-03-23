@@ -1124,16 +1124,16 @@ position: absolute;
 .mail-content {
   display: flex;
   width: 100%;
-  max-width: 1200px; /* 최대 너비 설정 추가 */
-  margin: 60px auto 0; /* 중앙 정렬 */
+  max-width: 1200px;
+  margin: 60px auto 0;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 40px;
   position: relative;
 }
 
 .mail-description {
-  flex: 0 0 45%;
-  padding-right: 40px;
+  flex: 1;
+  max-width: 450px;
 }
 
 .mail-label {
@@ -1163,9 +1163,7 @@ position: absolute;
 
 .mail-text {
   margin-bottom: 40px;
-  position: relative;
-  top: 7vh;
-  left: 7vw;
+  padding-left: 20px;
 }
 
 .mail-paragraph {
@@ -1179,9 +1177,7 @@ position: absolute;
 .mail-flow-images {
   display: flex;
   align-items: center;
-  position: relative;
-  top: 5vh;
-  left: 7vw;
+  padding-left: 20px;
 }
 
 .mail-flow-icon {
@@ -1195,35 +1191,38 @@ position: absolute;
   height: auto;
 }
 
-.mail-screen-container2 {
-  flex: 0 0 45%;
+.mail-screen-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.mail-main-wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  /* left: -30vw; 제거 - 레이아웃 틀어지는 원인 */
 }
 
 .mail-main-image {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-  position: relative;
-  z-index: 1;
 }
 
 .mail-notification {
-  position: absolute;
-  top: 80px;
-  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .mail-notify-icon {
-  width: 44%;
+  width: 120px;
   height: auto;
-  position: relative;
-  right: -33vw;
-  top: 0vh;
+  margin-right: 15px;
 }
 
 .mail-notify-text {
@@ -1231,98 +1230,42 @@ position: absolute;
   font-size: 16px;
   line-height: 1.5;
   color: #555;
-  position: relative;
-  right: -37vw;
-  top: 3vh;
+  max-width: 300px;
 }
 
 .mail-popup {
-  position: absolute;
-  top: 220px;
-  right: -200px;
-  z-index: 3;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .mail-popup-image {
-  width: 49%;
+  width: 200px;
   height: auto;
-  position: relative;
-  right: -26vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 /* 반응형 스타일 */
-@media screen and (max-width: 1440px) {
-  .mail-notification {
-    right: -200px;
-    width: 200px;
-  }
-  
-  .mail-popup {
-    right: -150px;
-  }
-  
-  .mail-notify-icon {
-    right: -25vw;
-  }
-  
-  .mail-notify-text {
-    right: -28vw;
-  }
-  
-  .mail-popup-image {
-    right: -20vw;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .mail-content {
     flex-direction: column;
-  }
-  
-  .mail-description, 
-  .mail-screen-container2 {
-    width: 100%;
-    flex: none;
-  }
-  
-  .mail-screen-container2 {
-    left: 0;
-    margin-top: 60px;
-  }
-  
-  .mail-text, .mail-flow-images {
-    position: static;
-    left: 0;
-    top: 0;
-  }
-  
-  .mail-notification {
-    position: static;
-    width: 100%;
-    margin-top: 40px;
-    display: flex;
     align-items: center;
   }
   
-  .mail-notify-icon {
-    position: static;
-    width: 120px;
-    margin-right: 15px;
+  .mail-description {
+    max-width: 100%;
+    margin-bottom: 60px;
   }
   
-  .mail-notify-text {
-    position: static;
+  .mail-screen-container {
+    width: 100%;
+    max-width: 500px;
   }
   
-  .mail-popup {
-    position: static;
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  .mail-popup-image {
-    position: static;
-    width: 250px;
+  .mail-notification, .mail-popup {
+    justify-content: center;
   }
 }
 
@@ -1350,6 +1293,20 @@ position: absolute;
   
   .mail-flow-icon {
     margin-bottom: 15px;
+  }
+  
+  .mail-notification {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mail-notify-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .mail-notify-text {
+    text-align: center;
   }
 }
 /* SECTION 8: 메일 첫화면 스타일 */
@@ -2293,9 +2250,8 @@ bottom:-76vh;
       <h4 class="mail-title">필요하다면,<br>첫 화면 메일로 설정</h4>
       
       <div class="mail-text">
-	<h5 class="mail-info-title"> 설정 이후, 앱 접속 시<br>
+        <h5 class="mail-info-title">설정 이후, 앱 접속 시<br>
           제일 먼저 메일 화면이 열림</h5>
-
         <p class="mail-paragraph">
           홈화면은 유지하되, 메일(발은메일함)<br>
           화면이 첫 화면으로 열림.
@@ -2310,9 +2266,11 @@ bottom:-76vh;
     </div>
     
     <!-- 오른쪽 화면 이미지 및 팝업 -->
-    <div class="mail-screen-container2">
+    <div class="mail-screen-container">
       <!-- 메인 화면 이미지 -->
-      <img src="images/04.png" alt="NH 그룹웨어 메인 화면" class="mail-main-image">
+      <div class="mail-main-wrapper">
+        <img src="images/04.png" alt="NH 그룹웨어 메인 화면" class="mail-main-image">
+      </div>
       
       <!-- 오른쪽 상단 메일 알림 영역 -->
       <div class="mail-notification">
@@ -2330,6 +2288,7 @@ bottom:-76vh;
     </div>
   </div>
 </section>
+
 
 <!-- SECTION 8: 메일 첫화면 -->
 <section class="mail-section">
