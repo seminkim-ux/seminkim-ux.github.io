@@ -365,7 +365,7 @@ body, h1, h2, h3, h4, p, span {
 .upgrade-container {
   display: flex;
   width: 100%;
-  gap: 5vw;
+  gap: 3vw; /* 3열에 맞게 간격 조정 */
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -373,6 +373,7 @@ body, h1, h2, h3, h4, p, span {
 .upgrade-column {
   flex: 1;
 }
+
 
 .upgrade-title {
   font-family: var(--font-family-pretendard);
@@ -429,6 +430,15 @@ body, h1, h2, h3, h4, p, span {
     flex: 0 0 70%;
     max-width: 70%;
   }
+	  .upgrade-container {
+    flex-wrap: wrap;
+  }
+  
+  .upgrade-column {
+    flex: 0 0 48%; /* 태블릿에서는 2열로 표시 */
+    margin-bottom: 2rem;
+  }
+}
 }
 
 @media screen and (max-width: 1024px) {
@@ -477,8 +487,8 @@ body, h1, h2, h3, h4, p, span {
     gap: 3rem;
   }
   
-  .upgrade-title {
-    font-size: 2.5rem;
+  .upgrade-column {
+    flex: 0 0 100%;
   }
 }
 
@@ -1909,47 +1919,50 @@ bottom:-76vh;
     </div>
 
     <!-- 새로운 디자인 & 사용성 업그레이드 섹션 -->
-    <div class="upgrade-container">
-      <div class="upgrade-column">
-        <h3 class="upgrade-title">Design <span class="upgrade-subtitle">Upgrade</span></h3>
-        <ul class="upgrade-list">
-          <li>NH투자증권 아이덴티티 적용</li>
-          <li>2024년도에 맞는 디자인</li>
-          <li>개별적으로 진행된 디자인을 통일</li>
-        </ul>
-      </div>
-      
-      <div class="upgrade-column">
-        <h3 class="upgrade-title">Usability <span class="upgrade-subtitle">Upgrade</span></h3>
-        
-        <div class="usability-section">
-          <h4 class="usability-subheading">접근 구조 개선</h4>
-          <ul class="upgrade-list">
-            <li>하단 Navigation 버튼으로 주요메뉴 빠르게 이동</li>
-            <li>추가/수정된 화면들의 버튼 중복 등 내비게이션 개선</li>
-            <li>모든 기능보다 자주쓰는 메뉴 중심으로 버튼을 구성한 메인 화면</li>
-            <li>모든 목록을 표시하기 전에 디폴트 접근을 우선(메일함, 결재함 등)</li>
-          </ul>
-        </div>
-        
-        <div class="usability-section">
-          <h4 class="usability-subheading">가독성 중심의 화면 개선</h4>
-          <ul class="upgrade-list">
-            <li>집중을 방해하는 불필요한 버튼 제거</li>
-            <li>노후화된 UI를 가독성 중심으로 개편</li>
-          </ul>
-        </div>
-        
-        <div class="usability-section">
-          <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
-          <ul class="upgrade-list">
-            <li>태블릿에 적합한 UI 적용</li>
-            <li>넓은 화면에서 효과적인 시각적 구조화</li>
-            <li>태블릿 전용 메뉴를 태블릿 내에서 더 강조</li>
-          </ul>
-        </div>
-      </div>
+<div class="upgrade-container">
+  <div class="upgrade-column">
+    <h3 class="upgrade-title">Design <span class="upgrade-subtitle">Upgrade</span></h3>
+    <ul class="upgrade-list">
+      <li>NH투자증권 아이덴티티 적용</li>
+      <li>2024년도에 맞는 디자인</li>
+      <li>개별적으로 진행된 디자인을 통일</li>
+    </ul>
+  </div>
+  
+  <div class="upgrade-column">
+    <h3 class="upgrade-title">Usability <span class="upgrade-subtitle">Upgrade</span></h3>
+    
+    <div class="usability-section">
+      <h4 class="usability-subheading">접근 구조 개선</h4>
+      <ul class="upgrade-list">
+        <li>하단 Navigation 버튼으로 주요메뉴 빠르게 이동</li>
+        <li>추가/수정된 화면들의 버튼 중복 등 내비게이션 개선</li>
+        <li>모든 기능보다 자주쓰는 메뉴 중심으로 버튼을 구성한 메인 화면</li>
+        <li>모든 목록을 표시하기 전에 디폴트 접근을 우선(메일함, 결재함 등)</li>
+      </ul>
     </div>
+    
+    <div class="usability-section">
+      <h4 class="usability-subheading">가독성 중심의 화면 개선</h4>
+      <ul class="upgrade-list">
+        <li>집중을 방해하는 불필요한 버튼 제거</li>
+        <li>노후화된 UI를 가독성 중심으로 개편</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="upgrade-column">
+    <h3 class="upgrade-title">Tablet <span class="upgrade-subtitle">Upgrade</span></h3>
+    <div class="usability-section">
+      <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
+      <ul class="upgrade-list">
+        <li>태블릿에 적합한 UI 적용</li>
+        <li>넓은 화면에서 효과적인 시각적 구조화</li>
+        <li>태블릿 전용 메뉴를 태블릿 내에서 더 강조</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
