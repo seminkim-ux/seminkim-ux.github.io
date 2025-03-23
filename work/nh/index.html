@@ -383,9 +383,10 @@ body, h1, h2, h3, h4, p, span {
   flex: 0 0 38%; /* 세 번째 열은 넓게 */
 }
 
-/* 세 번째 열의 제목 위치 조정 */
-.upgrade-column:nth-child(3) .usability-subheading {
-  margin-top: 0; /* 상단 여백 제거 */
+/* 세 번째 열의 첫 번째 제목을 두 번째 열 제목과 같은 위치로 조정 */
+.upgrade-column:nth-child(3) .first-heading {
+  margin-top: 3.9rem; /* "접근 구조 개선"과 같은 높이에 위치하도록 */
+  margin-bottom: 0.8rem;
 }
 
 .upgrade-column {
@@ -1977,7 +1978,9 @@ bottom:-76vh;
   </div>
   
 <div class="upgrade-column">
-  <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
+  <!-- Tablet Upgrade 제목 완전히 제거 -->
+  <!-- 바로, 첫 부분을 "태블릿 사용성 업그레이드"로 시작 -->
+  <h4 class="usability-subheading first-heading">태블릿 사용성 업그레이드</h4>
   <ul class="upgrade-list">
     <li>태블릿에 적합한 UI 적용</li>
     <li>넓은 화면에서 효과적인 시각적 구조화</li>
