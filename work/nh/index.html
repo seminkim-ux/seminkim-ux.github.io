@@ -361,12 +361,31 @@ body, h1, h2, h3, h4, p, span {
   color: #6e6e73;
 }
 
-/* 새로 추가한 업그레이드 섹션을 위한 CSS */
+/* upgrade-container 수정 */
 .upgrade-container {
   display: flex;
   width: 100%;
+  gap: 2vw; /* 간격 조정 */
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/* 열 너비 개별 지정 */
+.upgrade-column:nth-child(1) {
+  flex: 0 0 24%; /* 첫 번째 열은 좁게 */
+}
+
+.upgrade-column:nth-child(2) {
+  flex: 0 0 38%; /* 두 번째 열은 넓게 */
+}
+
+.upgrade-column:nth-child(3) {
+  flex: 0 0 38%; /* 세 번째 열은 넓게 */
+}
+
+/* 세 번째 열의 제목 위치 조정 */
+.upgrade-column:nth-child(3) .usability-subheading {
+  margin-top: 0; /* 상단 여백 제거 */
 }
 
 .upgrade-column {
@@ -1952,15 +1971,15 @@ bottom:-76vh;
     </div>
   </div>
   
-  <div class="upgrade-column">
- <div class="usability-section">
-      <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
-      <ul class="upgrade-list">
-        <li>태블릿에 적합한 UI 적용</li>
-        <li>넓은 화면에서 효과적인 시각적 구조화</li>
-        <li>태블릿 전용 메뉴를 태블릿 내에서 더 강조</li>
-      </ul>
-    </div>
+<div class="upgrade-column">
+  <h3 class="upgrade-title">Tablet <span class="upgrade-subtitle">Upgrade</span></h3>
+  <h4 class="usability-subheading">태블릿 사용성 업그레이드</h4>
+  <ul class="upgrade-list">
+    <li>태블릿에 적합한 UI 적용</li>
+    <li>넓은 화면에서 효과적인 시각적 구조화</li>
+    <li>태블릿 전용 메뉴를 태블릿 내에서 더 강조</li>
+  </ul>
+</div>
   </div>
 </div>
 
