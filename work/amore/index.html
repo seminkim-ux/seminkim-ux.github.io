@@ -474,7 +474,6 @@ margin:0 auto;
   position: relative;
 }
 	  
-  
 .concise-content {
   width: 100%;
   max-width: 90vw;
@@ -487,14 +486,27 @@ margin:0 auto;
   align-items: flex-start;
   min-height: 70vh;
 }
+
+.section-title {
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  margin-bottom: 64px;
+  margin-left: 0;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  color: #ffffff;
+}
+
 .concise-heading {
-font-family: "pretendard-bold", sans-serif;
-font-size: var(--font-size-xxxxxl);
-color:#ffffff;
-font-weight: 700;
-line-height: 1.2;
-margin-bottom: 32px;
- }
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxxxxl);
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
 	
 .concise-text {
   width: 50%;
@@ -504,83 +516,138 @@ margin-bottom: 32px;
 }
 
 .concise-description {
-      font-family: "pretendard-bold", sans-serif;
-      font-weight: 700; 
-      font-size: var(--font-size-m);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      color: #ffffff;
-    }
+  font-family: var(--font-family-pretendard);
+  font-weight: 700; 
+  font-size: var(--font-size-m);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
 
-
-
-/* 이미지 컨테이너도 수정 */
+/* 이미지 컨테이너 */
 .concise-images {
   position: relative;
   width: 60%;
   display: flex;
-  justify-content: center; /* 가운데 정렬로 변경 */
+  justify-content: center;
   z-index: 1;
 }
+
 .concise-image1 {
-  max-width: 50%; /* 48%에서 25%로 줄임 */
+  max-width: 50%;
   height: auto;
-  margin: 0 auto; /* 가운데 정렬을 위해 추가 */
-  display: block; /* 가운데 정렬이 제대로 적용되도록 block으로 설정 */
-position: absolute;
-top:-20vh;
-right:5vw;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: -20vh;
+  right: 5vw;
 }
 
-.concise-description {
-  margin-top: 30px;
+/* 오버레이 요소 스타일 */
+.overlay-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -20vh;
+  right: 5vw;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.overlay-text {
+  position: absolute;
+  color: #ffffff;
+  font-family: var(--font-family-pretendard);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.left-text {
+  top: 40%;
+  left: -10%;
+}
+
+.right-text {
+  top: 60%;
+  right: 15%;
+}
+
+.overlay-line {
+  position: absolute;
+  width: 30%;
+  height: auto;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
 }
 
 /* 반응형 미디어 쿼리 */
 @media screen and (max-width: 1200px) {
-  .concise-content,
   .concise-content {
     flex-direction: column;
   }
   
-  .concise-text,
   .concise-text {
     width: 100%;
     padding-right: 0;
     margin-bottom: 40px;
   }
   
-  .concise-images,
   .concise-images {
     width: 100%;
+  }
+  
+  .concise-image1 {
+    position: relative;
+    top: 0;
+    right: 0;
+    max-width: 70%;
+  }
+  
+  .overlay-container {
+    position: relative;
+    top: -60%;
+    right: 0;
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .left-text {
+    left: 0;
+  }
+  
+  .right-text {
+    right: 0;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .concise-section,
   .concise-section {
     padding: 80px 20px;
   }
   
-  .concise-images,
-  .concise-images {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .concise-image-left,
-  .concise-image-right,
-  .concise-image-left,
-  .concise-image-right {
+  .concise-image1 {
     max-width: 90%;
-    margin-bottom: 20px;
   }
   
-  .section-heading {
-    font-size: 32px;
+  .overlay-container {
+    width: 90%;
+  }
+  
+  .overlay-text {
+    font-size: 14px;
+  }
+  
+  .left-text {
+    top: 35%;
+  }
+  
+  .right-text {
+    top: 65%;
   }
 }
-
 
 /* SECTION 5: solution */
 .solutiona-section {
@@ -1071,7 +1138,7 @@ PC로 국한되었던 판매등록, 영업관리, 조회 업무를 모바일 환
 
 <!-- SECTION 4: concise 섹션 -->
 <section class="concise-section">
-  <h2 class="target-section-title">Concept</h2>
+  <h2 class="section-title">Concept</h2>
   
   <div class="concise-content">
     <!-- 왼쪽 텍스트 영역 -->
@@ -1083,9 +1150,9 @@ PC로 국한되었던 판매등록, 영업관리, 조회 업무를 모바일 환
       <div class="concise-description">
         <p class="concise-description">
          순차적인 업무 프로세스를 타임 라인 형태로 구성하여, <br>
-		직관적 이해와 빠른 사용이 가능합니다.<br>
+         직관적 이해와 빠른 사용이 가능합니다.<br>
          버튼과 컴포넌트를 심플하게 유지하고,<br>
-	각 정보요소를 타이포그래피 레벨로 구분하여 정돈된 정보를 제공합니다. 
+         각 정보요소를 타이포그래피 레벨로 구분하여 정돈된 정보를 제공합니다. 
         </p>
       </div>
     </div>
@@ -1093,7 +1160,23 @@ PC로 국한되었던 판매등록, 영업관리, 조회 업무를 모바일 환
     <!-- 오른쪽 이미지 영역 -->
     <div class="concise-images">
       <img src="images/04.png" alt="concise 메인화면1" class="concise-image1">
-
+      
+      <!-- 이미지 위에 겹쳐지는 텍스트와 라인 -->
+      <div class="overlay-container">
+        <!-- 왼쪽 텍스트 -->
+        <div class="overlay-text left-text">
+          <span>순차적</span><br>
+          <span>프로세스를 표시</span>
+        </div>
+        
+        <!-- 라인 이미지 -->
+        <img src="images/04_line.svg" alt="연결선" class="overlay-line">
+        
+        <!-- 오른쪽 텍스트 -->
+        <div class="overlay-text right-text">
+          <span>심플한 컴포넌트</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
