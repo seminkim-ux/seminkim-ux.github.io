@@ -609,9 +609,9 @@ margin-top: 10px;
 .portal-image, .simple-image {
   width: 48%;
   height: auto;
-  border-radius: 8px;
-  position: relative; /* 필요시 z-index 조정을 위해 */
-  z-index: 2; /* 이미지가 배경 위에 보이도록 */
+  position: absolute; /* 절대 위치 설정으로 박스 크기의 영향 받지 않음 */
+  top: 20px; /* 패딩과 동일한 값 */
+  z-index: 2;
 }
 
 /* 반응형 스타일 */
