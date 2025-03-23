@@ -527,7 +527,11 @@ width:37vw;
   z-index: 1;
 }
 
-.b2b-image-left,
+.b2b-image-left{
+  max-width: 48%;
+  height: auto;
+  object-fit: contain; /* 이미지 비율 유지 */
+}
 .b2b-image-right {
   max-width: 48%;
   height: auto;
