@@ -1124,7 +1124,7 @@ position: absolute;
 .mail-content {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  margin-top: 60px; /* 다른 섹션과 일관성 있는 마진만 유지 */
   justify-content: space-between;
   gap: 40px;
   position: relative;
@@ -1190,18 +1190,17 @@ position: absolute;
   height: auto;
 }
 
-.mail-screen-container {
+/* 오른쪽 시각 영역을 위한 컨테이너 */
+.mail-visual-container {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
+  min-height: 500px; /* 충분한 높이 확보 */
 }
 
-.mail-main-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.mail-screen-container {
+  position: relative;
+  z-index: 1;
+  width: 70%;
 }
 
 .mail-main-image {
@@ -1211,36 +1210,39 @@ position: absolute;
 }
 
 .mail-notification {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  z-index: 2;
   display: flex;
   align-items: flex-start;
-  margin-top: 30px;
-  width: 100%;
-  justify-content: flex-end;
+  width: 50%;
 }
 
 .mail-notify-icon {
-  width: 120px;
+  width: 80px;
   height: auto;
   margin-right: 15px;
 }
 
 .mail-notify-text {
   font-family: var(--font-family-pretendard);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   color: #555;
-  max-width: 300px;
 }
 
 .mail-popup {
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  top: 220px;
+  right: 0;
+  z-index: 3;
+  width: 50%;
 }
 
 .mail-popup-image {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -1258,12 +1260,34 @@ position: absolute;
     margin-bottom: 60px;
   }
   
-  .mail-screen-container {
+  .mail-visual-container {
     width: 100%;
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .mail-notification, .mail-popup {
+  .mail-screen-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .mail-notification {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  
+  .mail-popup {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
     justify-content: center;
   }
 }
@@ -1306,6 +1330,10 @@ position: absolute;
   
   .mail-notify-text {
     text-align: center;
+  }
+  
+  .mail-popup-image {
+    max-width: 180px;
   }
 }
 /* SECTION 8: 메일 첫화면 스타일 */
@@ -2265,9 +2293,9 @@ bottom:-76vh;
     </div>
     
     <!-- 오른쪽 화면 이미지 및 팝업 -->
-    <div class="mail-screen-container">
-      <!-- 메인 화면 이미지 -->
-      <div class="mail-main-wrapper">
+    <div class="mail-visual-container">
+      <div class="mail-screen-container">
+        <!-- 메인 화면 이미지 -->
         <img src="images/04.png" alt="NH 그룹웨어 메인 화면" class="mail-main-image">
       </div>
       
@@ -2287,6 +2315,7 @@ bottom:-76vh;
     </div>
   </div>
 </section>
+
 
 
 <!-- SECTION 8: 메일 첫화면 -->
