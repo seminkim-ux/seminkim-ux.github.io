@@ -690,9 +690,16 @@ flex: 0 0 58%;
 
 .concept-details {
   flex: 0 0 65%;
+}
+
+.concept-row {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+}
+
+.concept-column {
+  flex: 0 0 calc(50% - 15px);
 }
 
 .concept-item {
@@ -772,6 +779,15 @@ flex: 0 0 58%;
   
   .concept-main-title h3 {
     font-size: 36px;
+  }
+  
+  .concept-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .concept-column {
+    flex: 0 0 100%;
   }
   
   .concept-title {
@@ -2068,44 +2084,52 @@ bottom:-76vh;
       </h3>
     </div>
     
-    <!-- 오른쪽 컨셉 설명 영역 -->
+    <!-- 오른쪽 컨셉 설명 영역 - 2열 구조 -->
     <div class="concept-details">
-      <!-- 첫 번째 컨셉 -->
-      <div class="concept-item">
-        <div class="concept-header">
-          <span class="concept-condition">집중하려면</span>
-          <div class="line-decoration"></div>
-          <span class="concept-focus">시각적으로</span>
+      <div class="concept-row">
+        <!-- 첫 번째 열 -->
+        <div class="concept-column">
+          <!-- 첫 번째 컨셉 -->
+          <div class="concept-item">
+            <div class="concept-header">
+              <span class="concept-condition">집중하려면</span>
+              <div class="line-decoration"></div>
+              <span class="concept-focus">시각적으로</span>
+            </div>
+            <h4 class="concept-title">조용하게</h4>
+            <p class="concept-description">요소에 콘터라스트를 제거</p>
+          </div>
+          
+          <!-- 세 번째 컨셉 -->
+          <div class="concept-item">
+            <div class="concept-header">
+              <span class="concept-condition">명확하게</span>
+            </div>
+            <h4 class="concept-title">정보를 간결하게</h4>
+            <p class="concept-description">요소에 콘터라스트를 제거</p>
+          </div>
         </div>
-        <h4 class="concept-title">조용하게</h4>
-        <p class="concept-description">요소에 콘터라스트를 제거</p>
-      </div>
-      
-      <!-- 두 번째 컨셉 -->
-      <div class="concept-item">
-        <div class="concept-header">
-          <span class="concept-condition">인지적으로</span>
+        
+        <!-- 두 번째 열 -->
+        <div class="concept-column">
+          <!-- 두 번째 컨셉 -->
+          <div class="concept-item">
+            <div class="concept-header">
+              <span class="concept-condition">인지적으로</span>
+            </div>
+            <h4 class="concept-title">메뉴명, 버튼을 직관적으로</h4>
+            <p class="concept-description">잘못 선택하는 방해 요소 제거</p>
+          </div>
+          
+          <!-- 네 번째 컨셉 -->
+          <div class="concept-item">
+            <div class="concept-header">
+              <span class="concept-condition">구성적으로</span>
+            </div>
+            <h4 class="concept-title">대표 기능/화면 위주로</h4>
+            <p class="concept-description">전체 나열이 아닌 핵심 우선 제공</p>
+          </div>
         </div>
-        <h4 class="concept-title">메뉴명, 버튼을 직관적으로</h4>
-        <p class="concept-description">잘못 선택하는 방해 요소 제거</p>
-      </div>
-      
-      <!-- 세 번째 컨셉 -->
-      <div class="concept-item">
-        <div class="concept-header">
-          <span class="concept-condition">명확하게</span>
-        </div>
-        <h4 class="concept-title">정보를 간결하게</h4>
-        <p class="concept-description">요소에 콘터라스트를 제거</p>
-      </div>
-      
-      <!-- 네 번째 컨셉 -->
-      <div class="concept-item">
-        <div class="concept-header">
-          <span class="concept-condition">구성적으로</span>
-        </div>
-        <h4 class="concept-title">대표 기능/화면 위주로</h4>
-        <p class="concept-description">전체 나열이 아닌 핵심 우선 제공</p>
       </div>
     </div>
   </div>
