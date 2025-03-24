@@ -1275,22 +1275,16 @@ bottom:-76vh;
     max-width: 80%;
     line-height: 1.5;
   }
-  
-  /* Only show the notice on mobile devices */
-  @media screen and (max-width: 768px) {
-    .mobile-notice {
-      display: flex !important;
-    }
-    
-    /* Hide the rest of the content when on mobile */
-    body > *:not(.mobile-notice) {
-    display: none !important;
-    }
-  }
+
 	  
   </style>
 </head>
 <body>
+<div id="mobileNotice" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 99999; text-align: center; padding-top: 40%; font-family: Arial, sans-serif;">
+  <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px;">모바일 지원 불가</h2>
+  <p style="font-size: 16px; color: #333333; padding: 0 20px;">이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
+</div>
+	
   <div class="container">
     <!-- HEADER / NAVIGATION -->
     <header class="header">
@@ -1760,10 +1754,7 @@ bottom:-76vh;
   </div>
 </section>
 	
-<div id="mobileNotice" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 99999; text-align: center; padding-top: 40%; font-family: Arial, sans-serif;">
-  <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px;">모바일 지원 불가</h2>
-  <p style="font-size: 16px; color: #333333; padding: 0 20px;">이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
-</div>
+
 
 
 <div class="top-button" id="topButton"></div>
