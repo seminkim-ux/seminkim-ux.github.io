@@ -1336,6 +1336,24 @@ right: -8%
     max-width: 180px;
   }
 }
+/* 반응형 스타일 */
+@media screen and (max-width: 1440px) {
+  .mail-screen-container,{
+    left: -15vw;
+  }
+.mail-flow-screen {
+  width: 130px;
+  height: auto;
+}
+.mail-popup {
+  position: absolute;
+  top: 220px;
+  right: 8%;
+  z-index: 3;
+  width: 60%;
+}
+}
+	  
 /* SECTION 8: 메일 첫화면 스타일 */
 .mail-section {
   background-color: #ffffff;
@@ -1529,26 +1547,7 @@ right: -6%;
 position: relative;
 }
 
-/* 반응형 스타일 */
-@media screen and (max-width: 1440px) {
-  .mail-screen-container,{
-    left: -15vw;
-  }
-  .approval-screen-container {
-    left: -20vw;
-  }
-.mail-flow-screen {
-  width: 130px;
-  height: auto;
-}
-.mail-popup {
-  position: absolute;
-  top: 220px;
-  right: 8%;
-  z-index: 3;
-  width: 60%;
-}
-}
+
 
 @media screen and (max-width: 1200px) {
   .mail-content,
@@ -1601,6 +1600,12 @@ position: relative;
     font-size: 18px;
   }
 }
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1440px) {
+  .approval-screen-container {
+    left: -20vw;
+  }
 
 /* SECTION 10: 태블릿 메인 화면 스타일 */
 .tablet-main-section {
