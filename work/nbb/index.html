@@ -1275,16 +1275,22 @@ bottom:-76vh;
     max-width: 80%;
     line-height: 1.5;
   }
-
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex !important;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+    display: none !important;
+    }
+  }
 	  
   </style>
 </head>
 <body>
-<div id="mobileNotice" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 99999; text-align: center; padding-top: 40%; font-family: Arial, sans-serif;">
-  <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px;">모바일 지원 불가</h2>
-  <p style="font-size: 16px; color: #333333; padding: 0 20px;">이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
-</div>
-	
   <div class="container">
     <!-- HEADER / NAVIGATION -->
     <header class="header">
@@ -1754,7 +1760,10 @@ bottom:-76vh;
   </div>
 </section>
 	
-
+<div id="mobileNotice" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 99999; text-align: center; padding-top: 40%; font-family: Arial, sans-serif;">
+  <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px;">모바일 지원 불가</h2>
+  <p style="font-size: 16px; color: #333333; padding: 0 20px;">이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
+</div>
 
 
 <div class="top-button" id="topButton"></div>
@@ -1780,45 +1789,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  // 모바일 기기 감지
-  if (window.innerWidth <= 768) {
-    var mobileNotice = document.getElementById('mobileNotice');
-    if (mobileNotice) {
-      // z-index 매우 높게 설정
-      mobileNotice.style.zIndex = "99999";
-      
-      // position과 top, left 설정으로 화면 전체를 덮도록
-      mobileNotice.style.position = "fixed";
-      mobileNotice.style.top = "0";
-      mobileNotice.style.left = "0";
-      mobileNotice.style.width = "100%";
-      mobileNotice.style.height = "100%";
-      
-      // 배경색 설정
-      mobileNotice.style.backgroundColor = "#ffffff";
-      
-      // 텍스트 스타일 설정
-      mobileNotice.style.color = "#000000";
-      mobileNotice.style.fontFamily = "Arial, sans-serif";
-      mobileNotice.style.fontSize = "24px";
-      mobileNotice.style.textAlign = "center";
-      mobileNotice.style.paddingTop = "40%";
-      
-      // display 속성 설정
-      mobileNotice.style.display = "block";
-      
-      // body의 overflow 속성을 hidden으로 설정하여 스크롤 방지
-      document.body.style.overflow = "hidden";
-      
-      // 다른 요소들 숨기기
-      var elements = document.querySelectorAll('body > *:not(#mobileNotice)');
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = 'none';
-      }
-    }
-  }
-});
 	  
 </script>
 </body>
