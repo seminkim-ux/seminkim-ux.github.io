@@ -1279,12 +1279,12 @@ bottom:-76vh;
   /* Only show the notice on mobile devices */
   @media screen and (max-width: 768px) {
     .mobile-notice {
-      display: flex;
+      display: flex !important;
     }
     
     /* Hide the rest of the content when on mobile */
     body > *:not(.mobile-notice) {
-      display: none;
+    display: none !important;
     }
   }
 	  
