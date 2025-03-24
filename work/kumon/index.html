@@ -1333,7 +1333,10 @@ flex: 0 0 60%;
   text-align: left;
   position: relative;
   display: flex;
-  flex-direction: column; /* column으로 변경 */
+  flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소들 사이에 공간 배분 */
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 10px; /* 요소 사이 간격 */
 }
   .section-heading {
     font-family: var(--font-family-pretendard);
