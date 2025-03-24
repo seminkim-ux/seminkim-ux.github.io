@@ -1428,6 +1428,19 @@ right: -60vw;
   height: auto;
 }
 
+@media screen and (max-width: 1440px) {
+.mail-preview{
+ top: -20vh;
+position: relative;
+right: -60vw;
+}	
+.mail-buttons {
+ bottom: -15vh;
+position: relative;
+right: -60vw;
+}
+}
+
 /* SECTION 9: 미결함 먼저 표시 스타일 */
 .approval-section {
   background-color: #ffffff;
@@ -1518,10 +1531,23 @@ position: relative;
 
 /* 반응형 스타일 */
 @media screen and (max-width: 1440px) {
-  .mail-screen-container,
+  .mail-screen-container,{
+    left: -15vw;
+  }
   .approval-screen-container {
     left: -20vw;
   }
+.mail-flow-screen {
+  width: 130px;
+  height: auto;
+}
+.mail-popup {
+  position: absolute;
+  top: 220px;
+  right: 8%;
+  z-index: 3;
+  width: 60%;
+}
 }
 
 @media screen and (max-width: 1200px) {
