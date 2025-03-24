@@ -1760,9 +1760,9 @@ bottom:-76vh;
   </div>
 </section>
 	
-<div class="mobile-notice" id="mobileNotice">
-  <h2>모바일 지원 불가</h2>
-  <p>이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
+<div id="mobileNotice" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; z-index: 9999; text-align: center; padding-top: 40%; font-family: Arial, sans-serif;">
+  <h2 style="font-size: 24px; color: #000000; margin-bottom: 20px;">모바일 지원 불가</h2>
+  <p style="font-size: 16px; color: #333333; padding: 0 20px;">이 웹사이트는 모바일 기기에 최적화되어 있지 않습니다. 최상의 경험을 위해 데스크톱 컴퓨터에서 보시기 바랍니다.</p>
 </div>
 
 
@@ -1789,20 +1789,20 @@ window.addEventListener('scroll', () => {
     }
 });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) {
-      const mobileNotice = document.querySelector('.mobile-notice');
-      if (mobileNotice) {
-        mobileNotice.style.display = 'flex';
-        // 다른 요소 숨기기
-        document.querySelectorAll('body > *:not(.mobile-notice)').forEach(el => {
-          if (el !== mobileNotice) {
-            el.style.display = 'none';
-          }
-        });
+  // 모바일 기기 감지 및 알림 표시
+  if (window.innerWidth <= 768) {
+    var mobileNotice = document.getElementById('mobileNotice');
+    if (mobileNotice) {
+      mobileNotice.style.display = 'block';
+      
+      // 다른 모든 콘텐츠 숨기기
+      var hideElements = document.querySelectorAll('.container, .header, .section, .process-section, .insight-section, .insight2-section, .features-section, .solution-section, .solution2-section, .solution3-section, .top-button');
+      
+      for (var i = 0; i < hideElements.length; i++) {
+        hideElements[i].style.display = 'none';
       }
     }
-  });
+  }
 	  
 </script>
 </body>
