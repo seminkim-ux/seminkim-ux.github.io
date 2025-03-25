@@ -2989,7 +2989,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             img.style.opacity = '1';
             img.style.transform = 'translateY(0)';
-          }, initialDelay + (500 * index)); // 첫 이미지는 600ms 지연, 이후 각 이미지마다 500ms 추가 지연
+          }, initialDelay); // 첫 이미지는 600ms 지연, 이후 각 이미지마다 500ms 추가 지연
         });
       }
     }
@@ -3053,7 +3053,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             funPhoneImage2.style.opacity = '1';
             funPhoneImage2.style.transform = 'translateY(0)';
-          }, initialDelay + 400);
+          }, initialDelay);
         }
         
         // 3. 메시지 박스 순차 애니메이션
@@ -3061,7 +3061,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             box.style.opacity = '1';
             box.style.transform = 'translateX(0)';
-          }, initialDelay + 800 + (200 * index)); // 두 번째 폰 이미지 후 순차적으로 나타남
+          }, initialDelay + 400 + (200 * index)); // 두 번째 폰 이미지 후 순차적으로 나타남
         });
       }
     }
