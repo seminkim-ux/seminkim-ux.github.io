@@ -1787,6 +1787,67 @@ window.addEventListener('scroll', () => {
         topButton.style.display = 'none';
     }
 });
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // 첫 번째 섹션: 휴대폰 이미지 페이드인 애니메이션
+  const heroImage = document.querySelector('.hero-image');
+  const heroImage2 = document.querySelector('.hero-image2');
+  
+  if (heroImage && heroImage2) {
+    // 초기에는 투명하게 설정
+    heroImage.style.opacity = '0';
+    heroImage2.style.opacity = '0';
+    
+    // 부드러운 전환 효과 설정
+    heroImage.style.transition = 'opacity 1s ease-out';
+    heroImage2.style.transition = 'opacity 1s ease-out';
+    
+    // 첫 번째 이미지를 먼저 표시
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 300);
+    
+    // 두 번째 이미지를 약간의 지연 후 표시
+    setTimeout(() => {
+      heroImage2.style.opacity = '1';
+    }, 800);
+  }
+  
+  // 두 번째 섹션: 아이콘 이미지 아래에서 위로 애니메이션
+  const overviewImage = document.querySelector('.overview-image');
+  
+  if (overviewImage) {
+    // 초기 스타일 설정
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transform = 'translateY(40px)';
+    overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  // 스크롤 시 아이콘 이미지 애니메이션
+  function handleScrollAnimations() {
+    if (overviewImage && isInViewport(overviewImage)) {
+      overviewImage.style.opacity = '1';
+      overviewImage.style.transform = 'translateY(0)';
+    }
+  }
+  
+  // 요소가 화면에 보이는지 확인하는 함수
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+      rect.bottom >= 0
+    );
+  }
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // 페이지 로드 시 이미 보이는 요소 확인
+  handleScrollAnimations();
+});
+	  
 </script>
   </div>
 </body>
