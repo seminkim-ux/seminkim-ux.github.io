@@ -1874,6 +1874,50 @@ document.addEventListener('DOMContentLoaded', () => {
         featuresDiagram.style.opacity = '0';
         featuresDiagram.style.transition = 'opacity 1.2s ease-out';
     }
+
+    // 섹션 7: 솔루션 이미지가 위에서 아래로 페이드인
+    const solutionImage = document.querySelector('.solution-image');
+    
+    if (solutionImage) {
+        // 초기 스타일 설정
+        solutionImage.style.opacity = '0';
+        solutionImage.style.transform = 'translateY(-40px)';
+        solutionImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 8: 솔루션2 이미지들이 순차적으로 페이드인
+    const solution2Images = [
+        document.querySelector('.solution2-image1'),
+        document.querySelector('.solution2-image2'),
+        document.querySelector('.solution2-image3')
+    ];
+    
+    if (solution2Images[0]) {
+        solution2Images.forEach((img, index) => {
+            if (img) {
+                img.style.opacity = '0';
+                img.style.transform = 'translateY(40px)';
+                img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }
+        });
+    }
+    
+    // 섹션 9: 솔루션3 이미지들이 순차적으로 페이드인
+    const solution3Images = [
+        document.querySelector('.solution3-image1'),
+        document.querySelector('.solution3-image2'),
+        document.querySelector('.solution3-image3')
+    ];
+    
+    if (solution3Images[0]) {
+        solution3Images.forEach((img, index) => {
+            if (img) {
+                img.style.opacity = '0';
+                img.style.transform = 'translateY(40px)';
+                img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }
+        });
+    }
     
     // 스크롤 이벤트에 모든 애니메이션 함수 연결
     function handleScrollAnimations() {
@@ -1908,6 +1952,35 @@ document.addEventListener('DOMContentLoaded', () => {
         // 섹션 6 애니메이션
         if (featuresDiagram && isInViewport(document.querySelector('.features-section'))) {
             featuresDiagram.style.opacity = '1';
+        }
+	      // 섹션 7 애니메이션
+        if (solutionImage && isInViewport(document.querySelector('.solution-section'))) {
+            solutionImage.style.opacity = '1';
+            solutionImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 8 애니메이션
+        if (solution2Images[0] && isInViewport(document.querySelector('.solution2-section'))) {
+            solution2Images.forEach((img, index) => {
+                if (img) {
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0)';
+                    }, 300 * index); // 각 이미지를 300ms 간격으로 애니메이션
+                }
+            });
+        }
+        
+        // 섹션 9 애니메이션
+        if (solution3Images[0] && isInViewport(document.querySelector('.solution3-section'))) {
+            solution3Images.forEach((img, index) => {
+                if (img) {
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0)';
+                    }, 300 * index); // 각 이미지를 300ms 간격으로 애니메이션
+                }
+            });
         }
     }
     
