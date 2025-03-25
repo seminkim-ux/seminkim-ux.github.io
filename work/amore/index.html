@@ -440,30 +440,7 @@ margin:0 auto;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .target-section,
-  .target-section {
-    padding: 80px 20px;
-  }
-  
-  .target-images,
-  .target-images {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .target-image-left,
-  .target-image-right,
-  .target-image-left,
-  .target-image-right {
-    max-width: 90%;
-    margin-bottom: 20px;
-  }
-  
-  .section-heading {
-    font-size: 32px;
-  }
-}
+
 
     
 /* SECTION 4: concise 섹션 스타일 */
@@ -631,32 +608,6 @@ right:29vw;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .concise-section {
-    padding: 80px 20px;
-  }
-  
-  .concise-image1 {
-    max-width: 90%;
-  }
-  
-  .overlay-container {
-    width: 90%;
-  }
-  
-  .overlay-text {
-    font-size: 14px;
-  }
-  
-.left-text {
-top: 17vh;
-right:29vw;
-  }
-  
-  .right-text {
-    top: 65%;
-  }
-}
 
 /* SECTION 5: solution */
 .solutiona-section {
@@ -948,148 +899,7 @@ bottom:-76vh;
 }
 
 	
-@media screen and (max-width: 768px) {
-  .header {
-    padding: 0 20px;
-  }
-  
-  .project-header {
-    padding: 60px 20px;
-  }
-  
-  .section {
-    padding: 80px 20px;
-  }
-  
-  .project-title {
-    font-size: var(--font-size-xxl);
-  }
-  
-  .overview-heading {
-    font-size: var(--font-size-xl);
-  }
-  .features-section {
-    padding: 80px 20px;
-  }
-  
-  .features-diagram {
-    display: none; /* 모바일에서는 다이어그램 숨김 */
-  }
-  
-  /* 반응형 히어로 이미지 조정 */
-  .hero-image, .hero-image2 {
-    width: 200px;
-  }
-  
-  .hero-image {
-    right: 50%;
-    transform: translateX(40%);
-  }
-  
-  .hero-image2 {
-    right: calc(50% + 40px);
-    transform: translateX(50%);
-  }
-  .insight-content {
-    flex-direction: column; /* 모바일에서는 세로 배치 */
-    gap: 30px; /* 요소 간 간격 */
-  }
-  
-  .section-heading, .insight-images {
-    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
-    width: 100%;
-  }
-  .features-section {
-    padding: 80px 20px;
-  }
-  
-  .features-diagram {
-    display: none; /* 모바일에서는 다이어그램 숨김 */
-  }
-  
-  /* 모바일용 대체 컨텐츠 스타일 */
-  .features-content::after {
-    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
-    display: block;
-    margin-top: 30px;
-    font-style: italic;
-    color: #666;
-  }
-  .features-section {
-    padding: 80px 20px;
-  }
-  
-  .features-diagram {
-    display: none; /* 모바일에서는 다이어그램 숨김 */
-  }
 
-  .solution-section {
-    padding: 80px 20px;
-  }
-  
-  /* 모바일용 대체 컨텐츠 스타일 */
-  .features-content::after {
-    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
-    display: block;
-    margin-top: 30px;
-    font-style: italic;
-    color: #666;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .project-stats {
-    flex-wrap: wrap;
-  }
-
-  .hero-image, .hero-image2 {
-    width: 150px;
-  }
-  
-  .hero-image {
-    right: 50%;
-    transform: translateX(30%);
-    bottom: 10%;
-  }
-  
-  .hero-image2 {
-    right: calc(50% + 20px);
-    transform: translateX(50%);
-    bottom: 25%;
-  }
-}
-
-
-  .mobile-notice {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    font-family: var(--font-family-jost);
-    padding: 20px;
-  }
-  
-  .mobile-notice h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .mobile-notice p {
-    font-size: 16px;
-    color: #666;
-    max-width: 80%;
-    line-height: 1.5;
-  }
-  
   /* Only show the notice on mobile devices */
   @media screen and (max-width: 768px) {
     .mobile-notice {
