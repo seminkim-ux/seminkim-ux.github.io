@@ -2448,6 +2448,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+  // 섹션 7: UX 콘셉트 원들이 순차적으로 페이드인
+  const conceptCircles = document.querySelectorAll('.concept-circle-wrapper');
+
+  if (conceptCircles.length > 0) {
+    conceptCircles.forEach(circle => {
+      circle.style.opacity = '0';
+      circle.style.transition = 'opacity 1s ease-out';
+    });
+  }
+
+  // 섹션 8: 프로토타입 이미지 컨테이너들
+  const prototypeImageLeft = document.querySelector('.prototype-image-left');
+  const prototypeImageRight = document.querySelector('.prototype-image-right');
+
+  if (prototypeImageLeft) {
+    prototypeImageLeft.style.opacity = '0';
+    prototypeImageLeft.style.transition = 'opacity 1s ease-out';
+  }
+
+  if (prototypeImageRight) {
+    prototypeImageRight.style.opacity = '0';
+    prototypeImageRight.style.transition = 'opacity 1s ease-out';
+  }
+
+  // 섹션 9~13: 이미지들이 아래에서 위로 올라오면서 페이드인
+  // 각 섹션의 이미지 컨테이너 선택
+  const prototypeImages = [
+    document.querySelector('.prototype2-image-kiosk'),
+    document.querySelector('.prototype3-image-gmap'),
+    document.querySelector('.prototype4-image'),
+    document.querySelector('.prototype5-image'),
+    document.querySelector('.prototype6-image')
+  ];
+
+  // 모든 프로토타입 이미지에 초기 스타일 적용
+  prototypeImages.forEach(image => {
+    if (image) {
+      image.style.opacity = '0';
+      image.style.transform = 'translateY(40px)';
+      image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+  });
+  
   // 스크롤 이벤트에 모든 애니메이션 함수 연결
   function handleScrollAnimations() {
     // 두 번째 섹션 애니메이션 - Overview 섹션이 뷰포트에 들어오면 실행
@@ -2542,6 +2585,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 400); // 타이틀이 나타난 후 400ms 후 원들 나타남
       }
     }
+    
+    // 섹션 7 애니메이션 - UX 콘셉트 원
+    const uxConceptSection = document.querySelector('.ux-concept-section');
+    if (uxConceptSection && conceptCircles.length > 0 && isInViewport(uxConceptSection)) {
+      conceptCircles.forEach((circle, index) => {
+        setTimeout(() => {
+          circle.style.opacity = '1';
+        }, 300 * index); // 각 원을 300ms 간격으로 페이드인
+      });
+    }
+
+    // 섹션 8 애니메이션 - 프로토타입
+    const prototypeSection = document.querySelector('.prototype-section');
+    if (prototypeSection && isInViewport(prototypeSection)) {
+      // 왼쪽 이미지 컨테이너 먼저 페이드인
+      if (prototypeImageLeft && prototypeImageLeft.style.opacity === '0') {
+        prototypeImageLeft.style.opacity = '1';
+        
+        // 오른쪽 이미지 컨테이너 나중에 페이드인
+        setTimeout(() => {
+          if (prototypeImageRight) {
+            prototypeImageRight.style.opacity = '1';
+          }
+        }, 500);
+      }
+    }
+
+    // 섹션 9~13 애니메이션 - 추가 프로토타입 이미지들
+    // 각 섹션 선택
+    const prototype2Section = document.querySelector('.prototype2-section');
+    const prototype3Section = document.querySelector('.prototype3-section');
+    const prototype4Section = document.querySelector('.prototype4-section');
+    const prototype5Section = document.querySelector('.prototype5-section');
+    const prototype6Section = document.querySelector('.prototype6-section');
+
+    // 섹션 9 애니메이션
+    if (prototype2Section && prototypeImages[0] && isInViewport(prototype2Section)) {
+      prototypeImages[0].style.opacity = '1';
+      prototypeImages[0].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 10 애니메이션
+    if (prototype3Section && prototypeImages[1] && isInViewport(prototype3Section)) {
+      prototypeImages[1].style.opacity = '1';
+      prototypeImages[1].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 11 애니메이션
+    if (prototype4Section && prototypeImages[2] && isInViewport(prototype4Section)) {
+      prototypeImages[2].style.opacity = '1';
+      prototypeImages[2].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 12 애니메이션
+    if (prototype5Section && prototypeImages[3] && isInViewport(prototype5Section)) {
+      prototypeImages[3].style.opacity = '1';
+      prototypeImages[3].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 13 애니메이션
+    if (prototype6Section && prototypeImages[4] && isInViewport(prototype6Section)) {
+      prototypeImages[4].style.opacity = '1';
+      prototypeImages[4].style.transform = 'translateY(0)';
+    }
   }
   
   // 스크롤 이벤트 리스너 등록
@@ -2550,6 +2657,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 페이지 로드 시 이미 보이는 요소 확인
   handleScrollAnimations();
 });
+</script>
 </script>
 </div>
 </body>
