@@ -1525,7 +1525,6 @@ height: 70vh;
 .solution4-images {
   position: relative;
   width: 70%; /* 전체 너비로 변경 */
-  height: 600px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -1538,8 +1537,6 @@ height: 70vh;
   position: absolute;
   width: 360px;
   height: auto;
-  opacity: 0;
-  transition: all 0.8s ease-out;
 }
 
 .solution4-image1 {
@@ -2689,11 +2686,11 @@ document.addEventListener('DOMContentLoaded', () => {
     animateSolutionImages(solution3Section, solution3Images);
     
     // 섹션 11: Solution4 애니메이션
-const solution4Section = document.querySelector('.solution4-section');
-if (solution4Section) {
-  solution4Section.style.overflow = 'hidden'; // 이미지 넘침 방지
-}
-animateSolutionImages(solution4Section, solution4Images);	  
+    const solution4Section = document.querySelector('.solution4-section');
+    animateSolutionImages(solution4Section, solution4Images);
+  }
+  
+	  
 
   
   // 스크롤 이벤트 리스너 등록
