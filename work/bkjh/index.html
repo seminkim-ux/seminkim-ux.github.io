@@ -2314,6 +2314,119 @@ window.addEventListener('scroll', () => {
         topButton.style.display = 'none';
     }
 });
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
+  if (!element) return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    rect.bottom >= 0
+  );
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // 초기 CSS 설정 - 첫 번째 섹션
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    .hero-image, .hero-image2 {
+      opacity: 0;
+    }
+  `;
+  document.head.appendChild(styleElement);
+
+  // 첫 번째 섹션: 모바일 UI 이미지 애니메이션
+  const heroImage = document.querySelector('.hero-image');
+  const heroImage2 = document.querySelector('.hero-image2');
+  
+  if (heroImage && heroImage2) {
+    // 앞에 있는 이미지(hero-image): 아래에서 위로 올라오면서 페이드인
+    heroImage.style.transform = 'translateY(40px)';
+    heroImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    
+    // 뒤에 있는 이미지(hero-image2): 페이드인만
+    heroImage2.style.transition = 'opacity 1.3s ease-out';
+    
+    setTimeout(() => {
+      // 뒤에 있는 이미지 먼저 나타남
+      heroImage2.style.opacity = '1';
+      
+      // 약간의 지연 후 앞에 있는 이미지 나타남
+      setTimeout(() => {
+        heroImage.style.opacity = '1';
+        heroImage.style.transform = 'translateY(0)';
+      }, 500);
+    }, 300);
+  }
+  
+  // 두 번째 섹션: 이미지 테마 컨테이너와 이미지들
+  const imageThemeContainer = document.querySelector('.image-theme-container');
+  const overviewImage1 = document.querySelector('.overview-image1');
+  const overviewImage2 = document.querySelector('.overview-image2');
+  const overviewImage3 = document.querySelector('.overview-image3');
+  
+  if (imageThemeContainer) {
+    // 이미지 테마 컨테이너: 초기화
+    imageThemeContainer.style.opacity = '0';
+    imageThemeContainer.style.transition = 'opacity 1s ease-out';
+  }
+  
+  if (overviewImage1 && overviewImage2 && overviewImage3) {
+    // 세 개의 이미지: 초기화
+    const images = [overviewImage1, overviewImage2, overviewImage3];
+    images.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateX(-30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 스크롤 이벤트에 모든 애니메이션 함수 연결
+  function handleScrollAnimations() {
+    // 두 번째 섹션 애니메이션 - Overview 섹션이 뷰포트에 들어오면 실행
+    const overviewSection = document.querySelector('.overview-content');
+    
+    if (overviewSection && isInViewport(overviewSection)) {
+      // 이미지 테마 컨테이너 먼저 페이드인
+      if (imageThemeContainer && imageThemeContainer.style.opacity === '0') {
+        imageThemeContainer.style.opacity = '1';
+        
+        // 이미지 테마 컨테이너가 나타난 후 이미지들 순차적으로 나타남
+        setTimeout(() => {
+          // 이미지 1
+          if (overviewImage1) {
+            overviewImage1.style.opacity = '1';
+            overviewImage1.style.transform = 'translateX(0)';
+          }
+          
+          // 이미지 2
+          setTimeout(() => {
+            if (overviewImage2) {
+              overviewImage2.style.opacity = '1';
+              overviewImage2.style.transform = 'translateX(0)';
+            }
+            
+            // 이미지 3
+            setTimeout(() => {
+              if (overviewImage3) {
+                overviewImage3.style.opacity = '1';
+                overviewImage3.style.transform = 'translateX(0)';
+              }
+            }, 300);
+          }, 300);
+        }, 500);
+      }
+    }
+  }
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // 페이지 로드 시 이미 보이는 요소 확인
+  handleScrollAnimations();
+});
+
+	  
 </script>
 </div>
 </body>
