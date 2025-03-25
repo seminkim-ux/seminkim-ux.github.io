@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SK텔레콤 프로모션 디자인</title>
+  <style>
+    /* 기본 리셋 및 전체 스타일 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #555;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    /* 컨테이너 스타일 */
+    .container {
+      width: 1024px;
+      height: 838px;
+      margin: 0px auto 0;
+      background-color: #fff;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* 중앙 정렬을 위한 래퍼 */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    /* 작은 화면에서의 크기 조정 */
+    @media screen and (max-height: 900px) {
+      .container {
+        transform: scale(1);
+        transform-origin: top center;
+      }
+    }
+    
+    /* 이미지 공통 스타일 */
+    .image {
+      position: absolute;
+    }
+    
+    /* 개별 이미지 스타일 및 애니메이션 */
+    #listback {
+      width: 1024px;
+      height: 70px;
+      left: 0;
+      top: 0;
+    }
+    
+    #listbt {
+      top: 28px;
+      left: 90px;
+      width: 100px;
+      height: auto;
+      opacity: 0;
+      animation: fadeListBt 2s linear forwards;
+    }
+    
+
+    #text4 {
+      top: 100px;
+      left: 35px;
+      width: 235px;
+      height: auto;
+      opacity: 0;
+      animation: fadeText4 2s linear forwards;
+    }
+    
+    #a {
+      top: 520px;
+      left: 20px;
+      width: 484px;
+      height: 210px;
+      opacity: 0;
+      animation: moveA 2.5s linear forwards;
+    }
+    
+    #l1 {
+      top: 145px;
+      left: 290px;
+      width: 484px;
+      height: 210px;
+      opacity: 0;
+      animation: fadeL1 3.5s linear forwards;
+    }
+    
+   #l2{
+      top: 145px;
+      left: 290px;
+      width: 484px;
+      height: 210px;
+      opacity: 0;
+      animation: fadeL2 3.5s linear forwards;
+     z-index: 2;
+    }
+   #l3{
+      top: 145px;
+      left: 290px;
+      width: 484px;
+      height: 210px;
+      opacity: 0;
+      animation: fadeL3 3.5s linear forwards;
+    }
+    #l4{
+      top: 145px;
+      left: 290px;
+      width: 484px;
+      height: 210px;
+      opacity: 0;
+      animation: fadeL4 3.5s linear forwards;
+    }
+    /* 애니메이션 정의 */
+    @keyframes fadeListBt {
+      0% { opacity: 0; left: 60px; }
+      50% { opacity: 0; left: 60px; }
+      100% { opacity: 1; left: 32px; }
+    }
+    
+    
+    @keyframes fadeText4 {
+      0% { opacity: 0; }
+      54.2857% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes moveA {
+      0% { opacity: 0;  }
+      68.1818% { opacity: 0;  }
+      100% { opacity: 1;  }
+    }
+    
+    @keyframes fadeL1 {
+    0% { opacity: 0; top: 403px; }
+    68.1818% { opacity: 0; top: 403px; }
+    100% { opacity: 1; top: 420px; }
+    }
+    
+ 
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <img src="images/1-list_bt_1.png" class="image" id="listbt" alt="리스트 버튼">
+      <img src="images/3-10text.png" class="image" id="text4" alt="텍스트">
+      <img src="images/6-10_f1.png" class="image" id="l1" alt="리플렛">
+      <img src="images/5-10_f2.png" class="image" id="l2" alt="리플렛2">
+      <img src="images/4-10_f3.png" class="image" id="l3" alt="리플렛3">
+      <img src="images/7-10_fb.png" class="image" id="l4" alt="리플렛3">
+      <img src="images/7-10_r.png" class="image" id="a" alt="리플렛a">
+    </div>
+  </div>
+</body>
+</html>
