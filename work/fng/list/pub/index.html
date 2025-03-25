@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자책 퍼블리싱 윈도우 프로그램</title>
+  <style>
+    /* 기본 리셋 및 전체 스타일 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #555;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    /* 컨테이너 스타일 */
+    .container {
+      width: 1024px;
+      height: 838px;
+      margin: 0px auto 0;
+      background-color: #fff;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* 중앙 정렬을 위한 래퍼 */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    /* 작은 화면에서의 크기 조정 */
+    @media screen and (max-height: 900px) {
+      .container {
+        transform: scale(1);
+        transform-origin: top center;
+      }
+    }
+    
+    /* 이미지 공통 스타일 */
+    .image {
+      position: absolute;
+    }
+    
+    /* 개별 이미지 스타일 및 애니메이션 */
+    #listback {
+      width: 1024px;
+      height: 70px;
+      left: 0;
+      top: 0;
+    }
+    
+    #listbt {
+      top: 28px;
+      left: 90px;
+      width: 100px;
+      height: auto;
+      opacity: 0;
+      animation: fadeListBt 2s linear forwards;
+    }
+    
+
+    #text4 {
+      top: 100px;
+      left: 35px;
+      width: 312px;
+      height: auto;
+      opacity: 0;
+      animation: fadeText4 2s linear forwards;
+    }
+    
+    #icon1 {
+      top: 539px;
+      left: 27px;
+      width: 64px;
+      height: 68px;
+      opacity: 0;
+      animation: moveIcon1 2.5s linear forwards;
+    }
+    #icon2 {
+      top: 539px;
+      left: 107px;
+      width: 60px;
+      height: 65px;
+      opacity: 0;
+      animation: moveIcon2 3.5s linear forwards;
+    }
+    #icon3 {
+      top: 539px;
+      left: 189px;
+      width: 87px;
+      height: 63px;
+      opacity: 0;
+      animation: moveIcon3 5s linear forwards;
+    }
+       #icon4 {
+      top: 532px;
+      left: 286px;
+      width: 76px;
+      height: 70px;
+      opacity: 0;
+      animation: moveIcon4 7s linear forwards;
+    }
+       #icon5 {
+      top: 632px;
+      left: 25px;
+      width: 73px;
+      height: 63px;
+      opacity: 0;
+      animation: moveIcon5 9.5s linear forwards;
+    }
+       #icon6 {
+      top: 615px;
+      left: 120px;
+      width: 107px;
+      height: 76px;
+      opacity: 0;
+      animation: moveIcon6 12.5s linear forwards;
+    }
+       #icon7 {
+      top: 619px;
+      left: 195px;
+      width: 89px;
+      height: 78px;
+      opacity: 0;
+      animation: moveIcon7 16s linear forwards;
+    }
+       #icon8 {
+      top: 623px;
+      left: 293px;
+      width: 72px;
+      height: 70px;
+      opacity: 0;
+      animation: moveIcon8 20s linear forwards;
+    }
+    
+    #ipad4 {
+      top: 119px;
+      left: 286px;
+      width: 738px;
+      height: 675px;
+      opacity: 0;
+      animation: fadeIpad4 3.5s linear forwards;
+    }
+    
+
+
+    /* 애니메이션 정의 */
+    @keyframes fadeListBt {
+      0% { opacity: 0; left: 60px; }
+      50% { opacity: 0; left: 60px; }
+      100% { opacity: 1; left: 32px; }
+    }
+    
+    
+    
+    @keyframes fadeText4 {
+      0% { opacity: 0; }
+      54.2857% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes moveIcon1 {
+      0% { opacity: 0; top: 519px; }
+      68.1818% { opacity: 0; top: 519px; }
+      100% { opacity: 1; top: 539px; }
+    }
+    @keyframes moveIcon2 {
+      0% { opacity: 0; top: 519px; }
+      80% { opacity: 0; top: 519px; }
+      100% { opacity: 1; top: 539px; }
+    }
+     @keyframes moveIcon3 {
+      0% { opacity: 0; top: 519px; }
+      80% { opacity: 0; top: 519px; }
+      100% { opacity: 1; top: 539px; }
+    }
+  @keyframes moveIcon4 {
+      0% { opacity: 0; top: 512px; }
+      80% { opacity: 0; top: 512px; }
+      100% { opacity: 1; top: 532px; }
+    }
+   @keyframes moveIcon5 {
+      0% { opacity: 0; top: 612px; }
+      68.1818% { opacity: 0; top: 612px; }
+      100% { opacity: 1; top: 632px; }
+    }
+    @keyframes moveIcon6 {
+      0% { opacity: 0; top: 595px; }
+      80% { opacity: 0; top: 595px; }
+      100% { opacity: 1; top: 615px; }
+    }
+     @keyframes moveIcon7 {
+      0% { opacity: 0; top: 599px; }
+      80% { opacity: 0; top: 599px; }
+      100% { opacity: 1; top: 619px; }
+    }
+  @keyframes moveIcon8 {
+      0% { opacity: 0; top: 603px; }
+      80% { opacity: 0; top: 603px; }
+      100% { opacity: 1; top: 623px; }
+    }
+    
+    @keyframes fadeIpad4 {
+      0% { opacity: 0; top: 79px; }
+      68.1818% { opacity: 0; top: 79px; }
+      100% { opacity: 1; top: 119px; }
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <img src="images/1-list_bt_1.png" class="image" id="listbt" alt="리스트 버튼">
+      <img src="images/4-09text.png" class="image" id="text4" alt="텍스트">
+      <img src="images/3-09_laptop.jpg" class="image" id="ipad4" alt="노트북">
+      <img src="images/5-09_1.jpg" class="image" id="icon1" alt="아이콘1">
+      <img src="images/6-09_2.jpg" class="image" id="icon2" alt="아이콘2">
+      <img src="images/7-09_3.jpg" class="image" id="icon3" alt="아이콘3">
+      <img src="images/8-09_4.jpg" class="image" id="icon4" alt="아이콘4">
+      <img src="images/9-09_5.jpg" class="image" id="icon5" alt="아이콘5">
+      <img src="images/10-09_6.jpg" class="image" id="icon6" alt="아이콘6">
+      <img src="images/11-09_7.jpg" class="image" id="icon7" alt="아이콘7">
+      <img src="images/12-09_8.jpg" class="image" id="icon8" alt="아이콘8">
+
+
+    </div>
+  </div>
+</body>
+</html>
