@@ -1767,8 +1767,8 @@ document.addEventListener('DOMContentLoaded', () => {
         heroImage.style.opacity = '1';
         console.log("Hero 이미지 애니메이션 적용됨");
       }
-    }, 1200);
-  }, 800); // 지연 시간 증가
+    }, 800);
+  }, 400); // 지연 시간 증가
 
   // SECTION 2: Overview 이미지 애니메이션
   const overviewImage = document.querySelector('.overview-image img');
@@ -1853,7 +1853,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (solutionImage) {
     solutionImage.style.opacity = '0';
     solutionImage.style.transform = 'scale(1.3)';
-    solutionImage.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+    solutionImage.style.transition = 'opacity 1.5s ease-out, transform 1.5s ease-out';
     console.log("Solution 이미지 초기화 완료");
   }
   
