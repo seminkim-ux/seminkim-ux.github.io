@@ -10,9 +10,6 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* 전체 페이지를 세로 중앙 정렬 */
 }
 
 body {
@@ -31,16 +28,15 @@ body {
 
 .gwd-div-cvup {
   height: 838px;
-  width: 1024px;
   background-image: none;
   background-color: rgb(255, 255, 255);
-  -webkit-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px); /* 40px에서 0px로 변경 */
   -moz-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  position: relative; /* 상대 위치로 변경 */
+  top: 0px; /* 10px에서 0px로 변경 */
 }
 
 .gwd-iframe-f01j {
@@ -85,7 +81,7 @@ body {
 
 .gwd-img-xdqy {
   position: absolute;
-  top: 50px;
+  top: 50px; /* 106px에서 50px로 변경 */
   left: 35px;
   width: 128px;
   height: 60px;
@@ -103,7 +99,7 @@ body {
 
 .gwd-img-ezmy {
   position: absolute;
-  top: 80px;
+  top: 80px; /* 202px에서 140px로 변경 */
   left: 35px;
   width: 238px;
   height: 176px;
@@ -112,7 +108,7 @@ body {
 
 .gwd-img-24pq {
   position: absolute;
-  top: 460px;
+  top: 460px; /* 593px에서 520px로 변경 */
   left: 236px;
   width: 208px;
   height: 208px;
@@ -121,7 +117,7 @@ body {
 
 .gwd-img-sqk4 {
   position: absolute;
-  top: 70px;
+  top: 70px; /* 113px에서 70px로 변경 */
   left: 428px;
   width: 487px;
   height: 690px;
@@ -232,7 +228,7 @@ body {
 
 .gwd-img-rizh {
   position: absolute;
-  top: 133px;
+  top: 133px; /* 176px에서 133px로 변경 */
   left: 459px;
   width: 423px;
   height: 564px;
@@ -283,7 +279,7 @@ body {
 
 .gwd-img-44fh {
   position: absolute;
-  top: 133px;
+  top: 133px; /* 176px에서 133px로 변경 */
   left: 459px;
   width: 423px;
   height: 564px;
@@ -316,7 +312,7 @@ body {
 
 .gwd-img-v0ia {
   position: absolute;
-  top: 133px;
+  top: 133px; /* 176px에서 133px로 변경 */
   left: 459px;
   width: 423px;
   height: 564px;
@@ -414,7 +410,7 @@ body {
   </head>
   
   <body>
-    <div id="all" class="gwd-div-cvup">
+    <div id="all" style="margin: 0px auto; width: 1024px;" class="gwd-div-cvup">
       <!-- 배경 이미지를 숨기거나 제거 -->
       <img src="images/0-list_4.jpg" class="gwd-img-9365" id="listback" style="display: none;">
       <img src="images/1-list_bt_1.png" class="gwd-img-n7nl gwd-gen-nng4gwdanimation gwd-gen-nng4gwdanimation-gen-animation0keyframe" id="listbt">
