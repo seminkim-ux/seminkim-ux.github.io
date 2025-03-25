@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burgerking Japan Omnichannel - Semin Kim Portfolio</title>
+  <style>
+/* 폰트 설정 - Jost는 웹에서 가져오도록 변경 */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap');
+/* Pretendard 폰트는 기존 woff 참조 유지 */
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray:#f2f9fc;
+      --blue-light: #41d9ff;
+      --yellow-medium: #e1a317;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #faf7ef;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxll: 76px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+    /* PROJECT HEADER SECTION - 새로 작성 */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 60px;
+      background-color: var(--nav-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 16vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxll);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+    }
+
+    .hero-image, .hero-image2 {
+      position: absolute;
+      width: 24vw;
+      height: auto;
+    }
+
+    .hero-image {
+      right: 21vw;
+      bottom: 9vh;
+	width:18vw;
+      z-index: 10;
+    }
+
+    .hero-image2 {
+      right: 3vw;
+      bottom: -1vh;
+	width:23vw;
+      z-index: 1;
+    }
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-yellow {
+      color: var(--yellow-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+    /* SECTION 2: OVERVIEW */
+    .overview-content {
+      display: flex;
+      position: relative; 
+      gap: 16px;
+      align-items: center;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+.overview-images {
+  position: absolute;
+  width: 60%; /* 전체 너비로 변경 */
+margin-top: 45vh; 
+right: 0vw;
+aspect-ratio: 1 / 1;
+background-color: transparent;
+border-radius: 0px;
+order: 10;
+}
+	  
+/* 이미지 테마 컨테이너 스타일 */
+.image-theme-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+}
+
+/* 기존 image-theme 스타일 수정 */
+.image-theme {
+  font-family: var(--font-family-jost);
+  font-size: 40px;
+  font-weight: 700;
+  color: #585858;
+  margin-bottom: 0; /* 기존 마진 제거 */
+  margin-right: 16px; /* 오른쪽에 여백 추가하여 로고와 간격 확보 */
+}
+
+/* 로고 스타일 */
+.theme-logo {
+  height: 52px; /* 로고 높이 설정 (텍스트와 비슷한 높이로) */
+  width: auto; /* 비율 유지 */
+margin-right:12px;
+}
+
+.overview-image1 {
+position:absolute;
+right: 33vw;
+width:5.5vw;/* 오른쪽에서부터의 위치 */
+top:26vh;
+z-index: 2;
+}
+
+.overview-image2 {
+position:absolute;
+right: 17vw;
+width:13vw;
+top:23vh;
+z-index: 3;
+}
+
+.overview-image3 {
+position:absolute;
+right: 1vw;
+width:13vw;
+top:14vh;
+z-index: 4;
+}
+
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+/* SECTION 3: PROCESS  */
+  .process-section {
+    padding: 100px 60px;
+    background-color: var(--white);
+  }
+  
+  .process-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+  }
+  
+  .section-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-align:left;
+  }
+  
+  .process-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .process-column {
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-box {
+    padding: 30px;
+    width : 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .define-box {
+    background-color: #98dbf5;
+  }
+  
+  .ideation-box {
+    background-color: #a2d987;
+  }
+  
+  .prototype-box {
+    background-color: #ffbccd;
+  }
+  
+  .test-box {
+    background-color: #f3ca58;
+  }
+  
+  .box-title {
+    font-family: var(--font-family-jost);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .process-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .process-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black);
+    padding-top: 15px;
+  }
+  
+  
+    
+    
+ /* SECTION 4: field RESEARCH STYLES */
+  .field-research-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
+  }
+  
+  .field-research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .field-research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  
+  .field-research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .field-feedback-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  
+  .field-feedback-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .field-feedback-box {
+    background-color: transparent;
+    border-radius: 20px;
+    position: relative;
+    min-height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.field-image {
+width: 100%;
+border-radius: 20px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: auto;
+  display: block;
+}
+
+/* SECTION 5: INSIGHT STYLES */
+  .competitive-section {
+background-color: var(--white);
+padding: 100px 60px;
+padding-bottom: 120px;
+  }
+  
+  .competitive-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .competitive-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .competitive-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+.competitive-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6개 열로 설정 */
+  gap: 3vw; /* 아이템 간 간격 */
+  width: 100%;
+}
+
+.competitive-item {
+  width: 100%;
+}
+
+.competitive-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+  .competitive-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .competitive-points {
+    margin-top:40px;
+	list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+.cpt {
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 20px;
+    color: #808284;
+  }
+  .competitive-points li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #808284;
+  }
+  .competitive-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #808284;
+  }
+
+/* SECTION 6: IDEATION */
+.ideation-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.ideation-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.ideation-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.research-container {
+  display: flex; /* 그리드 대신 flex로 변경 */
+  flex-direction: row; /* 가로 방향 배치 확실히 */
+  justify-content: flex-start;
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 0;
+  margin-top: 40px;
+}
+.research-column.sns-research {
+  width: 45%; /* SNS Research 영역 축소 */
+  flex: 0 0 45%;
+  margin-right: 2%; /* 오른쪽에 약간의 여백 추가 */
+}
+
+.research-column.stakeholder-interview {
+  width: 55%; /* Stakeholder Interview 영역 확장 */
+  flex: 0 0 55%;
+  padding-left: 0; /* 왼쪽 padding 제거 */
+}
+/* 컨테이너 높이 통일 */
+.circles-container, .bubbles-container {
+  position: relative;
+  height: 650px; /* 충분한 높이 */
+  width: 100%;
+}
+
+	  
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+/* 버블 위치 재조정 */
+.brand-bubble {
+  top: 30px;
+  left: 0vw;
+}
+
+.visual-bubble {
+  top: 30px;
+  left: 15vw;
+}
+
+.design-bubble {
+  top: 30px;
+  left: 30vw;
+}
+
+.condiment-bubble {
+  top: 270px;
+  left: 8vw;
+}
+
+.point-bubble {
+  top: 270px;
+  left: 23vw;
+}
+
+
+.research-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6a6d6e;
+  margin-bottom: 10px;
+}
+
+.research-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+
+.circle-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.circle-text-jp, .circle-text-ko {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+.circle-text-emphasis {
+  font-weight: bold;
+  color: #c00;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.circle-emoji {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.circle-image {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 원 위치 조정 */
+.taste-circle {
+  top: 20px;
+  left: 10px;
+width:210px;
+height:210px;
+}
+
+.price-circle {
+  top: 20px;
+  left: 230px;
+width:190px;
+height:190px;
+}
+
+.size-circle {
+  top: 200px;
+  left: 150px;
+width:220px;
+height:220px;
+}
+
+.unknown-circle {
+  top: 340px;
+  left: 10px;
+width:180px;
+height:180px;
+}
+
+.strange-circle {
+  top: 270px;
+  left: 370px;
+width:160px;
+height:160px;
+}
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
+  position: relative;
+  height: 500px;
+}
+
+.bubble {
+  position: absolute;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  width: 220px;
+  height: 220px;
+}
+
+.bubble-text-jp {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.bubble-text-ko {
+  font-size: 15px;
+  color: #666;
+}
+
+/* SECTION 7: UX CONCEPT */
+.ux-concept-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.ux-concept-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ux-concept-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+/* 콘셉트 원형 컨테이너 */
+.concept-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.concept-circle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% / 3 - 30px);
+  max-width: 300px;
+}
+
+/* 바깥쪽 원 */
+.concept-circle-outer {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* 중간 원 */
+.concept-circle-middle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 안쪽 원 (메인 컨텐츠) */
+.concept-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Originality 색상 */
+.originality-outer {
+  background-color: rgba(243, 112, 33, 0.15);
+}
+
+.originality-middle {
+  background-color: rgba(243, 112, 33, 0.3);
+}
+
+.originality-circle {
+  background-color: rgba(243, 112, 33, 1);
+}
+
+/* Consistency 색상 */
+.consistency-outer {
+  background-color: rgba(247, 206, 30, 0.15);
+}
+
+.consistency-middle {
+  background-color: rgba(247, 206, 30, 0.3);
+}
+
+.consistency-circle {
+  background-color: rgba(247, 206, 30, 1);
+}
+
+/* Consideration 색상 */
+.consideration-outer {
+  background-color: rgba(112, 184, 101, 0.15);
+}
+
+.consideration-middle {
+  background-color: rgba(112, 184, 101, 0.3);
+}
+
+.consideration-circle {
+  background-color: rgba(112, 184, 101, 1);
+}
+
+.concept-title {
+  font-family: var(--font-family-jost);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.concept-subtitle {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.concept-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.concept-summary {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.concept-summary-text {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 30px;
+margin-bottom: 16px;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+.concept-summary-description{
+font-family: "pretendard-bold", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* SECTION 8: PROTOTYPE */
+.prototype-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.section-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.prototype-images-container {
+  display: flex;
+  justify-content: flex-start; /* space-between에서 flex-start로 변경 */
+  gap: 0; /* 간격을 0으로 설정 */
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  margin-top: 40px;
+}
+.prototype-image-left {
+  width: 40%;
+  height: auto;
+  overflow: hidden;
+}
+.prototype-image-right {
+  width: 60%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prototype-image-left img, {
+  width: 45vw;
+  object-fit: cover;
+}
+ .prototype-image-right img {
+  width: 60vw;
+  object-fit: cover;
+}
+.burger-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #F37021; /* 버거킹 오렌지 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+
+
+/* SECTION 9: prototype2  */
+.prototype2-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype2-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype2-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype2-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-top: 40px;
+}
+
+.prototype2-image-kiosk {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prototype2-image-kiosk img {
+  width: 90vw;
+  height: auto;
+  object-fit: cover;
+}
+
+.burger2-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #f0d04c; /* 버거킹 옐로 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+
+/* SECTION 10: prototype3  */
+.prototype3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype3-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype3-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype3-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype3-image-gmap {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype3-image-gmap img {
+  width: 96%;
+  object-fit: cover;
+}
+
+.burger3-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #81b66e; /* 버거킹 그린 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+/* SECTION 11: prototype4  */
+.prototype4-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype4-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype4-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype4-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype4-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype4-image img {
+  width: 96%;
+  object-fit: cover;
+}
+	  /* SECTION 12: prototype5  */
+.prototype5-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype5-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype5-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype5-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype5-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype5-image img {
+  width: 96%;
+  object-fit: cover;
+}
+	  /* SECTION 13: prototype6  */
+.prototype6-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype6-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype6-text {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.prototype6-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype6-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype6-image img {
+  width: 96%;
+  object-fit: cover;
+}
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+   
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, .hero-image2 {
+        width: 230px;
+      }
+      
+      .hero-image2 {
+        right: 100px;
+      }
+        .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  .third-level-container {
+    min-width: 200px;
+  }
+    .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  
+  .third-level-container {
+    min-width: 200px;
+  }
+}
+
+
+
+    @media screen and (max-width: 1024px) {
+      
+  
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+  
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 80px);
+        transform: translateX(50%);
+        bottom: 15%;
+      }
+          .process-grid {
+      flex-wrap: wrap;
+    }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+	      .solution-text {
+    width: 100%;
+  }
+  
+  .solution-images {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .solution-description {
+    margin-top: 30px;
+  }
+}
+  
+  
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+      right: 17vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+
+    .hero-image2 {
+      right: -1vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+.overview-image {
+      position: absolute;  
+      width: 36%;
+      margin-top: 8vh; 
+      right: 10px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+.image-theme-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3vh;
+  right: -1vw;
+}
+.image-theme {
+  font-family: var(--font-family-jost);
+  font-size: 32px;
+}
+.process-box {
+    padding: 30px;
+    width : 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 21vw;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 40%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 17%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -6%;
+  z-index: 4;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 34%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+}
+
+	
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 40px);
+        transform: translateX(50%);
+      }
+  .insight-content {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 30px; /* 요소 간 간격 */
+  }
+  
+  .section-heading, .insight-images {
+    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
+  }
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+
+.solution-section {
+    padding: 80px 20px;
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+   
+      .hero-image, .hero-image2 {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 20px);
+        transform: translateX(50%);
+        bottom: 25%;
+      }
+    }
+
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+      display: none;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../index.html" class="logo">Semin Kim</a>
+      <nav class="menu">
+        <a href="../../about.html" class="menu-item">EN</a>
+        <a href="../../about.html" class="menu-item">ABOUT</a>
+        <a href="../../index.html#work" class="menu-item active">WORK</a>
+        <a href="../../contact.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION - 새로 작성 -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2019.05 - 2020.01</div>
+        <h1 class="project-title">Burgerking Japan<br> Omnichannel</h1>
+        <div class="project-description">
+          <p>버거킹재팬 옴니채널 프로젝트에서 기획과 디자인, 채널 역할을 수행했습니다.</p>
+          <p>버거킹 코리아 옴니채널을 기획, 디자인, 운영한 경험을 바탕으로 일본시장 현지화를 진행했습니다. </p>
+          <p>현지에서 테스트 및 오픈 대응 작업을 완료했습니다.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING 80%, GUI 40%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Launching Omnichannel for Japan market</span>
+        </div>
+      </div>
+      
+      <!-- 모바일 UI 이미지 -->
+      <div class="project-images">
+          <img src="images/01_p2.png" alt="재팬 폰" class="hero-image">
+          <img src="images/01_k2.png" alt="재팬 키오스크" class="hero-image2">
+      </div>
+    </section>
+    
+  <!-- SECTION 2: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">	
+        일관된 UX로 업그레이드 및<br>
+        일본 시장에 맞게 현지화 
+        </h3>
+        <p class="overview-paragraph"> 버거킹 코리아 옴니채널 프로젝트에서 웹과 키오스크 작업, 운영을 진행하였습니다.<br>
+        이후 일본 시장에 맞게 현지화하는 작업을 PM으로 수행하였습니다.<br>
+        한국에서 설정된 기본적인 틀은 가져가되, 일본시장에 맞는 UX를 찾기 위해 <br>
+        현지 리서치 및 인터뷰 후, 프로젝트 UX콘셉트를 재정의하며 옴니채널을 런칭하였습니다.  </p>
+      </div>
+	    
+<div class="overview-images">
+<div class="image-theme-container">
+<img src="images/02_logo.svg" alt="버거킹 로고" class="theme-logo">
+<p class ="image-theme">Consistency for Every channel</p>
+ </div>
+      <img src="images/02_1.svg" alt="옴니채널 이미지" class="overview-image1">
+      <img src="images/02_2.svg" alt="옴니채널 앱 이미지" class="overview-image2">
+      <img src="images/02_3.svg" alt="옴니채널 앱 이미지" class="overview-image3">
+    </div>
+  </div>
+  </section>
+    
+<!-- SECTION 3: PROCESS -->
+<section class="section process-section">
+  <h2 class="section-title">Process</h2>
+  <div class="process-content">
+    <h3 class="section-heading">
+      UX 기획 전체 과정을 총괄하여 진행하였습니다.<br>
+현지 오픈대응까지 완료하며 프로덕트 매니저 역할을 수행하였습니다. 
+    </h3>
+    
+    <div class="process-grid">
+      <!-- Define Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box define-box">
+          <h4 class="box-title">Define</h4>
+          <ul class="process-list">
+            <li>경쟁사 분석 및 평가</li>
+            <li>시장 분석</li>
+            <li>현지 브랜드 분석</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          당시 일본에서 주문 기능을 수행하고 있는<br>
+          서비스를 조사하였습니다.<br>
+          일본 내 온라인 서비스를 탐색하고,<br>
+          버거킹 브랜드의 현지 상황을 온오프라인으로 파악했습니다. 
+        </p>
+      </div>
+      
+      <!-- Ideation Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box ideation-box">
+          <h4 class="box-title">Ideation</h4>
+          <ul class="process-list">
+            <li>코크리에이션 워크샵</li>
+            <li>Stakeholder Interview</li>
+            <li>UX Concept</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          마케팅 부서, 개발팀, IT담과 정기적인<br>
+          워크샵을 통해 니즈를 분석하고<br>
+          Concept를 수립하였습니다.<br>
+          Stakeholder Interview를 진행하며<br>
+          방향을 설정하였습니다.
+        </p>
+      </div>
+      
+      <!-- Prototype Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box prototype-box">
+          <h4 class="box-title">Prototype</h4>
+          <ul class="process-list">
+            <li>Information Architecture</li>
+            <li>App, Web Wireframe 작성</li>
+            <li>Admin Wireframe 작성</li>
+            <li>Visual Design</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          전체 구조를 설계하고, 일본 시장에 적합한<br>
+          와이어프레임을 작성하였습니다. <br>
+          해당 기능을 지원하는 백오피스 시스템 기획하고,
+          POS 등 관련시스템과 연계 작업도 진행하였습니다.
+          현지에 적합한 Key Visual을 디자인하였습니다.
+        </p>
+      </div>
+      
+      <!-- Test Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box test-box">
+          <h4 class="box-title">Test</h4>
+          <ul class="process-list">
+            <li>테스트 시나리오 작성</li>
+            <li>임직원 대상 테스트 진행</li>
+            <li>필드 테스트</li>
+            <li>사용자 피드백 반영</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          테스트 시나리오를 작성하였습니다.<br>
+          임직원 대상 테스트를 진행하며, 조율하였습니다.<br>
+          알림톡 발송 규칙에 맞는지 확인하는 테스트와 <br>
+          매장 내 주문 테스트도 진행하였습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+ <!-- SECTION 4: Field RESEARCH -->
+<section class="section field-research-section">
+  <h2 class="section-title">Define_ Field Research</h2>
+  <div class="field-research-content">
+    <div class="field-research-text">
+      <h3 class="field-research-heading">
+        현지 매장과 경쟁사 매장을 방문하여,<br>
+        브랜드와 시장조사를 진행했습니다.
+      </h3>
+      <p class="overview-paragraph">
+        매장의 분위기와 제품을 확인하며 현지 내 브랜드를 소비자로서 체험했습니다.<br>
+        안정적으로 온라인 픽업주문(사이렌오더)을 제공하고 있는 스타벅스를 방문, 조사하였습니다.
+      </p>
+    </div>
+    
+    <!-- field feedback boxes -->
+    <div class="field-feedback-container">
+      <!-- Left column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_1_g.png" alt="현장 이미지" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_4_g.png" alt="현장 이미지" class="field-image">
+        </div>
+      </div>
+      
+      <!-- Middle column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_2_g.png" alt="현장 이미지" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_5_g.png" alt="현장 이미지" class="field-image">
+        </div>
+      </div>
+      
+      <!-- Right column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_3_g.png" alt="현장 이미지" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_6_g.png" alt="현장 이미지" class="field-image">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<!-- SECTION 5: Define -->
+<section class="competitive-section">
+<h2 class="section-title">Define_ Field Research</h2>
+  <div class="competitive-content">
+    <div class="competitive-text">
+      <h3 class="competitive-heading">
+        일본시장 내 경쟁사 앱을 조사하고<br>
+       현지 시장의 특징을 확인했습니다.
+      </h3>
+    </div>
+    
+    <!-- research images -->
+ <div class="competitive-container">
+    <div class="competitive-item">
+        <img src="images/05_1.png" alt="앱1" class="competitive-image">
+        <ul class="competitive-points">
+	<p class="cpt">스타벅스</p>
+            <li>이메일 인증 회원가입</li>
+            <li>가장 활성화된 브랜드 주문앱</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_2.png" alt="앱2" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">롯데리아</p>
+            <li>이메일 인증 회원가입</li>
+            <li>가장 활발한 브랜드<br> 주문앱</li>
+	 <li>스타벅스 카드 <br>등록절차 복잡 </li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_3.png" alt="앱3" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">맥도날드 브랜드 앱</p>
+            <li>프로모션, 쿠폰 기능</li>
+            <li>메뉴, 매장 정보 제공</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_4.png" alt="앱4" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">맥도날드 딜리버리</p>
+	<li>배달주문 전용</li>
+        <li>결제수단은 카드결제 및 현장결제</li>
+	<li>인증절차 거치지 않음 </li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_5.png" alt="앱5" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">도미노피자</p>
+           <li>배달과 픽업 주문 제공</li>
+            <li>인증절차 없음</li>
+        </ul>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_6.png" alt="앱6" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">모스버거</p>
+            <li>픽업주문 서비스</li>
+          <li>메뉴, 매장 정보 제공</li>
+        </ul>
+    </div>
+</div>
+	    
+</div>
+</section>
+
+	  
+    
+<!-- SECTION 6: IDEATION -->
+<section class="ideation-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ideation-content">
+    <h3 class="ideation-heading">
+     소셜미디어에서 브랜드 이미지를 조사하고,<br>
+      스테이크홀더 인터뷰를 진행하였습니다.
+    </h3>
+          <p class="overview-paragraph">
+       버거킹재팬은 한국보다 인지도가 부족했습니다.<br>
+      미국의 프리미엄 햄버거 브랜드이면서 사이즈도 크고 비싸다는 인식이 강했습니다.<br>
+	스테이크홀더 인터뷰에서 버거킹의 특성을 살리면서 완성도를 높여 브랜드 인지도를 높일 것을 요청받았습니다. 
+      </p>
+    <div class="research-container">
+      <!-- 왼쪽 SNS Research 영역 -->
+      <div class="research-column sns-research">
+        <h4 class="research-title">SNS Research</h4>
+        <p class="research-subtitle">트위터, 인스타그램 Data 2019.07</p>
+        
+        <div class="circles-container">
+          <!-- 맛있다 원 -->
+          <div class="circle taste-circle">
+            <div class="circle-content">
+              <p class="circle-text-jp">おいしい!</p>
+              <p class="circle-text-emphasis">100</p>
+            </div>
+          </div>
+          
+          <!-- 가격이 비싸다 원 -->
+          <div class="circle price-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">가격이 비싸다</p>
+              <p class="circle-text-jp">値段が高い</p>
+              <p class="circle-emoji">😂</p>
+            </div>
+          </div>
+          
+          <!-- 크다 원 -->
+          <div class="circle size-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">크다</p>
+              <p class="circle-text-jp">大きい</p>
+              <p class="circle-emoji">🍔</p>
+            </div>
+          </div>
+  
+          
+          <!-- 잘 모름 원 -->
+          <div class="circle unknown-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">잘 모름...</p>
+              <p class="circle-text-jp">よく分からない...</p>
+       <p class="circle-emoji">🤔</p>
+            </div>
+          </div>
+          
+          <!-- 기묘한 이야기 원 -->
+          <div class="circle strange-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">기묘한 이야기</p>
+              <p class="circle-text-jp">ストレンジャーシングス</p>
+    	   <p class="circle-emoji">📺</p>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- 오른쪽 Stakeholder Interview 영역 -->
+      <div class="research-column stakeholder-interview">
+        <h4 class="research-title">Stakeholder Interview</h4>
+        
+        <div class="bubbles-container">
+          <!-- 브랜드 인지도 버블 -->
+          <div class="bubble brand-bubble">
+            <p class="bubble-text-jp">バーガーキング<br>ブランド認知度を<br>高める必要がある。</p>
+            <p class="bubble-text-ko">브랜드 인지도</p>
+          </div>
+          
+          <!-- 글로벌 비주얼 가이드라인 버블 -->
+          <div class="bubble visual-bubble">
+            <p class="bubble-text-jp">バーガーキングの<br>グローバルビジュアル<br>ガイドラインと<br>クリエイティブなアイデア。</p>
+            <p class="bubble-text-ko">글로벌비주얼가이드와<br>크리에이티브한 표현</p>
+          </div>
+          
+          <!-- 다양한 완성도 버블 -->
+          <div class="bubble design-bubble">
+            <p class="bubble-text-jp">多数が共感できる<br>(universal)<br>デザインの完成度。</p>
+            <p class="bubble-text-ko">많은 이들에게 <br>공감받을 완성도</p>
+          </div>
+          
+          <!-- 버거킹만의 특성 버블 -->
+          <div class="bubble condiment-bubble">
+            <p class="bubble-text-jp">バーガーキングだけの<br>特性(Condiment)。</p>
+            <p class="bubble-text-ko">버거킹만의 특성</p>
+          </div>
+          
+          <!-- 마음을 움직이는 포인트 버블 -->
+          <div class="bubble point-bubble">
+            <p class="bubble-text-jp">人の心を動かす<br>ポイントと<br>物語がほしい。</p>
+            <p class="bubble-text-ko">마음을 움직이는 포인트</p>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</section>
+    
+<!-- SECTION 7: UX CONCEPT -->
+<section class="ux-concept-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ux-concept-content">
+    <h3 class="ux-concept-heading">
+      브랜드의 첫번째 주문 및 옴니채널 서비스
+    </h3>
+    
+    <div class="concept-circles-container">
+      <!-- 왼쪽 Originality 원 -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer originality-outer">
+          <div class="concept-circle-middle originality-middle">
+            <div class="concept-circle originality-circle">
+              <h4 class="concept-title">Originality</h4>
+              <p class="concept-subtitle">버거킹 고유의<br>감성</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          버거킹을 좋아하고, 관심있는 사람들이<br>
+          브랜드를 더 경험하도록
+        </p>
+      </div>
+      
+      <!-- 가운데 Consistency 원 -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consistency-outer">
+          <div class="concept-circle-middle consistency-middle">
+            <div class="concept-circle consistency-circle">
+              <h4 class="concept-title">Consistency</h4>
+              <p class="concept-subtitle">체계적이고<br>일관된</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          앱, 웹, 키오스크의 경험을<br>
+          체계적이고 일관되게
+        </p>
+      </div>
+      
+      <!-- 오른쪽 Consideration 원 -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consideration-outer">
+          <div class="concept-circle-middle consideration-middle">
+            <div class="concept-circle consideration-circle">
+              <h4 class="concept-title">Consideration</h4>
+              <p class="concept-subtitle">배려깊고<br>친절한</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          필요한 정보를 최적으로 제공하며<br>
+          사용자를 배려한 UX
+        </p>
+      </div>
+    </div>
+    
+    <div class="concept-summary">
+      <p class="concept-summary-text">
+        현장 조사, 경쟁사와 소셜미디어 분석, Stakeholder 인터뷰를 바탕으로 <br>UX 콘셉트를 수립하였습니다.
+      </p>
+<p class="concept-summary-description">
+        한국, 그리고 경쟁사보다 낮은 인지도를 높이기 위해, 브랜드 고유의 감성과 일관된 UX를 제공하고<br>
+	브랜드에 관심을 갖는 사용자를 위해 배려깊은 서비스를 제공합니다.
+      </p>
+    </div>
+  </div>
+</section>
+	  
+<!-- SECTION 8: PROTOTYPE -->
+<section class="section prototype-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype-content">
+    <div class="prototype-text">
+      <h3 class="section-heading">
+        글로벌 가이드와 브랜드 매터리얼을 참고로<br>
+        온오프라인이 연결된 키 비주얼을 디자인하였습니다.
+      </h3>
+    </div>
+
+    <div class="prototype-images-container">
+      <div class="prototype-image-left">
+        <img src="images/08_1.png" alt="프로토타입 왼쪽 이미지">
+      </div>
+      <div class="prototype-image-right">
+        <img src="images/08_2.png" alt="프로토타입 오른쪽 이미지">
+      </div>
+      <div class="burger-circle">
+        <p>버거킹 고유의<br>감성</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: PROTOTYPE 2 -->
+<section class="section prototype2-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype2-content">
+    <div class="prototype2-text">
+      <h3 class="section-heading">
+        키오스크 메뉴 영역에 사이즈별 그리드 레이아웃을 사용하여,<br>
+        스크롤로 인한 시선 분산을 제거했습니다.
+      </h3>
+    </div>
+
+    <div class="prototype2-images-container">
+      <div class="prototype2-image-kiosk">
+        <img src="images/09.png" alt="키오스크 이미지">
+      </div>
+      <div class="burger2-circle">
+        <p>체계적이고<br>일관된</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: PROTOTYPE 3 -->
+<section class="section prototype3-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype3-content">
+    <div class="prototype3-text">
+      <h3 class="section-heading">
+        실제 매장을 이용하도록 유도하는 것이 온라인만큼 중요하기에,<br>
+        구글맵과 연동, 길찾기 기능을 제공하였습니다.
+      </h3>
+    </div>
+
+    <div class="prototype3-images-container">
+      <div class="prototype3-image-gmap">
+        <img src="images/10.png" alt="구글맵 연동 이미지">
+      </div>
+      <div class="burger3-circle">
+        <p>배려깊고<br>친절한</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: PROTOTYPE 4 -->
+<section class="section prototype4-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype4-content">
+    <div class="prototype4-text">
+      <h4 class="section-heading">
+APP Screens
+      </h4>
+    </div>
+
+    <div class="prototype4-images-container">
+      <div class="prototype4-image">
+        <img src="images/11.png" alt=“앱 이미지">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 12: PROTOTYPE 5 -->
+<section class="section prototype5-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype5-content">
+    <div class="prototype5-text">
+      <h4 class="section-heading">
+ Web Screens
+      </h4>
+    </div>
+    <div class="prototype5-images-container">
+      <div class="prototype5-image">
+        <img src="images/12.png" alt=“앱 이미지">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 13: PROTOTYPE 6 -->
+<section class="section prototype6-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype6-content">
+    <div class="prototype6-text">
+      <h4 class="section-heading">
+  Kiosk Screens
+      </h4>
+    </div>
+
+    <div class="prototype6-images-container">
+      <div class="prototype6-image">
+        <img src="images/13.png" alt=“앱 이미지">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>
+	
+<div class="top-button" id="topButton"></div>
+
+  <script>
+    // Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+</script>
+</div>
+</body>
+</html>
