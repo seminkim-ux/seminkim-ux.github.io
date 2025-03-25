@@ -2359,6 +2359,217 @@ window.addEventListener('scroll', () => {
         topButton.style.display = 'none';
     }
 });
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
+  if (!element) return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    rect.bottom >= 0
+  );
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // 프로젝트 헤더 이미지 초기 설정
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1s ease-out';
+    
+    // 페이지 로드 시 약간의 지연 후 애니메이션 적용
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 500);
+  }
+  
+  // 섹션 2: Overview 이미지 초기 설정
+  const overviewImage1 = document.querySelector('.overview-image1');
+  const overviewImage2 = document.querySelector('.overview-image2');
+  const overviewImage3 = document.querySelector('.overview-image3');
+  
+  if (overviewImage1) {
+    overviewImage1.style.opacity = '0';
+    overviewImage1.style.transform = 'translateX(-50px)';
+    overviewImage1.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  if (overviewImage2) {
+    overviewImage2.style.opacity = '0';
+    overviewImage2.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (overviewImage3) {
+    overviewImage3.style.opacity = '0';
+    overviewImage3.style.transform = 'translateX(50px)';
+    overviewImage3.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  // 섹션 3: Keyword 이미지 초기 설정
+  const keywordImage = document.querySelector('.keyword-image');
+  if (keywordImage) {
+    keywordImage.style.opacity = '0';
+    keywordImage.style.transform = 'scale(1.3)';
+    keywordImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+  }
+  
+  // 섹션 4: Core Value 초기 설정
+  const leftCircle = document.querySelector('.left-circle');
+  const rightCircle = document.querySelector('.right-circle');
+  const leftTags = document.querySelectorAll('.left-tags .tag');
+  const rightTags = document.querySelectorAll('.right-tags .tag');
+  
+  if (leftCircle) {
+    leftCircle.style.opacity = '0';
+    leftCircle.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (rightCircle) {
+    rightCircle.style.opacity = '0';
+    rightCircle.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (leftTags.length > 0) {
+    leftTags.forEach(tag => {
+      tag.style.opacity = '0';
+      tag.style.transform = 'translateX(30px)';
+      tag.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  if (rightTags.length > 0) {
+    rightTags.forEach(tag => {
+      tag.style.opacity = '0';
+      tag.style.transform = 'translateX(-30px)';
+      tag.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 5: Research 이미지 초기 설정
+  const researchImages = document.querySelectorAll('.research-image');
+  if (researchImages.length > 0) {
+    researchImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 6: Research2 이미지 초기 설정
+  const research2Images = document.querySelectorAll('.research2-image');
+  if (research2Images.length > 0) {
+    research2Images.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 스크롤 이벤트에 따른 애니메이션 처리
+  function handleScrollAnimations() {
+    // 섹션 2: Overview 이미지 애니메이션
+    const overviewSection = document.querySelector('.overview-content');
+    if (overviewSection && isInViewport(overviewSection)) {
+      // 이미지 1
+      if (overviewImage1 && overviewImage1.style.opacity === '0') {
+        overviewImage1.style.opacity = '1';
+        overviewImage1.style.transform = 'translateX(0)';
+        
+        // 이미지 2
+        setTimeout(() => {
+          if (overviewImage2) {
+            overviewImage2.style.opacity = '1';
+          }
+          
+          // 이미지 3
+          setTimeout(() => {
+            if (overviewImage3) {
+              overviewImage3.style.opacity = '1';
+              overviewImage3.style.transform = 'translateX(0)';
+            }
+          }, 300);
+        }, 300);
+      }
+    }
+    
+    // 섹션 3: Keyword 이미지 애니메이션
+    const keywordSection = document.querySelector('.keyword-content');
+    if (keywordSection && isInViewport(keywordSection) && keywordImage && keywordImage.style.opacity === '0') {
+      keywordImage.style.opacity = '1';
+      keywordImage.style.transform = 'scale(1)';
+    }
+    
+    // 섹션 4: Core Value 애니메이션
+    const insightSection = document.querySelector('.insight-section');
+    if (insightSection && isInViewport(insightSection)) {
+      // 왼쪽 원 페이드인
+      if (leftCircle && leftCircle.style.opacity === '0') {
+        leftCircle.style.opacity = '1';
+        
+        // 왼쪽 태그 순차적으로 페이드인
+        setTimeout(() => {
+          if (leftTags.length > 0) {
+            leftTags.forEach((tag, index) => {
+              setTimeout(() => {
+                tag.style.opacity = '1';
+                tag.style.transform = 'translateX(0)';
+              }, index * 200);
+            });
+          }
+          
+          // 오른쪽 원 페이드인
+          setTimeout(() => {
+            if (rightCircle) {
+              rightCircle.style.opacity = '1';
+            }
+            
+            // 오른쪽 태그 순차적으로 페이드인
+            setTimeout(() => {
+              if (rightTags.length > 0) {
+                rightTags.forEach((tag, index) => {
+                  setTimeout(() => {
+                    tag.style.opacity = '1';
+                    tag.style.transform = 'translateX(0)';
+                  }, index * 200);
+                });
+              }
+            }, 300);
+          }, 600);
+        }, 300);
+      }
+    }
+    
+    // 섹션 5: Research 이미지 애니메이션
+    const researchSection = document.querySelector('.research-section');
+    if (researchSection && isInViewport(researchSection) && researchImages.length > 0) {
+      researchImages.forEach((img, index) => {
+        setTimeout(() => {
+          img.style.opacity = '1';
+          img.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+    
+    // 섹션 6: Research2 이미지 애니메이션
+    const research2Section = document.querySelector('.research2-section');
+    if (research2Section && isInViewport(research2Section) && research2Images.length > 0) {
+      research2Images.forEach((img, index) => {
+        setTimeout(() => {
+          img.style.opacity = '1';
+          img.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+  }
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // 페이지 로드 시 이미 보이는 요소 확인
+  handleScrollAnimations();
+});
+	
 </script>
 </div>
 </body>
