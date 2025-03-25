@@ -2645,7 +2645,29 @@ body, h1, h2, h3, h4, p, span {
 제스처 UI로 <span class="highlight-d">빠르고 새로운 경험을 제공합니다.</span><br>
       </p>
     </div>
-
+      <!-- 두 번째 팝업 버튼 (ID에서 클래스로 변경) -->
+      <div class="popup-button popup-button-3">
+          <div class="small-circle"></div>
+          <div class="large-circle"></div>
+      </div>
+      
+      <!-- 두 번째 팝업 오버레이 (ID에서 클래스로 변경) -->
+      <div class="popup-overlay popup-overlay-3">
+          <div class="popup-content">
+              <button class="close-button close-button-3"></button>
+              <div class="popup-text">
+                  실험실 기능을 기획하며 멤버들이 정말 재밌어하고 좋은 반응을 받았습니다. <br> <br>
+                 처음 실험실 기능을 기획했을 때, 저 역시 요구받은 내용대로 기존 제어기능에서 조금 다른 내용,
+더 디테일한 제어 설정 등을 생각했습니다.   <br>
+               하지만 개발 PM으로부터 다른 접근을 원한다는 피드백을 받았습니다.  <br> <br>
+              
+                 저 역시 기존의 틀로만 생각하고 있었음을 느꼈습니다. <br>
+                  다른 서비스의 실험실 기능을 생각함은 물론, 1차까지 진행한 화면에서 발전할 수 있는 내용들을 생각했습니다.<br>
+                 문구 변경 기능은 노브랜드버거 앱에서 메인화면에 변경되는 그리팅 메시지를 기획한 것이 아이디어의 힌트가 되었습니다.<br>
+                여러 업무 경험은 다른 프로젝트에도 적용할 수 있는 자원이 됩니다. <br>
+              </div>
+          </div>
+      </div>
   </div>
 </section>
   <div class="mobile-notice">
@@ -3121,9 +3143,9 @@ document.addEventListener('DOMContentLoaded', () => {
  // 팝업 기능 구현 - 수정된 코드
 document.addEventListener('DOMContentLoaded', function() {
   // 팝업 관련 요소들 선택
-  const popupButtons = document.querySelectorAll('.popup-button-1, .popup-button-2');
-  const popupOverlays = document.querySelectorAll('.popup-overlay-1, .popup-overlay-2');
-  const closeButtons = document.querySelectorAll('.close-button-1, .close-button-2');
+  const popupButtons = document.querySelectorAll('.popup-button-1, .popup-button-2, .popup-button-3');
+  const popupOverlays = document.querySelectorAll('.popup-overlay-1, .popup-overlay-2, .popup-overlay-3');
+  const closeButtons = document.querySelectorAll('.close-button-1, .close-button-2, .close-button-3');
   
   // 모든 팝업 버튼에 클릭 이벤트 추가
   popupButtons.forEach((button, index) => {
