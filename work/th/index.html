@@ -1686,19 +1686,26 @@ top: 1vh;
 <script>
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Function to check if element is in viewport
+  console.log("DOM이 로드되었습니다. 애니메이션 초기화를 시작합니다.");
+  
+  // Function to check if element is in viewport - 더 관대한 버전으로 수정
   function isInViewport(element) {
-    if (!element) return false;
+    if (!element) {
+      console.log("요소가 없습니다.");
+      return false;
+    }
     const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    const isVisible = (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.bottom >= 0
     );
+    return isVisible;
   }
 
   // Top 버튼 기능 설정
   const topButton = document.getElementById('topButton');
   if (topButton) {
+    console.log("Top 버튼이 존재합니다.");
     topButton.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -1717,48 +1724,69 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 초기 상태 설정
     topButton.style.display = 'none';
+  } else {
+    console.log("Top 버튼을 찾을 수 없습니다.");
   }
 
   // SECTION 1: 프로젝트 헤더 애니메이션
   const heroImage = document.querySelector('.hero-image');
   const heroImage2 = document.querySelector('.hero-image2');
 
+  console.log("Hero 이미지:", heroImage);
+  console.log("Hero 이미지2:", heroImage2);
+
   // 이미지 초기화
   if (heroImage) {
     heroImage.style.opacity = '0';
     heroImage.style.transition = 'opacity 1.2s ease-out';
+    console.log("Hero 이미지 초기화 완료");
+  } else {
+    console.log("Hero 이미지를 찾을 수 없습니다.");
   }
 
   if (heroImage2) {
     heroImage2.style.opacity = '0';
     heroImage2.style.transform = 'translateX(-50px)';
     heroImage2.style.transition = 'opacity 1.5s ease-out, transform 1.5s ease-out';
+    console.log("Hero 이미지2 초기화 완료");
+  } else {
+    console.log("Hero 이미지2를 찾을 수 없습니다.");
   }
 
-  // 페이지 로드 시 애니메이션 적용
+  // 페이지 로드 시 애니메이션 적용 - 지연 시간 증가
   setTimeout(() => {
+    console.log("Hero 이미지 애니메이션 시작");
     if (heroImage2) {
       heroImage2.style.opacity = '1';
       heroImage2.style.transform = 'translateX(0)';
+      console.log("Hero 이미지2 애니메이션 적용됨");
     }
     
     setTimeout(() => {
       if (heroImage) {
         heroImage.style.opacity = '1';
+        console.log("Hero 이미지 애니메이션 적용됨");
       }
     }, 1200);
-  }, 500);
+  }, 800); // 지연 시간 증가
 
   // SECTION 2: Overview 이미지 애니메이션
   const overviewImage = document.querySelector('.overview-image img');
+  console.log("Overview 이미지:", overviewImage);
+  
   if (overviewImage) {
     overviewImage.style.opacity = '0';
     overviewImage.style.transform = 'translateY(30px)';
     overviewImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    console.log("Overview 이미지 초기화 완료");
+  } else {
+    console.log("Overview 이미지를 찾을 수 없습니다.");
   }
 
   // SECTION 3: Competitive Items 애니메이션
   const competitiveItems = document.querySelectorAll('.competitive-item');
+  console.log(`Competitive 아이템 수: ${competitiveItems.length}`);
+  
   competitiveItems.forEach((item, index) => {
     const img = item.querySelector('.competitive-image');
     if (img) {
@@ -1766,11 +1794,15 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.transform = 'translateY(30px)';
       img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
       img.style.transitionDelay = `${index * 0.1}s`;
+    } else {
+      console.log(`Competitive 아이템 ${index}에 이미지가 없습니다.`);
     }
   });
 
   // SECTION 4: UI Structure Images 애니메이션
   const uiKioskImages = document.querySelectorAll('.ui-kiosk-image');
+  console.log(`UI 키오스크 이미지 수: ${uiKioskImages.length}`);
+  
   uiKioskImages.forEach((img, index) => {
     img.style.opacity = '0';
     img.style.transform = 'translateX(-30px)';
@@ -1780,6 +1812,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SECTION 5: Case Items 애니메이션
   const caseItems = document.querySelectorAll('.case-item');
+  console.log(`Case 아이템 수: ${caseItems.length}`);
+  
   caseItems.forEach((item, index) => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(30px)';
@@ -1789,6 +1823,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SECTION 6: Case Proto Items 애니메이션
   const caseProtoItems = document.querySelectorAll('.case-proto-item');
+  console.log(`Case Proto 아이템 수: ${caseProtoItems.length}`);
+  
   caseProtoItems.forEach((item, index) => {
     const title = item.querySelector('.case-proto-title');
     const image = item.querySelector('.case-proto-image');
@@ -1811,22 +1847,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // SECTION 7: Solution 이미지 애니메이션
   const solutionImage = document.querySelector('.solution-image');
   const solutionRight = document.querySelector('.solution-right');
+  console.log("Solution 이미지:", solutionImage);
+  console.log("Solution 오른쪽 섹션:", solutionRight);
 
   if (solutionImage) {
     solutionImage.style.opacity = '0';
     solutionImage.style.transform = 'scale(1.3)';
     solutionImage.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+    console.log("Solution 이미지 초기화 완료");
   }
   
   if (solutionRight) {
     solutionRight.style.opacity = '0';
     solutionRight.style.transition = 'opacity 1s ease-out';
     solutionRight.style.transitionDelay = '0.8s';
+    console.log("Solution 오른쪽 섹션 초기화 완료");
   }
 
   // SECTION 8: Solution2 이미지 애니메이션
   const solution2Images = document.querySelectorAll('.solution2-image1, .solution2-image2, .solution2-image3');
   const solution2Lines = document.querySelectorAll('.solution2-line1, .solution2-line2');
+  console.log(`Solution2 이미지 수: ${solution2Images.length}`);
+  console.log(`Solution2 라인 수: ${solution2Lines.length}`);
 
   // 이미지 초기화
   solution2Images.forEach((img, index) => {
@@ -1849,6 +1891,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overviewSection = document.querySelector('.overview-content');
     if (overviewSection && isInViewport(overviewSection)) {
       if (overviewImage && overviewImage.style.opacity === '0') {
+        console.log("Overview 이미지 애니메이션 시작");
         overviewImage.style.opacity = '1';
         overviewImage.style.transform = 'translateY(0)';
       }
@@ -1857,9 +1900,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // SECTION 3: Competitive 이미지 애니메이션
     const competitiveSection = document.querySelector('.competitive-content');
     if (competitiveSection && isInViewport(competitiveSection)) {
-      competitiveItems.forEach((item) => {
+      console.log("Competitive 섹션 보임");
+      competitiveItems.forEach((item, index) => {
         const img = item.querySelector('.competitive-image');
         if (img && img.style.opacity === '0') {
+          console.log(`Competitive 이미지 ${index} 애니메이션 시작`);
           img.style.opacity = '1';
           img.style.transform = 'translateY(0)';
         }
@@ -1869,8 +1914,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // SECTION 4: UI Structure 이미지 애니메이션
     const uiStructureSection = document.querySelector('.ui-structure-content');
     if (uiStructureSection && isInViewport(uiStructureSection)) {
-      uiKioskImages.forEach((img) => {
+      console.log("UI Structure 섹션 보임");
+      uiKioskImages.forEach((img, index) => {
         if (img.style.opacity === '0') {
+          console.log(`UI Kiosk 이미지 ${index} 애니메이션 시작`);
           img.style.opacity = '1';
           img.style.transform = 'translateX(0)';
         }
@@ -1880,8 +1927,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // SECTION 5: Case Items 애니메이션
     const insightSection = document.querySelector('.insight-content');
     if (insightSection && isInViewport(insightSection)) {
-      caseItems.forEach((item) => {
+      console.log("Insight 섹션 보임");
+      caseItems.forEach((item, index) => {
         if (item.style.opacity === '0') {
+          console.log(`Case 아이템 ${index} 애니메이션 시작`);
           item.style.opacity = '1';
           item.style.transform = 'translateY(0)';
         }
@@ -1891,16 +1940,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // SECTION 6: Case Proto Items 애니메이션
     const solutionProtoSection = document.querySelector('.solution-proto-content');
     if (solutionProtoSection && isInViewport(solutionProtoSection)) {
-      caseProtoItems.forEach((item) => {
+      console.log("Solution Proto 섹션 보임");
+      caseProtoItems.forEach((item, index) => {
         const title = item.querySelector('.case-proto-title');
         const image = item.querySelector('.case-proto-image');
         
         if (title && title.style.opacity === '0') {
+          console.log(`Case Proto 제목 ${index} 애니메이션 시작`);
           title.style.opacity = '1';
           title.style.transform = 'translateY(0)';
         }
         
         if (image && image.style.opacity === '0') {
+          console.log(`Case Proto 이미지 ${index} 애니메이션 시작`);
           image.style.opacity = '1';
           image.style.transform = 'translateY(0)';
         }
@@ -1910,59 +1962,73 @@ document.addEventListener('DOMContentLoaded', () => {
     // SECTION 7: Solution 이미지 애니메이션
     const solutionSection = document.querySelector('.solution-content');
     if (solutionSection && isInViewport(solutionSection)) {
+      console.log("Solution 섹션 보임");
       if (solutionImage && solutionImage.style.opacity === '0') {
+        console.log("Solution 이미지 애니메이션 시작");
         solutionImage.style.opacity = '1';
         solutionImage.style.transform = 'scale(1)';
         
         // 이미지 애니메이션 후 텍스트 애니메이션
         setTimeout(() => {
           if (solutionRight && solutionRight.style.opacity === '0') {
+            console.log("Solution 오른쪽 섹션 애니메이션 시작");
             solutionRight.style.opacity = '1';
           }
         }, 400);
       }
     }
 
-// SECTION 8: Solution2 이미지 애니메이션
-const solution2Section = document.querySelector('.solution2-content');
-if (solution2Section && isInViewport(solution2Section)) {
-  // 모든 요소가 애니메이션 됐는지 확인
-  let allAnimated = true;
-  solution2Images.forEach(img => {
-    if (img.style.opacity === '0') allAnimated = false;
-  });
-  solution2Lines.forEach(line => {
-    if (line.style.opacity === '0') allAnimated = false;
-  });
-  
-  // 아직 애니메이션이 완료되지 않았다면 시작
-  if (!allAnimated) {
-    // 1. 이미지 1 (첫번째 이미지)
-    if (solution2Images[0] && solution2Images[0].style.opacity === '0') {
-      solution2Images[0].style.opacity = '1';
-      solution2Images[0].style.transform = 'translateX(0)';
+    // SECTION 8: Solution2 이미지 애니메이션
+    const solution2Section = document.querySelector('.solution2-content');
+    if (solution2Section && isInViewport(solution2Section)) {
+      console.log("Solution2 섹션 보임");
       
-      // 2. 라인 1 (첫번째 라인) - 이미지 1 후 300ms 지연
-      setTimeout(() => {
-        if (solution2Lines[0] && solution2Lines[0].style.opacity === '0') {
-          solution2Lines[0].style.opacity = '1';
+      // 모든 요소가 애니메이션 됐는지 확인
+      let allAnimated = true;
+      solution2Images.forEach(img => {
+        if (img.style.opacity === '0') allAnimated = false;
+      });
+      solution2Lines.forEach(line => {
+        if (line.style.opacity === '0') allAnimated = false;
+      });
+      
+      // 아직 애니메이션이 완료되지 않았다면 시작
+      if (!allAnimated) {
+        console.log("Solution2 애니메이션 시작");
+        
+        // 1. 이미지 1 (첫번째 이미지)
+        if (solution2Images[0] && solution2Images[0].style.opacity === '0') {
+          console.log("Solution2 이미지1 애니메이션");
+          solution2Images[0].style.opacity = '1';
+          solution2Images[0].style.transform = 'translateX(0)';
           
-          // 3. 이미지 2 (두번째 이미지) - 라인 1 후 300ms 지연
+          // 2. 라인 1 (첫번째 라인) - 이미지 1 후 300ms 지연
           setTimeout(() => {
-            if (solution2Images[1] && solution2Images[1].style.opacity === '0') {
-              solution2Images[1].style.opacity = '1';
-              solution2Images[1].style.transform = 'translateX(0)';
+            if (solution2Lines[0] && solution2Lines[0].style.opacity === '0') {
+              console.log("Solution2 라인1 애니메이션");
+              solution2Lines[0].style.opacity = '1';
               
-              // 4. 라인 2 (두번째 라인) - 이미지 2 후 300ms 지연
+              // 3. 이미지 2 (두번째 이미지) - 라인 1 후 300ms 지연
               setTimeout(() => {
-                if (solution2Lines[1] && solution2Lines[1].style.opacity === '0') {
-                  solution2Lines[1].style.opacity = '1';
+                if (solution2Images[1] && solution2Images[1].style.opacity === '0') {
+                  console.log("Solution2 이미지2 애니메이션");
+                  solution2Images[1].style.opacity = '1';
+                  solution2Images[1].style.transform = 'translateX(0)';
                   
-                  // 5. 이미지 3 (세번째 이미지) - 라인 2 후 300ms 지연
+                  // 4. 라인 2 (두번째 라인) - 이미지 2 후 300ms 지연
                   setTimeout(() => {
-                    if (solution2Images[2] && solution2Images[2].style.opacity === '0') {
-                      solution2Images[2].style.opacity = '1';
-                      solution2Images[2].style.transform = 'translateX(0)';
+                    if (solution2Lines[1] && solution2Lines[1].style.opacity === '0') {
+                      console.log("Solution2 라인2 애니메이션");
+                      solution2Lines[1].style.opacity = '1';
+                      
+                      // 5. 이미지 3 (세번째 이미지) - 라인 2 후 300ms 지연
+                      setTimeout(() => {
+                        if (solution2Images[2] && solution2Images[2].style.opacity === '0') {
+                          console.log("Solution2 이미지3 애니메이션");
+                          solution2Images[2].style.opacity = '1';
+                          solution2Images[2].style.transform = 'translateX(0)';
+                        }
+                      }, 300);
                     }
                   }, 300);
                 }
@@ -1970,16 +2036,35 @@ if (solution2Section && isInViewport(solution2Section)) {
             }
           }, 300);
         }
-      }, 300);
+      }
     }
   }
-}
 
   // 스크롤 이벤트 리스너 등록
   window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  console.log("스크롤 이벤트 리스너 등록됨");
 
-  // 페이지 로드 시 이미 보이는 요소 확인
-  setTimeout(handleScrollAnimations, 300);
+  // 페이지 로드 시 이미 보이는 요소 확인 - 지연 시간 증가
+  console.log("초기 애니메이션 확인 예약됨");
+  setTimeout(handleScrollAnimations, 1000);
+
+  // 추가 안전장치 - 강제 애니메이션 적용
+  setTimeout(() => {
+    console.log("강제 애니메이션 확인");
+    handleScrollAnimations();
+    
+    // SECTION 1 강제 애니메이션 적용
+    if (heroImage && heroImage.style.opacity === '0') {
+      console.log("Hero 이미지 강제 애니메이션 적용");
+      heroImage.style.opacity = '1';
+    }
+    
+    if (heroImage2 && heroImage2.style.opacity === '0') {
+      console.log("Hero 이미지2 강제 애니메이션 적용");
+      heroImage2.style.opacity = '1';
+      heroImage2.style.transform = 'translateX(0)';
+    }
+  }, 2000);
 });
 </script>
   </div>
