@@ -1769,7 +1769,7 @@ bottom:-76vh;
 
 	
   <script>
-    // Top 버튼 기능 추가
+// Top 버튼 기능 추가
 const topButton = document.getElementById('topButton');
 
 topButton.addEventListener('click', () => {
@@ -1788,159 +1788,134 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 페이지가 로드되면 애니메이션 실행
-document.addEventListener('DOMContentLoaded', () => {
-  // 첫 번째 섹션: 휴대폰 이미지 페이드인 애니메이션
-  const heroImage = document.querySelector('.hero-image');
-  const heroImage2 = document.querySelector('.hero-image2');
-  
-  if (heroImage && heroImage2) {
-    // 초기에는 투명하게 설정
-    heroImage.style.opacity = '0';
-    heroImage2.style.opacity = '0';
-    
-    // 부드러운 전환 효과 설정
-    heroImage.style.transition = 'opacity 1s ease-out';
-    heroImage2.style.transition = 'opacity 1s ease-out';
-    
-    // 첫 번째 이미지를 먼저 표시
-    setTimeout(() => {
-      heroImage.style.opacity = '1';
-    }, 300);
-    
-    // 두 번째 이미지를 약간의 지연 후 표시
-    setTimeout(() => {
-      heroImage2.style.opacity = '1';
-    }, 800);
-  }
-  
-  // 두 번째 섹션: 아이콘 이미지 아래에서 위로 애니메이션
-  const overviewImage = document.querySelector('.overview-image');
-  
-  if (overviewImage) {
-    // 초기 스타일 설정
-    overviewImage.style.opacity = '0';
-    overviewImage.style.transform = 'translateY(40px)';
-    overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-  }
-  
-  // 스크롤 시 아이콘 이미지 애니메이션
-  function handleScrollAnimations() {
-    if (overviewImage && isInViewport(overviewImage)) {
-      overviewImage.style.opacity = '1';
-      overviewImage.style.transform = 'translateY(0)';
-    }
-  }
-  
-  // 요소가 화면에 보이는지 확인하는 함수
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-      rect.bottom >= 0
-    );
-  }
-  
-  // 스크롤 이벤트 리스너 등록
-  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
-  
-  // 페이지 로드 시 이미 보이는 요소 확인
-  handleScrollAnimations();
-});
-
- // 섹션 3: 프로세스 컬럼들이 순차적으로 올라오는 애니메이션
-  const processColumns = document.querySelectorAll('.process-column');
-  
-  if (processColumns.length > 0) {
-    processColumns.forEach((column, index) => {
-      // 초기 스타일 설정
-      column.style.opacity = '0';
-      column.style.transform = 'translateY(40px)';
-      column.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-    });
-    
-    function animateProcessColumns() {
-      if (isInViewport(document.querySelector('.process-section'))) {
-        processColumns.forEach((column, index) => {
-          setTimeout(() => {
-            column.style.opacity = '1';
-            column.style.transform = 'translateY(0)';
-          }, 200 * index); // 각 컬럼을 200ms 간격으로 애니메이션
-        });
-      }
-    }
-    
-    window.addEventListener('scroll', animateProcessColumns, { passive: true });
-    animateProcessColumns(); // 초기 체크
-  }
-  
-  // 섹션 4: 인사이트 이미지가 아래에서 위로 올라오는 애니메이션
-  const insightImage = document.querySelector('.insight-image');
-  
-  if (insightImage) {
-    // 초기 스타일 설정
-    insightImage.style.opacity = '0';
-    insightImage.style.transform = 'translateY(40px)';
-    insightImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-    
-    function animateInsightImage() {
-      if (isInViewport(document.querySelector('.insight-section'))) {
-        insightImage.style.opacity = '1';
-        insightImage.style.transform = 'translateY(0)';
-      }
-    }
-    
-    window.addEventListener('scroll', animateInsightImage, { passive: true });
-    animateInsightImage(); // 초기 체크
-  }
-  
-  // 섹션 5: 인사이트2 이미지가 아래에서 위로 올라오는 애니메이션
-  const insight2Image = document.querySelector('.insight2-image');
-  
-  if (insight2Image) {
-    // 초기 스타일 설정
-    insight2Image.style.opacity = '0';
-    insight2Image.style.transform = 'translateY(40px)';
-    insight2Image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-    
-    function animateInsight2Image() {
-      if (isInViewport(document.querySelector('.insight2-section'))) {
-        insight2Image.style.opacity = '1';
-        insight2Image.style.transform = 'translateY(0)';
-      }
-    }
-    
-    window.addEventListener('scroll', animateInsight2Image, { passive: true });
-    animateInsight2Image(); // 초기 체크
-  }
-  
-  // 섹션 6: 다이어그램이 페이드인으로만 나타나는 애니메이션
-  const featuresDiagram = document.querySelector('.features-diagram');
-  
-  if (featuresDiagram) {
-    // 초기 스타일 설정
-    featuresDiagram.style.opacity = '0';
-    featuresDiagram.style.transition = 'opacity 1.2s ease-out';
-    
-    function animateFeaturesDiagram() {
-      if (isInViewport(document.querySelector('.features-section'))) {
-        featuresDiagram.style.opacity = '1';
-      }
-    }
-    
-    window.addEventListener('scroll', animateFeaturesDiagram, { passive: true });
-    animateFeaturesDiagram(); // 초기 체크
-  }
-  
-  // 공통 isInViewport 함수 (이미 정의된 경우 제거)
-  function isInViewport(element) {
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
     if (!element) return false;
     const rect = element.getBoundingClientRect();
     return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-      rect.bottom >= 0
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+        rect.bottom >= 0
     );
-  }
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+    // 첫 번째 섹션: 휴대폰 이미지 페이드인 애니메이션
+    const heroImage = document.querySelector('.hero-image');
+    const heroImage2 = document.querySelector('.hero-image2');
+    
+    if (heroImage && heroImage2) {
+        // 초기에는 투명하게 설정
+        heroImage.style.opacity = '0';
+        heroImage2.style.opacity = '0';
+        
+        // 부드러운 전환 효과 설정
+        heroImage.style.transition = 'opacity 1s ease-out';
+        heroImage2.style.transition = 'opacity 1s ease-out';
+        
+        // 첫 번째 이미지를 먼저 표시
+        setTimeout(() => {
+            heroImage.style.opacity = '1';
+        }, 300);
+        
+        // 두 번째 이미지를 약간의 지연 후 표시
+        setTimeout(() => {
+            heroImage2.style.opacity = '1';
+        }, 800);
+    }
+    
+    // 두 번째 섹션: 아이콘 이미지 아래에서 위로 애니메이션
+    const overviewImage = document.querySelector('.overview-image');
+    
+    if (overviewImage) {
+        // 초기 스타일 설정
+        overviewImage.style.opacity = '0';
+        overviewImage.style.transform = 'translateY(40px)';
+        overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    // 섹션 3: 프로세스 컬럼들이 순차적으로 올라오는 애니메이션
+    const processColumns = document.querySelectorAll('.process-column');
+    
+    if (processColumns.length > 0) {
+        processColumns.forEach((column, index) => {
+            // 초기 스타일 설정
+            column.style.opacity = '0';
+            column.style.transform = 'translateY(40px)';
+            column.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        });
+    }
+    
+    // 섹션 4: 인사이트 이미지가 아래에서 위로 올라오는 애니메이션
+    const insightImage = document.querySelector('.insight-image');
+    
+    if (insightImage) {
+        // 초기 스타일 설정
+        insightImage.style.opacity = '0';
+        insightImage.style.transform = 'translateY(40px)';
+        insightImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 5: 인사이트2 이미지가 아래에서 위로 올라오는 애니메이션
+    const insight2Image = document.querySelector('.insight2-image');
+    
+    if (insight2Image) {
+        // 초기 스타일 설정
+        insight2Image.style.opacity = '0';
+        insight2Image.style.transform = 'translateY(40px)';
+        insight2Image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 6: 다이어그램이 페이드인으로만 나타나는 애니메이션
+    const featuresDiagram = document.querySelector('.features-diagram');
+    
+    if (featuresDiagram) {
+        // 초기 스타일 설정
+        featuresDiagram.style.opacity = '0';
+        featuresDiagram.style.transition = 'opacity 1.2s ease-out';
+    }
+    
+    // 스크롤 이벤트에 모든 애니메이션 함수 연결
+    function handleScrollAnimations() {
+        // 두 번째 섹션 애니메이션
+        if (overviewImage && isInViewport(overviewImage)) {
+            overviewImage.style.opacity = '1';
+            overviewImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 3 애니메이션
+        if (processColumns.length > 0 && isInViewport(document.querySelector('.process-section'))) {
+            processColumns.forEach((column, index) => {
+                setTimeout(() => {
+                    column.style.opacity = '1';
+                    column.style.transform = 'translateY(0)';
+                }, 200 * index); // 각 컬럼을 200ms 간격으로 애니메이션
+            });
+        }
+        
+        // 섹션 4 애니메이션
+        if (insightImage && isInViewport(document.querySelector('.insight-section'))) {
+            insightImage.style.opacity = '1';
+            insightImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 5 애니메이션
+        if (insight2Image && isInViewport(document.querySelector('.insight2-section'))) {
+            insight2Image.style.opacity = '1';
+            insight2Image.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 6 애니메이션
+        if (featuresDiagram && isInViewport(document.querySelector('.features-section'))) {
+            featuresDiagram.style.opacity = '1';
+        }
+    }
+    
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 요소 확인
+    handleScrollAnimations();
 });	  
 	  
 </script>
