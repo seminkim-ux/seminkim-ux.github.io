@@ -2684,52 +2684,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const solution2Section = document.querySelector('.solution2-section');
     animateSolutionImages(solution2Section, solution2Images);
     
-
-
-	  // 섹션 10: Solution3 애니메이션
-const solution3Section = document.querySelector('.solution3-section');
-animateSolutionImages(solution3Section, solution3Images);
-
-// 섹션 11: Solution4 애니메이션
+    // 섹션 10: Solution3 애니메이션
+    const solution3Section = document.querySelector('.solution3-section');
+    animateSolutionImages(solution3Section, solution3Images);
+    
+    // 섹션 11: Solution4 애니메이션
 const solution4Section = document.querySelector('.solution4-section');
 if (solution4Section) {
   solution4Section.style.overflow = 'hidden'; // 이미지 넘침 방지
 }
-// solution4Section은 기존 함수 대신 새 함수 사용
-animateSolution4Images(solution4Section);
+animateSolutionImages(solution4Section, solution4Images);	  
 
-// 섹션 11 (solution4) 전용 애니메이션 함수
-function animateSolution4Images(section) {
-  if (section && isInViewport(section)) {
-    const images = document.querySelectorAll('.solution4-image1, .solution4-image2, .solution4-image3');
-    
-    if (images.length > 0) {
-      let anyInvisible = false;
-      images.forEach(img => {
-        if (img.style.opacity === '0') {
-          anyInvisible = true;
-        }
-      });
-      
-      if (anyInvisible) {
-        // 이미지 컨테이너 높이 고정
-        const container = document.querySelector('.solution4-images');
-        if (container) container.style.height = '600px';
-        
-        // 각 이미지에 대해 위치 유지하면서 opacity만 변경
-        images.forEach((img, index) => {
-          // 기존 위치 유지
-          const computedStyle = window.getComputedStyle(img);
-          
-          // opacity만 애니메이션 적용
-          setTimeout(() => {
-            img.style.opacity = '1';
-          }, index * 200);
-        });
-      }
-    }
-  }
-}  
   
   // 스크롤 이벤트 리스너 등록
   window.addEventListener('scroll', handleScrollAnimations, { passive: true });
