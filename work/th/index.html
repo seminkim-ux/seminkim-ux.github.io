@@ -1684,18 +1684,18 @@ top: 1vh;
 <div class="top-button" id="topButton"></div>
 
 <script>
-// 요소가 화면에 보이는지 확인하는 함수
-function isInViewport(element) {
-  if (!element) return false;
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-    rect.bottom >= 0
-  );
-}
-
-// 애니메이션 초기화 및 실행
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Function to check if element is in viewport
+  function isInViewport(element) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+      rect.bottom >= 0
+    );
+  }
+
   // Top 버튼 기능 설정
   const topButton = document.getElementById('topButton');
   if (topButton) {
@@ -1705,35 +1705,37 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
     });
+    
+    // 스크롤 이벤트에서 버튼 표시/숨김 처리
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+      } else {
+        topButton.style.display = 'none';
+      }
+    });
+    
+    // 초기 상태 설정
     topButton.style.display = 'none';
   }
 
-  // Top 버튼 표시/숨김 처리
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100 && topButton) {
-      topButton.style.display = 'flex';
-    } else if (topButton) {
-      topButton.style.display = 'none';
-    }
-  });
-
-  // ==================== SECTION 1: 프로젝트 헤더 이미지 애니메이션 ====================
+  // SECTION 1: 프로젝트 헤더 애니메이션
   const heroImage = document.querySelector('.hero-image');
   const heroImage2 = document.querySelector('.hero-image2');
 
-  // 초기 상태 설정 - 이미 CSS에서 opacity: 0으로 설정되어 있음
+  // 이미지 초기화
   if (heroImage) {
-    // 페이드인만 적용 (움직임 없음)
+    heroImage.style.opacity = '0';
     heroImage.style.transition = 'opacity 1.2s ease-out';
   }
 
   if (heroImage2) {
-    // 왼쪽에서 오른쪽으로 이동하며 페이드인
+    heroImage2.style.opacity = '0';
     heroImage2.style.transform = 'translateX(-50px)';
-    heroImage2.style.transition = 'opacity 1.2s ease-out, transform 1.5s ease-out';
+    heroImage2.style.transition = 'opacity 1.5s ease-out, transform 1.5s ease-out';
   }
 
-  // 페이지 로드 시 헤더 애니메이션 실행
+  // 페이지 로드 시 애니메이션 적용
   setTimeout(() => {
     if (heroImage2) {
       heroImage2.style.opacity = '1';
@@ -1747,54 +1749,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1200);
   }, 500);
 
-  // ==================== SECTION 2: Overview 이미지 애니메이션 ====================
+  // SECTION 2: Overview 이미지 애니메이션
   const overviewImage = document.querySelector('.overview-image img');
-
   if (overviewImage) {
     overviewImage.style.opacity = '0';
     overviewImage.style.transform = 'translateY(30px)';
     overviewImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
   }
 
-  // ==================== SECTION 3: Process 애니메이션 ====================
-  const processColumns = document.querySelectorAll('.process-column');
-
-  processColumns.forEach((column, index) => {
-    column.style.opacity = '0';
-    column.style.transform = 'translateY(30px)';
-    column.style.transition = 'opacity 1.2s ease-out, transform 0.8s ease-out';
-    column.style.transitionDelay = `${index * 0.2}s`;
+  // SECTION 3: Competitive Items 애니메이션
+  const competitiveItems = document.querySelectorAll('.competitive-item');
+  competitiveItems.forEach((item, index) => {
+    const img = item.querySelector('.competitive-image');
+    if (img) {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      img.style.transitionDelay = `${index * 0.1}s`;
+    }
   });
 
-  // ==================== SECTION 4: Insight 이미지 애니메이션 ====================
-  const insightImage = document.querySelector('.insight-image');
+  // SECTION 4: UI Structure Images 애니메이션
+  const uiKioskImages = document.querySelectorAll('.ui-kiosk-image');
+  uiKioskImages.forEach((img, index) => {
+    img.style.opacity = '0';
+    img.style.transform = 'translateX(-30px)';
+    img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    img.style.transitionDelay = `${index * 0.3}s`;
+  });
 
-  if (insightImage) {
-    insightImage.style.opacity = '0';
-    insightImage.style.transform = 'translateY(30px)';
-    insightImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-  }
+  // SECTION 5: Case Items 애니메이션
+  const caseItems = document.querySelectorAll('.case-item');
+  caseItems.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    item.style.transitionDelay = `${index * 0.2}s`;
+  });
 
-  // ==================== SECTION 5: Insight2 이미지 애니메이션 ====================
-  const insight2Image = document.querySelector('.insight2-image');
+  // SECTION 6: Case Proto Items 애니메이션
+  const caseProtoItems = document.querySelectorAll('.case-proto-item');
+  caseProtoItems.forEach((item, index) => {
+    const title = item.querySelector('.case-proto-title');
+    const image = item.querySelector('.case-proto-image');
+    
+    if (title) {
+      title.style.opacity = '0';
+      title.style.transform = 'translateY(20px)';
+      title.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      title.style.transitionDelay = `${index * 0.4}s`;
+    }
+    
+    if (image) {
+      image.style.opacity = '0';
+      image.style.transform = 'translateY(20px)';
+      image.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      image.style.transitionDelay = `${index * 0.4 + 0.2}s`;
+    }
+  });
 
-  if (insight2Image) {
-    insight2Image.style.opacity = '0';
-    insight2Image.style.transform = 'translateY(30px)';
-    insight2Image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-  }
-
-  // ==================== SECTION 6: Features 다이어그램 애니메이션 ====================
-  const featuresDiagram = document.querySelector('.features-diagram');
-
-  if (featuresDiagram) {
-    featuresDiagram.style.opacity = '0';
-    featuresDiagram.style.transition = 'opacity 1.2s ease-out';
-  }
-
-  // ==================== SECTION 7: Solution 이미지 애니메이션 ====================
+  // SECTION 7: Solution 이미지 애니메이션
   const solutionImage = document.querySelector('.solution-image');
-  const solutionText2 = document.querySelector('.solution-text2');
+  const solutionRight = document.querySelector('.solution-right');
 
   if (solutionImage) {
     solutionImage.style.opacity = '0';
@@ -1802,35 +1818,34 @@ document.addEventListener('DOMContentLoaded', () => {
     solutionImage.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
   }
   
-  if (solutionText2) {
-    solutionText2.style.opacity = '0';
-    solutionText2.style.transition = 'opacity 1s ease-out';
-    solutionText2.style.transitionDelay = '0.8s';
+  if (solutionRight) {
+    solutionRight.style.opacity = '0';
+    solutionRight.style.transition = 'opacity 1s ease-out';
+    solutionRight.style.transitionDelay = '0.8s';
   }
 
-  // ==================== SECTION 8: Solution2 이미지 애니메이션 ====================
+  // SECTION 8: Solution2 이미지 애니메이션
   const solution2Images = document.querySelectorAll('.solution2-image1, .solution2-image2, .solution2-image3');
+  const solution2Lines = document.querySelectorAll('.solution2-line1, .solution2-line2');
 
+  // 이미지 초기화
   solution2Images.forEach((img, index) => {
     img.style.opacity = '0';
     img.style.transform = 'translateX(-50px)';
     img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-    img.style.transitionDelay = `${index * 0.4}s`;
+    img.style.transitionDelay = `${index * 0.6}s`;
   });
 
-  // ==================== SECTION 9: Solution3 이미지 애니메이션 ====================
-  const solution3Images = document.querySelectorAll('.solution3-image1, .solution3-image2, .solution3-image3');
-
-  solution3Images.forEach((img, index) => {
-    img.style.opacity = '0';
-    img.style.transform = 'translateY(30px)';
-    img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-    img.style.transitionDelay = `${index * 0.3}s`;
+  // 라인 초기화
+  solution2Lines.forEach((line, index) => {
+    line.style.opacity = '0';
+    line.style.transition = 'opacity 0.5s ease-out';
+    line.style.transitionDelay = `${0.3 + index * 0.6}s`;
   });
 
   // 스크롤 이벤트에 따른 애니메이션 처리
   function handleScrollAnimations() {
-    // ==================== SECTION 2: Overview 이미지 애니메이션 ====================
+    // SECTION 2: Overview 이미지 애니메이션
     const overviewSection = document.querySelector('.overview-content');
     if (overviewSection && isInViewport(overviewSection)) {
       if (overviewImage && overviewImage.style.opacity === '0') {
@@ -1839,44 +1854,60 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // ==================== SECTION 3: Process 애니메이션 ====================
-    const processSection = document.querySelector('.process-content');
-    if (processSection && isInViewport(processSection)) {
-      processColumns.forEach((column) => {
-        if (column.style.opacity === '0') {
-          column.style.opacity = '1';
-          column.style.transform = 'translateY(0)';
+    // SECTION 3: Competitive 이미지 애니메이션
+    const competitiveSection = document.querySelector('.competitive-content');
+    if (competitiveSection && isInViewport(competitiveSection)) {
+      competitiveItems.forEach((item) => {
+        const img = item.querySelector('.competitive-image');
+        if (img && img.style.opacity === '0') {
+          img.style.opacity = '1';
+          img.style.transform = 'translateY(0)';
         }
       });
     }
 
-    // ==================== SECTION 4: Insight 이미지 애니메이션 ====================
+    // SECTION 4: UI Structure 이미지 애니메이션
+    const uiStructureSection = document.querySelector('.ui-structure-content');
+    if (uiStructureSection && isInViewport(uiStructureSection)) {
+      uiKioskImages.forEach((img) => {
+        if (img.style.opacity === '0') {
+          img.style.opacity = '1';
+          img.style.transform = 'translateX(0)';
+        }
+      });
+    }
+
+    // SECTION 5: Case Items 애니메이션
     const insightSection = document.querySelector('.insight-content');
     if (insightSection && isInViewport(insightSection)) {
-      if (insightImage && insightImage.style.opacity === '0') {
-        insightImage.style.opacity = '1';
-        insightImage.style.transform = 'translateY(0)';
-      }
+      caseItems.forEach((item) => {
+        if (item.style.opacity === '0') {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }
+      });
     }
 
-    // ==================== SECTION 5: Insight2 이미지 애니메이션 ====================
-    const insight2Section = document.querySelector('.insight2-content');
-    if (insight2Section && isInViewport(insight2Section)) {
-      if (insight2Image && insight2Image.style.opacity === '0') {
-        insight2Image.style.opacity = '1';
-        insight2Image.style.transform = 'translateY(0)';
-      }
+    // SECTION 6: Case Proto Items 애니메이션
+    const solutionProtoSection = document.querySelector('.solution-proto-content');
+    if (solutionProtoSection && isInViewport(solutionProtoSection)) {
+      caseProtoItems.forEach((item) => {
+        const title = item.querySelector('.case-proto-title');
+        const image = item.querySelector('.case-proto-image');
+        
+        if (title && title.style.opacity === '0') {
+          title.style.opacity = '1';
+          title.style.transform = 'translateY(0)';
+        }
+        
+        if (image && image.style.opacity === '0') {
+          image.style.opacity = '1';
+          image.style.transform = 'translateY(0)';
+        }
+      });
     }
 
-    // ==================== SECTION 6: Features 다이어그램 애니메이션 ====================
-    const featuresSection = document.querySelector('.features-content');
-    if (featuresSection && isInViewport(featuresSection)) {
-      if (featuresDiagram && featuresDiagram.style.opacity === '0') {
-        featuresDiagram.style.opacity = '1';
-      }
-    }
-
-    // ==================== SECTION 7: Solution 이미지 애니메이션 ====================
+    // SECTION 7: Solution 이미지 애니메이션
     const solutionSection = document.querySelector('.solution-content');
     if (solutionSection && isInViewport(solutionSection)) {
       if (solutionImage && solutionImage.style.opacity === '0') {
@@ -1885,29 +1916,30 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 이미지 애니메이션 후 텍스트 애니메이션
         setTimeout(() => {
-          if (solutionText2 && solutionText2.style.opacity === '0') {
-            solutionText2.style.opacity = '1';
+          if (solutionRight && solutionRight.style.opacity === '0') {
+            solutionRight.style.opacity = '1';
           }
         }, 400);
       }
     }
-// ==================== SECTION 8: Solution2 이미지 애니메이션 ====================
-const solution2Section = document.querySelector('.solution2-content');
-if (solution2Section && isInViewport(solution2Section)) {
-  solution2Images.forEach((img) => {
-    if (img.style.opacity === '0') {
-      img.style.opacity = '1';
-      img.style.transform = 'translateX(0)';
-    }
-  });
-  
-  solution2Lines.forEach((line) => {
-    if (line.style.opacity === '0') {
-      line.style.opacity = '1';
-    }
-  });
-}
 
+    // SECTION 8: Solution2 이미지 애니메이션
+    const solution2Section = document.querySelector('.solution2-content');
+    if (solution2Section && isInViewport(solution2Section)) {
+      solution2Images.forEach((img) => {
+        if (img.style.opacity === '0') {
+          img.style.opacity = '1';
+          img.style.transform = 'translateX(0)';
+        }
+      });
+      
+      solution2Lines.forEach((line) => {
+        if (line.style.opacity === '0') {
+          line.style.opacity = '1';
+        }
+      });
+    }
+  }
 
   // 스크롤 이벤트 리스너 등록
   window.addEventListener('scroll', handleScrollAnimations, { passive: true });
