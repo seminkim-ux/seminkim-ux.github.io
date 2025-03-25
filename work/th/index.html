@@ -1891,29 +1891,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 400);
       }
     }
-
 // ==================== SECTION 8: Solution2 이미지 애니메이션 ====================
-const solution2Images = document.querySelectorAll('.solution2-image1, .solution2-image2, .solution2-image3');
-const solution2Lines = document.querySelectorAll('.solution2-line1, .solution2-line2');
-
-// 이미지 초기화
-solution2Images.forEach((img, index) => {
-  img.style.opacity = '0';
-  img.style.transform = 'translateX(-50px)';
-  // 이미지 등장 속도
-  img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-  // 이미지 등장 시작 시간 지연 (더 늦게 나오도록)
-  img.style.transitionDelay = `${0.8 + index * 0.6}s`;
-});
-
-// 라인 초기화
-solution2Lines.forEach((line, index) => {
-  line.style.opacity = '0';
-  // 라인 등장 속도 (더 빠르게)
-  line.style.transition = 'opacity 0.5s ease-out';
-  // 라인 등장 시작 시간 (이미지 바로 다음에 빠르게 나오도록)
-  line.style.transitionDelay = `${1.2 + index * 0.6}s`;
-});
+const solution2Section = document.querySelector('.solution2-content');
+if (solution2Section && isInViewport(solution2Section)) {
+  solution2Images.forEach((img) => {
+    if (img.style.opacity === '0') {
+      img.style.opacity = '1';
+      img.style.transform = 'translateX(0)';
+    }
+  });
+  
+  solution2Lines.forEach((line) => {
+    if (line.style.opacity === '0') {
+      line.style.opacity = '1';
+    }
+  });
+}
 
 
   // 스크롤 이벤트 리스너 등록
