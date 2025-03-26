@@ -3,10 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+
   <title>NH Groupware - Semin Kim Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap');
+       @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
     
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
     /* Pretendard 폰트 정의 */
     @font-face {
       font-family: "Pretendard-Light";
@@ -1606,12 +1622,12 @@
   <div class="container">
     <!-- HEADER / NAVIGATION -->
     <header class="header">
-      <a href="../../index.html" class="logo">Semin Kim</a>
+       <a href="../../" class="logo">Semin Kim</a>
       <nav class="menu">
-        <a href="../../about.html" class="menu-item">EN</a>
-        <a href="../../about.html" class="menu-item">ABOUT</a>
-        <a href="../../index.html#work" class="menu-item active">WORK</a>
-        <a href="../../contact.html" class="menu-item">CONTACT</a>
+        <a href="/en.html" class="menu-item">EN</a>
+        <a href="/about/" class="menu-item">ABOUT</a>
+        <a href="/work/" class="menu-item active">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
       </nav>
     </header>
     
