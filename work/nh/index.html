@@ -2262,27 +2262,35 @@ function initSection5Animations() {
   }
 }
 
-// 섹션 6에 대한 애니메이션 초기화 함수
+/ 섹션 6에 대한 애니메이션 초기화 함수
 function initSection6Animations() {
-  // 와이어프레임 이미지
-  const wireframeImage = document.querySelector('.wireframe-image');
+  // 와이어프레임 이미지 컨테이너
+  const wireframeImageContainer = document.querySelector('.wireframe-image-container');
   
-  if (wireframeImage) {
-    // 이미지 초기 상태 설정 (투명)
-    wireframeImage.style.opacity = '0';
-    wireframeImage.style.transition = 'opacity 0.8s ease';
+  if (wireframeImageContainer) {
+    // 이미지 초기 상태 설정 (투명만 적용, transform은 건드리지 않음)
+    const wireframeImage = wireframeImageContainer.querySelector('.wireframe-image');
+    if (wireframeImage) {
+      wireframeImage.style.opacity = '0';
+      wireframeImage.style.transition = 'opacity 0.8s ease';
+    }
   }
   
   // 오른쪽 설명 텍스트 영역 (그룹으로 처리)
   const wireframeRightInfo = document.querySelector('.wireframe-right-info');
   
   if (wireframeRightInfo) {
-    // 오른쪽 텍스트 초기 상태 설정 (투명 + 왼쪽으로 배치)
+    // 오른쪽 텍스트 초기 상태 설정 (투명 + 기존 위치에서 왼쪽으로 30px 이동)
     wireframeRightInfo.style.opacity = '0';
-    wireframeRightInfo.style.transform = 'translateX(-30px)';
+    // 기존 transform 유지하면서 X 축으로 -30px 추가 이동
+    const currentTransform = window.getComputedStyle(wireframeRightInfo).transform;
+    const matrix = new DOMMatrix(currentTransform);
+    wireframeRightInfo.style.transform = `translateX(${matrix.m41 - 30}px)`;
     wireframeRightInfo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     // 이미지 나타난 후 표시되도록 딜레이 설정
     wireframeRightInfo.dataset.animDelay = '800';
+    // 원래 위치 값 저장
+    wireframeRightInfo.dataset.originalTransform = currentTransform;
   }
 }
 
@@ -2370,7 +2378,7 @@ function checkSection6Animations() {
   const wireframeRightInfo = document.querySelector('.wireframe-right-info');
   
   if (wireframeImage && isElementInViewport(wireframeImage) && wireframeImage.style.opacity === '0') {
-    // 이미지 페이드인
+    // 이미지 페이드인만 처리 (위치는 그대로 유지)
     wireframeImage.style.opacity = '1';
     
     // 이미지가 나타난 후 오른쪽 텍스트 애니메이션
@@ -2378,7 +2386,8 @@ function checkSection6Animations() {
       const delay = parseInt(wireframeRightInfo.dataset.animDelay || 800);
       setTimeout(() => {
         wireframeRightInfo.style.opacity = '1';
-        wireframeRightInfo.style.transform = 'translateX(0)';
+        // 원래 위치로 돌아가기
+        wireframeRightInfo.style.transform = wireframeRightInfo.dataset.originalTransform || 'translateX(127%)';
       }, delay);
     }
   }
