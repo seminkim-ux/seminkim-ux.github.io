@@ -2224,6 +2224,8 @@ function initScrollAnimations() {
   initSection4Animations();
   // 섹션 5 초기화
 initSection5Animations();
+  // 섹션 6 초기화
+initSection6Animations();
 }
 
 // 섹션 4에 대한 애니메이션 초기화 함수
@@ -2260,6 +2262,8 @@ function checkScrollAnimations() {
       }, delay);
     }
     checkSection5Animations();
+    // 섹션 6 체크
+checkSection6Animations();
   });
   
   // 섹션 3: 이미지 애니메이션 체크
@@ -2331,6 +2335,49 @@ function checkSection5Animations() {
     mainImage.style.transform = 'translateY(0)';
   }
 }
+// 섹션 6에 대한 애니메이션 초기화 함수
+function initSection6Animations() {
+  // 와이어프레임 이미지
+  const wireframeImage = document.querySelector('.wireframe-image');
+  
+  if (wireframeImage) {
+    // 이미지 초기 상태 설정 (투명)
+    wireframeImage.style.opacity = '0';
+    wireframeImage.style.transition = 'opacity 0.8s ease';
+  }
+  
+  // 오른쪽 설명 텍스트 영역 (그룹으로 처리)
+  const wireframeRightInfo = document.querySelector('.wireframe-right-info');
+  
+  if (wireframeRightInfo) {
+    // 오른쪽 텍스트 초기 상태 설정 (투명 + 왼쪽으로 배치)
+    wireframeRightInfo.style.opacity = '0';
+    wireframeRightInfo.style.transform = 'translateX(-30px)';
+    wireframeRightInfo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    // 이미지 나타난 후 표시되도록 딜레이 설정
+    wireframeRightInfo.dataset.animDelay = '800';
+  }
+}
+
+// 섹션 6에 대한 애니메이션 체크 함수
+function checkSection6Animations() {
+  const wireframeImage = document.querySelector('.wireframe-image');
+  const wireframeRightInfo = document.querySelector('.wireframe-right-info');
+  
+  if (wireframeImage && isElementInViewport(wireframeImage) && wireframeImage.style.opacity === '0') {
+    // 이미지 페이드인
+    wireframeImage.style.opacity = '1';
+    
+    // 이미지가 나타난 후 오른쪽 텍스트 애니메이션
+    if (wireframeRightInfo && wireframeRightInfo.style.opacity === '0') {
+      const delay = parseInt(wireframeRightInfo.dataset.animDelay || 800);
+      setTimeout(() => {
+        wireframeRightInfo.style.opacity = '1';
+        wireframeRightInfo.style.transform = 'translateX(0)';
+      }, delay);
+    }
+  }
+}      
       
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
