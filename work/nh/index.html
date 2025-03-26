@@ -2409,10 +2409,12 @@ function initSection9Animations() {
     approvalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
   }
   
-  if (approvalDescription) {
-    approvalDescription.style.opacity = '0';
-    approvalDescription.style.transform = 'translateX(-30px)';
-    approvalDescription.style.transition
+if (approvalDescription) {
+  approvalDescription.style.opacity = '0';
+  approvalDescription.style.transform = 'translateX(-30px)';
+  approvalDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  approvalDescription.dataset.animDelay = '200';
+}
   
   if (otherApproval) {
     otherApproval.style.opacity = '0';
