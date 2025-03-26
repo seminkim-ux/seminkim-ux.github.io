@@ -1184,24 +1184,93 @@ B2C 일반고객<br>
 
 	
   <script>
-    // Top 버튼 기능 추가
+// Top 버튼 기능 추가
 const topButton = document.getElementById('topButton');
 
 topButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
 // Top 버튼 표시/숨김 처리
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        topButton.style.display = 'flex';
-    } else {
-        topButton.style.display = 'none';
-    }
+  if (window.pageYOffset > 100) {
+    topButton.style.display = 'flex';
+  } else {
+    topButton.style.display = 'none';
+  }
 });
+
+// 페이지 로드 후 실행될 함수
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 프로젝트 헤더 이미지 애니메이션 설정
+  setupHeaderAnimation();
+  
+  // 2. 스크롤 애니메이션 요소들을 초기화
+  initScrollAnimations();
+  
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', function() {
+    // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+    checkScrollAnimations();
+  });
+  
+  // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
+  checkScrollAnimations();
+});
+
+// 헤더 이미지 애니메이션 설정 함수
+function setupHeaderAnimation() {
+  const heroImage = document.querySelector('.hero-image');
+  
+  if (heroImage) {
+    // 이미지 초기 상태 설정 (투명)
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1.2s ease';
+    
+    // 약간의 딜레이 후 이미지 페이드인
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 300);
+  }
+}
+
+// 스크롤 애니메이션을 위한 요소들 초기화
+function initScrollAnimations() {
+  // 섹션 2: 오버뷰 이미지 애니메이션 설정
+  const overviewImage = document.querySelector('.overview-image1');
+  
+  if (overviewImage) {
+    // 이미지 초기 상태 설정 (투명)
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transition = 'opacity 1s ease';
+  }
+}
+
+// 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+function checkScrollAnimations() {
+  // 섹션 2: 오버뷰 이미지 애니메이션 체크
+  const overviewImage = document.querySelector('.overview-image1');
+  
+  if (overviewImage && isElementInViewport(overviewImage) && overviewImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 페이드인
+    overviewImage.style.opacity = '1';
+  }
+}
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // 요소의 상단이 화면 하단보다 위에 있고, 요소의 하단이 화면 상단보다 아래에 있는지 확인
+  return (
+    rect.top <= windowHeight * 0.8 && // 요소가 화면의 80% 이내에 들어오면 활성화
+    rect.bottom >= 0
+  );
+}
 </script>
   </div>
 </body>	  
