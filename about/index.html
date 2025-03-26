@@ -365,12 +365,34 @@
       </div>
     </section>
   </div>
+<div class="top-button" id="topButton"></div>
+
 
   <script>
+        // Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+    
     // Simple script to check if items are in viewport and add animation class
     document.addEventListener('DOMContentLoaded', () => {
       // All animations are handled via CSS
     });
+    
   </script>
 </body>
 </html>
