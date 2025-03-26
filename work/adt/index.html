@@ -1203,8 +1203,26 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// 페이지 로드 즉시 최초 설정 실행
+document.addEventListener('DOMContentLoaded', function() {
+  // DOM이 로드되자마자 이미지 숨기기 (깜빡임 방지)
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    // 이미지를 처음부터 숨김
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1.5s ease';
+  }
+  
+  const overviewImage = document.querySelector('.overview-image1');
+  if (overviewImage) {
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transition = 'opacity 2s ease';
+  }
+});
+
 // 페이지가 완전히 로드된 후 실행
 window.onload = function() {
+  console.log("페이지 완전히 로드됨");
   // 프로젝트 헤더 이미지 애니메이션 설정
   setupHeaderAnimation();
   
@@ -1226,29 +1244,39 @@ function setupHeaderAnimation() {
   const heroImage = document.querySelector('.hero-image');
   
   if (heroImage) {
-    // 먼저 이미지를 숨김
-    heroImage.style.opacity = '0';
+    console.log("헤더 이미지 페이드인 시작");
+    // 강제로 이미지 프리로드
+    const imgSrc = heroImage.src;
+    const preloadImg = new Image();
     
-    // 트랜지션 속성 추가
-    heroImage.style.transition = 'opacity 1.5s ease';
+    preloadImg.onload = function() {
+      console.log("이미지 프리로드 완료");
+      // 약간의 딜레이 후 이미지 표시
+      setTimeout(() => {
+        heroImage.style.opacity = '1';
+        console.log("헤더 이미지 페이드인 실행");
+      }, 300);
+    };
     
-    // 약간의 딜레이 후 이미지 표시 (페이지 로드 후에 적용하므로 짧은 딜레이면 충분)
+    preloadImg.src = imgSrc;
+    
+    // 백업: 만약 프리로드가 실패하더라도 페이드인 적용
     setTimeout(() => {
-      heroImage.style.opacity = '1';
-    }, 200);
+      if (heroImage.style.opacity !== '1') {
+        console.log("백업 페이드인 실행");
+        heroImage.style.opacity = '1';
+      }
+    }, 1000);
   }
 }
 
 // 스크롤 애니메이션을 위한 요소들 초기화
 function initScrollAnimations() {
-  // 섹션 2: 오버뷰 이미지 애니메이션 설정
   const overviewImage = document.querySelector('.overview-image1');
   
   if (overviewImage) {
-    // 이미지 초기 상태 설정 (투명)
-    overviewImage.style.opacity = '0';
-    // 더 느린 트랜지션 설정 (2초로 증가)
-    overviewImage.style.transition = 'opacity 2s ease';
+    console.log("오버뷰 이미지 애니메이션 초기화");
+    // 이미 DOM 로드 시점에 투명도를 설정했으므로 여기서는 추가 설정 필요 없음
   }
 }
 
@@ -1258,6 +1286,7 @@ function checkScrollAnimations() {
   const overviewImage = document.querySelector('.overview-image1');
   
   if (overviewImage && isElementInViewport(overviewImage) && overviewImage.style.opacity === '0') {
+    console.log("오버뷰 이미지 페이드인 실행");
     // 이미지가 뷰포트에 들어오면 페이드인
     overviewImage.style.opacity = '1';
   }
