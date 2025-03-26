@@ -2225,6 +2225,14 @@ function initScrollAnimations() {
   initSection6Animations();
   // 섹션 7 초기화
   initSection7Animations();
+  // 섹션 8 초기화
+  initSection8Animations();
+  // 섹션 9 초기화
+  initSection9Animations();
+  // 섹션 10 초기화
+  initSection10Animations();
+  // 섹션 11 초기화
+  initSection11Animations();
 }
 
 // 섹션 4에 대한 애니메이션 초기화 함수
@@ -2335,6 +2343,92 @@ function initSection7Animations() {
   }
 }
 
+// 섹션 8에 대한 애니메이션 초기화 함수
+function initSection8Animations() {
+  // 섹션 8 메일 화면 이미지 - 두 번째 mail-section 섹션 내 요소들
+  const mailSections = document.querySelectorAll('.mail-section');
+  if (mailSections.length >= 2) {
+    const section8 = mailSections[1];
+    
+    // 이미지 컨테이너
+    const mailScreenContainer3 = section8.querySelector('.mail-screen-container3');
+    
+    if (mailScreenContainer3) {
+      const mailImage = mailScreenContainer3.querySelector('.mail-main-image');
+      if (mailImage) {
+        // 이미지를 아래에서 위로 올라오게 설정
+        mailImage.style.opacity = '0';
+        mailImage.style.transform = 'translateY(50px)';
+        mailImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      }
+    }
+    
+    // 오른쪽 텍스트 영역
+    const mailPreview = section8.querySelector('.mail-preview');
+    const mailButtons = section8.querySelector('.mail-buttons');
+    
+    if (mailPreview) {
+      mailPreview.style.opacity = '0';
+      mailPreview.style.transition = 'opacity 0.8s ease';
+      mailPreview.dataset.animDelay = '500';
+    }
+    
+    if (mailButtons) {
+      mailButtons.style.opacity = '0';
+      mailButtons.style.transition = 'opacity 0.8s ease';
+      mailButtons.dataset.animDelay = '700';
+    }
+  }
+}
+
+// 섹션 9에 대한 애니메이션 초기화 함수
+function initSection9Animations() {
+  // 이미지 요소
+  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
+  
+  if (approvalImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    approvalImage.style.opacity = '0';
+    approvalImage.style.transform = 'translateY(50px)';
+    approvalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  // 오른쪽 텍스트 영역
+  const otherApproval = document.querySelector('.other-approval');
+  
+  if (otherApproval) {
+    otherApproval.style.opacity = '0';
+    otherApproval.style.transition = 'opacity 0.8s ease';
+    otherApproval.dataset.animDelay = '500';
+  }
+}
+
+// 섹션 10에 대한 애니메이션 초기화 함수
+function initSection10Animations() {
+  // 이미지 요소
+  const tabletMainImage = document.querySelector('.tablet-image-container .tablet-main-image');
+  
+  if (tabletMainImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    tabletMainImage.style.opacity = '0';
+    tabletMainImage.style.transform = 'translateY(50px)';
+    tabletMainImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
+
+// 섹션 11에 대한 애니메이션 초기화 함수
+function initSection11Animations() {
+  // 이미지 요소
+  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
+  
+  if (tabletApproveImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    tabletApproveImage.style.opacity = '0';
+    tabletApproveImage.style.transform = 'translateY(50px)';
+    tabletApproveImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
+
 // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
 function checkScrollAnimations() {
   // 섹션 2: 업그레이드 칼럼 애니메이션 체크
@@ -2378,6 +2472,18 @@ function checkScrollAnimations() {
   
   // 섹션 7 체크
   checkSection7Animations();
+  
+  // 섹션 8 체크
+  checkSection8Animations();
+  
+  // 섹션 9 체크
+  checkSection9Animations();
+  
+  // 섹션 10 체크
+  checkSection10Animations();
+  
+  // 섹션 11 체크
+  checkSection11Animations();
 }
 
 // 섹션 4에 대한 애니메이션 체크 함수
@@ -2475,6 +2581,88 @@ function checkSection7Animations() {
         mailPopup.style.opacity = '1';
       }, popupDelay);
     }
+  }
+}
+
+// 섹션 8 애니메이션 체크 함수
+function checkSection8Animations() {
+  // 섹션 8 찾기 (두 번째 mail-section)
+  const mailSections = document.querySelectorAll('.mail-section');
+  if (mailSections.length >= 2) {
+    const section8 = mailSections[1];
+    
+    // 이미지 체크
+    const mailImage = section8.querySelector('.mail-screen-container3 .mail-main-image');
+    
+    if (mailImage && isElementInViewport(mailImage) && mailImage.style.opacity === '0') {
+      // 이미지가 뷰포트에 들어오면 애니메이션 적용
+      mailImage.style.opacity = '1';
+      mailImage.style.transform = 'translateY(0)';
+      
+      // 오른쪽 텍스트 영역 체크 (딜레이 적용)
+      const mailPreview = section8.querySelector('.mail-preview');
+      const mailButtons = section8.querySelector('.mail-buttons');
+      
+      if (mailPreview && mailPreview.style.opacity === '0') {
+        const previewDelay = parseInt(mailPreview.dataset.animDelay || 500);
+        setTimeout(() => {
+          mailPreview.style.opacity = '1';
+        }, previewDelay);
+      }
+      
+      if (mailButtons && mailButtons.style.opacity === '0') {
+        const buttonsDelay = parseInt(mailButtons.dataset.animDelay || 700);
+        setTimeout(() => {
+          mailButtons.style.opacity = '1';
+        }, buttonsDelay);
+      }
+    }
+  }
+}
+
+// 섹션 9 애니메이션 체크 함수
+function checkSection9Animations() {
+  // 이미지 체크
+  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
+  
+  if (approvalImage && isElementInViewport(approvalImage) && approvalImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    approvalImage.style.opacity = '1';
+    approvalImage.style.transform = 'translateY(0)';
+    
+    // 오른쪽 텍스트 영역 체크
+    const otherApproval = document.querySelector('.other-approval');
+    
+    if (otherApproval && otherApproval.style.opacity === '0') {
+      const otherDelay = parseInt(otherApproval.dataset.animDelay || 500);
+      setTimeout(() => {
+        otherApproval.style.opacity = '1';
+      }, otherDelay);
+    }
+  }
+}
+
+// 섹션 10 애니메이션 체크 함수
+function checkSection10Animations() {
+  // 이미지 체크
+  const tabletMainImage = document.querySelector('.tablet-image-container .tablet-main-image');
+  
+  if (tabletMainImage && isElementInViewport(tabletMainImage) && tabletMainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    tabletMainImage.style.opacity = '1';
+    tabletMainImage.style.transform = 'translateY(0)';
+  }
+}
+
+// 섹션 11 애니메이션 체크 함수
+function checkSection11Animations() {
+  // 이미지 체크
+  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
+  
+  if (tabletApproveImage && isElementInViewport(tabletApproveImage) && tabletApproveImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    tabletApproveImage.style.opacity = '1';
+    tabletApproveImage.style.transform = 'translateY(0)';
   }
 }
 
