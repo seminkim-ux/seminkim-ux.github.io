@@ -323,7 +323,11 @@
       color: var(--black);
       margin-bottom: 12px;
     }
-
+.work-title a,
+.work-description a {
+  color: inherit; /* 부모 요소의 텍스트 색상을 상속 */
+  text-decoration: none; /* 밑줄 제거 */
+}
     /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
     @media screen and (min-resolution: 2dppx) {
       .hero-title, .hero-subtitle {
@@ -462,10 +466,10 @@
     <article class="work-card">
       <div class="work-image">
         <a href="work/hdc">
-        <img src="images/01.png" alt="HDC IoT APP">
+        <img src="images/01.png" alt="HDC IoT APP"
       </div>
       <div class="work-title">HDC IoT APP</div>
-      <div class="work-description">UX Concept, UI</div>
+      <div class="work-description">UX Concept, UI</div></a>
     </article>
     
     <article class="work-card">
