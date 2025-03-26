@@ -795,6 +795,63 @@ if (typeof barba !== 'undefined') {
     setTimeout(initAnimations, 100);
   });
 }
+  // 이 코드를 script 태그 맨 아래에 추가하세요
+document.addEventListener('DOMContentLoaded', function() {
+  // DOMContentLoaded 이벤트가 이미 발생했다면 바로 실행되도록 추가
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function() {
+      // 첫 번째 애니메이션만 강제로 다시 실행
+      const heroTitle = document.querySelector('.hero-title');
+      const heroSubtitle = document.querySelector('.hero-subtitle');
+      
+      if (heroTitle) {
+        heroTitle.innerHTML = 'I Design';
+        new TextSplitter({
+          elements: heroTitle,
+          type: 'chars',
+          delay: 0.2,
+          charDelay: 0.04
+        });
+      }
+      
+      if (heroSubtitle) {
+        heroSubtitle.innerHTML = 'Inside & Outside of Service';
+        new TextSplitter({
+          elements: heroSubtitle,
+          type: 'chars',
+          delay: 0.5,
+          charDelay: 0.03
+        });
+      }
+    }, 10);
+  }
+});
+
+// 페이지 로드 시 항상 실행되도록 추가
+window.addEventListener('load', function() {
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  if (heroTitle && !heroTitle.classList.contains('is-animated')) {
+    heroTitle.innerHTML = 'I Design';
+    new TextSplitter({
+      elements: heroTitle,
+      type: 'chars',
+      delay: 0.2,
+      charDelay: 0.04
+    });
+  }
+  
+  if (heroSubtitle && !heroSubtitle.classList.contains('is-animated')) {
+    heroSubtitle.innerHTML = 'Inside & Outside of Service';
+    new TextSplitter({
+      elements: heroSubtitle,
+      type: 'chars',
+      delay: 0.5,
+      charDelay: 0.03
+    });
+  }
+});
 </script>
 </body>
 </html>
