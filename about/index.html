@@ -424,23 +424,51 @@
 
 
   <script>
-        // Top 버튼 기능 추가
-const topButton = document.getElementById('topButton');
+document.addEventListener('DOMContentLoaded', () => {
+  // 컨텐츠 영역과 이미지 영역 요소 가져오기
+  const contentColumn = document.querySelector('.content-column');
+  const imageColumn = document.querySelector('.image-column');
+  
+  // 초기 스타일 설정 (투명하고 약간 아래에서 시작)
+  contentColumn.style.opacity = '0';
+  contentColumn.style.transform = 'translateY(30px)';
+  contentColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  
+  imageColumn.style.opacity = '0';
+  imageColumn.style.transform = 'translateY(30px)';
+  imageColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  
+  // 내용 영역 애니메이션 시작 (페이지 로드 후 약간 지연)
+  setTimeout(() => {
+    contentColumn.style.opacity = '1';
+    contentColumn.style.transform = 'translateY(0)';
+    
+    // 내용 애니메이션이 끝날 무렵 이미지 애니메이션 시작
+    setTimeout(() => {
+      imageColumn.style.opacity = '1';
+      imageColumn.style.transform = 'translateY(0)';
+    }, 300); // 내용 애니메이션 시작 후 300ms 후에 이미지 애니메이션 시작
+    
+  }, 200); // 페이지 로드 후 200ms 후에 내용 애니메이션 시작
+  
+  // Top 버튼 기능
+  const topButton = document.getElementById('topButton');
 
-topButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+  topButton.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
 
-// Top 버튼 표시/숨김 처리
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        topButton.style.display = 'flex';
-    } else {
-        topButton.style.display = 'none';
-    }
+  // Top 버튼 표시/숨김 처리
+  window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+          topButton.style.display = 'flex';
+      } else {
+          topButton.style.display = 'none';
+      }
+  });
 });
     
   </script>
