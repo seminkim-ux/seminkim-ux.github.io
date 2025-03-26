@@ -1203,12 +1203,12 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// 페이지 로드 후 실행될 함수
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. 프로젝트 헤더 이미지 애니메이션 설정
+// 페이지가 완전히 로드된 후 실행
+window.onload = function() {
+  // 프로젝트 헤더 이미지 애니메이션 설정
   setupHeaderAnimation();
   
-  // 2. 스크롤 애니메이션 요소들을 초기화
+  // 스크롤 애니메이션 요소들을 초기화
   initScrollAnimations();
   
   // 스크롤 이벤트 리스너 추가
@@ -1219,21 +1219,23 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
   checkScrollAnimations();
-});
+};
 
 // 헤더 이미지 애니메이션 설정 함수
 function setupHeaderAnimation() {
   const heroImage = document.querySelector('.hero-image');
   
   if (heroImage) {
-    // 이미지 초기 상태 설정 (투명)
+    // 먼저 이미지를 숨김
     heroImage.style.opacity = '0';
-    heroImage.style.transition = 'opacity 1.2s ease';
     
-    // 약간의 딜레이 후 이미지 페이드인
+    // 트랜지션 속성 추가
+    heroImage.style.transition = 'opacity 1.5s ease';
+    
+    // 약간의 딜레이 후 이미지 표시 (페이지 로드 후에 적용하므로 짧은 딜레이면 충분)
     setTimeout(() => {
       heroImage.style.opacity = '1';
-    }, 300);
+    }, 200);
   }
 }
 
@@ -1245,7 +1247,8 @@ function initScrollAnimations() {
   if (overviewImage) {
     // 이미지 초기 상태 설정 (투명)
     overviewImage.style.opacity = '0';
-    overviewImage.style.transition = 'opacity 1s ease';
+    // 더 느린 트랜지션 설정 (2초로 증가)
+    overviewImage.style.transition = 'opacity 2s ease';
   }
 }
 
