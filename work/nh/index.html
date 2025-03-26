@@ -1635,7 +1635,7 @@
     <!-- PROJECT HEADER SECTION -->
     <section class="project-header">
       <div class="project-header-content">
-        <div class="project-meta">2024.02 - 2024.06</div>
+        <div class="project-meta">2024.02 - 2023.06</div>
         <h1 class="project-title">NH Groupware <br> App</h1>
         <div class="project-description">
           <p>NH 투자증권 그룹웨어 모바일 앱의 UX를 기획하였습니다.</p>
@@ -2112,23 +2112,22 @@
           topButton.style.display = 'none';
         }
       });
-
-      // 페이지 로드 후 실행될 함수
+// 페이지 로드 후 실행될 함수
 document.addEventListener('DOMContentLoaded', function() {
   // 1. 프로젝트 헤더 배경 애니메이션 설정
   setupHeaderAnimation();
   
-  // 2. 모든 섹션 애니메이션 요소들을 초기화
-  initAllSectionsAnimations();
+  // 2. 스크롤 애니메이션 요소들을 초기화
+  initScrollAnimations();
   
   // 스크롤 이벤트 리스너 추가
   window.addEventListener('scroll', function() {
     // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
-    checkAllSectionsAnimations();
+    checkScrollAnimations();
   });
   
   // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
-  checkAllSectionsAnimations();
+  checkScrollAnimations();
 });
 
 // 헤더 배경 애니메이션 설정 함수 - 더 부드러운 페이드인 효과
@@ -2190,53 +2189,20 @@ function setupHeaderAnimation() {
   }
 }
 
-// 모든 섹션 애니메이션 초기화
-function initAllSectionsAnimations() {
+// 스크롤 애니메이션을 위한 요소들 초기화
+function initScrollAnimations() {
   // 섹션 2: 업그레이드 칼럼 애니메이션 설정
-  initSection2Animations();
-  
-  // 섹션 3: 포털/심플 UI 이미지 애니메이션 설정
-  initSection3Animations();
-  
-  // 섹션 4: UX 컨셉 애니메이션 설정
-  initSection4Animations();
-  
-  // 섹션 5: 메인 화면 애니메이션 설정
-  initSection5Animations();
-  
-  // 섹션 6: 화면 구조화 애니메이션 설정
-  initSection6Animations();
-  
-  // 섹션 7: 메일 첫화면 애니메이션 설정
-  initSection7Animations();
-  
-  // 섹션 8: 메일 접근성 애니메이션 설정
-  initSection8Animations();
-  
-  // 섹션 9: 미결함 애니메이션 설정
-  initSection9Animations();
-  
-  // 섹션 10: 태블릿 메인 화면 애니메이션 설정
-  initSection10Animations();
-  
-  // 섹션 11: 태블릿 결재 화면 애니메이션 설정
-  initSection11Animations();
-}
-
-// 섹션 2 애니메이션 초기화
-function initSection2Animations() {
   const upgradeColumns = document.querySelectorAll('.upgrade-column');
   upgradeColumns.forEach((column, index) => {
     // 초기 스타일 직접 설정
     column.style.opacity = '0';
     column.style.transform = 'translateY(50px)';
-    column.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    column.style.transition = `opacity 0.8s ease, transform 0.8s ease`;
+    // 데이터 속성으로 딜레이 값 저장
     column.dataset.animDelay = index * 200; // 순차적 딜레이
   });
-}
-
-// 섹션 3 애니메이션 초기화
-function initSection3Animations() {
+  
+  // 섹션 3: 이미지 애니메이션 설정
   const portalImage = document.querySelector('.portal-image');
   const simpleImage = document.querySelector('.simple-image');
   
@@ -2254,249 +2220,9 @@ function initSection3Animations() {
   }
 }
 
-// 섹션 4 애니메이션 초기화 (UX 컨셉)
-function initSection4Animations() {
-  // 왼쪽 타이틀 애니메이션
-  const titleLines = document.querySelectorAll('.concept-main-title h3 span');
-  titleLines.forEach((line, index) => {
-    line.style.opacity = '0';
-    line.style.transform = 'translateX(-30px)';
-    line.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    line.dataset.animDelay = index * 200;
-  });
-  
-  // 오른쪽 컨셉 아이템 애니메이션
-  const conceptItems = document.querySelectorAll('.concept-item, .concept-item1, .concept-item2, .concept-item3');
-  conceptItems.forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateX(-30px)';
-    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    item.dataset.animDelay = (titleLines.length * 200) + (index * 200);
-  });
-}
-
-// 섹션 5 애니메이션 초기화 (메인 화면)
-function initSection5Animations() {
-  const mainImage = document.querySelector('.main-image-container .main-image');
-  const mainDescription = document.querySelector('.main-description');
-  
-  if (mainImage) {
-    mainImage.style.opacity = '0';
-    mainImage.style.transform = 'translateY(50px)';
-    mainImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-  if (mainDescription) {
-    mainDescription.style.opacity = '0';
-    mainDescription.style.transform = 'translateY(30px)';
-    mainDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mainDescription.dataset.animDelay = '200';
-  }
-}
-
-// 섹션 6 애니메이션 초기화 (화면 구조화)
-function initSection6Animations() {
-  const wireframeImage = document.querySelector('.wireframe-image-container .wireframe-image');
-  const wireframeDescription = document.querySelector('.wireframe-description');
-  const infoBlocks = document.querySelectorAll('.wireframe-right-info .info-block');
-  
-  if (wireframeImage) {
-    wireframeImage.style.opacity = '0';
-    wireframeImage.style.transition = 'opacity 0.8s ease';
-  }
-  
-  if (wireframeDescription) {
-    wireframeDescription.style.opacity = '0';
-    wireframeDescription.style.transform = 'translateX(-30px)';
-    wireframeDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    wireframeDescription.dataset.animDelay = '200';
-  }
-  
-  infoBlocks.forEach((block, index) => {
-    block.style.opacity = '0';
-    block.style.transform = 'translateX(-30px)';
-    block.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    block.dataset.animDelay = 400 + (index * 200);
-  });
-}
-
-// 섹션 7 애니메이션 초기화 (메일 첫화면)
-function initSection7Animations() {
-  const mailMainImage = document.querySelector('.mail-section:nth-of-type(1) .mail-screen-container .mail-main-image');
-  const mailNotification = document.querySelector('.mail-section:nth-of-type(1) .mail-notification');
-  const mailPopup = document.querySelector('.mail-section:nth-of-type(1) .mail-popup');
-  const mailDescription = document.querySelector('.mail-section:nth-of-type(1) .mail-description');
-  const mailFlowImages = document.querySelector('.mail-section:nth-of-type(1) .mail-flow-images');
-  
-  if (mailMainImage) {
-    mailMainImage.style.opacity = '0';
-    mailMainImage.style.transition = 'opacity 1s ease';
-  }
-  
-  if (mailNotification) {
-    mailNotification.style.opacity = '0';
-    mailNotification.style.transform = 'translateX(-30px)';
-    mailNotification.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailNotification.dataset.animDelay = '200';
-  }
-  
-  if (mailPopup) {
-    mailPopup.style.opacity = '0';
-    mailPopup.style.transform = 'translateX(-30px)';
-    mailPopup.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailPopup.dataset.animDelay = '400';
-  }
-  
-  if (mailDescription) {
-    mailDescription.style.opacity = '0';
-    mailDescription.style.transform = 'translateX(-30px)';
-    mailDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailDescription.dataset.animDelay = '600';
-  }
-  
-  if (mailFlowImages) {
-    mailFlowImages.style.opacity = '0';
-    mailFlowImages.style.transform = 'translateX(-30px)';
-    mailFlowImages.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailFlowImages.dataset.animDelay = '800';
-  }
-}
-
-// 섹션 8 애니메이션 초기화 (메일 접근성)
-function initSection8Animations() {
-  const mailImage = document.querySelector('.mail-section:nth-of-type(2) .mail-screen-container3 .mail-main-image');
-  const mailDescription = document.querySelector('.mail-section:nth-of-type(2) .mail-description');
-  const mailPreview = document.querySelector('.mail-section:nth-of-type(2) .mail-preview');
-  const mailButtons = document.querySelector('.mail-section:nth-of-type(2) .mail-buttons');
-  
-  if (mailImage) {
-    mailImage.style.opacity = '0';
-    mailImage.style.transform = 'translateY(50px)';
-    mailImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-  if (mailDescription) {
-    mailDescription.style.opacity = '0';
-    mailDescription.style.transform = 'translateX(-30px)';
-    mailDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailDescription.dataset.animDelay = '200';
-  }
-  
-  if (mailPreview) {
-    mailPreview.style.opacity = '0';
-    mailPreview.style.transform = 'translateX(-30px)';
-    mailPreview.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailPreview.dataset.animDelay = '400';
-  }
-  
-  if (mailButtons) {
-    mailButtons.style.opacity = '0';
-    mailButtons.style.transform = 'translateX(-30px)';
-    mailButtons.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    mailButtons.dataset.animDelay = '600';
-  }
-}
-
-// 섹션 9 애니메이션 초기화 (미결함)
-function initSection9Animations() {
-  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
-  const approvalDescription = document.querySelector('.approval-description');
-  const otherApproval = document.querySelector('.other-approval');
-  
-  if (approvalImage) {
-    approvalImage.style.opacity = '0';
-    approvalImage.style.transform = 'translateY(50px)';
-    approvalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-if (approvalDescription) {
-  approvalDescription.style.opacity = '0';
-  approvalDescription.style.transform = 'translateX(-30px)';
-  approvalDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  approvalDescription.dataset.animDelay = '200';
-}
-  
-  if (otherApproval) {
-    otherApproval.style.opacity = '0';
-    otherApproval.style.transform = 'translateX(-30px)';
-    otherApproval.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    otherApproval.dataset.animDelay = '400';
-  }
-}
-
-// 섹션 10 애니메이션 초기화 (태블릿 메인 화면)
-function initSection10Animations() {
-  const tabletImage = document.querySelector('.tablet-image-container .tablet-main-image');
-  const tabletDescription = document.querySelector('.tablet-description');
-  
-  if (tabletImage) {
-    tabletImage.style.opacity = '0';
-    tabletImage.style.transform = 'translateY(50px)';
-    tabletImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-  if (tabletDescription) {
-    tabletDescription.style.opacity = '0';
-    tabletDescription.style.transform = 'translateY(30px)';
-    tabletDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    tabletDescription.dataset.animDelay = '200';
-  }
-}
-
-// 섹션 11 애니메이션 초기화 (태블릿 결재 화면)
-function initSection11Animations() {
-  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
-  const tabletApproveDescription = document.querySelector('.tablet-approve-description');
-  
-  if (tabletApproveImage) {
-    tabletApproveImage.style.opacity = '0';
-    tabletApproveImage.style.transform = 'translateY(50px)';
-    tabletApproveImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-  if (tabletApproveDescription) {
-    tabletApproveDescription.style.opacity = '0';
-    tabletApproveDescription.style.transform = 'translateY(30px)';
-    tabletApproveDescription.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    tabletApproveDescription.dataset.animDelay = '200';
-  }
-}
-
-// 모든 섹션 스크롤 애니메이션 체크
-function checkAllSectionsAnimations() {
-  // 섹션 2 체크
-  checkSection2Animations();
-  
-  // 섹션 3 체크
-  checkSection3Animations();
-  
-  // 섹션 4 체크
-  checkSection4Animations();
-  
-  // 섹션 5 체크
-  checkSection5Animations();
-  
-  // 섹션 6 체크
-  checkSection6Animations();
-  
-  // 섹션 7 체크
-  checkSection7Animations();
-  
-  // 섹션 8 체크
-  checkSection8Animations();
-  
-  // 섹션 9 체크
-  checkSection9Animations();
-  
-  // 섹션 10 체크
-  checkSection10Animations();
-  
-  // 섹션 11 체크
-  checkSection11Animations();
-}
-
-// 섹션 2 애니메이션 체크 (업그레이드 칼럼)
-function checkSection2Animations() {
+// 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+function checkScrollAnimations() {
+  // 섹션 2: 업그레이드 칼럼 애니메이션 체크
   const upgradeColumns = document.querySelectorAll('.upgrade-column');
   upgradeColumns.forEach(column => {
     if (isElementInViewport(column) && column.style.opacity === '0') {
@@ -2507,10 +2233,8 @@ function checkSection2Animations() {
       }, delay);
     }
   });
-}
-
-// 섹션 3 애니메이션 체크 (포털/심플 UI 이미지)
-function checkSection3Animations() {
+  
+  // 섹션 3: 이미지 애니메이션 체크
   const portalImage = document.querySelector('.portal-image');
   const simpleImage = document.querySelector('.simple-image');
   
@@ -2529,235 +2253,6 @@ function checkSection3Animations() {
   }
 }
 
-// 섹션 4 애니메이션 체크 (UX 컨셉)
-function checkSection4Animations() {
-  const titleLines = document.querySelectorAll('.concept-main-title h3 span');
-  const conceptItems = document.querySelectorAll('.concept-item, .concept-item1, .concept-item2, .concept-item3');
-  
-  // 타이틀 라인 체크
-  let allTitleLinesVisible = true;
-  titleLines.forEach(line => {
-    if (isElementInViewport(line) && line.style.opacity === '0') {
-      const delay = parseInt(line.dataset.animDelay || 0);
-      setTimeout(() => {
-        line.style.opacity = '1';
-        line.style.transform = 'translateX(0)';
-      }, delay);
-      allTitleLinesVisible = false;
-    }
-  });
-  
-  // 타이틀 라인이 모두 보이면 아이템 애니메이션 체크
-  if (allTitleLinesVisible) {
-    conceptItems.forEach(item => {
-      if (isElementInViewport(item) && item.style.opacity === '0') {
-        const delay = parseInt(item.dataset.animDelay || 0);
-        setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateX(0)';
-        }, delay);
-      }
-    });
-  }
-}
-
-// 섹션 5 애니메이션 체크 (메인 화면)
-function checkSection5Animations() {
-  const mainImage = document.querySelector('.main-image-container .main-image');
-  const mainDescription = document.querySelector('.main-description');
-  
-  if (mainImage && isElementInViewport(mainImage) && mainImage.style.opacity === '0') {
-    mainImage.style.opacity = '1';
-    mainImage.style.transform = 'translateY(0)';
-    
-    if (mainDescription && mainDescription.style.opacity === '0') {
-      const delay = parseInt(mainDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        mainDescription.style.opacity = '1';
-        mainDescription.style.transform = 'translateY(0)';
-      }, delay);
-    }
-  }
-}
-
-// 섹션 6 애니메이션 체크 (화면 구조화)
-function checkSection6Animations() {
-  const wireframeImage = document.querySelector('.wireframe-image-container .wireframe-image');
-  const wireframeDescription = document.querySelector('.wireframe-description');
-  const infoBlocks = document.querySelectorAll('.wireframe-right-info .info-block');
-  
-  if (wireframeImage && isElementInViewport(wireframeImage) && wireframeImage.style.opacity === '0') {
-    wireframeImage.style.opacity = '1';
-    
-    if (wireframeDescription && wireframeDescription.style.opacity === '0') {
-      const delay = parseInt(wireframeDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        wireframeDescription.style.opacity = '1';
-        wireframeDescription.style.transform = 'translateX(0)';
-      }, delay);
-    }
-    
-    infoBlocks.forEach(block => {
-      if (block.style.opacity === '0') {
-        const delay = parseInt(block.dataset.animDelay || 0);
-        setTimeout(() => {
-          block.style.opacity = '1';
-          block.style.transform = 'translateX(0)';
-        }, delay);
-      }
-    });
-  }
-}
-
-// 섹션 7 애니메이션 체크 (메일 첫화면)
-function checkSection7Animations() {
-  const mailMainImage = document.querySelector('.mail-section:nth-of-type(1) .mail-screen-container .mail-main-image');
-  const mailNotification = document.querySelector('.mail-section:nth-of-type(1) .mail-notification');
-  const mailPopup = document.querySelector('.mail-section:nth-of-type(1) .mail-popup');
-  const mailDescription = document.querySelector('.mail-section:nth-of-type(1) .mail-description');
-  const mailFlowImages = document.querySelector('.mail-section:nth-of-type(1) .mail-flow-images');
-  
-  if (mailMainImage && isElementInViewport(mailMainImage) && mailMainImage.style.opacity === '0') {
-    mailMainImage.style.opacity = '1';
-    
-    // 이미지가 나타난 후 순차적으로 다른 요소들 페이드인
-    if (mailNotification && mailNotification.style.opacity === '0') {
-      const notifyDelay = parseInt(mailNotification.dataset.animDelay || 200);
-      setTimeout(() => {
-        mailNotification.style.opacity = '1';
-        mailNotification.style.transform = 'translateX(0)';
-      }, notifyDelay);
-    }
-    
-    if (mailPopup && mailPopup.style.opacity === '0') {
-      const popupDelay = parseInt(mailPopup.dataset.animDelay || 400);
-      setTimeout(() => {
-        mailPopup.style.opacity = '1';
-        mailPopup.style.transform = 'translateX(0)';
-      }, popupDelay);
-    }
-    
-    if (mailDescription && mailDescription.style.opacity === '0') {
-      const descDelay = parseInt(mailDescription.dataset.animDelay || 600);
-      setTimeout(() => {
-        mailDescription.style.opacity = '1';
-        mailDescription.style.transform = 'translateX(0)';
-      }, descDelay);
-    }
-    
-    if (mailFlowImages && mailFlowImages.style.opacity === '0') {
-      const flowDelay = parseInt(mailFlowImages.dataset.animDelay || 800);
-      setTimeout(() => {
-        mailFlowImages.style.opacity = '1';
-        mailFlowImages.style.transform = 'translateX(0)';
-      }, flowDelay);
-    }
-  }
-}
-
-// 섹션 8 애니메이션 체크 (메일 접근성)
-function checkSection8Animations() {
-  const mailImage = document.querySelector('.mail-section:nth-of-type(2) .mail-screen-container3 .mail-main-image');
-  const mailDescription = document.querySelector('.mail-section:nth-of-type(2) .mail-description');
-  const mailPreview = document.querySelector('.mail-section:nth-of-type(2) .mail-preview');
-  const mailButtons = document.querySelector('.mail-section:nth-of-type(2) .mail-buttons');
-  
-  if (mailImage && isElementInViewport(mailImage) && mailImage.style.opacity === '0') {
-    mailImage.style.opacity = '1';
-    mailImage.style.transform = 'translateY(0)';
-    
-    if (mailDescription && mailDescription.style.opacity === '0') {
-      const delay = parseInt(mailDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        mailDescription.style.opacity = '1';
-        mailDescription.style.transform = 'translateX(0)';
-      }, delay);
-    }
-    
-    if (mailPreview && mailPreview.style.opacity === '0') {
-      const previewDelay = parseInt(mailPreview.dataset.animDelay || 400);
-      setTimeout(() => {
-        mailPreview.style.opacity = '1';
-        mailPreview.style.transform = 'translateX(0)';
-      }, previewDelay);
-    }
-    
-    if (mailButtons && mailButtons.style.opacity === '0') {
-      const buttonsDelay = parseInt(mailButtons.dataset.animDelay || 600);
-      setTimeout(() => {
-        mailButtons.style.opacity = '1';
-        mailButtons.style.transform = 'translateX(0)';
-      }, buttonsDelay);
-    }
-  }
-}
-
-// 섹션 9 애니메이션 체크 (미결함)
-function checkSection9Animations() {
-  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
-  const approvalDescription = document.querySelector('.approval-description');
-  const otherApproval = document.querySelector('.other-approval');
-  
-  if (approvalImage && isElementInViewport(approvalImage) && approvalImage.style.opacity === '0') {
-    approvalImage.style.opacity = '1';
-    approvalImage.style.transform = 'translateY(0)';
-    
-    if (approvalDescription && approvalDescription.style.opacity === '0') {
-      const delay = parseInt(approvalDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        approvalDescription.style.opacity = '1';
-        approvalDescription.style.transform = 'translateX(0)';
-      }, delay);
-    }
-    
-    if (otherApproval && otherApproval.style.opacity === '0') {
-      const otherDelay = parseInt(otherApproval.dataset.animDelay || 400);
-      setTimeout(() => {
-        otherApproval.style.opacity = '1';
-        otherApproval.style.transform = 'translateX(0)';
-      }, otherDelay);
-    }
-  }
-}
-
-// 섹션 10 애니메이션 체크 (태블릿 메인 화면)
-function checkSection10Animations() {
-  const tabletImage = document.querySelector('.tablet-image-container .tablet-main-image');
-  const tabletDescription = document.querySelector('.tablet-description');
-  
-  if (tabletImage && isElementInViewport(tabletImage) && tabletImage.style.opacity === '0') {
-    tabletImage.style.opacity = '1';
-    tabletImage.style.transform = 'translateY(0)';
-    
-  if (tabletDescription && tabletDescription.style.opacity === '0') {
-      const delay = parseInt(tabletDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        tabletDescription.style.opacity = '1';
-        tabletDescription.style.transform = 'translateY(0)';
-      }, delay);
-    }
-  }
-}
-
-// 섹션 11 애니메이션 체크 (태블릿 결재 화면)
-function checkSection11Animations() {
-  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
-  const tabletApproveDescription = document.querySelector('.tablet-approve-description');
-  
-  if (tabletApproveImage && isElementInViewport(tabletApproveImage) && tabletApproveImage.style.opacity === '0') {
-    tabletApproveImage.style.opacity = '1';
-    tabletApproveImage.style.transform = 'translateY(0)';
-    
-    if (tabletApproveDescription && tabletApproveDescription.style.opacity === '0') {
-      const delay = parseInt(tabletApproveDescription.dataset.animDelay || 200);
-      setTimeout(() => {
-        tabletApproveDescription.style.opacity = '1';
-        tabletApproveDescription.style.transform = 'translateY(0)';
-      }, delay);
-    }
-  }
-}
-
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -2769,6 +2264,7 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
+
       
     </script>
 </div>
