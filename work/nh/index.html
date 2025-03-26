@@ -2223,6 +2223,8 @@ function initScrollAnimations() {
   initSection5Animations();
   // 섹션 6 초기화
   initSection6Animations();
+  // 섹션 7 초기화
+  initSection7Animations();
 }
 
 // 섹션 4에 대한 애니메이션 초기화 함수
@@ -2291,6 +2293,48 @@ function initSection6Animations() {
   }
 }
 
+// 섹션 7에 대한 애니메이션 초기화 함수
+function initSection7Animations() {
+  // 이미지 요소
+  const mailMainImage = document.querySelector('.mail-screen-container .mail-main-image');
+  
+  if (mailMainImage) {
+    // 메인 이미지 페이드인
+    mailMainImage.style.opacity = '0';
+    mailMainImage.style.transition = 'opacity 0.8s ease';
+  }
+  
+  // 왼쪽 텍스트 영역과 하단 이미지 그룹
+  const mailTextGroup = document.querySelector('.mail-text');
+  const mailFlowImages = document.querySelector('.mail-flow-images');
+  
+  if (mailTextGroup) {
+    mailTextGroup.style.opacity = '0';
+    mailTextGroup.style.transition = 'opacity 0.8s ease';
+  }
+  
+  if (mailFlowImages) {
+    mailFlowImages.style.opacity = '0';
+    mailFlowImages.style.transition = 'opacity 0.8s ease';
+  }
+  
+  // 오른쪽 알림 영역과 팝업 이미지 그룹
+  const mailNotification = document.querySelector('.mail-notification');
+  const mailPopup = document.querySelector('.mail-popup');
+  
+  if (mailNotification) {
+    mailNotification.style.opacity = '0';
+    mailNotification.style.transition = 'opacity 0.8s ease';
+    mailNotification.dataset.animDelay = '500'; // 메인 이미지 뒤에 표시
+  }
+  
+  if (mailPopup) {
+    mailPopup.style.opacity = '0';
+    mailPopup.style.transition = 'opacity 0.8s ease';
+    mailPopup.dataset.animDelay = '800'; // 알림 뒤에 표시
+  }
+}
+
 // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
 function checkScrollAnimations() {
   // 섹션 2: 업그레이드 칼럼 애니메이션 체크
@@ -2331,6 +2375,9 @@ function checkScrollAnimations() {
   
   // 섹션 6 체크
   checkSection6Animations();
+  
+  // 섹션 7 체크
+  checkSection7Animations();
 }
 
 // 섹션 4에 대한 애니메이션 체크 함수
@@ -2390,6 +2437,47 @@ function checkSection6Animations() {
   }
 }
 
+// 섹션 7 애니메이션 체크 함수
+function checkSection7Animations() {
+  // 메인 이미지 체크
+  const mailMainImage = document.querySelector('.mail-screen-container .mail-main-image');
+  
+  if (mailMainImage && isElementInViewport(mailMainImage) && mailMainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 페이드인
+    mailMainImage.style.opacity = '1';
+    
+    // 왼쪽 텍스트와 이미지 그룹 체크
+    const mailTextGroup = document.querySelector('.mail-text');
+    const mailFlowImages = document.querySelector('.mail-flow-images');
+    
+    if (mailTextGroup && mailTextGroup.style.opacity === '0') {
+      mailTextGroup.style.opacity = '1';
+    }
+    
+    if (mailFlowImages && mailFlowImages.style.opacity === '0') {
+      mailFlowImages.style.opacity = '1';
+    }
+    
+    // 오른쪽 영역 체크 (딜레이 적용)
+    const mailNotification = document.querySelector('.mail-notification');
+    const mailPopup = document.querySelector('.mail-popup');
+    
+    if (mailNotification && mailNotification.style.opacity === '0') {
+      const notifyDelay = parseInt(mailNotification.dataset.animDelay || 500);
+      setTimeout(() => {
+        mailNotification.style.opacity = '1';
+      }, notifyDelay);
+    }
+    
+    if (mailPopup && mailPopup.style.opacity === '0') {
+      const popupDelay = parseInt(mailPopup.dataset.animDelay || 800);
+      setTimeout(() => {
+        mailPopup.style.opacity = '1';
+      }, popupDelay);
+    }
+  }
+}
+
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -2401,10 +2489,6 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
-      // 페이지 로드 직후 헤더 애니메이션 즉시 실행
-document.addEventListener('DOMContentLoaded', function() {
-  setupHeaderAnimation();
-});
     </script>
 </div>
 </body>
