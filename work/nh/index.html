@@ -2401,6 +2401,10 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
+      // 페이지 로드 직후 헤더 애니메이션 즉시 실행
+document.addEventListener('DOMContentLoaded', function() {
+  setupHeaderAnimation();
+});
     </script>
 </div>
 </body>
