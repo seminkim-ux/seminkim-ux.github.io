@@ -2111,6 +2111,132 @@
           topButton.style.display = 'none';
         }
       });
+// 페이지 로드 후 실행될 함수
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 프로젝트 헤더 배경 애니메이션 설정
+  setupHeaderAnimation();
+  
+  // 2. 스크롤 애니메이션 요소들을 초기화
+  initScrollAnimations();
+  
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', function() {
+    // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+    checkScrollAnimations();
+  });
+  
+  // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
+  checkScrollAnimations();
+});
+
+// 헤더 배경 애니메이션 설정 함수
+function setupHeaderAnimation() {
+  const projectHeader = document.querySelector('.project-header');
+  const headerContent = document.querySelector('.project-header-content');
+  
+  // 헤더 배경 초기 스타일 설정
+  if (projectHeader) {
+    // 배경색만 검은색으로 설정하고 배경 이미지 일시적으로 제거
+    projectHeader.style.backgroundColor = '#000000';
+    projectHeader.style.backgroundImage = 'none';
+    projectHeader.style.transition = 'background-image 1.2s ease-in-out';
+    
+    // 헤더 콘텐츠도 초기에 투명하게 설정
+    if (headerContent) {
+      headerContent.style.opacity = '0';
+      headerContent.style.transform = 'translateY(30px)';
+      headerContent.style.transition = 'opacity 1s ease, transform 1s ease';
+    }
+    
+    // 약간의 딜레이 후 배경 이미지 페이드인
+    setTimeout(() => {
+      projectHeader.style.backgroundImage = 'url("images/01.jpg")';
+      
+      // 배경 이미지가 나타난 후 콘텐츠도 페이드인
+      if (headerContent) {
+        headerContent.style.opacity = '1';
+        headerContent.style.transform = 'translateY(0)';
+      }
+    }, 500);
+  }
+}
+
+// 스크롤 애니메이션을 위한 요소들 초기화
+function initScrollAnimations() {
+  // 섹션 2: 업그레이드 칼럼 애니메이션 설정
+  const upgradeColumns = document.querySelectorAll('.upgrade-column');
+  upgradeColumns.forEach((column, index) => {
+    // 초기 스타일 직접 설정
+    column.style.opacity = '0';
+    column.style.transform = 'translateY(50px)';
+    column.style.transition = `opacity 0.8s ease, transform 0.8s ease`;
+    // 데이터 속성으로 딜레이 값 저장
+    column.dataset.animDelay = index * 200; // 순차적 딜레이
+  });
+  
+  // 섹션 3: 이미지 애니메이션 설정
+  const portalImage = document.querySelector('.portal-image');
+  const simpleImage = document.querySelector('.simple-image');
+  
+  if (portalImage) {
+    portalImage.style.opacity = '0';
+    portalImage.style.transform = 'translateX(-30px)';
+    portalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  if (simpleImage) {
+    simpleImage.style.opacity = '0';
+    simpleImage.style.transform = 'translateX(-30px)';
+    simpleImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    simpleImage.dataset.animDelay = '300'; // 두 번째 이미지 딜레이
+  }
+}
+
+// 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+function checkScrollAnimations() {
+  // 섹션 2: 업그레이드 칼럼 애니메이션 체크
+  const upgradeColumns = document.querySelectorAll('.upgrade-column');
+  upgradeColumns.forEach(column => {
+    if (isElementInViewport(column) && column.style.opacity === '0') {
+      const delay = parseInt(column.dataset.animDelay || 0);
+      setTimeout(() => {
+        column.style.opacity = '1';
+        column.style.transform = 'translateY(0)';
+      }, delay);
+    }
+  });
+  
+  // 섹션 3: 이미지 애니메이션 체크
+  const portalImage = document.querySelector('.portal-image');
+  const simpleImage = document.querySelector('.simple-image');
+  
+  if (portalImage && isElementInViewport(portalImage) && portalImage.style.opacity === '0') {
+    portalImage.style.opacity = '1';
+    portalImage.style.transform = 'translateX(0)';
+    
+    // 왼쪽 이미지 페이드인 후 오른쪽 이미지 페이드인
+    if (simpleImage && simpleImage.style.opacity === '0') {
+      const delay = parseInt(simpleImage.dataset.animDelay || 300);
+      setTimeout(() => {
+        simpleImage.style.opacity = '1';
+        simpleImage.style.transform = 'translateX(0)';
+      }, delay);
+    }
+  }
+}
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // 요소의 상단이 화면 하단보다 위에 있고, 요소의 하단이 화면 상단보다 아래에 있는지 확인
+  return (
+    rect.top <= windowHeight * 0.8 && // 요소가 화면의 80% 이내에 들어오면 활성화
+    rect.bottom >= 0
+  );
+}
+      
     </script>
 </div>
 </body>
