@@ -2273,27 +2273,50 @@ function initSection4Animations() {
   });
 }
 
+// 섹션 4에 대한 애니메이션 초기화 함수
+function initSection4Animations() {
+  // 왼쪽 컬럼의 "조용하게", "명확하게", "우선 순위대로" 글자들 설정
+  const leftItems = document.querySelectorAll('.concept-item1, .concept-item2, .concept-item3');
+  leftItems.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    item.dataset.animDelay = index * 200;
+  });
+  
+  // 오른쪽 컬럼의 컨셉 아이템들 설정
+  const rightItems = document.querySelectorAll('.concept-column:nth-child(2) .concept-item');
+  rightItems.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    item.dataset.animDelay = (leftItems.length * 200) + (index * 200); // 왼쪽 컬럼 이후 시작
+  });
+}
+
 // 섹션 4에 대한 애니메이션 체크 함수
 function checkSection4Animations() {
-  // 왼쪽 컬럼의 "조용하게", "명확하게", "우선 순위대로" 글자들 체크
-  const leftColumnTitles = document.querySelectorAll('.concept-title-b');
-  let allLeftTitlesVisible = true;
+  // 왼쪽 컬럼의 글자들 체크
+  const leftItems = document.querySelectorAll('.concept-item1, .concept-item2, .concept-item3');
+  let allLeftItemsVisible = true;
   
-  leftColumnTitles.forEach(title => {
-    if (isElementInViewport(title) && title.style.opacity === '0') {
-      const delay = parseInt(title.dataset.animDelay || 0);
+  leftItems.forEach(item => {
+    if (isElementInViewport(item) && item.style.opacity === '0') {
+      const delay = parseInt(item.dataset.animDelay || 0);
       setTimeout(() => {
-        title.style.opacity = '1';
-        title.style.transform = 'translateX(0)';
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
       }, delay);
-      allLeftTitlesVisible = false;
+      allLeftItemsVisible = false;
+    } else if (!isElementInViewport(item) && item.style.opacity === '0') {
+      allLeftItemsVisible = false;
     }
   });
   
   // 왼쪽 컬럼이 모두 보이면 오른쪽 컬럼 애니메이션 체크
-  if (allLeftTitlesVisible) {
-    const rightColumnItems = document.querySelectorAll('.concept-column:nth-child(2) .concept-item');
-    rightColumnItems.forEach(item => {
+  if (allLeftItemsVisible) {
+    const rightItems = document.querySelectorAll('.concept-column:nth-child(2) .concept-item');
+    rightItems.forEach(item => {
       if (isElementInViewport(item) && item.style.opacity === '0') {
         const delay = parseInt(item.dataset.animDelay || 0);
         setTimeout(() => {
@@ -2303,8 +2326,20 @@ function checkSection4Animations() {
       }
     });
   }
-}      
+}
 
+// 스크롤 이벤트 리스너와 함께 스크립트를 추가하세요
+document.addEventListener('DOMContentLoaded', function() {
+  initSection4Animations();
+  
+  window.addEventListener('scroll', function() {
+    checkSection4Animations();
+  });
+  
+  // 페이지 로드 시 한 번 체크
+  checkSection4Animations();
+});
+      
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
   const rect = element.getBoundingClientRect();
