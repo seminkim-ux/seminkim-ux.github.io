@@ -2129,35 +2129,62 @@ document.addEventListener('DOMContentLoaded', function() {
   checkScrollAnimations();
 });
 
-// 헤더 배경 애니메이션 설정 함수
+// 헤더 배경 애니메이션 설정 함수 - 더 부드러운 페이드인 효과
 function setupHeaderAnimation() {
   const projectHeader = document.querySelector('.project-header');
   const headerContent = document.querySelector('.project-header-content');
   
   // 헤더 배경 초기 스타일 설정
   if (projectHeader) {
-    // 배경색만 검은색으로 설정하고 배경 이미지 일시적으로 제거
+    // 배경색 설정
     projectHeader.style.backgroundColor = '#000000';
-    projectHeader.style.backgroundImage = 'none';
-    projectHeader.style.transition = 'background-image 1.2s ease-in-out';
     
-    // 헤더 콘텐츠도 초기에 투명하게 설정
+    // 오버레이 요소 생성
+    const overlay = document.createElement('div');
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = '#000000';
+    overlay.style.opacity = '1';
+    overlay.style.transition = 'opacity 1s ease';
+    overlay.style.zIndex = '1';
+    
+    // 기존 헤더 콘텐츠를 위한 z-index 조정
     if (headerContent) {
+      headerContent.style.position = 'relative';
+      headerContent.style.zIndex = '2';
       headerContent.style.opacity = '0';
       headerContent.style.transform = 'translateY(30px)';
       headerContent.style.transition = 'opacity 1s ease, transform 1s ease';
+      headerContent.style.transitionDelay = '0.5s';
     }
     
-    // 약간의 딜레이 후 배경 이미지 페이드인
+    // 헤더에 오버레이 추가
+    projectHeader.prepend(overlay);
+    
+    // 배경 이미지 설정
+    projectHeader.style.backgroundImage = 'url("images/01.jpg")';
+    projectHeader.style.backgroundSize = 'cover';
+    projectHeader.style.backgroundPosition = 'top center';
+    projectHeader.style.backgroundRepeat = 'no-repeat';
+    
+    // 약간의 딜레이 후 오버레이 페이드아웃
     setTimeout(() => {
-      projectHeader.style.backgroundImage = 'url("images/01.jpg")';
+      overlay.style.opacity = '0';
       
-      // 배경 이미지가 나타난 후 콘텐츠도 페이드인
+      // 오버레이가 사라진 후 콘텐츠도 페이드인
       if (headerContent) {
         headerContent.style.opacity = '1';
         headerContent.style.transform = 'translateY(0)';
       }
-    }, 500);
+      
+      // 오버레이가 완전히 사라지면 제거
+      setTimeout(() => {
+        overlay.remove();
+      }, 1500);
+    }, 200);
   }
 }
 
@@ -2236,6 +2263,7 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
+
       
     </script>
 </div>
