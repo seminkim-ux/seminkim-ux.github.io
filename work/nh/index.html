@@ -2094,24 +2094,25 @@
     <div class="top-button" id="topButton"></div>
 
     <script>
-      // Top 버튼 기능 추가
-      const topButton = document.getElementById('topButton');
+// Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
 
-      topButton.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
+topButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 
-      // Top 버튼 표시/숨김 처리
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
-          topButton.style.display = 'flex';
-        } else {
-          topButton.style.display = 'none';
-        }
-      });
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    topButton.style.display = 'flex';
+  } else {
+    topButton.style.display = 'none';
+  }
+});
+
 // 페이지 로드 후 실행될 함수
 document.addEventListener('DOMContentLoaded', function() {
   // 1. 프로젝트 헤더 배경 애니메이션 설정
@@ -2218,6 +2219,30 @@ function initScrollAnimations() {
     simpleImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     simpleImage.dataset.animDelay = '300'; // 두 번째 이미지 딜레이
   }
+  
+  // 섹션 4 초기화
+  initSection4Animations();
+}
+
+// 섹션 4에 대한 애니메이션 초기화 함수
+function initSection4Animations() {
+  // 왼쪽 컬럼 그룹 (조용하게, 명확하게, 우선 순위대로)
+  const leftColumn = document.querySelector('.concept-column:nth-child(1)');
+  if (leftColumn) {
+    leftColumn.style.opacity = '0';
+    leftColumn.style.transform = 'translateX(-30px)';
+    leftColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  // 오른쪽 컬럼 그룹
+  const rightColumn = document.querySelector('.concept-column:nth-child(2)');
+  if (rightColumn) {
+    rightColumn.style.opacity = '0';
+    rightColumn.style.transform = 'translateX(-30px)';
+    rightColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    // 왼쪽 그룹이 나타난 후 오른쪽 그룹이 나타나도록 딜레이 설정
+    rightColumn.dataset.animDelay = '1000';
+  }
 }
 
 // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
@@ -2251,47 +2276,9 @@ function checkScrollAnimations() {
       }, delay);
     }
   }
-}
-// 섹션 4에 대한 애니메이션 초기화 함수
-function initSection4Animations() {
-  // 왼쪽 컬럼의 "조용하게", "명확하게", "우선 순위대로" 글자들 애니메이션 설정
-  const leftColumnTitles = document.querySelectorAll('.concept-title-b');
-  leftColumnTitles.forEach((title, index) => {
-    title.style.opacity = '0';
-    title.style.transform = 'translateX(-30px)';
-    title.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    title.dataset.animDelay = index * 200;
-  });
   
-  // 오른쪽 컬럼의 컨셉 아이템들 애니메이션 설정
-  const rightColumnItems = document.querySelectorAll('.concept-column:nth-child(2) .concept-item');
-  rightColumnItems.forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateX(-30px)';
-    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    item.dataset.animDelay = (leftColumnTitles.length * 200) + (index * 200); // 왼쪽 컬럼 이후 시작
-  });
-}
-
-// 섹션 4에 대한 애니메이션 초기화 함수
-function initSection4Animations() {
-  // 왼쪽 컬럼 그룹 (조용하게, 명확하게, 우선 순위대로)
-  const leftColumn = document.querySelector('.concept-column:nth-child(1)');
-  if (leftColumn) {
-    leftColumn.style.opacity = '0';
-    leftColumn.style.transform = 'translateX(-30px)';
-    leftColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  }
-  
-  // 오른쪽 컬럼 그룹
-  const rightColumn = document.querySelector('.concept-column:nth-child(2)');
-  if (rightColumn) {
-    rightColumn.style.opacity = '0';
-    rightColumn.style.transform = 'translateX(-30px)';
-    rightColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    // 왼쪽 그룹이 나타난 후 오른쪽 그룹이 나타나도록 딜레이 설정
-    rightColumn.dataset.animDelay = '1000';
-  }
+  // 섹션 4 체크
+  checkSection4Animations();
 }
 
 // 섹션 4에 대한 애니메이션 체크 함수
@@ -2319,12 +2306,6 @@ function checkSection4Animations() {
   }
 }
 
-
-  
-  // 페이지 로드 시 한 번 체크
-  checkSection4Animations();
-});
-      
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -2336,7 +2317,6 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
-
       
     </script>
 </div>
