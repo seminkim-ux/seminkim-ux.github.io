@@ -2222,6 +2222,8 @@ function initScrollAnimations() {
   
   // 섹션 4 초기화
   initSection4Animations();
+  // 섹션 5 초기화
+initSection5Animations();
 }
 
 // 섹션 4에 대한 애니메이션 초기화 함수
@@ -2257,6 +2259,7 @@ function checkScrollAnimations() {
         column.style.transform = 'translateY(0)';
       }, delay);
     }
+    checkSection5Animations();
   });
   
   // 섹션 3: 이미지 애니메이션 체크
@@ -2305,7 +2308,30 @@ function checkSection4Animations() {
     }
   }
 }
+// 섹션 5에 대한 애니메이션 초기화 함수
+function initSection5Animations() {
+  // 섹션 5의 이미지 요소
+  const mainImage = document.querySelector('.main-image-container .main-image');
+  
+  if (mainImage) {
+    // 이미지를 처음에 숨기고 아래에서 위로 올라오도록 설정
+    mainImage.style.opacity = '0';
+    mainImage.style.transform = 'translateY(50px)';
+    mainImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
 
+// 섹션 5에 대한 애니메이션 체크 함수
+function checkSection5Animations() {
+  const mainImage = document.querySelector('.main-image-container .main-image');
+  
+  if (mainImage && isElementInViewport(mainImage) && mainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    mainImage.style.opacity = '1';
+    mainImage.style.transform = 'translateY(0)';
+  }
+}
+      
 // 요소가 화면에 보이는지 확인하는 함수
 function isElementInViewport(element) {
   const rect = element.getBoundingClientRect();
