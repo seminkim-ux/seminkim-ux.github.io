@@ -1324,7 +1324,79 @@
         margin-top: 60px;
       }
     }
+/* 1280px 환경을 위한 추가 미디어 쿼리 */
+@media screen and (max-width: 1280px) {
+  /* 메일 섹션 7 수정 */
+  .mail-text {
+    transform: translateX(20%) !important; /* 35%에서 축소 */
+  }
+  
+  .mail-flow-images {
+    transform: translateX(calc(5vw + 20px)) !important; /* 9vw에서 축소 */
+  }
+  
+  .mail-notification {
+    transform: translateX(60%) !important; /* 104%에서 축소 */
+  }
+  
+  .mail-popup {
+    transform: translateX(60%) !important; /* 91%에서 축소 */
+  }
+  
+  /* 메일 섹션 8 수정 */
+  .mail-preview, .mail-buttons {
+    transform: translateX(110%) !important; /* 175%에서 축소 */
+  }
+  
+  /* 승인 섹션 9 수정 */
+  .other-approval {
+    transform: translateX(100%) !important; /* 160%에서 축소 */
+  }
+  
+  /* 와이어프레임 섹션 6 수정 */
+  .wireframe-right-info {
+    transform: translateX(100%) !important; /* 127%에서 축소 */
+  }
+  
+  /* 이미지 컨테이너 위치 조정 */
+  .mail-screen-container {
+    transform: translateX(-25%) !important; /* -35%에서 수정 */
+  }
+  
+  .mail-screen-container3 {
+    transform: translateX(-75%) !important; /* -105%에서 수정 */
+  }
+  
+  .approval-screen-container {
+    transform: translateX(-65%) !important; /* -95%에서 수정 */
+  }
+  
+  /* 태블릿 이미지 컨테이너 */
+  .tablet-image-container,
+  .tablet-approve-image-container {
+    transform: translateX(-10%) !important; /* -20%/-15%에서 수정 */
+  }
+}
 
+/* 기존 1440px 미디어 쿼리 내용도 1280px에 맞게 조정 */
+@media screen and (max-width: 1440px) {
+  .mail-notification {
+    transform: translateX(70%); /* 83%에서 수정 */
+  }
+  
+  .info-title {
+    font-size: 18px;
+  }
+  
+  .mail-flow-screen {
+    width: 160px;
+    height: auto;
+  }
+  
+  .info-description {
+    font-size: 14px;
+  }
+}
     @media screen and (max-width: 1024px) {
       .project-title {
         font-size: var(--font-size-xxxl);
