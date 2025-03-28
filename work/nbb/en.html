@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <title>No Brand Burger App - Semin Kim Portfolio</title>
+  <style>
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray:#f2f9fc;
+      --blue-light: #41d9ff;
+      --yellow-medium: #e1a317;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #fed83f;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+    /* PROJECT HEADER SECTION - 새로 작성 */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 60px;
+      background-color: var(--nav-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 17.5vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+    }
+
+    .hero-image, .hero-image2 {
+opacity: 0;
+      position: absolute;
+      width: 15vw;
+      height: auto;
+    }
+
+    .hero-image {
+      right: 22vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+
+    .hero-image2 {
+      right: 3vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-yellow {
+      color: var(--yellow-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+    /* SECTION 2: OVERVIEW */
+    .overview-content {
+      display: flex;
+      position: relative; 
+      gap: 16px;
+      align-items: center;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+      position: absolute;  
+      width: 30%;
+      margin-top: 8vh; 
+      right: 100px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+
+    .overview-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+/* SECTION 3: PROCESS  */
+  .process-section {
+    padding: 100px 60px;
+    background-color: var(--white);
+  }
+  
+  .process-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+  }
+  
+  .section-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-align:left;
+  }
+  
+  .process-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .process-column {
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-box {
+    padding: 30px;
+    width : 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .define-box {
+    background-color: #98dbf5;
+  }
+  
+  .ideation-box {
+    background-color: #a2d987;
+  }
+  
+  .prototype-box {
+    background-color: #ffbccd;
+  }
+  
+  .test-box {
+    background-color: #f3ca58;
+  }
+  
+  .box-title {
+    font-family: var(--font-family-jost);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .process-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .process-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black);
+    padding-top: 15px;
+  }
+  
+  
+    
+    
+/* SECTION 4: INSIGHT */
+  .insight-section {
+    padding: 100px 60px;
+    background-color: var(--light-gray);
+    min-height:100vh;
+  }
+ .insight-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+    position:relative;
+    display: flex; /* flex 유지 */
+   flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소 사이 공간 확보 */
+  align-items: flex-start; 
+  min-height: 70vh;
+}
+  
+    .insight-images {
+      position: absolute;  
+      width: 65%;
+      margin-top:-10vh; 
+      right: -2%;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+     .insight-image {
+       max-width: 90%; /* 이미지 최대 너비 설정 */
+      height: auto;
+      display: block; /* margin auto 허용을 위해 block으로 설정 */
+}
+
+ /* SECTION 5: INSIGHT 2*/
+  .insight2-section {
+    padding: 100px 60px;
+   background-color: var(--white);
+    min-height:100vh;
+  }
+ .insight2-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+    position:relative;
+    display: flex; /* flex 유지 */
+   flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소 사이 공간 확보 */
+  align-items: flex-start; 
+  min-height: 70vh;
+}
+  
+    .insight2-images {
+      position: absolute;  
+      width: 65%;
+      margin-top:-5vh; 
+      right: 6vw;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+     .insight2-image {
+       max-width: 100%; /* 이미지 최대 너비 설정 */
+      height: auto;
+      display: block; /* margin auto 허용을 위해 block으로 설정 */
+}
+
+/* SECTION 6: CORE FEATURES */
+.features-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.features-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+}
+
+.features-diagram {
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 노드 스타일 */
+.feature-node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.main-node {
+  background-color: #fff5a0;
+  border: 1px solid #e0e0e0;
+  width: 210px;
+  height: 50px;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+.second-node {
+  background-color: #fff5a0;
+    border: 1px solid #e0e0e0;
+  width: 210px; /* 1.5배로 증가 */
+  height: 50px;
+  z-index: 2;
+}
+
+.empty-node {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.node-text {
+  font-family: var(--font-family-pretendard);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* 수직 연결선 */
+.vertical-lines {
+  position: absolute;
+  top: 106px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.vertical-line {
+  position: absolute;
+  width: 1px;
+  background-color: #ccc;
+  top: 0;
+  height: 500px; /* 라인 길이 */
+}
+
+.line1 {
+  left: 10%;
+  height: 200px;
+}
+
+.line2 {
+  left: 30%;
+    height: 300px;
+}
+
+.line3 {
+  left: 50%;
+  height: 440px;
+}
+
+.line4 {
+  left: 70%;
+}
+
+.line5 {
+  left: 90%;
+}
+
+/* 2단계 노드 컨테이너 */
+.second-level-nodes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  margin-bottom: 80px;
+  position: relative;
+  justify-items: center;
+}
+
+/* 메인 노드에서 아래로 내려오는 선 */
+.second-level-nodes::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 1px;
+  height: 30px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* 2단계 노드들을 가로로 연결하는 선 */
+.second-level-nodes::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* 3단계 노드 전체 컨테이너 */
+.third-level-nodes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  position: relative;
+  justify-items: center;
+  top : -12vh; 
+}
+
+/* 3단계 노드 컨테이너들 */
+.third-level-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 210px; /* 1.5배로 증가 */
+  z-index: 3;
+  margin-top: 50px;
+}
+
+/* 기능 박스 스타일 */
+.feature-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  width: 100%;
+  min-height: 60px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.feature-title {
+  font-family: var(--font-family-pretendard);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.feature-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  font-family: var(--font-family-pretendard);
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 12px;
+}
+
+.feature-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #555;
+}
+
+/* SECTION 7: SOLUTION */
+.solution-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 120vh;
+  position: relative;
+}
+
+.solution-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.solution-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+.solution-text2 {
+  width: 50%;
+  position: absolute;
+right:-17vw;
+bottom:-18vh;	
+  z-index: 2;
+}
+.solution-images {
+  position: absolute;
+  width: 25%;
+  right: 30vw;
+  top: -8vh;
+  z-index: 1;
+}
+
+.solution-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.solution-description {
+  width: 100%;
+  margin-top: -7vh; /* Adjust based on image height */
+  clear: both;
+}
+.solution-description2 {
+position:absolute;	
+width: 50%;
+margin-top: 30vh; /* Adjust based on image height */
+right: -17vw;
+bottom:-33vh;
+  clear: both;
+}
+
+.section-description {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+ .solution-ex {
+    font-family: var(--font-family-pretendard);
+    font-size: 13px;
+    line-height: 1.6;
+	 margin-top:30px;
+    color: #555;
+  }
+.highlight-yellow {
+  color: var(--yellow-medium);
+}
+
+.highlight-d {
+  color: #000;
+  font-weight: 700;
+}
+
+
+/* SECTION 8: SOLUTION2  */
+.solution2-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution2-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* column으로 변경 */
+}
+
+.solution2-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution2-images {
+  position: relative;
+  width: 100%; /* 전체 너비로 변경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  bottom: -20vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 45%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 23%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: 1%;
+  z-index: 4;
+}
+
+.solution2-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+.section-description {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* SECTION 9: solution3  */
+.solution3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution3-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  align-items: flex-start;
+  justify-content: space-between;
+}
+  .section9-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align:left;
+  }
+.solution3-text {
+  width: 30%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution3-images {
+  position: relative;
+  width: 70%; /* 전체 너비로 변경 */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px; /* 상단 여백 */
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 32%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 40vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 20vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: 0vw;
+  z-index: 4;
+bottom:-76vh;
+}
+
+.solution3-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+  .solution3-me{
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+  position: relative; 
+    margin-top:10vh;
+    line-height: 1.6;
+    color: #000;
+  }
+
+    
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+   
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, .hero-image2 {
+        width: 230px;
+      }
+      
+      .hero-image2 {
+        right: 100px;
+      }
+        .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  .third-level-container {
+    min-width: 200px;
+  }
+    .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  
+  .third-level-container {
+    min-width: 200px;
+  }
+}
+
+
+
+    @media screen and (max-width: 1024px) {
+      
+  
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+  
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 80px);
+        transform: translateX(50%);
+        bottom: 15%;
+      }
+          .process-grid {
+      flex-wrap: wrap;
+    }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+	      .solution-text {
+    width: 100%;
+  }
+  
+  .solution-images {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .solution-description {
+    margin-top: 30px;
+  }
+}
+  
+  
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+      right: 17vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+
+    .hero-image2 {
+      right: -1vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+.overview-image {
+      position: absolute;  
+      width: 36%;
+      margin-top: 8vh; 
+      right: 10px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+.process-box {
+    padding: 30px;
+    width : 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 21vw;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 40%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 17%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -6%;
+  z-index: 4;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 34%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+}
+
+	
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 40px);
+        transform: translateX(50%);
+      }
+  .insight-content {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 30px; /* 요소 간 간격 */
+  }
+  
+  .section-heading, .insight-images {
+    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
+  }
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+
+.solution-section {
+    padding: 80px 20px;
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+   
+      .hero-image, .hero-image2 {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 20px);
+        transform: translateX(50%);
+        bottom: 25%;
+      }
+    }
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex !important;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+    display: none !important;
+    }
+  }
+	  
+  </style>
+</head>
+<body>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+    <a href="/work/nbb/" class="menu-item">KO</a> -->
+        <a href="/about/en.html" class="menu-item">ABOUT</a>
+        <a href="/work/en.html" class="menu-item active">WORK</a>
+        <a href="/contact/en.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION - newly written -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2021.01 - 2021.09</div>
+        <h1 class="project-title">No Brand Burger<br> APP</h1>
+        <div class="project-description">
+          <p>I led the main planning for No Brand Burger's ordering channels (app, mobile web, PC web) project.</p>
+          <p>I designed the entire flow from registration to ordering, post-order feedback, and user events.</p>
+          <p>I fixed errors through testing and launched the service.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING / 70%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Increased 20% App Order</span>
+        </div>
+      </div>
+      
+      <!-- Mobile UI images -->
+      <div class="project-images">
+          <img src="images/01_p.png" alt="No Brand Burger app screenshot" class="hero-image">
+          <img src="images/01_p2.png" alt="No Brand Burger app screenshot" class="hero-image2">
+      </div>
+    </section>
+    
+  <!-- SECTION 2: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">
+          Transforming online orders dependent on external channels<br>
+          into a brand-specific service.
+        </h3>
+        <p class="overview-paragraph">No Brand Burger was operating online orders only through external channels like Baemin and Yogiyo.<br>
+        They needed to reduce costs with their own channel and build relationships with users.<br>
+        To create a rational ordering UX that aligns with the brand concept "Why pay more",<br>
+        we achieved the goal of fast registration and ordering.</p>
+      </div>
+      <div class="overview-image">
+        <img src="images/02.png" alt="NBB Icon image">
+      </div>
+    </div>
+  </section>
+    
+<!-- SECTION 3: PROCESS -->
+<section class="section process-section">
+  <h2 class="section-title">Process</h2>
+  <div class="process-content">
+    <h3 class="section-heading">
+      I oversaw the entire UX planning process.
+    </h3>
+    
+    <div class="process-grid">
+      <!-- Define Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box define-box">
+          <h4 class="box-title">Define</h4>
+          <ul class="process-list">
+            <li>Competitor analysis and evaluation</li>
+            <li>UX trend research</li>
+            <li>Service trend research</li>
+            <li>Brand analysis</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I analyzed various franchise apps from<br>
+          a heuristic usability perspective.<br>
+          I researched UX and service trends,<br>
+          and studied brand characteristics.
+        </p>
+      </div>
+      
+      <!-- Ideation Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box ideation-box">
+          <h4 class="box-title">Ideation</h4>
+          <ul class="process-list">
+            <li>Co-creation workshop</li>
+            <li>Service Concept</li>
+            <li>Research on distinctive key features</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          Through regular workshops with the marketing<br>
+          department, development team, and IT department,<br>
+          I analyzed needs and established the concept.<br>
+          I defined distinctive key features<br>
+          unique to the service.
+        </p>
+      </div>
+      
+      <!-- Prototype Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box prototype-box">
+          <h4 class="box-title">Prototype</h4>
+          <ul class="process-list">
+            <li>Information Architecture</li>
+            <li>Wireframe creation</li>
+            <li>Notification message writing</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I designed the overall structure,<br>
+          created wireframes for each detailed screen<br>
+          including main, registration, ordering, and payment.<br>
+          I wrote situation-specific notification messages<br>
+          to be sent as feedback.
+        </p>
+      </div>
+      
+      <!-- Test Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box test-box">
+          <h4 class="box-title">Test</h4>
+          <ul class="process-list">
+            <li>Test scenario creation</li>
+            <li>Testing with employees</li>
+            <li>Notification testing</li>
+            <li>Field testing</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I created test scenarios.<br>
+          I coordinated between the client and developers<br>
+          during employee testing.<br>
+          I conducted tests to verify compliance with<br>
+          notification rules and in-store ordering tests.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<!-- SECTION 4 : insight -->
+<section class="insight-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="insight-content">
+    <h3 class="section-heading">
+      I analyzed competitor apps based on<br>
+      ordering service requirements and<br>
+      explored key strengths.
+    </h3>
+        <div class="insight-images">
+          <img src="images/04_2.svg" alt="No Brand Burger value analysis" class="insight-image">
+     </div>
+  </div>
+    </section>
+    
+<!-- SECTION 5 : insight2 -->
+<section class="insight2-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="insight2-content">
+    <h3 class="section-heading">
+      Based on preliminary research and analysis,<br>
+      I established the UX Concept and<br>
+      defined core functions.
+    </h3>
+        <div class="insight2-images">
+          <img src="images/05_2.svg" alt="No Brand Burger concept" class="insight2-image">
+     </div>
+  </div>
+    </section>
+
+
+    
+<!-- SECTION 6: CORE FEATURES -->
+<section class="features-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="features-content">
+    <h3 class="section-heading">
+      I created the overall structure and<br>
+      defined core features in detailed screens<br>
+      aligned with the UX Concept.
+    </h3>
+    
+    <div class="features-diagram">
+      <!-- Main node - Home -->
+      <div class="feature-node main-node">
+        <span class="node-text">Home</span>
+      </div>
+      
+      <!-- Vertical connecting lines -->
+      <div class="vertical-lines">
+        <div class="vertical-line line1"></div>
+        <div class="vertical-line line2"></div>
+        <div class="vertical-line line3"></div>
+        <div class="vertical-line line4"></div>
+        <div class="vertical-line line5"></div>
+      </div>
+      
+      <!-- 2nd level nodes -->
+      <div class="second-level-nodes">
+        <div class="feature-node second-node empty-node">
+          <span class="node-text"></span>
+        </div>
+        <div class="feature-node second-node">
+          <span class="node-text">Coupons</span>
+        </div>
+        <div class="feature-node second-node">
+          <span class="node-text">Order</span>
+        </div>
+        <div class="feature-node second-node">
+          <span class="node-text">MY</span>
+        </div>
+        <div class="feature-node second-node">
+          <span class="node-text">More</span>
+        </div>
+      </div>
+      
+      <!-- 3rd level nodes full container -->
+      <div class="third-level-nodes">
+        <!-- 3rd level nodes - left (under empty second-level-node) -->
+        <div class="third-level-container empty-container">
+          <div class="feature-box">
+            <h4 class="feature-title">Sign Up</h4>
+            <ul class="feature-list">
+              <li>Sign up with SNS accounts without input</li>
+              <li>Minimize input for direct registration</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Login</h4>
+            <ul class="feature-list">
+              <li>Easy login with mobile phone ID</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- 3rd level nodes - Coupons -->
+        <div class="third-level-container coupon-container">
+          <div class="feature-box">
+            <h4 class="feature-title">Coupon List by Order Type</h4>
+            <ul class="feature-list">
+              <li>Create coupons directly in store</li>
+              <li>Browse coupons by order type</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Coupon Details</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Gift Coupons</h4>
+          </div>
+        </div>
+        
+        <!-- 3rd level nodes - Order -->
+        <div class="third-level-container order-container">
+          <div class="feature-box">
+            <h4 class="feature-title">Delivery Order</h4>
+            <ul class="feature-list">
+              <li>Delivery location settings</li>
+              <li>Menu browsing within categories</li>
+              <li>Option selection</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Store Pickup</h4>
+            <ul class="feature-list">
+              <li>Location-based store recommendations</li>
+              <li>Store favorites</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Quick Order</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Guest Order</h4>
+          </div>
+        </div>
+        
+        <!-- 3rd level nodes - MY -->
+        <div class="third-level-container my-container">
+          <div class="feature-box">
+            <h4 class="feature-title">Order History</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Stamp Collection</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">My Delivery Locations / Stores</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Surveys</h4>
+            <ul class="feature-list">
+              <li>Surveys for all members</li>
+              <li>Surveys for specific generations</li>
+              <li>Surveys for customers who ordered specific menus</li>
+            </ul>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Information Update</h4>
+          </div>
+        </div>
+        
+        <!-- 3rd level nodes - More -->
+        <div class="third-level-container more-container">
+          <div class="feature-box">
+            <h4 class="feature-title">Store Locator</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Menu Browsing</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Events</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Customer Service</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">Terms and Policies</h4>
+          </div>
+          
+          <div class="feature-box">
+            <h4 class="feature-title">App Settings</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+<!-- SECTION 7: SOLUTION -->
+<section class="solution-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution-content">
+    <div class="solution-text">
+      <h3 class="section-heading">
+        The first screen of the ordering service<br>
+        designed to <span class="highlight-yellow">quickly satisfy</span><br>
+        various needs.
+      </h3>
+	
+    </div>
+    
+    <div class="solution-text2">
+      <h3 class="section-heading">
+        Small but meaningful<br>
+        <span class="highlight-yellow">personalization elements</span><br>
+        for users
+      </h3>
+    </div>
+    
+    <div class="solution-images">
+      <img src="images/07.png" alt="No Brand Burger app image" class="solution-image">
+    </div>
+    
+    <div class="solution-description">
+      <p class="section-description">
+        <span class="highlight-d">I defined the essential elements for the home screen of an ordering app.</span><br>
+        First, I placed the order button prominently on the screen.<br>
+        I also placed buttons for scanning QR codes at restaurant tables<br>
+        for immediate ordering and for checking membership barcodes<br>
+        used at kiosks on the home screen for easy access.
+      </p>
+	<p class="solution-ex">
+        • For effective explanation, I used design images,<br>
+        but in reality, I created wireframes and planning documents.
+      </p>
+    </div>
+	
+
+    <div class="solution-description2">
+      <p class="section-description">
+        Personalized service is visible on the home screen.<br>
+        The Quick Order feature allows users to easily reorder<br>
+        their previous orders, providing customized fast ordering.<br>
+        Greeting messages using nicknames and displaying the user's stamps<br>
+        and coupon status at the top delivers elements necessary<br>
+        from the user's perspective.
+      </p>
+    </div>
+  </div>
+</section>
+	  
+<!-- SECTION 8: SOLUTION2 -->
+<section class="solution2-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution2-content">
+    <div class="solution2-text">
+      <h3 class="section-heading">
+        Register and login quickly<br>
+        to <span class="highlight-yellow">lower the entry barrier.</span>
+      </h3>
+
+      <div class="solution2-description">
+        <p class="section-description">
+         With SNS easy registration, users can <span class="highlight-d">register quickly without entering information</span><br>
+         just by selecting the information provision consent button.<br>
+          For direct registration, we decided to use phone numbers as login IDs<br>
+          to eliminate the struggle of choosing an ID.<br>
+          We also minimized the information required during registration.<br>
+          We also prepared solutions for phone number changes.
+        </p>
+      </div>
+    </div>
+
+    <div class="solution2-images">
+      <img src="images/08_1.png" alt="No Brand Burger app image" class="solution2-image1">
+      <img src="images/08_2.png" alt="No Brand Burger app image" class="solution2-image2">
+      <img src="images/08_3.png" alt="No Brand Burger app image" class="solution2-image3">
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION 9: SOLUTION3 -->
+<section class="solution3-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution3-content">
+    <div class="solution3-text">
+      <h3 class="section9-heading">
+        Comfortable ordering is<br>
+        <span class="highlight-yellow">fast ordering.</span>
+      </h3>
+
+      <div class="solution3-description">
+        <p class="section-description">
+          By providing elements that users need during<br>
+          the ordering process <span class="highlight-d">in advance, we lower entry barriers.</span><br>
+          <span class="highlight-d">Comfortable ordering that reduces factors to consider<br>
+          and elements to select directly, while still providing<br>
+          thorough guidance, is essential UX that creates<br>
+          consensus between the service and users.</span>
+        </p>
+      </div>
+
+      <div class="solution3-me">
+        1. We compare existing delivery locations with the current location<br> and ask for confirmation to prevent errors.<br><br>
+        2. Even when not logged in, users can experience the entire ordering process<br> and choose member/guest ordering at the final step.<br><br>
+        3. Users can order more easily with previous orders<br> or pre-set quick orders. <br><br>
+      </div>
+    </div>
+
+    <div class="solution3-images">
+      <img src="images/09_1.png" alt="No Brand Burger app image" class="solution3-image1">
+      <img src="images/09_2.png" alt="No Brand Burger app image" class="solution3-image2">
+      <img src="images/09_3.png" alt="No Brand Burger app image" class="solution3-image3">
+    </div>
+  </div>
+</section>
+	
+<div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>
+
+<div class="top-button" id="topButton"></div>
+
+  <script>
+// Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+        rect.bottom >= 0
+    );
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+    // 첫 번째 섹션: 휴대폰 이미지 페이드인 애니메이션
+    const heroImage = document.querySelector('.hero-image');
+    const heroImage2 = document.querySelector('.hero-image2');
+    
+    if (heroImage && heroImage2) {
+        // 초기에는 투명하게 설정
+        heroImage.style.opacity = '0';
+        heroImage2.style.opacity = '0';
+        
+        // 부드러운 전환 효과 설정
+        heroImage.style.transition = 'opacity 1s ease-out';
+        heroImage2.style.transition = 'opacity 1s ease-out';
+        
+        // 첫 번째 이미지를 먼저 표시
+        setTimeout(() => {
+            heroImage.style.opacity = '1';
+        }, 300);
+        
+        // 두 번째 이미지를 약간의 지연 후 표시
+        setTimeout(() => {
+            heroImage2.style.opacity = '1';
+        }, 800);
+    }
+    
+    // 두 번째 섹션: 아이콘 이미지 아래에서 위로 애니메이션
+    const overviewImage = document.querySelector('.overview-image');
+    
+    if (overviewImage) {
+        // 초기 스타일 설정
+        overviewImage.style.opacity = '0';
+        overviewImage.style.transform = 'translateY(40px)';
+        overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    // 섹션 3: 프로세스 컬럼들이 순차적으로 올라오는 애니메이션
+    const processColumns = document.querySelectorAll('.process-column');
+    
+    if (processColumns.length > 0) {
+        processColumns.forEach((column, index) => {
+            // 초기 스타일 설정
+            column.style.opacity = '0';
+            column.style.transform = 'translateY(40px)';
+            column.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        });
+    }
+    
+    // 섹션 4: 인사이트 이미지가 아래에서 위로 올라오는 애니메이션
+    const insightImage = document.querySelector('.insight-image');
+    
+    if (insightImage) {
+        // 초기 스타일 설정
+        insightImage.style.opacity = '0';
+        insightImage.style.transform = 'translateY(40px)';
+        insightImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 5: 인사이트2 이미지가 아래에서 위로 올라오는 애니메이션
+    const insight2Image = document.querySelector('.insight2-image');
+    
+    if (insight2Image) {
+        // 초기 스타일 설정
+        insight2Image.style.opacity = '0';
+        insight2Image.style.transform = 'translateY(40px)';
+        insight2Image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 6: 다이어그램이 페이드인으로만 나타나는 애니메이션
+    const featuresDiagram = document.querySelector('.features-diagram');
+    
+    if (featuresDiagram) {
+        // 초기 스타일 설정
+        featuresDiagram.style.opacity = '0';
+        featuresDiagram.style.transition = 'opacity 1.2s ease-out';
+    }
+
+    // 섹션 7: 솔루션 이미지가 위에서 아래로 페이드인
+    const solutionImage = document.querySelector('.solution-image');
+    
+    if (solutionImage) {
+        // 초기 스타일 설정
+        solutionImage.style.opacity = '0';
+        solutionImage.style.transform = 'translateY(50px)';
+        solutionImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+    
+    // 섹션 8: 솔루션2 이미지들이 순차적으로 페이드인
+    const solution2Images = [
+        document.querySelector('.solution2-image1'),
+        document.querySelector('.solution2-image2'),
+        document.querySelector('.solution2-image3')
+    ];
+    
+    if (solution2Images[0]) {
+        solution2Images.forEach((img, index) => {
+            if (img) {
+                img.style.opacity = '0';
+                img.style.transform = 'translateY(40px)';
+                img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }
+        });
+    }
+    
+    // 섹션 9: 솔루션3 이미지들이 순차적으로 페이드인
+    const solution3Images = [
+        document.querySelector('.solution3-image1'),
+        document.querySelector('.solution3-image2'),
+        document.querySelector('.solution3-image3')
+    ];
+    
+    if (solution3Images[0]) {
+        solution3Images.forEach((img, index) => {
+            if (img) {
+                img.style.opacity = '0';
+                img.style.transform = 'translateY(40px)';
+                img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }
+        });
+    }
+    
+    // 스크롤 이벤트에 모든 애니메이션 함수 연결
+    function handleScrollAnimations() {
+        // 두 번째 섹션 애니메이션
+        if (overviewImage && isInViewport(overviewImage)) {
+            overviewImage.style.opacity = '1';
+            overviewImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 3 애니메이션
+        if (processColumns.length > 0 && isInViewport(document.querySelector('.process-section'))) {
+            processColumns.forEach((column, index) => {
+                setTimeout(() => {
+                    column.style.opacity = '1';
+                    column.style.transform = 'translateY(0)';
+                }, 200 * index); // 각 컬럼을 200ms 간격으로 애니메이션
+            });
+        }
+        
+        // 섹션 4 애니메이션
+        if (insightImage && isInViewport(document.querySelector('.insight-section'))) {
+            insightImage.style.opacity = '1';
+            insightImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 5 애니메이션
+        if (insight2Image && isInViewport(document.querySelector('.insight2-section'))) {
+            insight2Image.style.opacity = '1';
+            insight2Image.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 6 애니메이션
+        if (featuresDiagram && isInViewport(document.querySelector('.features-section'))) {
+            featuresDiagram.style.opacity = '1';
+        }
+	      // 섹션 7 애니메이션
+        if (solutionImage && isInViewport(document.querySelector('.solution-section'))) {
+            solutionImage.style.opacity = '1';
+            solutionImage.style.transform = 'translateY(0)';
+        }
+        
+        // 섹션 8 애니메이션
+        if (solution2Images[0] && isInViewport(document.querySelector('.solution2-section'))) {
+            solution2Images.forEach((img, index) => {
+                if (img) {
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0)';
+                    }, 300 * index); // 각 이미지를 300ms 간격으로 애니메이션
+                }
+            });
+        }
+        
+        // 섹션 9 애니메이션
+        if (solution3Images[0] && isInViewport(document.querySelector('.solution3-section'))) {
+            solution3Images.forEach((img, index) => {
+                if (img) {
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0)';
+                    }, 300 * index); // 각 이미지를 300ms 간격으로 애니메이션
+                }
+            });
+        }
+    }
+    
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 요소 확인
+    handleScrollAnimations();
+});	  
+	  
+</script>
+  </div>
+</body>
+</html>
