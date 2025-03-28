@@ -220,7 +220,7 @@ body, h1, h2, h3, h4, p, span {
     .project-description {
       font-family: var(--font-family-pretendard);
       font-size: var(--font-size-m);
-      line-height: 1.6;
+      line-height: 1.9;
       max-width: 900px;
       margin-bottom: 32px;
     }
@@ -2358,7 +2358,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (heroImage && heroImage2) {
     // 앞에 있는 이미지(hero-image): 아래에서 위로 올라오면서 페이드인
-    heroImage.style.transform = 'translateY(40px)';
+    heroImage.style.transform = 'translateY(-40px)';
     heroImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
     
     // 뒤에 있는 이미지(hero-image2): 페이드인만
