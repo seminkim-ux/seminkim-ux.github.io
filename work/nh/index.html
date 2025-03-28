@@ -1324,77 +1324,48 @@
         margin-top: 60px;
       }
     }
-/* 1280px 환경을 위한 추가 미디어 쿼리 */
-@media screen and (max-width: 1280px) {
-  /* 메일 섹션 7 수정 */
-  .mail-text {
-    transform: translateX(20%) !important; /* 35%에서 축소 */
-  }
-  
-  .mail-flow-images {
-    transform: translateX(calc(5vw + 20px)) !important; /* 9vw에서 축소 */
-  }
-  
+/* 이 스타일은 1280px 환경에서 요소 간 간격을 조정하기 위한 것입니다 */
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  /* 메일 섹션 7 - 오른쪽 영역 */
   .mail-notification {
-    transform: translateX(60%) !important; /* 104%에서 축소 */
+    transform: translateX(60%) !important;
   }
   
   .mail-popup {
-    transform: translateX(60%) !important; /* 91%에서 축소 */
+    transform: translateX(60%) !important;
   }
   
-  /* 메일 섹션 8 수정 */
-  .mail-preview, .mail-buttons {
-    transform: translateX(110%) !important; /* 175%에서 축소 */
+  /* 섹션 8 - 메일 미리보기와 버튼 */
+  .mail-preview {
+    transform: translateX(140%) !important;
   }
   
-  /* 승인 섹션 9 수정 */
+  .mail-buttons {
+    transform: translateX(140%) !important;
+  }
+  
+  /* 섹션 9 - 결재함 */
   .other-approval {
-    transform: translateX(100%) !important; /* 160%에서 축소 */
-  }
-  
-  /* 와이어프레임 섹션 6 수정 */
-  .wireframe-right-info {
-    transform: translateX(100%) !important; /* 127%에서 축소 */
-  }
-  
-  /* 이미지 컨테이너 위치 조정 */
-  .mail-screen-container {
-    transform: translateX(-25%) !important; /* -35%에서 수정 */
-  }
-  
-  .mail-screen-container3 {
-    transform: translateX(-75%) !important; /* -105%에서 수정 */
-  }
-  
-  .approval-screen-container {
-    transform: translateX(-65%) !important; /* -95%에서 수정 */
-  }
-  
-  /* 태블릿 이미지 컨테이너 */
-  .tablet-image-container,
-  .tablet-approve-image-container {
-    transform: translateX(-10%) !important; /* -20%/-15%에서 수정 */
+    transform: translateX(130%) !important;
   }
 }
 
-/* 기존 1440px 미디어 쿼리 내용도 1280px에 맞게 조정 */
-@media screen and (max-width: 1440px) {
+/* 기존 1440px 미디어 쿼리를 조정하지 말고 추가 설정만 해줍니다 */
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
   .mail-notification {
-    transform: translateX(70%); /* 83%에서 수정 */
+    transform: translateX(70%);
   }
   
-  .info-title {
-    font-size: 18px;
+  .mail-preview {
+    transform: translateX(150%);
   }
   
-  .mail-flow-screen {
-    width: 160px;
-    height: auto;
+  .mail-buttons {
+    transform: translateX(150%);
   }
   
-  .info-description {
-    font-size: 14px;
+  .other-approval {
+    transform: translateX(140%);
   }
 }
     @media screen and (max-width: 1024px) {
