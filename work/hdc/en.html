@@ -1,0 +1,3204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <title>HDC IoT App - Semin Kim Portfolio</title>
+  <style>
+/* Pretendard 폰트는 기존 woff 참조 유지 */
+
+     @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #f0f1f3;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 500;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+
+/* 팝업 버튼 스타일 - ID에서 클래스로 변경 */
+.popup-button {
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-circle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #517fff;
+    border-radius: 50%;
+    z-index: 2;
+    animation: small-bounce 1.5s ease-out infinite;
+}
+
+.large-circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(81, 127, 255, 0.6);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes small-bounce {
+    0%, 50% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    40% {
+        transform: scale(0.9);
+    }
+}
+
+/* 팝업 배경 스타일 - ID에서 클래스로 변경 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 팝업 창 스타일 */
+.popup-content {
+  top:10vh;
+  left:2vw;
+  width: 550px;
+    height: 550px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    padding: 30px;
+    position: absolute;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* 닫기 버튼 스타일 - ID에서 클래스로 변경 */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button:before, .close-button:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    left: 50%;
+}
+
+.close-button:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 팝업 내용 스타일 */
+.popup-text {
+    font-family: "Pretendard-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 20px;
+}
+
+    /* PROJECT HEADER SECTION */
+    .project-header {
+      padding: 0 60px;
+      height: 90vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--nav-bg);
+      position: relative; 
+    }
+    
+    .project-header-content {
+      flex: 1;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 22vh;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGE */
+    .hero-image {
+      position: absolute; 
+      bottom: -6px;
+      right: 0px;
+      width: 42%;
+      height: auto;
+      overflow: hidden;
+      z-index: 10;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 0; 
+    }
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-blue {
+      color: var(--blue-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+    /* SECTION 1: OVERVIEW */
+    .overview-content {
+      display: flex;
+      position: relative; 
+      gap: 16px;
+      align-items: center;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+      position: absolute;  
+      width: 25%;
+      margin-top: 15vh; 
+      right: 100px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+
+    .overview-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+    /* SECTION 2: MARKET RESEARCH */
+    .research-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+    }
+
+    .research-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxl);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 40px;
+      max-width: 1100px;
+      text-align: left;
+    }
+    .research-text {
+      display: block; /* absolute 대신 block 사용 */
+      margin-top: 50px;
+      width: 100%;
+    }
+      .research-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+    
+    /* 타임라인 스타일 */
+    .timeline {
+      position: relative;
+      margin-top: 80px;
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 50px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+
+    .timeline-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 11%;
+    }
+
+    .timeline-dot {
+      width: 15px;
+      height: 15px;
+      background-color: #aaa;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% + 7px);
+      left: 0px;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      position: absolute;
+      left: 0;
+      text-align: left;
+      width: 150%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      top: -90px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      bottom: -90px;
+    }
+
+    .timeline-year {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px; /* 수정: 4x -> 10px */
+    }
+
+    .timeline-event {
+      font-family: var(--font-family-pretendard);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    /* 결론 영역 스타일 */
+    .conclusion-content {
+      margin-top: 40px;
+      margin-bottom: 50px !important; /* !important로 우선순위 강제 */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+    }
+
+    .conclusion-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: left;
+      width: 100%;
+    }
+
+    /* SECTION 3: CLIENT INTERVIEW */
+    .cinterview-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      max-width: 100%;
+      margin: 0;
+      margin-right: auto;
+      padding-top: 30px;
+    }
+
+    .cinterview-text {
+      display: block; /* absolute 대신 block 사용 */
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .cinterview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 24px; /* 헤딩과 텍스트 사이 간격 추가 */
+    }
+
+    /* SECTION 4: USER RESEARCH STYLES */
+  .user-research-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
+  }
+  
+  .user-research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .user-research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  
+  .user-research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .user-feedback-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  
+  .user-feedback-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .user-feedback-box {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+    position: relative;
+    min-height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity:1;
+  }
+  
+  .user-feedback-text {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 700;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .user-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-medium);
+  }
+    /* SECTION 5: INSIGHT STYLES */
+  .insight-section {
+    background-color: var(--white);
+    padding-bottom: 120px;
+  }
+  
+  .insight-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .insight-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  
+  .insight-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .strategy-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 30px;
+  }
+  
+  .strategy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .strategy-circle {
+    width: 220px;
+    height: 220px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .strategy-title {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+  }
+  
+  .strategy-points {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .strategy-points li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 20px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #6e6e73;
+  }
+  
+  .strategy-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #4285F4;
+  }
+
+
+  /* SECTION 6: SOLUTION STYLES */
+.solution-section {
+  background-color: var(--white);
+  padding: 100px 60px 0 60px; /* 상단 패딩 유지, 하단 패딩 제거 */
+  overflow: visible;
+  position: relative;
+  height: 90vh; /* 고정 높이 설정 */
+  display: flex;
+  flex-direction: column;
+}
+
+  
+  .solution-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 왼쪽 UX Writing 영역 스타일 */
+  .solution-left {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .solution-strategy-circle {
+    width: 180px;
+    height: 180px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .solution-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .solution-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* 메인 폰 이미지 영역 - 왼쪽 30% 위치에 배치 */
+.main-phone-container {
+  position: absolute;
+  left: 37%;
+  right: 0;
+  bottom: -1px; /* project-header와 동일하게 조정 */
+  width: 50%; 
+  z-index: 2;
+}
+
+  
+  .main-phone-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* 제어버튼 설명 영역 (이미지 왼쪽 하단에 배치) */
+  .control-button-desc {
+    position: absolute;
+    bottom: 30px;
+    left: 11%;
+    width: 24%;
+    text-align: right;
+    z-index: 3;
+  }
+  
+  .control-button-desc h4 {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .control-button-desc p {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 날씨 정보 영역 (이미지 오른쪽 상단에 배치) */
+  .weather-info {
+    position: absolute;
+    top: 20%;
+    right: 10.5%;
+    width: 30%;
+    text-align: left;
+    z-index: 3;
+  }
+  
+  .weather-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .weather-bubble {
+    background-color: #ECECEC;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    max-width: 65%;
+    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
+    display: block; 
+  }
+  
+  .weather-bubble2 {
+    background-color: #ECECEC;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    max-width: 65%;
+    width: fit-content; /* 콘텐츠에 맞게 너비 자동 조절 */
+    display: block; 
+  }
+  
+  .weather-bubble p, .weather-bubble2 p {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .weather-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* RESPONSIVE STYLES FOR SOLUTION SECTION */
+  @media screen and (max-width: 1200px) {
+    .solution-content {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .solution-left {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .main-phone-container {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: none;
+      width: 80%;
+      max-width: 500px;
+      margin: 0 auto 50px;
+    }
+    
+    .control-button-desc, .weather-info {
+      position: static;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
+      text-align: center;
+    }
+    
+    .weather-bubble, .weather-bubble2 {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .main-phone-container {
+      width: 90%;
+    } 
+  }
+/* 1200px에서 1440px 사이의 해상도를 위한 미디어 쿼리 */
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  /* SECTION 6: SOLUTION STYLES 수정 */
+  .solution-section {
+  padding: 100px 60px 0 60px; /* 상단 패딩 유지, 하단 패딩 제거 */
+  overflow: visible;
+  position: relative;
+  height: 90vh; /* 고정 높이 설정 */
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .main-phone-container {
+    position: absolute;
+    left: 41%;
+    width: 55%;
+    bottom: 0px;
+  }
+  
+  .control-button-desc {
+    position:absolute;
+    left: -7%;
+    width: 45%;
+    bottom: 8%;
+  }
+  
+  .weather-info {
+    position:absolute;
+    right: -11%;
+    top: 9%;
+    width: 45%;
+  }
+  
+  .weather-bubble, 
+  .weather-bubble2 {
+    max-width: 80%;
+  }
+  
+  .solution-left {
+    width: 30%;
+  }
+  
+  .solution-strategy-circle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .solution-subheading {
+    font-size: 28px;
+  }
+}
+ /* SECTION 7: UI 화면 구조 STYLES */
+  .ui-structure-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
+    overflow: visible;
+    position: relative;
+    min-height: 120vh; /* 120vh에서 auto로 변경 */
+    padding-bottom: 80px; /
+  }
+  
+  .ui-structure-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 왼쪽 규칙성 영역 스타일 */
+  .ui-structure-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    padding-right: 20px;
+  }
+  
+  .ui-structure-strategy-circle {
+    width: 180px;
+    height: 180px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .ui-structure-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .ui-structure-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* 모바일 UI 이미지 컨테이너 */
+  .ui-image-container {
+  position: relative; /* absolute에서 relative로 변경 */
+  left: -5%; /* 기존 left 속성 제거 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 100%; /* 너비 조정 */
+  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 90px; /* 상단 마진 추가 */
+  display: flex;
+ flex-direction: row; /* 가로 방향 배치 */
+  align-items: center; /* 가운데 정렬 */
+  gap: 10px; /* 이미지 사이 간격 */
+}
+  
+  .ui-phone-image {
+    width: 36%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  /* 일관성 설명 영역 */
+  .consistency-explanation {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: left;
+    z-index: 3;
+    padding-left: 0px; /* 왼쪽 여백 60px 추가 */
+    margin-top: 750px; /* 위쪽 여백 추가 */
+    clear: both; /* float 요소 이후 클리어 */
+  }
+  
+  .consistency-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .consistency-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* RESPONSIVE STYLES FOR UI STRUCTURE SECTION */
+  @media screen and (max-width: 1200px) {
+    .ui-structure-content {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .ui-structure-left {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 50px;
+      padding-right: 0;
+    }
+    
+    .ui-image-container {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 20px;
+    }
+    
+    .ui-phone-image {
+      width: 70%;
+      max-width: 300px;
+    }
+    
+    .consistency-explanation {
+      position: static;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ui-phone-image {
+      width: 90%;
+    }    
+    .ui-structure-strategy-circle {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .ui-structure-subheading {
+      font-size: 28px;
+    }
+  }
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+/* 모바일 UI 이미지 컨테이너 */
+  .ui-image-container {
+  position: relative; /* absolute에서 relative로 변경 */
+  top: auto; /* 기존 top 속성 제거 */
+  width: 100%; /* 너비 조정 */
+  margin-left: 0; /* 왼쪽 마진으로 위치 조정 */
+  margin-top: 90px; /* 상단 마진 추가 */
+  display: flex;
+  left:-7%;
+ flex-direction: row; /* 가로 방향 배치 */
+  align-items: center; /* 가운데 정렬 */
+  gap: 0px; /* 이미지 사이 간격 */
+}
+  
+  .ui-phone-image {
+    width: 40%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
+
+    
+/* SECTION 8: USER CONTEXT STYLES */
+  .user-context-section {
+    background-color: var(--white);
+    padding-bottom: 120px;
+    overflow: visible;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .user-context-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 헤더 영역 스타일 */
+  .user-context-left {
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    gap: 30px; 
+  }
+  
+  .user-context-strategy-circle {
+    width: 180px;
+    height: 180px;
+    background-color: #4285F4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  
+  .user-context-subheading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+  
+  /* 내용 컨테이너 - 왼쪽/오른쪽 이미지가 나란히 배치 */
+  .inline-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    margin-top: 60px;
+  }
+  
+  /* 왼쪽 컨텐츠 영역 */
+  .left-content {
+    display: flex;
+    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
+    position: relative;
+  }
+  
+  /* 오른쪽 컨텐츠 영역 */
+  .right-content {
+    display: flex;
+    width: 48%; /* 약간의 여백을 위해 50% 미만으로 설정 */
+    position: relative;
+  }
+  
+  /* 좌측 이미지 컨테이너 */
+  .gray-box {
+    width: 30%;
+    min-width: 260px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .gray-box-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+  
+  /* 우측 휴대폰 이미지 컨테이너 */
+  .right-phone-container {
+    position:absolute;
+    width: 22%;
+    top: 10%;
+    right: -5%;
+    overflow: hidden;
+    margin-left: 15px;
+    flex-shrink: 0;
+  }
+  
+  .right-phone-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* 최근 사용 메뉴 설명 (왼쪽 이미지 옆에 배치) */
+  .recent-menu-content {
+    flex: 1;
+    position:absolute;
+    left:32%;
+    top:67%
+  }
+  
+  .recent-menu-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+  
+  .menu-icons-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .menu-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .circle-icon {
+    width: 100%;
+    height: auto;
+  }
+  
+  .recent-menu-description {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 버튼 편집 설명 (오른쪽 이미지 옆에 배치) */
+  .feature-description {
+    flex: 1;
+    position:absolute;
+    right : 19%;
+    top:15%;
+    text-align: right;
+  }
+  
+  .feature-title {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .feature-text {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 반응형 스타일 */
+  @media screen and (max-width: 1200px) {
+    .inline-content-container {
+      flex-direction: column;
+    }
+    
+    .left-content, .right-content {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    
+    .user-context-left {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    
+    .user-context-subheading {
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .left-content, .right-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .gray-box, .right-phone-container {
+      width: 80%;
+      max-width: 300px;
+      margin: 0 auto 30px;
+    }
+    
+    .recent-menu-content, .feature-description {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .feature-description {
+      order: -1; /* 설명이 이미지 위에 오도록 순서 변경 */
+    }
+    
+    .menu-icons-container {
+      justify-content: center;
+    }
+    
+    .user-context-strategy-circle {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .user-context-subheading {
+      font-size: 24px;
+    }
+    
+    .menu-icon {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .recent-menu-title, .feature-title {
+      font-size: 24px;
+    }
+    
+    .recent-menu-description, .feature-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+
+/* SECTION 9: Understanding STYLES */
+.understanding-section {
+  background-color: var(--light-bg);
+  padding-bottom: 120px;
+  overflow: visible;
+  position: relative;
+  min-height: 120vh;
+  padding-bottom: 80px;
+}
+
+.understanding-content {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 왼쪽 이해 영역 스타일 */
+.understanding-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  padding-right: 20px;
+}
+
+.understanding-strategy-circle {
+  width: 180px;
+  height: 180px;
+  background-color: #4285F4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.understanding-subheading {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.understanding-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 모바일 UI 이미지 컨테이너 */
+.uds-image-container {
+  position: relative;
+  left: -7%;
+  top: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.uds-phone-image1 {
+  width: 38%;
+  top: 0%; /* 상단으로 살짝 올림 */
+  height: auto;
+  border-radius: 15px;
+}
+
+.uds-phone-image2 {
+  width: 38%;
+  top: -5%; /* 섹션 내 제일 높은 위치로 */
+  height: auto;
+  border-radius: 15px;
+}
+    
+.uds-phone-image3 {
+  width: 38%;
+  top: 10%; /* y값이 중간 정도로 */
+  height: auto;
+  border-radius: 15px;
+}
+
+/* 콘텐츠 설명 영역 */
+.contents-explanation {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: left;
+  z-index: 3;
+  padding-left: 0px;
+  margin-top: 750px;
+  clear: both;
+}
+
+.contents-title {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.contents-description {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* RESPONSIVE STYLES FOR UNDERSTANDING SECTION */
+@media screen and (max-width: 1200px) {
+  .understanding-content {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .understanding-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-right: 0;
+  }
+  
+  .uds-image-container {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 20px;
+  }
+  
+  .uds-phone-image {
+    width: 70%;
+    max-width: 300px;
+  }
+  
+  .contents-explanation {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .uds-phone-image {
+    width: 90%;
+  }
+  
+  .understanding-strategy-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .understanding-subheading {
+    font-size: 28px;
+  }
+}
+/* 1200px에서 1440px 사이의 해상도를 위한 미디어 쿼리 */
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+.uds-image-container {
+  position: relative;
+  left:-5%;
+  top: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+}
+}
+
+/* SECTION 10: fun STYLES - 업데이트된 스타일 */
+.fun-section {
+  background-color: var(--white);
+  padding-bottom: 120px;
+  overflow: visible;
+  position: relative;
+  min-height: 120vh;
+  padding-bottom: 80px;
+}
+
+.fun-content {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 왼쪽 이해 영역 스타일 */
+.fun-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  padding-right: 20px;
+}
+
+.fun-strategy-circle {
+  width: 180px;
+  height: 180px;
+  background-color: #4285F4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fun-subheading {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.fun-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 모바일 UI 이미지 컨테이너 */
+.fun-image-container {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.fun-phone-image1 {
+  width: 40%; /* 이미지 크기 줄임 (71%에서 60%로) */
+  top: 0%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.fun-phone-image2 {
+  width: 40%; /* 이미지 크기 줄임 (71%에서 60%로) */
+  top: -5%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* 겹쳐진 메시지 박스 컨테이너 */
+.fun-message-boxes {
+  position: absolute;
+  top: 15px;
+  right: 2%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 메시지 박스 스타일 */
+.fun-message-box {
+  background-color: #4285F4;
+  color: white;
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  min-width: 240px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 콘텐츠 설명 영역 */
+.fun-explanation {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: left;
+  z-index: 3;
+  padding-left: 0px;
+  margin-top: 750px;
+  clear: both;
+}
+
+.fun-title {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.fun-description {
+  font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* RESPONSIVE STYLES FOR fun SECTION */
+@media screen and (max-width: 1200px) {
+  .fun-content {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .fun-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-right: 0;
+  }
+  
+  .fun-image-container {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 20px;
+  }
+  
+  .fun-phone-image1, .fun-phone-image2 {
+    width: 70%;
+    max-width: 300px;
+  }
+  
+  .fun-message-boxes {
+    position: static;
+    margin: 20px auto;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .fun-message-box {
+    width: 80%;
+    max-width: 200px;
+  }
+  
+  .fun-explanation {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fun-phone-image1, .fun-phone-image2 {
+    width: 90%;
+  }
+  
+  .fun-strategy-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .fun-subheading {
+    font-size: 28px;
+  }
+  
+  .fun-message-box {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+}
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+      .timeline-container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      
+      .timeline-item {
+        width: 20%;
+        margin-bottom: 120px;
+      }
+      
+      .timeline::before {
+        top: 20px;
+        height: 8px;
+      }
+      
+      .timeline-dot {
+        top: 20px;
+        transform: translate(-50%, -50%);
+      }
+      
+      .timeline-item .timeline-content {
+        top: 40px;
+        bottom: auto;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        top: 40px;
+        bottom: auto;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .conclusion-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .timeline-item {
+        width: 30%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 0 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .research-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .timeline-item {
+        width: 45%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+      
+      .timeline-item {
+        width: 100%;
+      }
+    }
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+      display: none;
+    }
+  }
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+     <a href="/work/hdc" class="menu-item">KO</a>
+        <a href="/about/en.html" class="menu-item">ABOUT</a>
+        <a href="/work/en.html" class="menu-item active">WORK</a>
+        <a href="/contact/en.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2022.01 - 2023.03</div>
+        <h1 class="project-title">HDC IoT App</h1>
+        <div class="project-description">
+          <p>I planned the UX for Hyundai Development Company's IoT control service app, IPark Smart Home, over two phases.</p>
+          <p>I provided UX consulting and designed detailed screens for access, control, mobility, and community features.</p>
+          <p>I also planned screen interactions and additional functions.</p>
+        </div>
+          
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING / 90%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Increased 10% MAU</span>
+        </div>
+      </div>
+  
+     <div class="hero-image">
+        <img src="images/01_9.jpg" alt="HDC IoT App Project Image">
+      </div>
+    </section>
+  </div>
+    
+  <!-- SECTION 1: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">
+          <span class="highlight-blue">Integrating</span> IoT features dispersed across separate apps.<br>
+          Presenting a UX that highlights <span class="highlight-blue">IPARK's</span> unique <span class="highlight-regular">characteristics</span>.
+        </h3>
+        <p class="overview-paragraph">Before the redesign, IPARK's IoT services were provided as separate apps for control, parking, and access.<br>
+          We needed a UX that would integrate these functions into a single app while differentiating from competitors Prugio and Raemian.<br>
+          Through market research, employee interviews, and user research, we established our UX concept and specific implementation strategies.</p>
+      </div>
+      <div class="overview-image">
+        <img src="images/02_9.png" alt="HDC IoT App Project Image">
+      </div>
+    </div>
+  </section>
+    
+  <!-- SECTION 2: MARKET RESEARCH -->
+  <section class="section">
+    <h2 class="section-title">Market Research</h2>
+    <div class="research-content">
+      <h3 class="research-heading">
+        IoT services were considered representative of technological innovation<br>
+        under the name of Internet of Things, yet their adoption has been slow.
+      </h3>
+        
+      <!-- Timeline area -->
+      <div class="timeline">
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">1980-1990</div>
+              <div class="timeline-event">Research conducted on<br>M2M (Machine to Machine) communication</div>
+            </div>
+          </div>
+       
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2011</div>
+              <div class="timeline-event">Gartner, an IT analysis firm,<br>introduces IoT as a new technology</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-event">IoT emerges as a key topic<br>at CES</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-event">Google, Apple, Samsung and others<br>announce IoT technologies</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-event">After Amazon's API announcement,<br>Alexa's role as IoT hub accelerates</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2017</div>
+              <div class="timeline-event">Samsung SmartThings app upgrade<br>and integration with appliances</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2018</div>
+              <div class="timeline-event">Naver and Kakao release smart speakers<br>with smart home device connectivity</div>
+            </div>
+          </div>
+                  
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-event">IPARK, Prugio and other<br>apartment brands launch smart home apps</div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="research-text">
+      <p class="research-paragraph">The slower-than-expected adoption is due to <span class="highlight-d">technical limitations</span> of device incompatibility,<br>
+substantial infrastructure and setup costs, and <span class="highlight-d">low user acceptance and everyday necessity for new technology.</span><br>
+<span class="highlight-d">However, it's expected to become more widespread alongside accelerating AI technology. The use of IoT data and automation will bring faster lifestyle changes.</span></p>
+          </div>
+      <!-- Conclusion area -->
+      <div class="conclusion-content">
+        <h3 class="conclusion-heading">
+          At this intermediate stage, we need UX that emphasizes <span class="highlight-blue">familiar use and necessity</span>.
+        </h3>
+      </div> 
+    </div>
+  </section>
+    
+<!-- SECTION 3: CLIENT INTERVIEW -->
+<section class="section" style="position: relative; padding-bottom: 200px; overflow: visible;">
+  <h2 class="section-title">Client Interview</h2>
+  <div class="cinterview-content" style="width: 100%;">
+    <div class="cinterview-text">
+      <h3 class="cinterview-heading">
+        We must create a service that <span class="highlight-blue">resonates with usability</span>,<br>
+        then develop it into an even more <span class="highlight-blue">expanded platform</span>.
+      </h3>
+      <p class="overview-paragraph">We conducted interviews with HDC and HDC Labs executives.<br>
+       They aimed to provide user-centric UX, moving beyond the existing service that only provided basic functions.<br>
+      The goal was to integrate various functions successfully first, then eventually consider sales integration with IPARK Mall.</p>
+    </div>
+  </div>
+  
+  <!-- Container for image placement -->
+  <div style="position: relative; margin-top: 40px; height: 300px; width: 90%;">
+    <!-- PROJECT GOAL background text image: positioned on the left with lower z-index -->
+    <div style="position: absolute; top: 0; left: 0; z-index: 1;">
+      <img src="images/04_b_9.png" style="width: 110%; max-width: 1200px; height: auto;">
+    </div>
+    
+    <!-- 5 images: overlaid on the background image -->
+    <!-- Integration of existing dispersed apps - top left -->
+    <div style="position: absolute; top: 10%; left: 5%; z-index: 2;">
+      <img src="images/04_1_9.png" style="width: 277px; height: auto;">
+    </div>
+    
+    <!-- Tablet version to provide some IPARK Mall content - bottom left -->
+    <div style="position: absolute; top: 75%; left: 15%; z-index: 2;">
+      <img src="images/04_2_9.png" style="width: 449px; height: auto;">
+    </div>
+    
+    <!-- User-centric IoT service - center -->
+    <div style="position: absolute; top: 35%; left: 45%; z-index: 2;">
+      <img src="images/04_3_9.png" style="width: 314px; height: auto;">
+    </div>
+    
+    <!-- Appliance control linked with Samsung, LG apps - top right -->
+    <div style="position: absolute; top: 10%; right: -9%; z-index: 2;">
+      <img src="images/04_4_9.png" style="width: 349px; height: auto;">
+    </div>
+    
+    <!-- Advanced features like automation, lab features - bottom right -->
+    <div style="position: absolute; top: 70%; right: 1%; z-index: 2;">
+      <img src="images/04_5_9.png" style="width: 336px; height: auto;">
+    </div>
+  </div>
+</section>
+  <!-- SECTION 4: USER RESEARCH -->
+<section class="section user-research-section">
+  <h2 class="section-title">User Research</h2>
+  <div class="user-research-content">
+    <div class="user-research-text">
+      <h3 class="user-research-heading">
+        Users were unfamiliar with control features and<br>
+        didn't feel the <span class="highlight-blue">necessity to use the app</span>.
+      </h3>
+      <p class="overview-paragraph">
+        We conducted usability tests and in-depth interviews to understand how existing services were being used.<br>
+        Even in complexes where the service was available, many users were unaware of the app's features.
+      </p>
+    </div>
+    
+    <!-- User feedback boxes -->
+    <div class="user-feedback-container">
+      <!-- Left column -->
+      <div class="user-feedback-column">
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">I don't know which features<br>I need.</p>
+          <span class="user-label">USER 1</span>
+        </div>
+        
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">I'm worried something<br>might go wrong.</p>
+          <span class="user-label">USER 2</span>
+        </div>
+      </div>
+      
+      <!-- Middle column -->
+      <div class="user-feedback-column">
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">It looks complicated<br>and unfamiliar.</p>
+          <span class="user-label">USER 2</span>
+        </div>
+        
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">I want to know what<br>I used previously.</p>
+          <span class="user-label">USER 4</span>
+        </div>
+      </div>
+      
+      <!-- Right column -->
+      <div class="user-feedback-column">
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">All the screens look different,<br>which makes it difficult.</p>
+          <span class="user-label">USER 3</span>
+        </div>
+        
+        <div class="user-feedback-box">
+          <p class="user-feedback-text">Some features don't work<br>in our complex.</p>
+          <span class="user-label">USER 1</span>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 5: INSIGHT -->
+<section class="section insight-section">
+  <h2 class="section-title">Insight</h2>
+  <div class="insight-content">
+    <div class="insight-text">
+      <h3 class="insight-heading">
+        We established and <span class="highlight-blue">specifically implemented</span> four<br>
+        <span class="highlight-blue">UX strategies</span> to solve users' pain points.
+      </h3>
+    </div>
+    
+    <!-- Strategy circles -->
+    <div class="strategy-container">
+      <div class="strategy-item">
+        <div class="strategy-circle">
+          <p class="strategy-title">UX Writing</p>
+        </div>
+        <ul class="strategy-points">
+          <li>Friendly guidance using<br>conversational language rather than<br>directive words or lists</li>
+          <li>Concise sentences for<br>clear meaning</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-item">
+        <div class="strategy-circle">
+          <p class="strategy-title">Consistency</p>
+        </div>
+        <ul class="strategy-points">
+          <li>Consistent screen layouts<br>to help users become familiar</li>
+          <li>Maintaining consistency in<br>button names and navigation structure</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-item">
+        <div class="strategy-circle">
+          <p class="strategy-title">User State,<br>Context</p>
+        </div>
+        <ul class="strategy-points">
+          <li>To gain user empathy,<br>we must first observe the user</li>
+          <li>Provide information relevant to<br>user state and context</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-item">
+        <div class="strategy-circle">
+          <p class="strategy-title">Understanding<br>Before Use</p>
+        </div>
+        <ul class="strategy-points">
+          <li>Need to provide content that<br>helps users understand</li>
+          <li>Apple, Naver, etc. also provide<br>content for new services<br>or advanced features</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 6: SOLUTION -->
+<section class="section solution-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution-content">
+    
+    <!-- Left UX Writing area -->
+    <div class="solution-left">
+      <div class="solution-strategy-circle">
+        <p>UX Writing</p>
+      </div>
+      
+      <h3 class="solution-subheading">
+        We connect with users through<br>
+        <span class="highlight-blue">friendly UX Writing</span>.
+      </h3>
+
+      <p class="solution-description">
+        • Design images were used for effective explanation,<br>
+        but the actual work involved wireframes and UX policy development.
+      </p>
+    </div>
+    
+    <!-- Control button description (positioned at bottom left of image) -->
+    <div class="control-button-desc">
+      <h4>Control Button</h4>
+      <p>
+        Current status is explained in conversational sentences,<br>
+        making it intuitive to understand which function was selected.<br>
+        Detailed guidance by zone is also provided.
+      </p>
+    </div>
+    
+    <!-- Main phone image -->
+    <div class="main-phone-container">
+      <img src="images/06_p2_9.png" alt="IPARK App Screen" class="main-phone-image">
+    </div>
+    
+    <!-- Weather info (positioned at top right of image) -->
+    <div class="weather-info">
+      <h4 class="weather-title">Weather Information</h4>
+      
+      <!-- Weather message bubbles -->
+      <div class="weather-bubble">
+        <p>3 degrees lower than yesterday. 🙂</p>
+      </div>
+      
+      <div class="weather-bubble2">
+        <p>5 degrees higher than yesterday. 😊</p>
+      </div>
+      
+      <p class="weather-description">
+        Since "cold/hot" is subjective information, the home screen<br>
+        weather provides comparative phrases with yesterday's experience.<br>
+        If yesterday felt cold, users can anticipate it will be even colder.
+      </p>
+    </div>
+<!-- First popup button -->
+<div class="popup-button popup-button-1">
+    <div class="small-circle"></div>
+    <div class="large-circle"></div>
+</div>
+      <!-- First popup overlay (changed from ID to class) -->
+      <div class="popup-overlay popup-overlay-1">
+          <div class="popup-content">
+              <button class="close-button close-button-1"></button>
+              <div class="popup-text">
+                  Placing weather information on the main screen was determined by the client.
+                  However, the design drafts weren't receiving positive feedback. <br> <br>
+                  I requested simpler weather icons and animated interactions.
+                  As someone who collects many references, I shared Naver Watch's weather design and effects as a reference.
+                  I asked the designer to change the large text elements like temperature display to a light font. <br> <br>
+              
+                  Providing feedback to colleagues working on different aspects is not easy.<br>
+                  Having done design work myself, I consider it a sensitive matter. <br>
+                However, I believe there's nothing more important and valuable than receiving objective and constructive feedback. <br>
+                The boundaries can be blurry, and sometimes feelings get hurt, causing hesitation, but I find teammates and stakeholders who understand the direction and can exchange feedback to be truly valuable. That seems to be the beauty of teamwork.<br>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <!-- SECTION 7: UI SCREEN STRUCTURE -->
+<section class="section ui-structure-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="ui-structure-content">
+    
+    <!-- Left consistency area -->
+    <div class="ui-structure-left">
+      <div class="ui-structure-strategy-circle">
+        <p>Consistency</p>
+      </div>
+      
+      <h3 class="ui-structure-subheading">
+        A structure with <span class="highlight-blue">consistency</span><br>
+        makes <span class="highlight-blue">usage easier</span><br>
+        to anticipate.
+      </h3>
+      
+    </div>
+    
+    <!-- Mobile UI image container -->
+    <div class="ui-image-container">
+      <!-- First phone image -->
+      <img src="images/07_1_9.png" alt="IPARK App UI Screen 1" class="ui-phone-image">
+      
+      <!-- Second phone image -->
+      <img src="images/07_2_9.png" alt="IPARK App UI Screen 2" class="ui-phone-image">
+      
+      <!-- Third phone image -->
+      <img src="images/07_3_9.png" alt="IPARK App UI Screen 3" class="ui-phone-image">
+    </div>
+    
+    <!-- Consistency explanation -->
+    <div class="consistency-explanation">
+      <h4 class="consistency-title">UI Screen Structure</h4>
+      <p class="consistency-description">
+        Main menu - Control menu - Current status - Individual control zones and <br>
+      devices - Controls, in that order, <span class="highlight-d">allows users to easily<br>
+        anticipate controls even when menus differ.</span><br> 
+      </p>
+    </div>
+  </div>
+</section>
+<!-- SECTION 8: USER CONTEXT -->
+<section class="section user-context-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="user-context-content">
+    
+    <!-- Left "User State, Context" area -->
+    <div class="user-context-left">
+      <div class="user-context-strategy-circle">
+        <p>User State,<br>Context</p>
+      </div>
+      
+      <h3 class="user-context-subheading">
+        We prioritize <span class="highlight-blue">menus that users need</span>.
+      </h3>
+    </div>
+    
+    <!-- Single line image/text placement container -->
+    <div class="inline-content-container">
+      <!-- 1. Left gray box and image (08_1_9.png) -->
+      <div class="gray-box">
+        <img src="images/08_1_9.png" alt="Recently Used Menu" class="gray-box-image">
+      </div>
+      
+      <!-- 2. Recently used menu text and icons -->
+      <div class="recent-menu-content">
+        <h4 class="recent-menu-title">Recently Used Menu</h4>
+        
+        <div class="menu-icons-container">
+          <!-- First icon -->
+          <div class="menu-icon">
+            <img src="images/08_c_1_9.png" alt="Menu Icon 1" class="circle-icon">
+          </div>
+          
+          <!-- Second icon -->
+          <div class="menu-icon">
+            <img src="images/08_c_2_9.png" alt="Menu Icon 2" class="circle-icon">
+          </div>
+          
+          <!-- Third icon -->
+          <div class="menu-icon">
+            <img src="images/08_c_3_9.png" alt="Menu Icon 3" class="circle-icon">
+          </div>
+        </div>
+        
+        <p class="recent-menu-description">
+          Users are likely to repeatedly use only a few<br>
+          menus out of the many available. If there's no usage history,<br>
+          we don't display anything, but if there is, we provide it at the<br>
+          top of the home screen.  
+        </p>
+      </div>
+      
+      <!-- 3. Button editing explanation text -->
+      <div class="feature-description">
+        <h4 class="feature-title">Button Editing Feature</h4>
+        <p class="feature-text">
+          You can hide or rearrange unused features<br>
+          on the home screen. This allows you to focus<br>
+          by editing the many function buttons.
+        </p>
+      </div>
+      
+      <!-- 4. Right phone image (08_2_9.png) -->
+      <div class="right-phone-container">
+        <img src="images/08_2_9.png" alt="Home Screen Button Editing" class="right-phone-image">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 9: Understanding -->
+<section class="section understanding-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="understanding-content">
+    
+    <!-- Left understanding area -->
+    <div class="understanding-left">
+      <div class="understanding-strategy-circle">
+        <p>Understanding<br>Before Use</p>
+      </div>
+      
+      <h3 class="understanding-subheading">
+        For unfamiliar features,<br>
+        we <span class="highlight-blue">provide content</span>.
+      </h3>
+      
+    </div>
+    
+    <!-- Mobile UI image container -->
+    <div class="uds-image-container">
+      <!-- First phone image -->
+      <img src="images/09_1b_9.png" alt="IPARK App UI Screen 1" class="uds-phone-image1">
+      
+      <!-- Second phone image -->
+      <img src="images/09_2_9.png" alt="IPARK App UI Screen 2" class="uds-phone-image2">
+      
+      <!-- Third phone image -->
+      <img src="images/09_3b_9.png" alt="IPARK App UI Screen 3" class="uds-phone-image3">
+    </div>
+    
+    <!-- Content explanation -->
+    <div class="contents-explanation">
+      <h4 class="contents-title">Content and Templates</h4>
+      <p class="contents-description">
+        Automation features, which operate automatically when<br>
+        conditions are met, are more complex than other control features.<br>
+        <span class="highlight-d">We also planned story-based content and<br>
+        templates that users can follow directly for setup.</span>
+      </p>
+    </div>
+
+      <!-- Second popup button (changed from ID to class) -->
+      <div class="popup-button popup-button-2">
+          <div class="small-circle"></div>
+          <div class="large-circle"></div>
+      </div>
+      
+      <!-- Second popup overlay (changed from ID to class) -->
+      <div class="popup-overlay popup-overlay-2">
+          <div class="popup-content">
+              <button class="close-button close-button-2"></button>
+              <div class="popup-text">
+                  The automation feature was introduced in the second phase of the project. <br> <br>
+                  This was because we needed to demonstrate to the parent company that we were consistently providing new features and enhancements.
+                  I wondered how users would perceive automation when even the control features from the first phase weren't familiar to them.  <br> <br>
+              
+                  I determined that even if a feature has been decided, it's important not to simply provide just the functionality. If we only do what's requested,
+                  that's closer to just taking dictation. Considering users and presenting necessary content is something
+                  I believe all team members should do, not just UX designers or planners. <br>
+                  Apple Home and Naver Pay also provide content-based guidance screens.<br>
+                  For better understanding, I created content in a who+when+what format, and designed templates that users could set up
+                  with minimal changes based on these examples. The template feature was planned based on my experience working on an e-book program
+                  at my previous company, where I designed templates with usability in mind. <br>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+<!-- SECTION 10: Fun -->
+<section class="section fun-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="fun-content">
+    
+    <!-- Left understanding area -->
+    <div class="fun-left">
+      <div class="fun-strategy-circle">
+        <p>Fun &<br>Different</p>
+      </div>
+      
+      <h3 class="fun-subheading">
+        Lab features provide <span class="highlight-blue">fun<br>
+        and different experiences</span>.
+      </h3>
+      
+    </div>
+    
+    <!-- Mobile UI image container -->
+    <div class="fun-image-container">
+      <!-- First phone image -->
+      <img src="images/10_1_9.png" alt="IPARK App UI Screen 1" class="fun-phone-image1">
+      
+      <!-- Second phone image -->
+      <img src="images/10_2_9.png" alt="IPARK App UI Screen 2" class="fun-phone-image2">
+      
+      <!-- Overlapping message boxes -->
+      <div class="fun-message-boxes">
+        <div class="fun-message-box">
+          Why aren't<br>you home yet?!
+        </div>
+        <div class="fun-message-box">
+          Mom,<br>happy birthday!
+        </div>
+        <div class="fun-message-box">
+          Let's cut down on<br>delivery food!
+        </div>
+      </div>
+    </div>
+    
+    <!-- Content explanation -->
+    <div class="fun-explanation">
+      <h4 class="fun-title">Lab Features with Enhanced Fun Elements</h4>
+      <p class="fun-description">
+        The home screen message setting feature<br>
+        that families can set together<br>
+        <span class="highlight-d">provides fun and communication.</span><br>
+        Gesture UI that takes you to the parking location screen<br>
+        when you shake the phone <span class="highlight-d">provides a quick and novel experience.</span><br>
+      </p>
+    </div>
+      <!-- Third popup button (changed from ID to class) -->
+      <div class="popup-button popup-button-3">
+          <div class="small-circle"></div>
+          <div class="large-circle"></div>
+      </div>
+      
+      <!-- Third popup overlay (changed from ID to class) -->
+      <div class="popup-overlay popup-overlay-3">
+          <div class="popup-content">
+              <button class="close-button close-button-3"></button>
+              <div class="popup-text">
+                  I really enjoyed planning the lab features and received great feedback. <br> <br>
+                 When I first planned the lab features, I also thought about slightly different versions of existing control functions
+and more detailed control settings as requested.   <br>
+               But I received feedback from the development PM that they wanted a different approach.  <br> <br>
+              
+                I realized I had been thinking only within the existing framework. <br>
+                I looked for elements that could be developed from the screens we had created in phase one.<br><br>
+                 The message changing feature was inspired by the greeting messages I had planned for the main screen during the No Brand Burger project.<br>
+                Various work experiences become resources that can be applied to other projects. <br>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+  <div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>
+      <div class="top-button" id="topButton"></div>
+
+  <script>
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Hero image fade-in on page load
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    // Initially set opacity to 0
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 0.8s ease-in';
+    
+    // After a short delay, fade in the image
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 300); // Small delay for better effect
+  }
+  
+  // Set up the scroll animation for the overview image
+  const overviewImage = document.querySelector('.overview-image');
+  if (overviewImage) {
+    // Initially hide the image
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transform = 'translateY(30px)';
+    overviewImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  // 프로젝트 목표 이미지들을 보다 정확하게 선택
+  // 프로젝트 목표 이미지가 포함된 섹션을 먼저 찾음
+  const clientInterviewSection = document.querySelector('section.section[style*="position: relative; padding-bottom: 200px"]');
+  
+  if (clientInterviewSection) {
+    // 이 섹션 내의 모든 이미지 div를 찾음 (위치 속성이 absolute인 div)
+    const projectGoalImageDivs = clientInterviewSection.querySelectorAll('div[style*="position: absolute"][style*="z-index: 2"]');
+    
+    // 찾은 이미지 div들에 초기 스타일 적용
+    projectGoalImageDivs.forEach(imgDiv => {
+      imgDiv.style.opacity = '0';
+      imgDiv.style.transform = 'translateY(30px)';
+      imgDiv.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    // 애니메이션 처리를 위한 함수
+    function animateProjectGoalImages() {
+      if (isInViewport(clientInterviewSection)) {
+        projectGoalImageDivs.forEach((imgDiv, index) => {
+          setTimeout(() => {
+            imgDiv.style.opacity = '1';
+            imgDiv.style.transform = 'translateY(0)';
+          }, 150 * index); // 각 이미지마다 150ms 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateProjectGoalImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateProjectGoalImages();
+  }
+  
+  // Section 4: User Research 섹션의 라운드 박스 애니메이션 - 강화된 버전
+  const userResearchSection = document.querySelector('.user-research-section');
+  if (userResearchSection) {
+    const feedbackBoxes = userResearchSection.querySelectorAll('.user-feedback-box');
+    
+    // 기존 opacity 속성을 유지하기 위해 원래 값을 저장
+    feedbackBoxes.forEach(box => {
+      const originalOpacity = window.getComputedStyle(box).opacity;
+      box.setAttribute('data-original-opacity', originalOpacity);
+      
+      // 초기 스타일 설정 - 더 큰 변형과 스케일 추가
+      box.style.opacity = '0';
+      box.style.transform = 'translateY(50px) scale(0.95)'; // 더 큰 이동과 약간 작게 시작
+      box.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)'; // 더 역동적인 이징 함수
+    });
+    
+    let animationTriggered = false; // 애니메이션이 한 번만 실행되도록 플래그 추가
+    
+    // 애니메이션 함수
+    function animateFeedbackBoxes() {
+      if (isInViewport(userResearchSection) && !animationTriggered) {
+        animationTriggered = true; // 애니메이션이 실행됨을 표시
+        
+        feedbackBoxes.forEach((box, index) => {
+          // 더 뚜렷한 지연 시간으로 설정
+          setTimeout(() => {
+            box.style.opacity = box.getAttribute('data-original-opacity') || '1';
+            box.style.transform = 'translateY(0) scale(1)';
+          }, 200 * index); // 각 박스마다 200ms 지연 (더 뚜렷한 순차 효과)
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateFeedbackBoxes, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateFeedbackBoxes();
+  }
+  
+  // Section 5: Insight 섹션의 전략 원 애니메이션
+  const insightSection = document.querySelector('.insight-section');
+  if (insightSection) {
+    const strategyCircles = insightSection.querySelectorAll('.strategy-circle');
+    const strategyItems = insightSection.querySelectorAll('.strategy-item');
+    
+    // 초기 스타일 설정
+    strategyItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(40px)';
+      item.style.transition = 'opacity 1.1s ease-out, transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let insightAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateStrategyCircles() {
+      if (isInViewport(insightSection) && !insightAnimationTriggered) {
+        insightAnimationTriggered = true;
+        
+        // 첫 번째 원의 딜레이를 2배로 늘림 (360ms로)
+        const initialDelay = 360;
+        
+        strategyItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, initialDelay + (180 * index)); // 첫 번째 원은 360ms 지연, 이후 각 원마다 180ms 추가 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateStrategyCircles, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateStrategyCircles();
+  }
+  
+  // Section 6: Solution 섹션의 방향별 애니메이션 (메인 폰 이미지 수정)
+  const solutionSection = document.querySelector('.solution-section');
+  if (solutionSection) {
+    // 애니메이션할 요소들 선택
+    const phoneImage = solutionSection.querySelector('.main-phone-container');
+    const controlButtonDesc = solutionSection.querySelector('.control-button-desc');
+    const weatherInfo = solutionSection.querySelector('.weather-info');
+    
+    // 요소들의 초기 스타일 설정
+    if (phoneImage) {
+      phoneImage.style.opacity = '0';
+      // 위로 올라오는 효과 제거 (translateY 없음)
+      phoneImage.style.transition = 'opacity 1s ease-out';
+    }
+    
+    if (controlButtonDesc) {
+      controlButtonDesc.style.opacity = '0';
+      controlButtonDesc.style.transform = 'translateX(30px)'; // 오른쪽에서 왼쪽으로
+      controlButtonDesc.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
+    }
+    
+    if (weatherInfo) {
+      weatherInfo.style.opacity = '0';
+      weatherInfo.style.transform = 'translateX(-30px)'; // 왼쪽에서 오른쪽으로
+      weatherInfo.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
+    }
+    
+    let solutionAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateSolutionElements() {
+      if (isInViewport(solutionSection) && !solutionAnimationTriggered) {
+        solutionAnimationTriggered = true;
+        
+        // 딜레이 값을 2배로 늘림
+        // 1. 먼저 전화 이미지 애니메이션 (페이드인만) - 400ms로 늘림
+        if (phoneImage) {
+          setTimeout(() => {
+            phoneImage.style.opacity = '1';
+            // transform 변경 없음
+          }, 400);
+        }
+        
+        // 2. 그 다음 제어 버튼 설명 애니메이션 - 1000ms로 늘림
+        if (controlButtonDesc) {
+          setTimeout(() => {
+            controlButtonDesc.style.opacity = '1';
+            controlButtonDesc.style.transform = 'translateX(0)';
+          }, 1000);
+        }
+        
+        // 3. 마지막으로 날씨 정보 애니메이션 - 1500ms로 늘림
+        if (weatherInfo) {
+          setTimeout(() => {
+            weatherInfo.style.opacity = '1';
+            weatherInfo.style.transform = 'translateX(0)';
+          }, 1500);
+        }
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateSolutionElements, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateSolutionElements();
+  }
+  
+  // SECTION 7: UI 이미지 애니메이션
+  const uiStructureSection = document.querySelector('.ui-structure-section');
+  if (uiStructureSection) {
+    const phoneImages = uiStructureSection.querySelectorAll('.ui-phone-image');
+    
+    // 각 이미지에 초기 스타일 적용
+    phoneImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
+      img.style.transition = 'opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let uiAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUIImages() {
+      if (isInViewport(uiStructureSection) && !uiAnimationTriggered) {
+        uiAnimationTriggered = true;
+        
+        // 첫 번째 이미지 딜레이를 2배로 늘림 (600ms로)
+        const initialDelay = 400;
+        
+        // 이미지들을 순차적으로 애니메이션 적용
+        phoneImages.forEach((img, index) => {
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+          }, initialDelay + (500 * index)); // 첫 이미지는 500ms 지연, 이후 각 이미지마다 300ms 추가 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUIImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUIImages();
+  }
+  
+  // SECTION 8: USER CONTEXT 애니메이션
+  const userContextSection = document.querySelector('.user-context-section');
+  if (userContextSection) {
+    // 왼쪽 콘텐츠 요소들
+    const grayBox = userContextSection.querySelector('.gray-box');
+    const recentMenuContent = userContextSection.querySelector('.recent-menu-content');
+    
+    // 오른쪽 콘텐츠 요소들
+    const featureDescription = userContextSection.querySelector('.feature-description');
+    const rightPhoneContainer = userContextSection.querySelector('.right-phone-container');
+    
+    // 초기 스타일 설정 - 페이드인만 (위로 올라오는 효과 없이)
+    // 왼쪽 콘텐츠
+    if (grayBox) {
+      grayBox.style.opacity = '0';
+      grayBox.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    if (recentMenuContent) {
+      recentMenuContent.style.opacity = '0';
+      recentMenuContent.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    // 오른쪽 콘텐츠
+    if (featureDescription) {
+      featureDescription.style.opacity = '0';
+      featureDescription.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    if (rightPhoneContainer) {
+      rightPhoneContainer.style.opacity = '0';
+      rightPhoneContainer.style.transition = 'opacity 1.5s ease-out';
+    }
+    
+    let userContextAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUserContextElements() {
+      if (isInViewport(userContextSection) && !userContextAnimationTriggered) {
+        userContextAnimationTriggered = true;
+        
+        // 딜레이 설정
+        const initialDelay = 400;
+        
+        // 1. 왼쪽 콘텐츠 애니메이션 (그레이 박스와 최근 메뉴 컨텐츠 같이 나타남)
+        setTimeout(() => {
+          if (grayBox) grayBox.style.opacity = '1';
+          if (recentMenuContent) recentMenuContent.style.opacity = '1';
+        }, initialDelay);
+        
+        // 2. 오른쪽 콘텐츠 애니메이션 (설명과 폰 이미지 같이 나타남)
+        setTimeout(() => {
+          if (featureDescription) featureDescription.style.opacity = '1';
+          if (rightPhoneContainer) rightPhoneContainer.style.opacity = '1';
+        }, initialDelay + 600); // 왼쪽 콘텐츠 후 600ms 지연
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUserContextElements, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUserContextElements();
+  }
+  
+  // SECTION 9: Understanding 이미지 애니메이션 (섹션 7과 동일한 효과)
+  const understandingSection = document.querySelector('.understanding-section');
+  if (understandingSection) {
+    const phoneImages = understandingSection.querySelectorAll('.uds-phone-image1, .uds-phone-image2, .uds-phone-image3');
+    
+    // 각 이미지에 초기 스타일 적용
+    phoneImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(50px)'; // 아래에서 위로 올라오는 효과를 위해
+      img.style.transition = 'opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let understandingAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateUnderstandingImages() {
+      if (isInViewport(understandingSection) && !understandingAnimationTriggered) {
+        understandingAnimationTriggered = true;
+        
+        // 첫 번째 이미지 딜레이를 섹션 7과 동일하게 설정
+        const initialDelay = 400;
+        
+        // 이미지들을 순차적으로 애니메이션 적용
+        phoneImages.forEach((img, index) => {
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+          }, initialDelay); // 첫 이미지는 600ms 지연, 이후 각 이미지마다 500ms 추가 지연
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateUnderstandingImages, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateUnderstandingImages();
+  }
+  
+  // SECTION 10: FUN 섹션 애니메이션
+  const funSection = document.querySelector('.fun-section');
+  if (funSection) {
+    // 애니메이션할 요소들 선택
+    const funPhoneImage1 = funSection.querySelector('.fun-phone-image1');
+    const funPhoneImage2 = funSection.querySelector('.fun-phone-image2');
+    const funMessageBoxes = funSection.querySelectorAll('.fun-message-box');
+    
+    // 초기 스타일 설정
+    // 폰 이미지 1 - 아래에서 위로
+    if (funPhoneImage1) {
+      funPhoneImage1.style.opacity = '0';
+      funPhoneImage1.style.transform = 'translateY(50px)';
+      funPhoneImage1.style.transition = 'opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    }
+    
+    // 폰 이미지 2 - 아래에서 위로
+    if (funPhoneImage2) {
+      funPhoneImage2.style.opacity = '0';
+      funPhoneImage2.style.transform = 'translateY(50px)';
+      funPhoneImage2.style.transition = 'opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    }
+    
+    // 메시지 박스들 - 왼쪽에서 오른쪽으로
+    funMessageBoxes.forEach(box => {
+      box.style.opacity = '0';
+      box.style.transform = 'translateX(-20px)'; // 왼쪽에서 오른쪽으로 살짝만 이동
+      box.style.transition = 'opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+    
+    let funAnimationTriggered = false;
+    
+    // 애니메이션 함수
+    function animateFunElements() {
+      if (isInViewport(funSection) && !funAnimationTriggered) {
+        funAnimationTriggered = true;
+        
+        const initialDelay = 400;
+        
+        // 1. 첫 번째 폰 이미지 애니메이션
+        if (funPhoneImage1) {
+          setTimeout(() => {
+            funPhoneImage1.style.opacity = '1';
+            funPhoneImage1.style.transform = 'translateY(0)';
+          }, initialDelay);
+        }
+        
+        // 2. 두 번째 폰 이미지 애니메이션
+        if (funPhoneImage2) {
+          setTimeout(() => {
+            funPhoneImage2.style.opacity = '1';
+            funPhoneImage2.style.transform = 'translateY(0)';
+          }, initialDelay);
+        }
+        
+        // 3. 메시지 박스 순차 애니메이션
+        funMessageBoxes.forEach((box, index) => {
+          setTimeout(() => {
+            box.style.opacity = '1';
+            box.style.transform = 'translateX(0)';
+          }, initialDelay + 400 + (200 * index)); // 두 번째 폰 이미지 후 순차적으로 나타남
+        });
+      }
+    }
+    
+    // 스크롤 이벤트에 애니메이션 함수 추가
+    window.addEventListener('scroll', animateFunElements, { passive: true });
+    
+    // 페이지 로드 시 이미 보이는 경우를 대비해 한 번 실행
+    animateFunElements();
+  }
+  
+  // Function to check if element is in viewport with more sensitive threshold
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    // 더 빨리 애니메이션이 시작되도록 threshold 값 조정
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+      rect.bottom >= 0
+    );
+  }
+  
+  // Function to handle scroll animations for the overview image
+  function handleScrollAnimations() {
+    if (overviewImage && isInViewport(overviewImage)) {
+      overviewImage.style.opacity = '1';
+      overviewImage.style.transform = 'translateY(0)';
+    }
+  }
+  
+  // Listen for scroll events for overview image
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // Initial check in case elements are already in viewport
+  handleScrollAnimations();
+  
+  // Top 버튼 기능 추가
+  const topButton = document.getElementById('topButton');
+  
+  topButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Top 버튼 표시/숨김 처리
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+      topButton.style.display = 'flex';
+    } else {
+      topButton.style.display = 'none';
+    }
+  });
+});
+ // 팝업 기능 구현 - 수정된 코드
+document.addEventListener('DOMContentLoaded', function() {
+  // 팝업 관련 요소들 선택
+  const popupButtons = document.querySelectorAll('.popup-button-1, .popup-button-2, .popup-button-3');
+  const popupOverlays = document.querySelectorAll('.popup-overlay-1, .popup-overlay-2, .popup-overlay-3');
+  const closeButtons = document.querySelectorAll('.close-button-1, .close-button-2, .close-button-3');
+  
+  // 모든 팝업 버튼에 클릭 이벤트 추가
+  popupButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      // 해당 버튼의 인덱스에 맞는 오버레이 찾기
+      const overlay = popupOverlays[index];
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 스크롤 막기
+      }
+    });
+  });
+  
+  // 모든 닫기 버튼에 클릭 이벤트 추가
+  closeButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      // 해당 버튼의 인덱스에 맞는 오버레이 찾기
+      const overlay = popupOverlays[index];
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 복원
+      }
+    });
+  });
+  
+  // 모든 오버레이에 클릭 이벤트 추가
+  popupOverlays.forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      // 오버레이 자체를 클릭했을 때만 닫기
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 복원
+      }
+    });
+  });
+});
+  </script>
+</div>
+  </body>
+</html>
