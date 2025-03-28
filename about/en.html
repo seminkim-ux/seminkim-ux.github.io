@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <title>Semin Kim - About</title>
+  <style>
+    @font-face {
+      font-family: "Jost";
+      src: url("../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Jost";
+      src: url("../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #020202;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
+      --font-family-pretendard: "Pretendard-Regular", Helvetica, Arial, sans-serif;
+      --font-family-pretendard-bold: "Pretendard-Bold", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Header/Navigation */
+    .header {
+      background-color: var(--white);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      color: var(--black);
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--black);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-item:hover, .menu-item.active {
+      opacity: 1;
+    }
+
+    /* Page Title */
+    .page-title-section {
+      width: 100%;
+      padding: 10px 24px 20px;
+      text-align: left;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: var(--font-size-xxxl);
+      font-weight: 700;
+      color: var(--black-2);
+      margin-bottom: 20px;
+    }
+
+    /* About Section */
+    .about-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+    }
+    
+    .content-column {
+      width: 56%;
+      padding-right: 40px;
+    }
+    
+    .image-column {
+      width: 40%;
+    }
+    
+    .image-column img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .intro-text {
+      font-family: var(--font-family-pretendard);
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .page-title2 {
+      font-family: var(--font-family-pretendard-bold);
+      font-size: 29px;
+      margin: 0px 0 10px;
+      color: var(--black-2);
+    }
+    .section-title {
+      font-family: var(--font-family-pretendard-bold);
+      font-size: 27px;
+      margin: 70px 0 10px;
+      color: var(--black-2);
+    }
+    .par-title {
+      font-family: var(--font-family-pretendard-bold);
+      font-size: 20px;
+      line-height: 1.8;
+    }
+    .paragraph {
+      font-family: var(--font-family-pretendard);
+      font-size: 19px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .section-container {
+      margin-bottom: 60px;
+    }
+
+.career-item {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.career-item:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--black);
+}
+
+.career-section {
+  display: block;
+  margin-top: 40px;
+}
+
+.career-column1, .career-column2, .career-column3 {
+  margin-bottom: 30px;
+}
+
+.career-column1 {
+  width: 100%;
+}
+
+.career-column2 {
+  width: 100%
+}
+
+.career-column3 {
+  width: 100%
+}
+
+.career-title {
+  font-family: var(--font-family-pretendard-bold);
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--black-2);
+}
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+
+    /* Responsive: Layout adjustments for smaller screens */
+    @media screen and (max-width: 992px) {
+      .about-section {
+        flex-direction: column;
+      }
+      
+      .content-column, .image-column {
+        width: 100%;
+      }
+      
+      .content-column {
+        padding-right: 0;
+      }
+      
+      .image-column {
+        margin-bottom: 40px;
+        order: -1;
+      }
+      
+      .career-column {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .page-title-section {
+        padding: 60px 20px 30px;
+      }
+      
+      .page-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .section-title {
+        font-size: 24px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .menu {
+        gap: 15px;
+      }
+      
+      .menu-item {
+        font-size: 15px;
+      }
+      
+      .page-title {
+        font-size: var(--font-size-xl);
+      }
+      
+      .intro-text {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-center-horizontal">
+    <!-- Header/Navigation -->
+    <header class="header">
+      <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+         <a href="/" class="menu-item">KO</a>
+        <a href="/about/" class="menu-item active">ABOUT</a>
+        <a href="/work/" class="menu-item">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title-section">
+      <h1 class="page-title">Semin Kim</h1>
+    </section>
+    
+    <!-- About section -->
+    <section class="about-section">
+      <div class="content-column">
+         <h2 class="page-title2">I design UX by researching services and users.</h2>
+        
+        <p class="paragraph">I started my career in editorial design and now work in UX. All the work I've posted so far are launched services, and I haven't yet uploaded any conceptual or reverse-planned projects.<br>
+        I will update with more launched services soon.</p>
+        
+        <h2 class="section-title">Philosophy - Core ideas behind my work.</h2>
+        <p class="paragraph">Although I moved from editorial design to UX, I believe the essence of both is communication. It's communication that shifted from print media to digital devices.</p>
+        <p class="paragraph">For effective communication, the message must be clear, and "readability" is the most important aspect of visual presentation.<br>
+        More fundamentally, I need to judge whether content is being conveyed in a way that users can easily understand, and whether we're not assuming users know what service creators know. That is the foundation of my work.</p>
+        <p class="paragraph">At a higher level, I was influenced by "Jan Tschichold's Typography" which I learned during my visual design major. At a time when many designers were showing off their aesthetic sense with decorative typography, he focused on the content that needed to be communicated through typography and advocated for the most effective delivery of content.<br>
+        While this seems obvious, it's sometimes overlooked.</p>
+        <p class="paragraph">If Jan Tschichold provided a foundational influence, I continue to draw inspiration from the design studio where I first started my career and other domestic and international design studios. Pentagram and Ideo are typical examples.</p>
+        
+        <h2 class="section-title">Experience - Evidence of deep knowledge and flexible response capabilities.</h2>
+        <p class="paragraph">Over 10+ years of researching various services and working across entire domains to realize them has given me definite strength.</p>
+        
+        <p class="par-title">1. I understand various UX, UI components and their effectiveness.</p>
+        <p class="paragraph">Thanks to my team leader who had us systematically study and organize Apple's Human Interface Guide and Google's Material Design Guide every year, I built structured knowledge. I've internalized this knowledge through extensive practical application.</p>
+        
+        <p class="par-title">2. I can extend planning beyond the screen.</p>
+        <p class="paragraph">Screen planning begins with the big picture of service planning, but sometimes various needs and possibilities emerge from concrete details. Service directions and policies that emerge during the concretization process strongly represent the needs of services and users. I've been realizing these possibilities.</p>
+        
+        <p class="par-title">3. Above all, it's exciting to discover and see more content.</p>
+        <p class="paragraph">I enjoy soccer, but I don't fully understand discussions about formations or tactics. In Netflix's hit show "The Chef" when chefs discover and admire each other's cooking techniques saying "Ah, so that's how you did it," I don't fully understand that either.</p>
+        <p class="paragraph">However, when it comes to the services and screens I work on, I can see what needs to be done, what the best approach is, and how to make something stand out, which I find enjoyable. It's exciting to reach a level where I can discuss the efforts others have made in their work and identify areas for improvement.</p>
+        
+        <h2 class="section-title">This website was created using Claude.</h2>
+        <p class="paragraph">Claude.ai excels at code writing, but still lacks the ability to easily create a desired site. Therefore, building this site took quite some time, and I had to continuously fix errors in developer mode.</p>
+        <p class="paragraph">The process involved asking how to do things, requesting code creation, and testing for errors. Sometimes there were interaction errors that couldn't be resolved, so I requested simplifying the content first and then applying it again. I felt that there are still many areas where human intervention is necessary, which is fortunate.</p>
+        <p class="paragraph">Just as I wrote at length about myself on this About page, I had more stories to tell about each project. There are more detailed stories in the circular buttons found throughout the site.</p>
+        <p class="paragraph">For work before 2014, I've included content from my previous homepage created with Google Web Designer. You can see the ideas and work from that time.</p>
+        
+        <div class="career-section">
+          <div class="career-column1">
+            <h4 class="career-title">Career</h4>
+            <p class="career-item">2014 - 2025 Mobil C&C</p>
+            <p class="career-item">2011 - 2014 Media Story</p>
+            <p class="career-item">2008 - 2009 Design Sai</p>
+          </div>
+          
+          <div class="career-column2">
+            <h4 class="career-title">Languages</h4>
+            <p class="career-item"><strong>English</strong> TOEIC 950(2025.2), Upper-intermediate conversation</p>
+            <p class="career-item"><strong>Japanese</strong> Advanced conversation and reading</p>
+          </div>
+          
+          <div class="career-column3">
+            <h4 class="career-title">Skills</h4>
+            <p class="career-item">Google Analytics Certification</p>
+            <p class="career-item">Figma, Adobe Tools</p>
+            <p class="career-item">Lottiefiles, After Effects</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="image-column">
+        <img src="../images/pic2.png" alt="Semin Kim">
+      </div>
+    </section>
+  </div>
+<div class="top-button" id="topButton"></div>
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Get content area and image area elements
+  const contentColumn = document.querySelector('.content-column');
+  const imageColumn = document.querySelector('.image-column');
+  
+  // Set initial styles (transparent and slightly below starting position)
+  contentColumn.style.opacity = '0';
+  contentColumn.style.transform = 'translateY(30px)';
+  contentColumn.style.transition = 'opacity 1s ease, transform 1s ease';
+  
+  imageColumn.style.opacity = '0';
+  imageColumn.style.transform = 'translateY(30px)';
+  imageColumn.style.transition = 'opacity 1s ease, transform 1s ease';
+  
+  // Start content area animation (slightly delayed after page load)
+  setTimeout(() => {
+    contentColumn.style.opacity = '1';
+    contentColumn.style.transform = 'translateY(0)';
+    
+    // Start image animation around when content animation finishes
+    setTimeout(() => {
+      imageColumn.style.opacity = '1';
+      imageColumn.style.transform = 'translateY(0)';
+    }, 300); // Start image animation 300ms after content animation starts
+    
+  }, 200); // Start content animation 200ms after page load
+  
+  // Top button functionality
+  const topButton = document.getElementById('topButton');
+
+  topButton.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
+
+  // Show/hide top button
+  window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+          topButton.style.display = 'flex';
+      } else {
+          topButton.style.display = 'none';
+      }
+  });
+});
+    
+  </script>
+</body>
+</html>
