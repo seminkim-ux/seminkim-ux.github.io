@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <title>Semin Kim - Work</title>
+  <style>
+
+ @font-face {
+  font-family: "Jost";
+  src: url("../woff/Jost-400-Book.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../woff/Jost-700-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+    /* Pretendard 폰트는 기존 woff 참조 유지 */
+  
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Header/Navigation */
+    .header {
+      background-color: var(--white);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      color: var(--black);
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--black);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-item:hover, .menu-item.active {
+      opacity: 1;
+    }
+
+    .menu-item.active {
+    }
+
+    /* Page Title */
+    .page-title-section {
+      width: 100%;
+      padding: 10px 24px 20px;
+      text-align: left;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: var(--font-size-xxxl);
+      font-weight: 700;
+      color: var(--black-2);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* Works section */
+    .works-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .work-image {
+      width: 100%;
+      height: 250px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden; /* 이미지가 모서리를 넘치지 않도록 */
+      transition: transform 0.3s ease;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .work-title {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 4px;
+      margin-top: 18px;
+    }
+
+    .work-description {
+      font-size: 17px;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+
+    .work-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .work-card:hover .work-image {
+      transform: translateY(-5px);
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Set animation delays for each card */
+    .work-card:nth-child(1) { animation-delay: 0.1s; }
+    .work-card:nth-child(2) { animation-delay: 0.2s; }
+    .work-card:nth-child(3) { animation-delay: 0.3s; }
+    .work-card:nth-child(4) { animation-delay: 0.4s; }
+    .work-card:nth-child(5) { animation-delay: 0.5s; }
+    .work-card:nth-child(6) { animation-delay: 0.6s; }
+    .work-card:nth-child(7) { animation-delay: 0.7s; }
+.work-card:nth-child(8) { animation-delay: 0.8s; }
+.work-card:nth-child(9) { animation-delay: 0.9s; }
+
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    @media screen and (max-width: 992px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .page-title {
+        font-size: var(--font-size-xxxl);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .page-title-section {
+        padding: 60px 20px 30px;
+      }
+      
+      .page-title {
+        font-size: var(--font-size-xxl);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .menu {
+        gap: 15px;
+      }
+      
+      .menu-item {
+        font-size: 15px;
+      }
+      
+      .page-title {
+        font-size: var(--font-size-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-center-horizontal">
+    <!-- Header/Navigation -->
+    <header class="header">
+      <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+           <a href="/work/" class="menu-item">KO</a>
+        <a href="/about/en.html" class="menu-item">ABOUT</a>
+        <a href="/work/en.html" class="menu-item active">WORK</a>
+        <a href="/contact/en.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title-section">
+      <h1 class="page-title">WORK</h1>
+    </section>
+    
+    <!-- Works section -->
+    <section class="works-section">
+      <div class="works-grid">
+        <article class="work-card">
+          <a href="hdc/en.html">
+            <div class="work-image">
+              <img src="../images/01.png" alt="HDC IoT APP">
+            </div>
+            <div class="work-title">HDC IoT APP</div>
+            <div class="work-description">UX Concept, UI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="nbb/en.html">
+            <div class="work-image">
+              <img src="../images/02.png" alt="No Brand Burger APP">
+            </div>
+            <div class="work-title">No Brand Burger APP</div>
+            <div class="work-description">UX Concept, UI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="bkjh/en.html">
+            <div class="work-image">
+              <img src="../images/03_2.png" alt="Burgerking Japan Omni Channel">
+            </div>
+            <div class="work-title">Burgerking Japan Omni Channel</div>
+            <div class="work-description">UX, GUI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="kumon/en.html">
+            <div class="work-image">
+              <img src="../images/04.png" alt="Kumon APP">
+            </div>
+            <div class="work-title">Kumon APP</div>
+            <div class="work-description">UI, GUI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="th/en.html">
+            <div class="work-image">
+              <img src="../images/05.png" alt="Tim Hortons Kiosk">
+            </div>
+            <div class="work-title">Tim Hortons Kiosk</div>
+            <div class="work-description">UX Concept, UI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="nh/en.html">
+            <div class="work-image">
+              <img src="../images/06.png" alt="NH">
+            </div>
+            <div class="work-title">NH Investment & Securities</div>
+            <div class="work-description">UX Concept, UI</div>
+          </a>
+        </article>
+
+
+     <article class="work-card">
+          <a href="adt/en.html">
+            <div class="work-image">
+              <img src="../images/07.png" alt="ADT Caps APP">
+            </div>
+            <div class="work-title">ADT Caps APP</div>
+            <div class="work-description">UI, GUI</div>
+          </a>
+              </article>
+        
+        <article class="work-card">
+          <a href="amore/en.html">
+            <div class="work-image">
+              <img src="../images/08.png" alt="Amore">
+            </div>
+            <div class="work-title">Amore SFA APP</div>
+            <div class="work-description">UI, GUI</div>
+          </a>
+        </article>
+        
+        <article class="work-card">
+          <a href="fng/" target="blank">
+            <div class="work-image">
+              <img src="../images/09.png" alt="fng">
+            </div>
+            <div class="work-title">Pre-2014 Work</div>
+            <div class="work-description">UX Concept, UI, GUI</div>
+          </a>
+        </article>
+        
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Simple script to check if items are in viewport and add animation class
+    document.addEventListener('DOMContentLoaded', () => {
+      // All cards are set to animate via CSS animations on page load
+      
+      // For future enhancement: could add scroll-triggered animations
+      // if you want the cards to appear only when scrolled into view
+    });
+  </script>
+</body>
+</html>
