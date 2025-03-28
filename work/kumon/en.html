@@ -1,0 +1,2721 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Book.woff" as="font" type="font/woff" crossorigin>
+  <title>Kumon App - Semin Kim Portfolio</title>
+  <style>
+	  
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    } 
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray:#f2f9fc;
+      --blue-light: #41d9ff;
+      --green-medium: #8ebb37;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #e4eecf;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      max-width:1920px;
+      margin: 0 auto;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+    /* PROJECT HEADER SECTION - 새로 작성 */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 0 60px;
+      background-color: var(--nav-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 20vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.9;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+bottom:-9vh;
+    }
+
+    .hero-image,  {
+      position: absolute;
+      width: 15vw;
+      height: auto;
+    }
+
+    .hero-image {
+      right: 22vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+
+
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-green {
+      color: var(--green-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+    /* SECTION 2: OVERVIEW */
+    .overview-content {
+      position: relative; 
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+      position: absolute;  
+	display:flex;	    
+      margin-top: 10vh; 
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+
+    .overview-image1 {
+      width: 20vw;
+      height: auto;
+    }
+    .overview-image2 {
+      width: 35vw;
+      height: auto;
+    }
+.overview-image3 {
+      width: 25vw;
+      height: auto;
+    }
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+/* SECTION 3: Keyword */
+    .keyword-content {
+      max-width: 100%;
+min-height:110vh;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .keyword-image {
+      position: absolute;  
+      width: 80vw;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+	left:7vw;
+    }
+    .keyword-image1 {
+      width: 100vw;
+      height: auto;
+    }
+    .keyword-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .keyword-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .keyword-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+  
+    
+    
+/* SECTION 4: INSIGHT 스타일 */
+.insight-section {
+  padding: 100px 60px;
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+.insight-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+/* 코어 밸류 타이틀과 설명 */
+.core-value {
+  width: 100%;
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.value-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--black);
+  margin-top: 60px;
+}
+
+/* 콘텐츠 및 학습상태 영역 */
+.kumon-features {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.feature-column {
+  width: 45%;
+}
+
+.left-column {
+  text-align: left;
+}
+
+.right-column {
+  text-align: right;
+}
+
+.feature-heading {
+  font-family: var(--font-family-jost);
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.feature-items {
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  line-height: 1.9;
+  color: #6e6e73;
+}
+
+/* 가치 다이어그램 (원과 태그 포함) */
+.value-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 60px 0;
+  position: relative;
+}
+
+/* 원형 컨테이너 스타일 */
+.circle-container {
+  position: relative;
+  width: 28vw;
+  height: 28vw;
+  margin: 0 -30px; /* 원이 겹치도록 설정 */
+}
+
+.circle-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.circle-text {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 500;
+  color: var(--black);
+  max-width: 80%;
+}
+
+/* 원의 장식 (동심원) */
+.circle-decorations {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left-decorations {
+  border: 2px solid rgba(255, 200, 0, 0.5);
+}
+
+.left-decorations::before,
+.left-decorations::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 200, 0, 0.5);
+}
+
+.left-decorations::before {
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.left-decorations::after {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+.right-decorations {
+  border: 2px solid rgba(100, 180, 70, 0.5);
+}
+
+.right-decorations::before,
+.right-decorations::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 180, 70, 0.5);
+}
+
+.right-decorations::before {
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.right-decorations::after {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+/* 태그 스타일 */
+.tag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 200px;
+}
+
+.left-tags {
+  align-items: flex-end;
+  margin-right: 100px;
+}
+
+.right-tags {
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px 0;
+  width: 200px;
+  text-align: center;
+}
+
+.tag-text {
+  font-family: var(--font-family-jost);
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.tag-yellow {
+  background-color: #ffcf00;
+}
+
+.tag-red {
+  background-color: #ff6b6b;
+}
+
+.tag-green {
+  background-color: #90d45d;
+}
+
+.tag-blue {
+  background-color: #4bb5e8;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .kumon-features {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .feature-column {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .right-column {
+    text-align: left;
+  }
+  
+  .value-diagram {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .tag-container {
+    order: 2;
+    flex-direction: row;
+    width: auto;
+    margin: 0;
+  }
+  
+  .left-tags {
+    margin-right: 0;
+  }
+  
+  .right-tags {
+    margin-left: 0;
+  }
+  
+  .circle-container {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .insight-section {
+    padding: 80px 20px;
+  }
+  
+  .value-description {
+    font-size: 24px;
+    margin-top: 40px;
+  }
+  
+  .feature-heading {
+    font-size: 28px;
+  }
+  
+  .circle-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .tag {
+    width: 140px;
+    padding: 12px 0;
+  }
+  
+  .tag-text {
+    font-size: 20px;
+  }
+  
+  .value-diagram {
+    flex-direction: column;
+  }
+  
+  .left-tags, .right-tags {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .value-description {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  
+  .feature-heading {
+    font-size: 24px;
+  }
+  
+  .feature-items {
+    font-size: 16px;
+  }
+  
+  .circle-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .circle-text {
+    font-size: 14px;
+  }
+  
+  .tag {
+    width: 120px;
+    padding: 10px 0;
+  }
+  
+  .tag-text {
+    font-size: 18px;
+  }
+}
+
+/* SECTION 5: Research  */
+  .research-section {
+background-color: var(--white);
+padding: 100px 60px;
+padding-bottom: 120px;
+  }
+  
+  .research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+      .research-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+.research-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5개 열로 설정 */
+  gap: 4vw; /* 아이템 간 간격 */
+  width: 100%;
+}
+
+.research-item {
+  width: 100%;
+}
+
+.research-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+  .research-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+.cpt {
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 20px;
+    color: #808284;
+  }
+
+
+/* SECTION 6: Research2  */
+.research2-section {
+background-color: var(--white);
+padding: 100px 60px;
+padding-bottom: 120px;
+  }
+  
+  .research2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .research2-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .research2-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+      .research2-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+.research2-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4개 열로 설정 */
+  gap: 4vw; /* 아이템 간 간격 */
+  width: 100%;
+}
+
+.research2-item {
+  width: 100%;
+}
+
+.research2-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  margin-bottom: 10px;
+}
+  .research2-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+.cpt {
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 20px;
+    color: #808284;
+  }
+
+    
+/* SECTION 7: Solution */
+.solution-section {
+  background-color: #efefef;
+  padding: 100px 60px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution-section .section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.solution-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.left-side, .right-side {
+ width: 35%; 
+  margin-top: 150px;
+display: flex;
+flex-direction: column;
+}
+
+.left-side {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.right-side {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.phone-container {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+	margin-top: 20px;
+}
+
+.phone-image {
+  height: 90vh;
+  width: auto;
+  position: relative;
+  top: -10vh; 
+right: -3vw;
+}
+
+.text-left, .text-right {
+  color: #d1d3d4;
+  font-family: "Pretendard-Black", sans-serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.vitamin-circles {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+  margin-top: 60px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+.bright-circle {
+  background-color: #ff9b9b;
+}
+
+.lively-circle {
+  background-color: #41d9ff;
+}
+
+.colorful-circle {
+  background-color: #ffd453;
+}
+
+.solution-description {
+  margin-top: 60px;
+ width: 110%;
+}
+
+.solution-heading {
+  font-family: "Pretendard-Black", sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 16px;
+line-height: 1.6;
+}
+
+.solution-paragraph {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6e6e73;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .text-left, .text-right {
+    font-size: 120px;
+  }
+  
+  .circle {
+    width: 90px;
+    height: 90px;
+    font-size: 14px;
+  }
+}
+	
+
+@media screen and (max-width: 992px) {
+  .text-left, .text-right {
+    font-size: 90px;
+  }
+  
+  .phone-image {
+    height: 60vh;
+  }
+  
+  .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 14px;
+  }
+  
+  .vitamin-circles {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .solution-section {
+    padding: 80px 20px;
+  }
+  
+  .solution-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .left-side, .right-side {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .text-left, .text-right {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .phone-container {
+    width: 100%;
+    margin: 30px 0;
+  }
+  
+  .phone-image {
+    height: 50vh;
+  }
+  
+  .vitamin-circles {
+    justify-content: center;
+  }
+  
+  .solution-description {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text-left, .text-right {
+    font-size: 60px;
+  }
+  
+  .vitamin-circles {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .circle {
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+  }
+}
+
+/* section 8: 브랜드 아이덴티티 섹션 스타일 */
+.brand-identity-section {
+  background-color: var(--white);
+  padding: 100px 60px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.brand-content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+}
+
+/* 상단 콘텐츠 스타일 */
+.top-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.left-image-container {
+  flex: 0 0 40%;
+}
+
+.content-image {
+  width: 90%;
+  height: auto;
+}
+
+.content-text {
+  flex: 0 0 55%;
+  max-width: 55%;
+}
+
+.content-heading {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.highlight-green {
+  color: #65c479;
+}
+
+.subheading {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content-description {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #6e6e73;
+  margin-bottom: 20px;
+}
+
+/* 하단 콘텐츠 스타일 */
+.bottom-content {
+  position: relative; /* 상대 위치 설정 */
+  display: flex;
+  flex-direction: row; /* 가로 배치 유지 */
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+
+.brand-info {
+ flex: 0 0 45%;
+  max-width: 45%;
+  position: relative; 
+  z-index: 2;
+}
+
+
+.brand-logo {
+  margin-bottom: 24px;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+}
+
+.brand-heading {
+  margin-bottom: 20px;
+}
+
+.brand-title {
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.red-text {
+  color: #ff6250;
+}
+
+.brand-description {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #6e6e73;
+}
+
+/* 아이콘 그리드 스타일 */
+.icon-grid {
+flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 110px; /* 상단 여백을 늘려 아래로 내림 */
+  align-self: flex-start; /* 상단 정렬 유지 */
+position: relative;
+left: -8vw;
+}
+
+.icon-item {
+ width: 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.icon-image {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.icon-label {
+  font-family: "Pretendard-Medium", sans-serif;
+  font-size: 16px;
+  color: #404040;
+}
+
+
+	  
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .top-content {
+    flex-direction: column;
+  }
+  
+  .left-image-container, 
+  .content-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .content-image {
+    margin-bottom: 30px;
+  }
+  
+  .bottom-content {
+    flex-direction: column;
+  }
+  
+  .brand-info,
+  .icon-grid {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .icon-grid {
+    margin-top: 40px;
+    justify-content: center;
+  }
+  
+  .icon-item {
+    width: 18%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .brand-identity-section {
+    padding: 80px 20px;
+  }
+  
+  .content-heading {
+    font-size: 32px;
+  }
+  
+  .brand-title {
+    font-size: 30px;
+  }
+  
+  .icon-item {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-heading, 
+  .brand-title {
+    font-size: 24px;
+  }
+  
+  .subheading {
+    font-size: 20px;
+  }
+  
+  .content-description, 
+  .brand-description {
+    font-size: 15px;
+  }
+  
+  .icon-item {
+    width: 45%;
+  }
+}
+
+/* SECTION 9: SOLUTION2  */
+.solution2-section {
+  padding: 100px 60px;
+  background-color: #f2f9fc;
+  min-height: 1000px; /* vh 대신 고정 픽셀 값 사용 */
+  position: relative;
+}
+
+.solution2-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  justify-content: space-between; /* 요소들 사이에 공간 배분 */
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 10px; /* 요소 사이 간격 */
+height:60vh;
+}
+  .section-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-align:left;
+  }
+.solution2-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution2-images {
+  position: relative;
+  width: 100%;
+  height: 750px; /* 고정 높이 설정 */
+  display: flex;
+  align-items: flex-start; /* 상단 정렬로 변경 */
+  justify-content: center;
+  z-index: 1;
+}
+
+.solution2-image1, .solution2-image2, .solution2-image3 {
+ position: absolute;
+  width: 400px; /* 픽셀 단위로 고정 */
+  height: auto;
+}
+
+.solution2-image1 {
+  right: 65%; /* 오른쪽에서부터의 위치 */
+  bottom: 90px; /* 각 이미지마다 조정 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 28%;
+  bottom: 40px;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -8%;
+  bottom: 100px;
+  z-index: 4;
+}
+
+.solution2-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+.section-description {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* SECTION 10: solution3  */
+.solution3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 1000px;
+  position: relative;
+}
+
+.solution3-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  align-items: flex-start;
+  justify-content: space-between;
+height: 60vh;
+}
+  .section9-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align:left;
+  }
+.solution3-text {
+  width: 35%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution3-images {
+  position: relative;
+  width: 65%; /* 전체 너비로 변경 */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px; /* 상단 여백 */
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 410px;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 60%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom: -600px;
+}
+
+.solution3-image2 {
+  right: 26%;
+  z-index: 3;
+bottom: -690px;
+}
+
+.solution3-image3 {
+  right: -8%;
+  z-index: 4;
+bottom: -620px;
+}
+
+.solution3-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+  .solution3-me{
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+  position: relative; 
+    margin-top:10vh;
+    line-height: 1.6;
+    color: #000;
+  }
+/* SECTION 11: solution4  */
+.solution4-section {
+  padding: 100px 60px;
+  background-color: #f2f9fc;
+  min-height: 100vh;
+  position: relative;
+}
+
+.solution4-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* column에서 row로 변경 */
+  flex-wrap: wrap; /* 필요시 줄바꿈 */
+  align-items: flex-start;
+  justify-content: space-between;
+height: 70vh;
+}
+  .section9-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align:left;
+  }
+.solution4-text {
+  width: 30%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.solution4-images {
+  position: relative;
+  width: 70%; /* 전체 너비로 변경 */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px; /* 상단 여백 */
+}
+.solution4-image1, .solution4-image2, .solution4-image3 {
+  position: absolute;
+  width: 360px;
+  height: auto;
+}
+
+.solution4-image1 {
+  right: 60%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom: -590px;
+}
+
+.solution4-image2 {
+  right: 26%;
+  z-index: 3;
+bottom: -600px;
+}
+
+.solution4-image3 {
+  right: -8%;
+  z-index: 4;
+bottom: -560px;
+}
+
+.solution4-description {
+  width: 100%;
+  margin-top: 30px; /* 이미지와 설명 사이 간격 */
+  clear: both;
+}
+
+  .solution4-me{
+    font-family: var(--font-family-pretendard);
+    font-size: 15px;
+  position: relative; 
+    margin-top:10vh;
+    line-height: 1.6;
+    color: #000;
+  }
+
+	  
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+   
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, {
+        width: 230px;
+      }
+      
+ 
+        .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  .third-level-container {
+    min-width: 200px;
+  }
+    .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  
+  .third-level-container {
+    min-width: 200px;
+  }
+}
+
+
+
+    @media screen and (max-width: 1024px) {
+      
+  
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+  
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+   
+          .process-grid {
+      flex-wrap: wrap;
+    }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+	      .solution-text {
+    width: 100%;
+  }
+  
+  .solution-images {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .solution-description {
+    margin-top: 30px;
+  }
+}
+  
+  
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+position: relative;
+width: 70vw;
+right: -5vw;
+bottom: 3vh;
+z-index: 2;
+}
+
+.overview-image {
+      position: absolute;  
+      width: 100%;
+      margin-top: 8vh; 
+      right: 10px;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+	
+.process-box {
+    padding: 30px;
+    width : 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 370px;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 62%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+top: -20%;
+}
+
+.solution2-image2 {
+  right: 26%;
+  z-index: 3;
+top: -15%;
+}
+
+.solution2-image3 {
+  right: -10%;
+  z-index: 4;
+top: -8%;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 340px;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+  .circle-container {
+    width: 25vw;
+    height: 25vw;
+  }
+  
+  .circle-text {
+    font-size: 14px;
+  }
+}
+	
+}
+
+	
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image,  {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+
+  .insight-content {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 30px; /* 요소 간 간격 */
+  }
+  
+  .section-heading, .insight-images {
+    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
+  }
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+
+.solution-section {
+    padding: 80px 20px;
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+   
+      .hero-image,  {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+    }
+
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex !important;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+    display: none !important;
+    }
+  }  
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../index.html" class="logo">Semin Kim</a>
+      <nav class="menu">
+       <!-- <a href="/en.html" class="menu-item">EN</a>-->
+        <a href="/about/" class="menu-item">ABOUT</a>
+        <a href="/work/" class="menu-item active">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION - newly written -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2020.08 - 2020.11</div>
+        <h1 class="project-title">Kumon APP</h1>
+        <div class="project-description">
+          <p>I designed the UI for the Kyowon Kumon official app renewal project.</p>
+          <p>I established the renewal concept and completed the design for all screens.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value"> UI Design/ 100%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Launching Updated App</span>
+        </div>
+      </div>
+      
+      <!-- Mobile UI images -->
+      <div class="project-images">
+          <img src="images/01_2.png" alt="Kumon app screenshot" class="hero-image">
+      </div>
+    </section>
+
+	  
+    
+  <!-- SECTION 2: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">
+         Upgrading to an even better learning partner.
+        </h3>
+        <p class="overview-paragraph">After the COVID-19 pandemic in 2020, online education demand increased dramatically.<br>
+        Kyowon Kumon was operating a service called Kumon Parents App, but needed to provide a more systematic educational service.<br>
+        In particular, I designed the UX to emphasize Kumon's strength in learning content and to feel like an upgraded app.</p>
+      </div>
+      <div class="overview-image">
+        <img src="images/02_1.svg" alt="Kumon overview image 1" class="overview-image1">
+	<img src="images/02_2.svg" alt="Kumon overview image 2" class="overview-image2">
+	<img src="images/02_3.svg" alt="Kumon overview image 3" class="overview-image3">
+      </div>
+    </div>
+  </section>
+    
+<!-- SECTION 3: Keyword -->
+  <section class="section">
+    <h2 class="section-title">Keyword</h2>
+    <div class="keyword-content">
+      <div class="keyword-text">
+        <h3 class="keyword-heading">
+         I identified the relationship between target users and the service.
+        </h3>
+        <p class="keyword-paragraph">Over 50% of Kumon app users are parents who supervise learning.<br>
+        We needed to consider both children/teenagers who manage their own learning and parents who guide them.<br>
+        We also needed to consider adult learners as a new target audience.</p>
+      </div>
+      <div class="keyword-image">
+        <img src="images/03.svg" alt="Kumon overview image 1" class="keyword-image">
+      </div>
+    </div>
+  </section>
+    
+<!-- SECTION 4 : insight -->
+<section class="insight-section">
+  <h2 class="section-title">Core Value</h2>
+  <div class="insight-content">
+    <div class="core-value">
+      <p class="value-description">
+        We established the values to be delivered to users<br>
+        focused on two core functions: content and learning status guidance.
+      </p>
+    </div>
+    
+    <div class="kumon-features">
+      <div class="feature-column left-column">
+        <h3 class="feature-heading">KUMON CONTENTS</h3>
+        <p class="feature-items">Kids / Adult Learning / Smart Kumon / Events / Benefits / Resources</p>
+      </div>
+      
+      <div class="feature-column right-column">
+        <h3 class="feature-heading">STUDY STATUS</h3>
+        <p class="feature-items">Learning Progress / Learning Content / Learning Goals / Certificates / Contact Teacher / Solution Time Timer</p>
+      </div>
+    </div>
+    
+    <div class="value-diagram">
+      <!-- Left tags -->
+      <div class="tag-container left-tags">
+        <div class="tag tag-yellow">
+          <span class="tag-text">Lively</span>
+        </div>
+        <div class="tag tag-red">
+          <span class="tag-text">Neat</span>
+        </div>
+      </div>
+      
+      <!-- Left circle -->
+      <div class="circle-container left-circle">
+        <div class="circle-content">
+          <p class="circle-text">
+            Delivering content from<br>
+            the No. 1 education brand<br>
+            with neat and bright design.
+          </p>
+        </div>
+        <div class="circle-decorations left-decorations"></div>
+      </div>
+      
+      <!-- Right circle -->
+      <div class="circle-container right-circle">
+        <div class="circle-content">
+          <p class="circle-text">
+            Enhancing the smart image<br>
+            with user-customized,<br>
+            friendly learning status displays<br>
+            and effective information delivery.
+          </p>
+        </div>
+        <div class="circle-decorations right-decorations"></div>
+      </div>
+      
+      <!-- Right tags -->
+      <div class="tag-container right-tags">
+        <div class="tag tag-green">
+          <span class="tag-text">Friendly</span>
+        </div>
+        <div class="tag tag-blue">
+          <span class="tag-text">Smart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: research -->
+<section class="research-section">
+<h2 class="section-title">Research</h2>
+  <div class="research-content">
+    <div class="research-text">
+      <h3 class="research-heading">
+ <span class="highlight-green">Illustrated icons</span> for<br>
+ effective function explanation.
+      </h3>
+	<p class="research-paragraph">Various illustrated icons are being used for effective function explanation on mobile.<br>
+       I researched the use of illustrated icons <span class="highlight-d">to approach users in a friendly way and provide a kind user experience.</span></p>
+      </div>
+    </div>
+    
+    <!-- research images -->
+ <div class="research-container">
+    <div class="research-item">
+        <img src="images/05_1.jpg" alt="Research 1" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_2.jpg" alt="Research 2" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_3.jpg" alt="Research 3" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_4.jpg" alt="Research 4" class="research-image">
+    </div>
+    
+    <div class="research-item">
+        <img src="images/05_5.jpg" alt="Research 5" class="research-image">
+    </div>
+
+</div>	    
+</div>
+</section>
+
+
+<!-- SECTION 6: research2 -->
+<section class="research2-section">
+<h2 class="section-title">Research</h2>
+  <div class="research2-content">
+    <div class="research2-text">
+      <h3 class="research2-heading">
+ <span class="highlight-green">Collecting mood boards</span> to create<br>
+ bright and lively expressions.
+      </h3>
+	<p class="research2-paragraph">I collected mood boards to welcome users brightly.<br>
+       I confirmed that <span class="highlight-d">various elements such as bright colors, appropriate use of white space,<br>
+       and components that add dynamism</span> create the atmosphere.</p>
+      </div>
+    </div>
+    
+    <!-- research2 images -->
+ <div class="research2-container">
+    <div class="research2-item">
+        <img src="images/06_1.jpg" alt="Research 1" class="research2-image">
+    </div>
+    
+    <div class="research2-item">
+        <img src="images/06_2.jpg" alt="Research 2" class="research2-image">
+    </div>
+    
+    <div class="research2-item">
+        <img src="images/06_3.jpg" alt="Research 3" class="research2-image">
+    </div>
+    
+    <div class="research2-item">
+        <img src="images/06_4.jpg" alt="Research 4" class="research2-image">
+    </div>
+</div>	    
+</div>
+</section>
+
+<!-- SECTION 7: solution -->
+<section class="solution-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="solution-content">
+    <div class="left-side">
+      <div class="text-left">STUDY</div>
+      <div class="solution-description">
+        <h3 class="solution-heading">We emphasized bright and lively images<br>with the 'Study Vitamin' concept.</h3>
+        <p class="solution-paragraph">We made it feel familiar to parents and students, our main users,<br>
+        like the shopping and social apps they frequently use in daily life.</p>
+      </div>
+    </div>
+    
+    <div class="phone-container">
+      <img src="images/07.png" alt="Kumon App UI" class="phone-image">
+    </div>
+    
+    <div class="right-side">
+      <div class="text-right">VITAMIN</div>
+      <div class="vitamin-circles">
+        <div class="circle bright-circle">BRIGHT</div>
+        <div class="circle lively-circle">LIVELY</div>
+        <div class="circle colorful-circle">COLORFUL</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 8: Brand Identity Section -->
+<section class="brand-identity-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="brand-content">
+    <!-- Top area: Left image, Right text -->
+    <div class="top-content">
+      <div class="left-image-container">
+        <img src="images/08_1.svg" alt="Workbook content image" class="content-image">
+      </div>
+      
+      <div class="content-text">
+        <h3 class="content-heading">
+          <span class="highlight-green">Designing brand elements</span> that users<br>
+          can relate to along with the <span class="highlight-green">concept</span>.
+        </h3>
+        
+        <h4 class="subheading">Kumon Workbooks</h4>
+        
+        <p class="content-description">
+          I also have memories of having to solve a set amount of workbooks every week.<br>
+          <span class="highlight-d">Users' memories of brands they've actually experienced are very valuable assets.</span><br>
+          <span class="highlight-d">I designed this as illustrated buttons to match the Study Vitamin concept.</span><br>
+          It serves as the main visual of the service as a learning status button on the main screen.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Bottom area: Left text, Right image -->
+    <div class="bottom-content">
+      <div class="brand-info">
+        <div class="brand-logo">
+          <img src="images/bi.svg" alt="Kumon logo" class="logo-image">
+        </div>
+        
+        <div class="brand-heading">
+          <h3 class="brand-title">
+            Designing learning content extended<br>
+            from the <span class="red-text">brand identity</span>.
+          </h3>
+          
+          <p class="content-description">
+            The smart content buttons, one of the core service functions, build<br>
+	a unified and enhanced identity with a design similar to Kyowon Kumon's BI.
+          </p>
+        </div>
+      </div>
+      
+      <div class="icon-grid">
+        <div class="icon-item">
+          <img src="images/08_2_1.svg" alt="Smart Pen" class="icon-image">
+          <span class="icon-label">Smart Pen</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_2.svg" alt="MP3 Audio" class="icon-image">
+          <span class="icon-label">MP3 Audio</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_3.svg" alt="Video Lectures" class="icon-image">
+          <span class="icon-label">Video Lectures</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_4.svg" alt="Smart AR App" class="icon-image">
+          <span class="icon-label">Smart AR App</span>
+        </div>
+        
+        <div class="icon-item">
+          <img src="images/08_2_5.svg" alt="Naegong 100" class="icon-image">
+          <span class="icon-label">Naegong 100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: SOLUTION 2 -->
+<section class="solution2-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution2-content">
+    <div class="solution2-text">
+      <h3 class="section-heading">
+         Visual planning for<br>
+        <span class="highlight-green">a fresh impression</span><br>
+      </h3>
+
+      <div class="solution2-description">
+        <p class="section-description">
+         To deliver a clean and clear first impression,<br>
+	we <span class="highlight-d">created home banner design guidelines</span> to<br>
+	maintain quality. Rules for images and typography<br>
+	for banner creation are defined.<br><br>
+	Visual guidelines for a neat and bright feeling were<br>
+	also defined for the home screen popup and my page<br>
+	to ensure consistent implementation.<br>
+        </p>
+      </div>
+    </div>
+
+    <div class="solution2-images">
+      <img src="images/09_1b.png" alt="Kumon app image" class="solution2-image1">
+      <img src="images/09_2b.png" alt="Kumon app image" class="solution2-image2">
+      <img src="images/09_3b.png" alt="Kumon app image" class="solution2-image3">
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: SOLUTION3 -->
+<section class="solution3-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution3-content">
+    <div class="solution3-text">
+      <h3 class="section9-heading">
+       Clear learning progress display and<br>
+        <span class="highlight-green">subject-specific color designation.</span>
+      </h3>
+
+      <div class="solution3-description">
+        <p class="section-description">
+          Users can track step-by-step learning progress<br>
+	and systematically check content for review and preview.<br>
+	We assigned colors by subject group (math series - red,<br>
+	Korean series - green, English series - blue) to add consistency.<br>
+        </p>
+      </div>
+    </div>
+
+    <div class="solution3-images">
+      <img src="images/10_1b.png" alt="Kumon app image" class="solution3-image1">
+      <img src="images/10_2b.png" alt="Kumon app image" class="solution3-image2">
+      <img src="images/10_3b.png" alt="Kumon app image" class="solution3-image3">
+    </div>
+  </div>
+</section>
+<!-- SECTION 11: SOLUTION4 -->
+<section class="solution4-section">
+  <h2 class="section-title">Solution</h2>
+  <div class="solution4-content">
+    <div class="solution4-text">
+      <h3 class="section9-heading">
+  Concisely organized <br>
+ <span class="highlight-green">learning content.</span><br>
+      </h3>
+
+      <div class="solution4-description">
+        <p class="section-description">
+Users can effectively check and use<br>
+various Kumon content such as MP3 audio,<br>
+Smart Pen audio, and video lectures<br>
+in an organized layout.<br>
+        </p>
+      </div>
+    </div>
+
+    <div class="solution4-images">
+      <img src="images/11_1b.png" alt="Kumon app image" class="solution4-image1">
+      <img src="images/11_2b.png" alt="Kumon app image" class="solution4-image2">
+      <img src="images/11_3b.png" alt="Kumon app image" class="solution4-image3">
+    </div>
+  </div>
+</section>	
+
+<div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>	
+<div class="top-button" id="topButton"></div>
+	
+<script>
+    // Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
+  if (!element) return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    rect.bottom >= 0
+  );
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // 프로젝트 헤더 이미지 초기 설정
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1s ease-out';
+    
+    // 페이지 로드 시 약간의 지연 후 애니메이션 적용
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 500);
+  }
+  
+  // 섹션 2: Overview 이미지 초기 설정
+  const overviewImage1 = document.querySelector('.overview-image1');
+  const overviewImage2 = document.querySelector('.overview-image2');
+  const overviewImage3 = document.querySelector('.overview-image3');
+  
+  if (overviewImage1) {
+    overviewImage1.style.opacity = '0';
+    overviewImage1.style.transform = 'translateX(-50px)';
+    overviewImage1.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  if (overviewImage2) {
+    overviewImage2.style.opacity = '0';
+    overviewImage2.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (overviewImage3) {
+    overviewImage3.style.opacity = '0';
+    overviewImage3.style.transform = 'translateX(50px)';
+    overviewImage3.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  // 섹션 3: Keyword 이미지 초기 설정
+  const keywordImage = document.querySelector('.keyword-image');
+  if (keywordImage) {
+    keywordImage.style.opacity = '0';
+    keywordImage.style.transform = 'scale(1.3)';
+    keywordImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+  }
+  
+  // 섹션 4: Core Value 초기 설정
+  const leftCircle = document.querySelector('.left-circle');
+  const rightCircle = document.querySelector('.right-circle');
+  const leftTags = document.querySelectorAll('.left-tags .tag');
+  const rightTags = document.querySelectorAll('.right-tags .tag');
+  
+  if (leftCircle) {
+    leftCircle.style.opacity = '0';
+    leftCircle.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (rightCircle) {
+    rightCircle.style.opacity = '0';
+    rightCircle.style.transition = 'opacity 0.8s ease-out';
+  }
+  
+  if (leftTags.length > 0) {
+    leftTags.forEach(tag => {
+      tag.style.opacity = '0';
+      tag.style.transform = 'translateX(30px)';
+      tag.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  if (rightTags.length > 0) {
+    rightTags.forEach(tag => {
+      tag.style.opacity = '0';
+      tag.style.transform = 'translateX(-30px)';
+      tag.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 5: Research 이미지 초기 설정
+  const researchImages = document.querySelectorAll('.research-image');
+  if (researchImages.length > 0) {
+    researchImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 6: Research2 이미지 초기 설정
+  const research2Images = document.querySelectorAll('.research2-image');
+  if (research2Images.length > 0) {
+    research2Images.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateY(30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 7: Solution 초기 설정
+  const phoneImage = document.querySelector('.phone-image');
+  const circles = document.querySelectorAll('.vitamin-circles .circle');
+  
+  if (phoneImage) {
+    phoneImage.style.opacity = '0';
+    phoneImage.style.transform = 'translateY(30px)';
+    phoneImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  if (circles.length > 0) {
+    circles.forEach(circle => {
+      circle.style.opacity = '0';
+      circle.style.transition = 'opacity 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 8: Brand Identity 초기 설정
+  const contentImage = document.querySelector('.content-image');
+  const iconItems = document.querySelectorAll('.icon-item');
+  
+  if (contentImage) {
+    contentImage.style.opacity = '0';
+    contentImage.style.transform = 'translateX(-30px)';
+    contentImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+  }
+  
+  if (iconItems.length > 0) {
+    iconItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transition = 'opacity 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 9-11: Solution2-4 이미지 초기 설정
+  const solution2Images = document.querySelectorAll('.solution2-images img');
+  const solution3Images = document.querySelectorAll('.solution3-images img');
+  const solution4Images = document.querySelectorAll('.solution4-images img');
+  
+  function initSolutionImages(images) {
+    if (images.length > 0) {
+      images.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transform = 'translateY(30px)';
+        img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      });
+    }
+  }
+  
+  initSolutionImages(solution2Images);
+  initSolutionImages(solution3Images);
+  initSolutionImages(solution4Images);
+  
+  // 스크롤 이벤트에 따른 애니메이션 처리
+  function handleScrollAnimations() {
+    // 섹션 2: Overview 이미지 애니메이션
+    const overviewSection = document.querySelector('.overview-content');
+    if (overviewSection && isInViewport(overviewSection)) {
+      // 이미지 1
+      if (overviewImage1 && overviewImage1.style.opacity === '0') {
+        overviewImage1.style.opacity = '1';
+        overviewImage1.style.transform = 'translateX(0)';
+        
+        // 이미지 2
+        setTimeout(() => {
+          if (overviewImage2) {
+            overviewImage2.style.opacity = '1';
+          }
+          
+          // 이미지 3
+          setTimeout(() => {
+            if (overviewImage3) {
+              overviewImage3.style.opacity = '1';
+              overviewImage3.style.transform = 'translateX(0)';
+            }
+          }, 300);
+        }, 300);
+      }
+    }
+    
+    // 섹션 3: Keyword 이미지 애니메이션
+    const keywordSection = document.querySelector('.keyword-content');
+    if (keywordSection && isInViewport(keywordSection) && keywordImage && keywordImage.style.opacity === '0') {
+      keywordImage.style.opacity = '1';
+      keywordImage.style.transform = 'scale(1)';
+    }
+    
+    // 섹션 4: Core Value 애니메이션
+    const insightSection = document.querySelector('.insight-section');
+    if (insightSection && isInViewport(insightSection)) {
+      // 왼쪽 원 페이드인
+      if (leftCircle && leftCircle.style.opacity === '0') {
+        leftCircle.style.opacity = '1';
+        
+        // 왼쪽 태그 순차적으로 페이드인
+        setTimeout(() => {
+          if (leftTags.length > 0) {
+            leftTags.forEach((tag, index) => {
+              setTimeout(() => {
+                tag.style.opacity = '1';
+                tag.style.transform = 'translateX(0)';
+              }, index * 200);
+            });
+          }
+          
+          // 오른쪽 원 페이드인
+          setTimeout(() => {
+            if (rightCircle) {
+              rightCircle.style.opacity = '1';
+            }
+            
+            // 오른쪽 태그 순차적으로 페이드인
+            setTimeout(() => {
+              if (rightTags.length > 0) {
+                rightTags.forEach((tag, index) => {
+                  setTimeout(() => {
+                    tag.style.opacity = '1';
+                    tag.style.transform = 'translateX(0)';
+                  }, index * 200);
+                });
+              }
+            }, 300);
+          }, 600);
+        }, 300);
+      }
+    }
+    
+    // 섹션 5: Research 이미지 애니메이션
+    const researchSection = document.querySelector('.research-section');
+    if (researchSection && isInViewport(researchSection) && researchImages.length > 0) {
+      researchImages.forEach((img, index) => {
+        setTimeout(() => {
+          img.style.opacity = '1';
+          img.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+    
+    // 섹션 6: Research2 이미지 애니메이션
+    const research2Section = document.querySelector('.research2-section');
+    if (research2Section && isInViewport(research2Section) && research2Images.length > 0) {
+      research2Images.forEach((img, index) => {
+        setTimeout(() => {
+          img.style.opacity = '1';
+          img.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    }
+ // 섹션 7: Solution 애니메이션
+    const solutionSection = document.querySelector('.solution-section');
+    if (solutionSection && isInViewport(solutionSection)) {
+      // 폰 이미지 먼저 애니메이션 적용
+      if (phoneImage && phoneImage.style.opacity === '0') {
+        phoneImage.style.opacity = '1';
+        phoneImage.style.transform = 'translateY(0)';
+        
+        // 원들 순차적으로 페이드인
+        setTimeout(() => {
+          if (circles.length > 0) {
+            circles.forEach((circle, index) => {
+              setTimeout(() => {
+                circle.style.opacity = '1';
+              }, index * 200);
+            });
+          }
+        }, 500);
+      }
+    }
+    
+    // 섹션 8: Brand Identity 애니메이션
+    const brandSection = document.querySelector('.brand-identity-section');
+    if (brandSection && isInViewport(brandSection)) {
+      // 왼쪽 상단 이미지 애니메이션
+      if (contentImage && contentImage.style.opacity === '0') {
+        contentImage.style.opacity = '1';
+        contentImage.style.transform = 'translateX(0)';
+        
+        // 아이콘 아이템들 순차적으로 페이드인
+        setTimeout(() => {
+          if (iconItems.length > 0) {
+            iconItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.style.opacity = '1';
+              }, index * 150);
+            });
+          }
+        }, 500);
+      }
+    }
+    
+    // 섹션 9-11: Solution2-4 이미지 애니메이션
+    function animateSolutionImages(section, images) {
+      if (section && isInViewport(section) && images.length > 0) {
+        let anyInvisible = false;
+        images.forEach(img => {
+          if (img.style.opacity === '0') {
+            anyInvisible = true;
+          }
+        });
+        
+        if (anyInvisible) {
+          images.forEach((img, index) => {
+            setTimeout(() => {
+              img.style.opacity = '1';
+              img.style.transform = 'translateY(0)';
+            }, index * 200);
+          });
+        }
+      }
+    }
+    
+    // 섹션 9: Solution2 애니메이션
+    const solution2Section = document.querySelector('.solution2-section');
+    animateSolutionImages(solution2Section, solution2Images);
+    
+    // 섹션 10: Solution3 애니메이션
+    const solution3Section = document.querySelector('.solution3-section');
+    animateSolutionImages(solution3Section, solution3Images);
+    
+    // 섹션 11: Solution4 애니메이션
+    const solution4Section = document.querySelector('.solution4-section');
+    animateSolutionImages(solution4Section, solution4Images);
+  }
+  
+	  
+
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // 페이지 로드 시 이미 보이는 요소 확인
+  handleScrollAnimations();
+});
+	
+</script>
+</div>
+</body>
+</html>
