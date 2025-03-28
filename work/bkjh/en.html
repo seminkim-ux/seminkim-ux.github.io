@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+
+  <title>Burgerking Japan Omnichannel - Semin Kim Portfolio</title>
+  <style>
+     @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray:#f2f9fc;
+      --blue-light: #41d9ff;
+      --yellow-medium: #e1a317;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #faf7ef;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxll: 76px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+    /* PROJECT HEADER SECTION - 새로 작성 */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 60px;
+      background-color: var(--nav-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 16vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxll);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.6;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+    }
+
+    .hero-image, .hero-image2 {
+      position: absolute;
+      width: 24vw;
+      height: auto;
+    }
+
+    .hero-image {
+      right: 21vw;
+      bottom: 9vh;
+	width:18vw;
+      z-index: 10;
+    }
+
+    .hero-image2 {
+      right: 3vw;
+      bottom: -1vh;
+	width:23vw;
+      z-index: 1;
+    }
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-yellow {
+      color: var(--yellow-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+    /* SECTION 2: OVERVIEW */
+    .overview-content {
+      display: flex;
+      position: relative; 
+      gap: 16px;
+      align-items: center;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+.overview-images {
+  position: absolute;
+  width: 60%; /* 전체 너비로 변경 */
+margin-top: 45vh; 
+right: 0vw;
+aspect-ratio: 1 / 1;
+background-color: transparent;
+border-radius: 0px;
+order: 10;
+}
+	  
+/* 이미지 테마 컨테이너 스타일 */
+.image-theme-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+}
+
+/* 기존 image-theme 스타일 수정 */
+.image-theme {
+  font-family: var(--font-family-jost);
+  font-size: 40px;
+  font-weight: 700;
+  color: #585858;
+  margin-bottom: 0; /* 기존 마진 제거 */
+  margin-right: 16px; /* 오른쪽에 여백 추가하여 로고와 간격 확보 */
+}
+
+/* 로고 스타일 */
+.theme-logo {
+  height: 52px; /* 로고 높이 설정 (텍스트와 비슷한 높이로) */
+  width: auto; /* 비율 유지 */
+margin-right:12px;
+}
+
+.overview-image1 {
+position:absolute;
+right: 33vw;
+width:5.5vw;/* 오른쪽에서부터의 위치 */
+top:26vh;
+z-index: 2;
+}
+
+.overview-image2 {
+position:absolute;
+right: 17vw;
+width:13vw;
+top:23vh;
+z-index: 3;
+}
+
+.overview-image3 {
+position:absolute;
+right: 1vw;
+width:13vw;
+top:14vh;
+z-index: 4;
+}
+
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+/* SECTION 3: PROCESS  */
+  .process-section {
+    padding: 100px 60px;
+    background-color: var(--white);
+  }
+  
+  .process-content {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0;
+    text-align:left;
+  }
+  
+  .section-heading {
+    font-family: var(--font-family-pretendard);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-align:left;
+  }
+  
+  .process-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .process-column {
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-box {
+    padding: 30px;
+    width : 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .define-box {
+    background-color: #98dbf5;
+  }
+  
+  .ideation-box {
+    background-color: #a2d987;
+  }
+  
+  .prototype-box {
+    background-color: #ffbccd;
+  }
+  
+  .test-box {
+    background-color: #f3ca58;
+  }
+  
+  .box-title {
+    font-family: var(--font-family-jost);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .process-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .process-description {
+    font-family: var(--font-family-pretendard);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black);
+    padding-top: 15px;
+  }
+  
+  
+    
+    
+ /* SECTION 4: field RESEARCH STYLES */
+  .field-research-section {
+    background-color: var(--light-bg);
+    padding-bottom: 120px;
+  }
+  
+  .field-research-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .field-research-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  
+  .field-research-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .field-feedback-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  
+  .field-feedback-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .field-feedback-box {
+    background-color: transparent;
+    border-radius: 20px;
+    position: relative;
+    min-height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.field-image {
+width: 100%;
+border-radius: 20px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: auto;
+  display: block;
+}
+
+/* SECTION 5: INSIGHT STYLES */
+  .competitive-section {
+background-color: var(--white);
+padding: 100px 60px;
+padding-bottom: 120px;
+  }
+  
+  .competitive-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .competitive-text {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .competitive-heading {
+    font-family: "pretendard-bold", sans-serif;
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  
+.competitive-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6개 열로 설정 */
+  gap: 3vw; /* 아이템 간 간격 */
+  width: 100%;
+}
+
+.competitive-item {
+  width: 100%;
+}
+
+.competitive-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+  .competitive-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .competitive-points {
+    margin-top:40px;
+	list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+.cpt {
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 20px;
+    color: #808284;
+  }
+  .competitive-points li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-family: "pretendard-bold", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #808284;
+  }
+  .competitive-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #808284;
+  }
+
+/* SECTION 6: IDEATION */
+.ideation-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.ideation-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.ideation-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.research-container {
+  display: flex; /* 그리드 대신 flex로 변경 */
+  flex-direction: row; /* 가로 방향 배치 확실히 */
+  justify-content: flex-start;
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 0;
+  margin-top: 40px;
+}
+.research-column.sns-research {
+  width: 45%; /* SNS Research 영역 축소 */
+  flex: 0 0 45%;
+  margin-right: 2%; /* 오른쪽에 약간의 여백 추가 */
+}
+
+.research-column.stakeholder-interview {
+  width: 55%; /* Stakeholder Interview 영역 확장 */
+  flex: 0 0 55%;
+  padding-left: 0; /* 왼쪽 padding 제거 */
+}
+/* 컨테이너 높이 통일 */
+.circles-container, .bubbles-container {
+  position: relative;
+  height: 650px; /* 충분한 높이 */
+  width: 100%;
+}
+
+	  
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+/* 버블 위치 재조정 */
+.brand-bubble {
+  top: 30px;
+  left: 0vw;
+}
+
+.visual-bubble {
+  top: 30px;
+  left: 15vw;
+}
+
+.design-bubble {
+  top: 30px;
+  left: 30vw;
+}
+
+.condiment-bubble {
+  top: 270px;
+  left: 8vw;
+}
+
+.point-bubble {
+  top: 270px;
+  left: 23vw;
+}
+
+
+.research-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6a6d6e;
+  margin-bottom: 10px;
+}
+
+.research-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* SNS Research 영역 스타일 */
+.circles-container {
+  position: relative;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+
+.circle-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.circle-text-jp, .circle-text-ko {
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+.circle-text-emphasis {
+  font-weight: bold;
+  color: #c00;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.circle-emoji {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.circle-image {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 원 위치 조정 */
+.taste-circle {
+  top: 20px;
+  left: 10px;
+width:210px;
+height:210px;
+}
+
+.price-circle {
+  top: 20px;
+  left: 230px;
+width:190px;
+height:190px;
+}
+
+.size-circle {
+  top: 200px;
+  left: 150px;
+width:220px;
+height:220px;
+}
+
+.unknown-circle {
+  top: 340px;
+  left: 10px;
+width:180px;
+height:180px;
+}
+
+.strange-circle {
+  top: 270px;
+  left: 370px;
+width:160px;
+height:160px;
+}
+
+/* Stakeholder Interview 영역 스타일 */
+.bubbles-container {
+  position: relative;
+  height: 500px;
+}
+
+.bubble {
+  position: absolute;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  width: 220px;
+  height: 220px;
+}
+
+.bubble-text-jp {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.bubble-text-ko {
+  font-size: 15px;
+  color: #666;
+}
+
+/* SECTION 7: UX CONCEPT */
+.ux-concept-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.ux-concept-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ux-concept-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+/* 콘셉트 원형 컨테이너 */
+.concept-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.concept-circle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% / 3 - 30px);
+  max-width: 300px;
+}
+
+/* 바깥쪽 원 */
+.concept-circle-outer {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* 중간 원 */
+.concept-circle-middle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 안쪽 원 (메인 컨텐츠) */
+.concept-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Originality 색상 */
+.originality-outer {
+  background-color: rgba(243, 112, 33, 0.15);
+}
+
+.originality-middle {
+  background-color: rgba(243, 112, 33, 0.3);
+}
+
+.originality-circle {
+  background-color: rgba(243, 112, 33, 1);
+}
+
+/* Consistency 색상 */
+.consistency-outer {
+  background-color: rgba(247, 206, 30, 0.15);
+}
+
+.consistency-middle {
+  background-color: rgba(247, 206, 30, 0.3);
+}
+
+.consistency-circle {
+  background-color: rgba(247, 206, 30, 1);
+}
+
+/* Consideration 색상 */
+.consideration-outer {
+  background-color: rgba(112, 184, 101, 0.15);
+}
+
+.consideration-middle {
+  background-color: rgba(112, 184, 101, 0.3);
+}
+
+.consideration-circle {
+  background-color: rgba(112, 184, 101, 1);
+}
+
+.concept-title {
+  font-family: var(--font-family-jost);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.concept-subtitle {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.concept-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.concept-summary {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.concept-summary-text {
+font-family: "pretendard-bold", sans-serif;
+  font-size: 30px;
+margin-bottom: 16px;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+.concept-summary-description{
+font-family: "pretendard-bold", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* SECTION 8: PROTOTYPE */
+.prototype-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.section-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.prototype-images-container {
+  display: flex;
+  justify-content: flex-start; /* space-between에서 flex-start로 변경 */
+  gap: 0; /* 간격을 0으로 설정 */
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  margin-top: 40px;
+}
+.prototype-image-left {
+  width: 40%;
+  height: auto;
+  overflow: hidden;
+}
+.prototype-image-right {
+  width: 60%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prototype-image-left img, {
+  width: 45vw;
+  object-fit: cover;
+}
+ .prototype-image-right img {
+  width: 60vw;
+  object-fit: cover;
+}
+.burger-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #F37021; /* 버거킹 오렌지 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+
+
+/* SECTION 9: prototype2  */
+.prototype2-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype2-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype2-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype2-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-top: 40px;
+}
+
+.prototype2-image-kiosk {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prototype2-image-kiosk img {
+  width: 90vw;
+  height: auto;
+  object-fit: cover;
+}
+
+.burger2-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #f0d04c; /* 버거킹 옐로 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+
+/* SECTION 10: prototype3  */
+.prototype3-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype3-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype3-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype3-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype3-image-gmap {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype3-image-gmap img {
+  width: 96%;
+  object-fit: cover;
+}
+
+.burger3-circle {
+  position: absolute;
+  top: -30vh;
+  right: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: #81b66e; /* 버거킹 그린 컬러 */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  z-index: 10;
+}
+/* SECTION 11: prototype4  */
+.prototype4-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype4-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype4-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype4-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype4-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype4-image img {
+  width: 96%;
+  object-fit: cover;
+}
+	  /* SECTION 12: prototype5  */
+.prototype5-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype5-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype5-text {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.prototype5-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype5-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype5-image img {
+  width: 96%;
+  object-fit: cover;
+}
+	  /* SECTION 13: prototype6  */
+.prototype6-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.prototype6-content {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.prototype6-text {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.prototype6-images-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.prototype6-image {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.prototype6-image img {
+  width: 96%;
+  object-fit: cover;
+}
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+   
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, .hero-image2 {
+        width: 230px;
+      }
+      
+      .hero-image2 {
+        right: 100px;
+      }
+        .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  .third-level-container {
+    min-width: 200px;
+  }
+    .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  
+  .third-level-container {
+    min-width: 200px;
+  }
+}
+
+
+
+    @media screen and (max-width: 1024px) {
+      
+  
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+  
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 80px);
+        transform: translateX(50%);
+        bottom: 15%;
+      }
+          .process-grid {
+      flex-wrap: wrap;
+    }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+	      .solution-text {
+    width: 100%;
+  }
+  
+  .solution-images {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .solution-description {
+    margin-top: 30px;
+  }
+}
+  
+  
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+      right: 17vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+
+    .hero-image2 {
+      right: -1vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+.overview-image {
+      position: absolute;  
+      width: 36%;
+      margin-top: 8vh; 
+      right: 10px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+.image-theme-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3vh;
+  right: -1vw;
+}
+.image-theme {
+  font-family: var(--font-family-jost);
+  font-size: 32px;
+}
+.process-box {
+    padding: 30px;
+    width : 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.process-list li {
+    font-family: var(--font-family-pretendard);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 21vw;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 40%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 17%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -6%;
+  z-index: 4;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 34%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+}
+
+	
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 40px);
+        transform: translateX(50%);
+      }
+  .insight-content {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 30px; /* 요소 간 간격 */
+  }
+  
+  .section-heading, .insight-images {
+    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
+  }
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+
+.solution-section {
+    padding: 80px 20px;
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+   
+      .hero-image, .hero-image2 {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 20px);
+        transform: translateX(50%);
+        bottom: 25%;
+      }
+    }
+
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+      display: none;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+      <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+     <!--   <a href="/en.html" class="menu-item">EN</a> -->
+        <a href="/about/" class="menu-item">ABOUT</a>
+        <a href="/work/" class="menu-item active">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION - newly written -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2019.05 - 2020.01</div>
+        <h1 class="project-title">Burgerking Japan<br> Omnichannel</h1>
+        <div class="project-description">
+          <p>I performed planning, design, and channel roles in the Burger King Japan omnichannel project.</p>
+          <p>Based on my experience planning, designing, and operating Burger King Korea's omnichannel, I localized it for the Japanese market.</p>
+          <p>I completed testing and launch support on-site.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING 80%, GUI 40%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Launching Omnichannel for Japan market</span>
+        </div>
+      </div>
+      
+      <!-- Mobile UI images -->
+      <div class="project-images">
+          <img src="images/01_p2.png" alt="Japan Phone" class="hero-image">
+          <img src="images/01_k2.png" alt="Japan Kiosk" class="hero-image2">
+      </div>
+    </section>
+    
+  <!-- SECTION 2: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">	
+        Upgrading with consistent UX and<br>
+        localizing for the Japanese market
+        </h3>
+        <p class="overview-paragraph">I worked on web and kiosk development and operations for the Burger King Korea omnichannel project.<br>
+        Later, I served as PM for localizing it to suit the Japanese market.<br>
+        While maintaining the basic framework established in Korea, we redefined the project's UX concept<br>
+        after local research and interviews to find the UX appropriate for the Japanese market, and launched the omnichannel.</p>
+      </div>
+	    
+<div class="overview-images">
+<div class="image-theme-container">
+<img src="images/02_logo.svg" alt="Burger King logo" class="theme-logo">
+<p class ="image-theme">Consistency for Every channel</p>
+ </div>
+      <img src="images/02_1.svg" alt="Omnichannel image" class="overview-image1">
+      <img src="images/02_2.svg" alt="Omnichannel app image" class="overview-image2">
+      <img src="images/02_3.svg" alt="Omnichannel app image" class="overview-image3">
+    </div>
+  </div>
+  </section>
+    
+<!-- SECTION 3: PROCESS -->
+<section class="section process-section">
+  <h2 class="section-title">Process</h2>
+  <div class="process-content">
+    <h3 class="section-heading">
+      I oversaw the entire UX planning process.<br>
+      I performed the role of product manager, completing on-site launch support.
+    </h3>
+    
+    <div class="process-grid">
+      <!-- Define Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box define-box">
+          <h4 class="box-title">Define</h4>
+          <ul class="process-list">
+            <li>Competitor analysis and evaluation</li>
+            <li>Market analysis</li>
+            <li>Local brand analysis</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I researched services that were performing<br>
+          ordering functions in Japan at that time.<br>
+          I explored online services in Japan and<br>
+          understood the Burger King brand's local situation both online and offline.
+        </p>
+      </div>
+      
+      <!-- Ideation Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box ideation-box">
+          <h4 class="box-title">Ideation</h4>
+          <ul class="process-list">
+            <li>Co-creation workshop</li>
+            <li>Stakeholder Interview</li>
+            <li>UX Concept</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          Through regular workshops with the marketing<br>
+          department, development team, and IT department,<br>
+          I analyzed needs and established the concept.<br>
+          I set the direction through<br>
+          stakeholder interviews.
+        </p>
+      </div>
+      
+      <!-- Prototype Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box prototype-box">
+          <h4 class="box-title">Prototype</h4>
+          <ul class="process-list">
+            <li>Information Architecture</li>
+            <li>App, Web Wireframe creation</li>
+            <li>Admin Wireframe creation</li>
+            <li>Visual Design</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I designed the overall structure and created<br>
+          wireframes suitable for the Japanese market.<br>
+          I planned the back-office system supporting these functions,<br>
+          and also worked on integration with related systems like POS.<br>
+          I designed key visuals appropriate for the local market.
+        </p>
+      </div>
+      
+      <!-- Test Box with Description Below -->
+      <div class="process-column">
+        <div class="process-box test-box">
+          <h4 class="box-title">Test</h4>
+          <ul class="process-list">
+            <li>Test scenario creation</li>
+            <li>Testing with employees</li>
+            <li>Field testing</li>
+            <li>Incorporating user feedback</li>
+          </ul>
+        </div>
+        <p class="process-description">
+          I created test scenarios.<br>
+          I coordinated while conducting tests with employees.<br>
+          I also conducted tests to verify compliance with notification rules<br>
+          and in-store ordering tests.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    
+ <!-- SECTION 4: Field RESEARCH -->
+<section class="section field-research-section">
+  <h2 class="section-title">Define_ Field Research</h2>
+  <div class="field-research-content">
+    <div class="field-research-text">
+      <h3 class="field-research-heading">
+        I visited local stores and competitor stores<br>
+        to conduct brand and market research.
+      </h3>
+      <p class="overview-paragraph">
+        I experienced the brand as a consumer by checking the store atmosphere and products.<br>
+        I visited and researched Starbucks, which was stably providing online pickup orders (Siren Order).
+      </p>
+    </div>
+    
+    <!-- field feedback boxes -->
+    <div class="field-feedback-container">
+      <!-- Left column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_1_g.png" alt="Field image" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_4_g.png" alt="Field image" class="field-image">
+        </div>
+      </div>
+      
+      <!-- Middle column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_2_g.png" alt="Field image" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_5_g.png" alt="Field image" class="field-image">
+        </div>
+      </div>
+      
+      <!-- Right column -->
+      <div class="field-feedback-column">
+        <div class="field-feedback-box">
+		<img src="images/04_3_g.png" alt="Field image" class="field-image">
+        </div>
+        
+        <div class="field-feedback-box">
+		<img src="images/04_6_g.png" alt="Field image" class="field-image">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<!-- SECTION 5: Define -->
+<section class="competitive-section">
+<h2 class="section-title">Define_ Field Research</h2>
+  <div class="competitive-content">
+    <div class="competitive-text">
+      <h3 class="competitive-heading">
+        I researched competitor apps in the Japanese market<br>
+        and identified local market characteristics.
+      </h3>
+    </div>
+    
+    <!-- research images -->
+ <div class="competitive-container">
+    <div class="competitive-item">
+        <img src="images/05_1.png" alt="App1" class="competitive-image">
+        <ul class="competitive-points">
+	<p class="cpt">Starbucks</p>
+            <li>Email verification registration</li>
+            <li>Most active brand ordering app</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_2.png" alt="App2" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">Lotteria</p>
+            <li>Email verification registration</li>
+            <li>Most active brand<br> ordering app</li>
+	 <li>Complicated Starbucks card <br>registration process</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_3.png" alt="App3" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">McDonald's brand app</p>
+            <li>Promotion, coupon features</li>
+            <li>Menu, store information</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_4.png" alt="App4" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">McDonald's Delivery</p>
+	<li>Delivery-only orders</li>
+        <li>Payment methods: card payment and on-site payment</li>
+	<li>No authentication process</li>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_5.png" alt="App5" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">Domino's Pizza</p>
+           <li>Delivery and pickup ordering</li>
+            <li>No authentication process</li>
+        </ul>
+        </ul>
+    </div>
+    
+    <div class="competitive-item">
+        <img src="images/05_6.png" alt="App6" class="competitive-image">
+        <ul class="competitive-points">
+		<p class="cpt">Mos Burger</p>
+            <li>Pickup ordering service</li>
+          <li>Menu, store information</li>
+        </ul>
+    </div>
+</div>
+	    
+</div>
+</section>
+
+	  
+    
+<!-- SECTION 6: IDEATION -->
+<section class="ideation-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ideation-content">
+    <h3 class="ideation-heading">
+     I researched brand image on social media<br>
+      and conducted stakeholder interviews.
+    </h3>
+          <p class="overview-paragraph">
+       Burger King Japan had less brand awareness than in Korea.<br>
+      There was a strong perception that it's a premium American hamburger brand with large sizes and high prices.<br>
+	In stakeholder interviews, I was asked to highlight Burger King's characteristics while improving quality to raise brand awareness.
+      </p>
+    <div class="research-container">
+      <!-- Left SNS Research area -->
+      <div class="research-column sns-research">
+        <h4 class="research-title">SNS Research</h4>
+        <p class="research-subtitle">Twitter, Instagram Data 2019.07</p>
+        
+        <div class="circles-container">
+          <!-- Tasty circle -->
+          <div class="circle taste-circle">
+            <div class="circle-content">
+              <p class="circle-text-jp">おいしい!</p>
+              <p class="circle-text-emphasis">100</p>
+            </div>
+          </div>
+          
+          <!-- Expensive circle -->
+          <div class="circle price-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">Expensive</p>
+              <p class="circle-text-jp">値段が高い</p>
+              <p class="circle-emoji">😂</p>
+            </div>
+          </div>
+          
+          <!-- Big circle -->
+          <div class="circle size-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">Big</p>
+              <p class="circle-text-jp">大きい</p>
+              <p class="circle-emoji">🍔</p>
+            </div>
+          </div>
+  
+          
+          <!-- Don't know well circle -->
+          <div class="circle unknown-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">Don't know well...</p>
+              <p class="circle-text-jp">よく分からない...</p>
+       <p class="circle-emoji">🤔</p>
+            </div>
+          </div>
+          
+          <!-- Stranger Things circle -->
+          <div class="circle strange-circle">
+            <div class="circle-content">
+              <p class="circle-text-ko">Stranger Things</p>
+              <p class="circle-text-jp">ストレンジャーシングス</p>
+    	   <p class="circle-emoji">📺</p>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- Right Stakeholder Interview area -->
+      <div class="research-column stakeholder-interview">
+        <h4 class="research-title">Stakeholder Interview</h4>
+        
+        <div class="bubbles-container">
+          <!-- Brand awareness bubble -->
+          <div class="bubble brand-bubble">
+            <p class="bubble-text-jp">バーガーキング<br>ブランド認知度を<br>高める必要がある。</p>
+            <p class="bubble-text-ko">Brand awareness</p>
+          </div>
+          
+          <!-- Global visual guidelines bubble -->
+          <div class="bubble visual-bubble">
+            <p class="bubble-text-jp">バーガーキングの<br>グローバルビジュアル<br>ガイドラインと<br>クリエイティブなアイデア。</p>
+            <p class="bubble-text-ko">Global visual guidelines and<br>creative expression</p>
+          </div>
+          
+          <!-- Universal design bubble -->
+          <div class="bubble design-bubble">
+            <p class="bubble-text-jp">多数が共感できる<br>(universal)<br>デザインの完成度。</p>
+            <p class="bubble-text-ko">Quality that resonates<br>with many people</p>
+          </div>
+          
+          <!-- Burger King characteristics bubble -->
+          <div class="bubble condiment-bubble">
+            <p class="bubble-text-jp">バーガーキングだけの<br>特性(Condiment)。</p>
+            <p class="bubble-text-ko">Burger King's unique characteristics</p>
+          </div>
+          
+          <!-- Moving hearts point bubble -->
+          <div class="bubble point-bubble">
+            <p class="bubble-text-jp">人の心を動かす<br>ポイントと<br>物語がほしい。</p>
+            <p class="bubble-text-ko">Points that move people's hearts</p>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+</section>
+    
+<!-- SECTION 7: UX CONCEPT -->
+<section class="ux-concept-section">
+  <h2 class="section-title">Ideation</h2>
+  <div class="ux-concept-content">
+    <h3 class="ux-concept-heading">
+      The brand's first ordering and omnichannel service
+    </h3>
+    
+    <div class="concept-circles-container">
+      <!-- Left Originality circle -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer originality-outer">
+          <div class="concept-circle-middle originality-middle">
+            <div class="concept-circle originality-circle">
+              <h4 class="concept-title">Originality</h4>
+              <p class="concept-subtitle">Burger King's unique<br>sensibility</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          For people who like and are interested in<br>
+          Burger King to experience more of the brand
+        </p>
+      </div>
+      
+      <!-- Middle Consistency circle -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consistency-outer">
+          <div class="concept-circle-middle consistency-middle">
+            <div class="concept-circle consistency-circle">
+              <h4 class="concept-title">Consistency</h4>
+              <p class="concept-subtitle">Systematic and<br>consistent</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          Making the app, web, and kiosk experiences<br>
+          systematic and consistent
+        </p>
+      </div>
+      
+      <!-- Right Consideration circle -->
+      <div class="concept-circle-wrapper">
+        <div class="concept-circle-outer consideration-outer">
+          <div class="concept-circle-middle consideration-middle">
+            <div class="concept-circle consideration-circle">
+              <h4 class="concept-title">Consideration</h4>
+              <p class="concept-subtitle">Thoughtful and<br>kind</p>
+            </div>
+          </div>
+        </div>
+        <p class="concept-description">
+          UX that provides necessary information optimally<br>
+          and considers the user
+        </p>
+      </div>
+    </div>
+    
+    <div class="concept-summary">
+      <p class="concept-summary-text">
+        I established the UX concept based on field research, competitor and social media analysis, and stakeholder interviews.
+      </p>
+<p class="concept-summary-description">
+        To increase brand awareness, which was lower than in Korea and competitors, we provide the brand's unique sensibility and consistent UX<br>
+	while offering a considerate service for users interested in the brand.
+      </p>
+    </div>
+  </div>
+</section>
+	  
+<!-- SECTION 8: PROTOTYPE -->
+<section class="section prototype-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype-content">
+    <div class="prototype-text">
+      <h3 class="section-heading">
+        I designed key visuals connecting online and offline<br>
+        by referencing global guidelines and brand materials.
+      </h3>
+    </div>
+
+    <div class="prototype-images-container">
+      <div class="prototype-image-left">
+        <img src="images/08_1.png" alt="Prototype left image">
+      </div>
+      <div class="prototype-image-right">
+        <img src="images/08_2.png" alt="Prototype right image">
+      </div>
+      <div class="burger-circle">
+        <p>Burger King's unique<br>sensibility</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: PROTOTYPE 2 -->
+<section class="section prototype2-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype2-content">
+    <div class="prototype2-text">
+      <h3 class="section-heading">
+        Using a size-based grid layout in the kiosk menu area<br>
+        eliminated visual dispersion caused by scrolling.
+      </h3>
+    </div>
+
+    <div class="prototype2-images-container">
+      <div class="prototype2-image-kiosk">
+        <img src="images/09.png" alt="Kiosk image">
+      </div>
+      <div class="burger2-circle">
+        <p>Systematic and<br>consistent</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: PROTOTYPE 3 -->
+<section class="section prototype3-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype3-content">
+    <div class="prototype3-text">
+      <h3 class="section-heading">
+        Since encouraging actual store visits is as important as online ordering,<br>
+        we provided Google Maps integration with directions functionality.
+      </h3>
+    </div>
+
+    <div class="prototype3-images-container">
+      <div class="prototype3-image-gmap">
+        <img src="images/10.png" alt="Google Maps integration image">
+      </div>
+      <div class="burger3-circle">
+        <p>Thoughtful and<br>kind</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: PROTOTYPE 4 -->
+<section class="section prototype4-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype4-content">
+    <div class="prototype4-text">
+      <h4 class="section-heading">
+APP Screens
+      </h4>
+    </div>
+
+    <div class="prototype4-images-container">
+      <div class="prototype4-image">
+        <img src="images/11.png" alt="App image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 12: PROTOTYPE 5 -->
+<section class="section prototype5-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype5-content">
+    <div class="prototype5-text">
+      <h4 class="section-heading">
+ Web Screens
+      </h4>
+    </div>
+    <div class="prototype5-images-container">
+      <div class="prototype5-image">
+        <img src="images/12.png" alt="App image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 13: PROTOTYPE 6 -->
+<section class="section prototype6-section">
+  <h2 class="section-title">Prototype</h2>
+  <div class="prototype6-content">
+    <div class="prototype6-text">
+      <h4 class="section-heading">
+  Kiosk Screens
+      </h4>
+    </div>
+
+    <div class="prototype6-images-container">
+      <div class="prototype6-image">
+        <img src="images/13.png" alt="App image">
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>
+
+	
+<div class="top-button" id="topButton"></div>
+
+<script>
+// Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        topButton.style.display = 'flex';
+    } else {
+        topButton.style.display = 'none';
+    }
+});
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isInViewport(element) {
+  if (!element) return false;
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+    rect.bottom >= 0
+  );
+}
+
+// 페이지가 로드되면 애니메이션 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // 초기 CSS 설정 - 첫 번째 섹션
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    .hero-image, .hero-image2 {
+      opacity: 0;
+    }
+  `;
+  document.head.appendChild(styleElement);
+
+  // 첫 번째 섹션: 모바일 UI 이미지 애니메이션
+  const heroImage = document.querySelector('.hero-image');
+  const heroImage2 = document.querySelector('.hero-image2');
+  
+  if (heroImage && heroImage2) {
+    // 앞에 있는 이미지(hero-image): 아래에서 위로 올라오면서 페이드인
+    heroImage.style.transform = 'translateY(40px)';
+    heroImage.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    
+    // 뒤에 있는 이미지(hero-image2): 페이드인만
+    heroImage2.style.transition = 'opacity 1.3s ease-out';
+    
+    setTimeout(() => {
+      // 뒤에 있는 이미지 먼저 나타남
+      heroImage2.style.opacity = '1';
+      
+      // 약간의 지연 후 앞에 있는 이미지 나타남
+      setTimeout(() => {
+        heroImage.style.opacity = '1';
+        heroImage.style.transform = 'translateY(0)';
+      }, 500);
+    }, 300);
+  }
+  
+  // 두 번째 섹션: 이미지 테마 컨테이너와 이미지들
+  const imageThemeContainer = document.querySelector('.image-theme-container');
+  const overviewImage1 = document.querySelector('.overview-image1');
+  const overviewImage2 = document.querySelector('.overview-image2');
+  const overviewImage3 = document.querySelector('.overview-image3');
+  
+  if (imageThemeContainer) {
+    // 이미지 테마 컨테이너: 초기화
+    imageThemeContainer.style.opacity = '0';
+    imageThemeContainer.style.transition = 'opacity 1s ease-out';
+  }
+  
+  if (overviewImage1 && overviewImage2 && overviewImage3) {
+    // 세 개의 이미지: 초기화
+    const images = [overviewImage1, overviewImage2, overviewImage3];
+    images.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transform = 'translateX(-30px)';
+      img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 3: 프로세스 컬럼들이 순차적으로 올라오는 애니메이션
+  const processColumns = document.querySelectorAll('.process-column');
+  
+  if (processColumns.length > 0) {
+    processColumns.forEach((column) => {
+      // 초기 스타일 설정
+      column.style.opacity = '0';
+      column.style.transform = 'translateY(40px)';
+      column.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 4: 필드 리서치 이미지들이 순차적으로 올라오는 애니메이션
+  const fieldImages = document.querySelectorAll('.field-image');
+  
+  if (fieldImages.length > 0) {
+    fieldImages.forEach((image) => {
+      // 초기 스타일 설정
+      image.style.opacity = '0';
+      image.style.transform = 'translateY(40px)';
+      image.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+  }
+  
+  // 섹션 5: 경쟁사 앱 이미지들이 아래에서 위로 올라오면서 페이드인
+  const competitiveImages = document.querySelectorAll('.competitive-image');
+  
+  if (competitiveImages.length > 0) {
+    competitiveImages.forEach((image) => {
+      // 초기 스타일 설정
+      image.style.opacity = '0';
+      image.style.transform = 'translateY(40px)';
+      image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    });
+  }
+  
+  // 섹션 6: 연구 콘텐츠 영역
+  // 왼쪽 SNS Research 영역
+  const snsResearchTitle = document.querySelector('.sns-research .research-title');
+  const snsResearchSubtitle = document.querySelector('.sns-research .research-subtitle');
+  const circles = document.querySelectorAll('.circle');
+  
+  // 오른쪽 Stakeholder Interview 영역
+  const stakeholderTitle = document.querySelector('.stakeholder-interview .research-title');
+  const bubbles = document.querySelectorAll('.bubble');
+  
+  // 초기화
+  if (snsResearchTitle) snsResearchTitle.style.opacity = '0';
+  if (snsResearchSubtitle) snsResearchSubtitle.style.opacity = '0';
+  
+  if (circles.length > 0) {
+    circles.forEach(circle => {
+      circle.style.opacity = '0';
+      circle.style.transition = 'opacity 1s ease-out';
+    });
+  }
+  
+  if (stakeholderTitle) stakeholderTitle.style.opacity = '0';
+  
+  if (bubbles.length > 0) {
+    bubbles.forEach(bubble => {
+      bubble.style.opacity = '0';
+      bubble.style.transition = 'opacity 1s ease-out';
+    });
+  }
+  
+  // 섹션 7: UX 콘셉트 원들이 순차적으로 페이드인
+  const conceptCircles = document.querySelectorAll('.concept-circle-wrapper');
+
+  if (conceptCircles.length > 0) {
+    conceptCircles.forEach(circle => {
+      circle.style.opacity = '0';
+      circle.style.transition = 'opacity 1s ease-out';
+    });
+  }
+
+  // 섹션 8: 프로토타입 이미지 컨테이너들
+  const prototypeImageLeft = document.querySelector('.prototype-image-left');
+  const prototypeImageRight = document.querySelector('.prototype-image-right');
+
+  if (prototypeImageLeft) {
+    prototypeImageLeft.style.opacity = '0';
+    prototypeImageLeft.style.transition = 'opacity 1s ease-out';
+  }
+
+  if (prototypeImageRight) {
+    prototypeImageRight.style.opacity = '0';
+    prototypeImageRight.style.transition = 'opacity 1s ease-out';
+  }
+
+  // 섹션 9~13: 이미지들이 아래에서 위로 올라오면서 페이드인
+  // 각 섹션의 이미지 컨테이너 선택
+  const prototypeImages = [
+    document.querySelector('.prototype2-image-kiosk'),
+    document.querySelector('.prototype3-image-gmap'),
+    document.querySelector('.prototype4-image'),
+    document.querySelector('.prototype5-image'),
+    document.querySelector('.prototype6-image')
+  ];
+
+  // 모든 프로토타입 이미지에 초기 스타일 적용
+  prototypeImages.forEach(image => {
+    if (image) {
+      image.style.opacity = '0';
+      image.style.transform = 'translateY(40px)';
+      image.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    }
+  });
+  
+  // 스크롤 이벤트에 모든 애니메이션 함수 연결
+  function handleScrollAnimations() {
+    // 두 번째 섹션 애니메이션 - Overview 섹션이 뷰포트에 들어오면 실행
+    const overviewSection = document.querySelector('.overview-content');
+    
+    if (overviewSection && isInViewport(overviewSection)) {
+      // 이미지 테마 컨테이너 먼저 페이드인
+      if (imageThemeContainer && imageThemeContainer.style.opacity === '0') {
+        imageThemeContainer.style.opacity = '1';
+        
+        // 이미지 테마 컨테이너가 나타난 후 이미지들 순차적으로 나타남
+        setTimeout(() => {
+          // 이미지 1
+          if (overviewImage1) {
+            overviewImage1.style.opacity = '1';
+            overviewImage1.style.transform = 'translateX(0)';
+          }
+          
+          // 이미지 2
+          setTimeout(() => {
+            if (overviewImage2) {
+              overviewImage2.style.opacity = '1';
+              overviewImage2.style.transform = 'translateX(0)';
+            }
+            
+            // 이미지 3
+            setTimeout(() => {
+              if (overviewImage3) {
+                overviewImage3.style.opacity = '1';
+                overviewImage3.style.transform = 'translateX(0)';
+              }
+            }, 300);
+          }, 300);
+        }, 500);
+      }
+    }
+    
+    // 섹션 3 애니메이션 - Process 섹션
+    const processSection = document.querySelector('.process-section');
+    if (processSection && processColumns.length > 0 && isInViewport(processSection)) {
+      processColumns.forEach((column, index) => {
+        setTimeout(() => {
+          column.style.opacity = '1';
+          column.style.transform = 'translateY(0)';
+        }, 200 * index); // 각 컬럼을 200ms 간격으로 애니메이션
+      });
+    }
+    
+    // 섹션 4 애니메이션 - Field Research 섹션
+    const fieldResearchSection = document.querySelector('.field-research-section');
+    if (fieldResearchSection && fieldImages.length > 0 && isInViewport(fieldResearchSection)) {
+      fieldImages.forEach((image, index) => {
+        setTimeout(() => {
+          image.style.opacity = '1';
+          image.style.transform = 'translateY(0)';
+        }, 150 * index); // 각 이미지를 150ms 간격으로 애니메이션
+      });
+    }
+    
+    // 섹션 5 애니메이션 - Competitive 섹션
+    const competitiveSection = document.querySelector('.competitive-section');
+    if (competitiveSection && competitiveImages.length > 0 && isInViewport(competitiveSection)) {
+      competitiveImages.forEach((image) => {
+        image.style.opacity = '1';
+        image.style.transform = 'translateY(0)';
+      });
+    }
+    
+    // 섹션 6 애니메이션 - Ideation 섹션
+    const ideationSection = document.querySelector('.ideation-section');
+    if (ideationSection && isInViewport(ideationSection)) {
+      // 왼쪽 SNS Research 먼저 페이드인
+      if (snsResearchTitle) snsResearchTitle.style.opacity = '1';
+      if (snsResearchSubtitle) snsResearchSubtitle.style.opacity = '1';
+      
+      if (circles.length > 0) {
+        setTimeout(() => {
+          circles.forEach(circle => {
+            circle.style.opacity = '1';
+          });
+          
+          // 오른쪽 Stakeholder Interview 영역 나중에 페이드인
+          setTimeout(() => {
+            if (stakeholderTitle) stakeholderTitle.style.opacity = '1';
+            
+            if (bubbles.length > 0) {
+              bubbles.forEach(bubble => {
+                bubble.style.opacity = '1';
+              });
+            }
+          }, 600); // 왼쪽 영역이 나타난 후 600ms 후 오른쪽 영역 나타남
+        }, 400); // 타이틀이 나타난 후 400ms 후 원들 나타남
+      }
+    }
+    
+    // 섹션 7 애니메이션 - UX 콘셉트 원
+    const uxConceptSection = document.querySelector('.ux-concept-section');
+    if (uxConceptSection && conceptCircles.length > 0 && isInViewport(uxConceptSection)) {
+      conceptCircles.forEach((circle, index) => {
+        setTimeout(() => {
+          circle.style.opacity = '1';
+        }, 300 * index); // 각 원을 300ms 간격으로 페이드인
+      });
+    }
+
+    // 섹션 8 애니메이션 - 프로토타입
+    const prototypeSection = document.querySelector('.prototype-section');
+    if (prototypeSection && isInViewport(prototypeSection)) {
+      // 왼쪽 이미지 컨테이너 먼저 페이드인
+      if (prototypeImageLeft && prototypeImageLeft.style.opacity === '0') {
+        prototypeImageLeft.style.opacity = '1';
+        
+        // 오른쪽 이미지 컨테이너 나중에 페이드인
+        setTimeout(() => {
+          if (prototypeImageRight) {
+            prototypeImageRight.style.opacity = '1';
+          }
+        }, 500);
+      }
+    }
+
+    // 섹션 9~13 애니메이션 - 추가 프로토타입 이미지들
+    // 각 섹션 선택
+    const prototype2Section = document.querySelector('.prototype2-section');
+    const prototype3Section = document.querySelector('.prototype3-section');
+    const prototype4Section = document.querySelector('.prototype4-section');
+    const prototype5Section = document.querySelector('.prototype5-section');
+    const prototype6Section = document.querySelector('.prototype6-section');
+
+    // 섹션 9 애니메이션
+    if (prototype2Section && prototypeImages[0] && isInViewport(prototype2Section)) {
+      prototypeImages[0].style.opacity = '1';
+      prototypeImages[0].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 10 애니메이션
+    if (prototype3Section && prototypeImages[1] && isInViewport(prototype3Section)) {
+      prototypeImages[1].style.opacity = '1';
+      prototypeImages[1].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 11 애니메이션
+    if (prototype4Section && prototypeImages[2] && isInViewport(prototype4Section)) {
+      prototypeImages[2].style.opacity = '1';
+      prototypeImages[2].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 12 애니메이션
+    if (prototype5Section && prototypeImages[3] && isInViewport(prototype5Section)) {
+      prototypeImages[3].style.opacity = '1';
+      prototypeImages[3].style.transform = 'translateY(0)';
+    }
+
+    // 섹션 13 애니메이션
+    if (prototype6Section && prototypeImages[4] && isInViewport(prototype6Section)) {
+      prototypeImages[4].style.opacity = '1';
+      prototypeImages[4].style.transform = 'translateY(0)';
+    }
+  }
+  
+  // 스크롤 이벤트 리스너 등록
+  window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+  
+  // 페이지 로드 시 이미 보이는 요소 확인
+  handleScrollAnimations();
+});
+</script>
+</script>
+</div>
+</body>
+</html>
