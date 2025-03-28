@@ -797,7 +797,7 @@
     .wireframe-right-info {
       position: absolute;
       top: 0;
-      transform: translateX(120%);
+      transform: translateX(127%);
       width: 400px;
       z-index: 2;
     }
@@ -1247,6 +1247,11 @@
       }
     }
     
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  /* 와이어프레임 우측 정보 영역 조정 */
+  .wireframe-right-info {
+    transform: translateX(90%) !important;
+  }
 
     @media screen and (max-width: 1200px) {
       .project-header-content {
