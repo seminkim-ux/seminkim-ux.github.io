@@ -1383,27 +1383,48 @@ function checkScrollAnimations() {
               accessDeviceSection.style.opacity = '1';
               animationState.accessDeviceFadedIn = true;
               
-              // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 페이드 효과와 함께 변경
+              // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 크로스페이드 효과와 함께 변경
               setTimeout(() => {
                 if (!animationState.hexagonImageChanged) {
                   console.log("육각형 이미지 자동 변경 실행");
                   const hexagonImage = document.querySelector('.hexagon-image');
-                  if (hexagonImage) {
+                  const hexagonContainer = hexagonImage.parentElement;
+                  
+                  if (hexagonImage && hexagonContainer) {
                     const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
                     if (alternateSrc) {
-                      // 페이드 효과를 위한 일시적인 스타일 적용
-                      hexagonImage.style.transition = 'opacity 0.5s ease';
-                      hexagonImage.style.opacity = '0';
+                      // 새 이미지 요소 생성
+                      const newImage = document.createElement('img');
+                      newImage.className = 'hexagon-image hexagon-image-new';
+                      newImage.src = alternateSrc;
+                      newImage.style.position = 'absolute';
+                      newImage.style.top = '0';
+                      newImage.style.left = '0';
+                      newImage.style.width = '100%';
+                      newImage.style.height = '100%';
+                      newImage.style.opacity = '0';
+                      newImage.style.transition = 'opacity 0.7s ease';
                       
-                      // 페이드 아웃 후 이미지 변경
+                      // 기존 이미지 컨테이너에 위치 상대값 지정
+                      if (hexagonContainer.style.position !== 'relative') {
+                        hexagonContainer.style.position = 'relative';
+                      }
+                      
+                      // 새 이미지를 DOM에 추가
+                      hexagonContainer.appendChild(newImage);
+                      
+                      // 잠시 후 새 이미지 페이드인
                       setTimeout(() => {
-                        hexagonImage.src = alternateSrc;
-                        // 페이드 인
+                        newImage.style.opacity = '1';
+                        
+                        // 전환 완료 후 원래 이미지 제거하고 새 이미지를 원래 이미지 위치로
                         setTimeout(() => {
-                          hexagonImage.style.opacity = '1';
-                        }, 50);
-                        animationState.hexagonImageChanged = true;
-                      }, 500);
+                          hexagonImage.src = alternateSrc;
+                          hexagonContainer.removeChild(newImage);
+                        }, 700); // 페이드인 시간
+                      }, 50);
+                      
+                      animationState.hexagonImageChanged = true;
                     }
                   }
                 }
