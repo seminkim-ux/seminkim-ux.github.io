@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENQFNH7L07"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ENQFNH7L07');
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Book.woff" as="font" type="font/woff" crossorigin>
+
+  <title>NH Groupware - Semin Kim Portfolio</title>
+  <style>
+       @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    /* Pretendard 폰트 정의 */
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* 루트 변수 정의 */
+    :root { 
+      /* 색상 */
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray: #f2f9fc;
+      --blue-light: #41d9ff;
+      --yellow-medium: #e1a317;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #a2a2a2;
+      --nav-text: #879299;
+     
+      /* 폰트 크기 */
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      /* 폰트 패밀리 */
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    /* 기본 스타일 리셋 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 기본 바디 스타일 */
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    /* 폰트 렌더링 개선 */
+    body, h1, h2, h3, h4, p, span {
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+      font-smooth: always;
+    }
+
+    /* 컨테이너 스타일 */
+    .container {
+      width: 100%;
+    }
+
+    /* 시스템 폰트 폴백 강화 */
+    :root {
+      --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+    }
+
+    /* 헤더 및 네비게이션 스타일 */
+    .header {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background-color: transparent;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: #dcddde;
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: #ffffff;
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+
+    /* 상단으로 이동 버튼 */
+    .top-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #ffffff;
+      border: 1px solid #8a8a8a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .top-button::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-top: 1px solid #404040;
+      border-right: 1px solid #404040;
+      transform: rotate(-45deg);
+      margin-top: 4px;
+    }
+
+    /* 프로젝트 헤더 섹션 */
+    .project-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      padding: 0 60px;
+      background-image: url('images/01.jpg');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 25vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+      color: #ffffff;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.9;
+      max-width: 900px;
+      margin-bottom: 32px;
+      color: #ffffff;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+      color: #ffffff;
+    }
+
+    /* 공통 섹션 스타일 */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-yellow {
+      color: var(--yellow-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+
+    .highlight-d {
+      color: #000;
+    }
+
+    /* SECTION 2: OVERVIEW */
+    .overview-content {
+      position: relative;
+      max-width: 100%;
+      min-height: 80vh;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+      position: absolute;
+      display: flex;
+      margin-top: 10vh;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+
+    .overview-image1 {
+      width: 20vw;
+      height: auto;
+    }
+
+    .overview-image2 {
+      width: 35vw;
+      height: auto;
+    }
+
+    .overview-image3 {
+      width: 25vw;
+      height: auto;
+    }
+
+    .overview-text {
+      display: block;
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700;
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+    /* upgrade-container 수정 */
+    .upgrade-container {
+      display: flex;
+      width: 100%;
+      gap: 2vw;
+      margin-top: 60px;
+      margin-bottom: 2rem;
+    }
+
+    /* 열 너비 개별 지정 */
+    .upgrade-column:nth-child(1) {
+      flex: 0 0 32%;
+    }
+
+    .upgrade-column:nth-child(2) {
+      flex: 0 0 38%;
+    }
+
+    .upgrade-column:nth-child(3) {
+      flex: 0 0 28%;
+    }
+
+    /* 세 번째 열의 첫 번째 제목을 두 번째 열 제목과 같은 위치로 조정 */
+    .upgrade-column:nth-child(3) .first-heading {
+      margin-top: 3.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .upgrade-column {
+      flex: 1;
+    }
+
+    .upgrade-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .upgrade-subtitle {
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    .upgrade-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .upgrade-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-family-pretendard);
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .upgrade-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #555;
+    }
+
+    .usability-section {
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .usability-subheading {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .usability-subheading2 {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      margin-top: 50px;
+      color: #333;
+    }
+
+    /* SECTION 3: Research */
+    .competitive-section {
+      background-color: var(--white);
+      padding: 100px 60px;
+      padding-bottom: 120px;
+      margin-bottom: 2rem;
+    }
+      
+    .competitive-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      max-width: 100%;
+      margin: 0;
+    }
+      
+    .competitive-text {
+      display: block;
+      margin-top: 30px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+      
+    .competitive-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .portal-ui-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .portal-section {
+      flex: 0 0 40%;
+      padding-right: 20px;
+    }
+    
+    .simple-ui-section {
+      flex: 0 0 58%;
+      padding-right: 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title-line, .section-title-simple {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      margin-right: 15px;
+    }
+
+    .line-decoration {
+      height: 1px;
+      background-color: #bdbdbd;
+      flex-grow: 1;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .section-description {
+      font-family: var(--font-family-pretendard);
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .portal-ui-images {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: #EFEFEF;
+      border-radius: 24px;
+      padding: 0px 16px;
+      margin-top: 20px;
+      overflow: visible;
+      position: relative;
+    }
+
+    .portal-image, .simple-image {
+      width: 43%;
+      height: auto;
+      top: 20px;
+      z-index: 2;
+    }
+
+    /* SECTION 4: UX Concept 스타일 */
+    .ux-concept-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      margin-bottom: 2rem;
+    }
+
+    .concept-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+    }
+
+    .concept-main-title {
+      flex: 0 0 30%;
+      padding-right: 40px;
+    }
+
+    .concept-main-title h3 {
+      font-family: var(--font-family-pretendard);
+      font-weight: 400;
+      color: #6e6e73;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      font-size: 48px;
+    }
+
+    .title-line1, .title-line2, .title-line3, .title-line4 {
+      margin-bottom: 10px;
+    }
+
+    .title-line2 strong, .title-line4 strong {
+      color: #2d2d2d;
+      font-weight: 700;
+    }
+
+    .concept-details {
+      flex: 0 0 65%;
+    }
+
+    .concept-row {
+      display: flex;
+      width: 120%;
+    }
+
+    .concept-column {
+      flex: 0 0 calc(50% - 15px);
+    }
+
+    .concept-item {
+      margin-bottom: 60px;
+    }
+    
+    .concept-item1 {
+      margin-bottom: 130px;
+    }
+
+    .concept-item2 {
+      margin-bottom: 120px;
+    }
+
+    .concept-item3 {
+      margin-bottom: 80px;
+    }
+
+    .concept-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .concept-condition {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 16px;
+      color: #BDBDBD;
+      white-space: nowrap;
+    }
+
+    .concept-focus {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .concept-title-b {
+      font-family: var(--font-family-pretendard);
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #888888;
+    }
+      
+    .concept-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #2d2d2d;
+    }
+
+    .concept-description {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 16px;
+      color: #777;
+    }
+
+    /* SECTION 5: Main 화면 스타일 */
+    .main-screen-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      margin-bottom: 2rem;
+    }
+
+    .main-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+    }
+
+    .main-description {
+      flex: 0 0 45%;
+      padding-right: 40px;
+    }
+
+    .main-label {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 12px;
+    }
+
+    .main-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .main-text {
+      font-family: var(--font-family-pretendard);
+      font-size: 17px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .main-image-container {
+      flex: 0 0 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+   transform: translateX(calc(-30vw + 20px));
+    }
+
+    .main-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* SECTION 6: 화면 구조화 스타일 */
+    .wireframe-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      margin-bottom: 2rem;
+    }
+
+    .wireframe-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .wireframe-description {
+      flex: 0 0 45%;
+      padding-right: 40px;
+    }
+
+    .wireframe-label {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 14px;
+    }
+
+    .wireframe-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .wireframe-text-container {
+      bottom: 10vh;
+      position: absolute;
+    }
+
+    .nav-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .nav-description {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .wireframe-image-container {
+      flex: 0 0 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      transform: translateX(-75%);
+    }
+
+    .wireframe-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wireframe-right-info {
+      position: absolute;
+      top: 0;
+      transform: translateX(127%);
+      width: 400px;
+      z-index: 2;
+    }
+
+    .info-block {
+      margin-bottom: 80px;
+    }
+
+    .info-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .info-description {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .key-info {
+      top: 26vh;
+      position: absolute;
+    }
+
+    .main-info {
+      top: 45vh;
+      position: absolute;
+    }
+
+    .custom-info {
+      top: 63vh;
+      position: absolute;
+    }
+
+    /* SECTION 7, 8: 메일 섹션 통합 스타일 */
+    .mail-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .mail-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .mail-description {
+      flex: 0 0 40%;
+      padding-right: 40px;
+    }
+
+    .mail-label {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 14px;
+    }
+
+    .mail-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .mail-info-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .mail-text {
+      margin-bottom: 40px;
+      transform: translateX(35%)
+    }
+
+    .mail-paragraph {
+      font-family: var(--font-family-pretendard);
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .mail-flow-images {
+      display: flex;
+      align-items: center;
+      transform: translateX(calc(9vw + 20px)); 
+    }
+
+    .mail-flow-icon {
+      width: 60px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .mail-flow-screen {
+      width: 200px;
+      height: auto;
+    }
+
+    /* 오른쪽 시각 영역을 위한 컨테이너 */
+    .mail-visual-container {
+      flex: 1;
+      position: relative;
+      min-height: 500px;
+    }
+
+    .mail-screen-container {
+      position: relative;
+      z-index: 1;
+      width: 65%;
+        transform: translateX(-35%);
+    }
+
+    .mail-main-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .mail-notification {
+      position: absolute;
+      top: 100px;
+      z-index: 2;
+      align-items: flex-start;
+  transform: translateX(104%); 
+    }
+
+    .mail-notify-icon {
+      width: 35%;
+      height: auto;
+    }
+
+    .mail-notify-text {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      margin-top: 15px;
+    }
+
+    .mail-popup {
+      position: absolute;
+      top: 220px;
+      z-index: 3;
+      width: 50%;
+      transform: translateX(91%);
+    }
+
+    .mail-popup-image {
+      width: 64%;
+      height: auto;
+    }
+
+    /* 섹션 8 추가 스타일 */
+    .mail-preview{
+      margin-bottom: 120px;
+      transform: translateX(175%);
+    }
+    .mail-buttons {
+      margin-bottom: 40px;
+      transform: translateX(175%);
+    }
+
+    .preview-title, .buttons-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .preview-text, .buttons-text {
+      font-family: var(--font-family-pretendard);
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .mail-screen-container3 {
+      flex: 0 0 32%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      transform: translateX(-105%);
+    }
+
+    /* SECTION 9: 미결함 먼저 표시 스타일 */
+    .approval-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .approval-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .approval-description {
+      flex: 0 0 45%;
+      padding-right: 40px;
+    }
+
+    .approval-label {
+      font-family: var(--font-family-pretendard);
+      font-size: 32px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 14px;
+    }
+
+    .approval-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .approval-text {
+      margin-bottom: 40px;
+    }
+
+    .approval-paragraph {
+      font-family: var(--font-family-pretendard);
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .other-approval {
+      margin-top: 20px;
+      transform: translateX(160%);
+    }
+
+    .other-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 24px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+.other-text {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .approval-screen-container {
+      flex: 0 0 34%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      transform: translateX(-95%);
+    }
+
+    .approval-main-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* SECTION 10: 태블릿 메인 화면 스타일 */
+    .tablet-main-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .tablet-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .tablet-description {
+      flex: 0 0 45%;
+      padding-right: 40px;
+    }
+
+    .tablet-label {
+      font-family: var(--font-family-pretendard);
+      font-size: 32px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 14px;
+    }
+
+    .tablet-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .tablet-text {
+      margin-bottom: 40px;
+    }
+
+    .tablet-paragraph {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .tablet-image-container {
+      flex: 0 0 65%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      transform:translateX(-20%);
+    }
+
+    .tablet-main-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* SECTION 11: 태블릿 결재 화면 스타일 */
+    .tablet-approve-section {
+      background-color: #ffffff;
+      padding: 100px 60px;
+      min-height: 80vh;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .tablet-approve-content {
+      display: flex;
+      width: 100%;
+      margin-top: 60px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .tablet-approve-description {
+      flex: 0 0 45%;
+      padding-right: 40px;
+    }
+
+    .tablet-approve-label {
+      font-family: var(--font-family-pretendard);
+      font-size: 32px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 14px;
+    }
+
+    .tablet-approve-title {
+      font-family: var(--font-family-pretendard);
+      font-size: 40px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .tablet-approve-text {
+      margin-bottom: 40px;
+    }
+
+    .tablet-approve-paragraph {
+      font-family: var(--font-family-pretendard);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .tablet-approve-image-container {
+      flex: 0 0 65%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+        transform:translateX(-20%);
+    }
+
+    .tablet-approve-main-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 미디어 쿼리 - 반응형 스타일 */
+    @media screen and (max-width: 1440px) {
+      .wireframe-right-info {
+        width: 310px;
+      }
+      
+      .info-title {
+        font-size: 18px;
+      }
+      .mail-flow-screen {
+      width: 160px;
+      height: auto;
+      }    
+          .mail-notification {
+      position: absolute;
+      top: 100px;
+      z-index: 2;
+      align-items: flex-start;
+  transform: translateX(83%); 
+    }
+      .info-description {
+        font-size: 14px;
+      }
+      .tablet-image-container,
+      .tablet-approve-image-container {
+        transform: translateX(-15%);
+      }
+    }
+    
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  /* 와이어프레임 우측 정보 영역 조정 */
+  .wireframe-right-info {
+    transform: translateX(120%) !important;
+  }
+
+    @media screen and (max-width: 1200px) {
+      .project-header-content {
+        flex: 0 0 70%;
+        max-width: 70%;
+      }
+      
+      .upgrade-container {
+        flex-wrap: wrap;
+      }
+      
+      .upgrade-column {
+        flex: 0 0 48%;
+        margin-bottom: 2rem;
+      }
+      
+      .wireframe-content {
+        display: block;
+      }
+      
+      .wireframe-description, 
+      .wireframe-image-container {
+        width: 100%;
+        flex: none;
+      }
+      
+      .wireframe-image-container {
+        transform: none;
+        margin-top: 50px;
+      }
+      
+      .wireframe-right-info {
+        position: static;
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      .info-block {
+        flex: 0 0 48%;
+        margin: 20px 0;
+      }
+      
+      .key-info, .main-info, .custom-info {
+        position: static;
+        margin-top: 0;
+      }
+      
+      .mail-content,
+      .approval-content,
+      .tablet-content,
+      .tablet-approve-content {
+        flex-direction: column;
+      }
+      
+      .mail-description, 
+      .mail-screen-container,
+      .approval-description,
+      .approval-screen-container,
+      .tablet-description, 
+      .tablet-image-container,
+      .tablet-approve-description,
+      .tablet-approve-image-container {
+        width: 100%;
+        flex: none;
+      }
+      
+      .mail-screen-container,
+      .approval-screen-container,
+      .tablet-image-container,
+      .tablet-approve-image-container {
+        transform: none;
+        margin-top: 60px;
+      }
+    }
+/* 이 스타일은 1280px 환경에서 요소 간 간격을 조정하기 위한 것입니다 */
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  /* 메일 섹션 7 - 오른쪽 영역 */
+  .mail-notification {
+    transform: translateX(60%) !important;
+  }
+  
+  .mail-popup {
+    transform: translateX(60%) !important;
+  }
+  
+  /* 섹션 8 - 메일 미리보기와 버튼 */
+  .mail-preview {
+    transform: translateX(140%) !important;
+  }
+  
+  .mail-buttons {
+    transform: translateX(140%) !important;
+  }
+  
+  /* 섹션 9 - 결재함 */
+  .other-approval {
+    transform: translateX(130%) !important;
+  }
+}
+
+/* 기존 1440px 미디어 쿼리를 조정하지 말고 추가 설정만 해줍니다 */
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+  .mail-notification {
+    transform: translateX(70%);
+  }
+  
+  .mail-preview {
+    transform: translateX(150%);
+  }
+  
+  .mail-buttons {
+    transform: translateX(150%);
+  }
+  
+  .other-approval {
+    transform: translateX(140%);
+  }
+}
+    @media screen and (max-width: 1024px) {
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .main-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .main-description {
+        flex: 0 0 100%;
+        margin-bottom: 40px;
+        padding-right: 0;
+      }
+      
+      .main-image-container {
+        flex: 0 0 100%;
+        width: 100%;
+        transform: none;
+      }
+      
+      .main-title {
+        font-size: 36px;
+      }
+      
+      .concept-content {
+        flex-direction: column;
+      }
+      
+      .concept-main-title {
+        flex: 0 0 100%;
+        padding-right: 0;
+        margin-bottom: 50px;
+      }
+      
+      .concept-details {
+        flex: 0 0 100%;
+      }
+      
+      .concept-main-title h3 {
+        font-size: 42px;
+      }
+      
+      .concept-title {
+        font-size: 32px;
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section, 
+      .competitive-section,
+      .ux-concept-section,
+      .main-screen-section,
+      .wireframe-section,
+      .mail-section,
+      .approval-section,
+      .tablet-main-section,
+      .tablet-approve-section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      
+      .upgrade-container {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      
+      .upgrade-column {
+        flex: 0 0 100%;
+      }
+      
+      .portal-ui-container {
+        flex-direction: column;
+      }
+      
+      .portal-section, .simple-ui-section {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      
+      .portal-ui-images {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .portal-image, .simple-image {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      .simple-image {
+        margin-bottom: 0;
+      }
+      
+      .concept-main-title h3 {
+        font-size: 36px;
+      }
+      
+      .concept-row {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+      
+      .concept-column {
+        flex: 0 0 100%;
+      }
+      
+      .concept-title {
+        font-size: 28px;
+      }
+      
+      .concept-condition, .concept-focus {
+        font-size: 14px;
+      }
+      
+      .concept-description {
+        font-size: 14px;
+      }
+      
+      .main-title,
+      .wireframe-title,
+      .mail-title,
+      .approval-title,
+      .tablet-title,
+      .tablet-approve-title {
+        font-size: 32px;
+      }
+      
+      .main-label,
+      .wireframe-label,
+      .mail-label,
+      .approval-label,
+      .tablet-label,
+      .tablet-approve-label {
+        font-size: 20px;
+      }
+      
+      .main-text {
+        font-size: 15px;
+      }
+      
+      .nav-title {
+        font-size: 20px;
+      }
+      
+      .nav-description {
+        font-size: 15px;
+      }
+      
+      .info-block {
+        flex: 0 0 100%;
+      }
+      
+      .mail-paragraph,
+      .approval-paragraph,
+      .preview-text,
+      .buttons-text,
+      .other-text,
+      .tablet-paragraph,
+      .tablet-approve-paragraph {
+        font-size: 15px;
+      }
+      
+      .preview-title,
+      .buttons-title,
+      .other-title {
+        font-size: 18px;
+      }
+      
+      .mail-flow-images {
+        flex-direction: column;
+        align-items: flex-start;
+        transform: translateX(25%);
+      }
+      
+      .mail-flow-icon {
+        margin-bottom: 15px;
+      }
+      
+      .mail-notification {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .mail-notify-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .mail-notify-text {
+        text-align: center;
+      }
+      
+      .mail-popup-image {
+        max-width: 180px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+    }
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex !important;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+    display: none !important;
+    }
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+       <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+     <!--   <a href="/en.html" class="menu-item">EN</a> -->
+        <a href="/about/" class="menu-item">ABOUT</a>
+        <a href="/work/" class="menu-item active">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2024.02 - 2024.06</div>
+        <h1 class="project-title">NH Groupware <br> App</h1>
+        <div class="project-description">
+          <p>I planned the UX for NH Investment & Securities' groupware mobile app.</p>
+          <p>I provided an upgraded mobile work environment focusing on groupware UX trends and challenges that needed to be addressed.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UX PLANNING / 100%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: OVERVIEW -->
+    <section class="section">
+      <h2 class="section-title">Overview</h2>
+      <div class="overview-content">
+        <div class="overview-text">
+          <h3 class="overview-heading">
+            Design and Usability Upgrade
+          </h3>
+          <p class="overview-paragraph">NH Investment & Securities' mobile office, a mobile groupware, was first launched in 2014.<br>
+    Since then, screens and features continued to be added as needed. Screens added at different times with a focus on functions lacked uniformity.<br> 
+    In the 2024 integrated redesign project, design integration and usability upgrades were necessary.<br>
+    We provided UX upgrades considering current user usability.</p>
+        </div>
+
+        <!-- New Design & Usability Upgrade Section -->
+        <div class="upgrade-container">
+          <div class="upgrade-column">
+            <h3 class="upgrade-title">Design <span class="upgrade-subtitle">Upgrade</span></h3>
+            <ul class="upgrade-list">
+              <li>Applied NH Investment & Securities identity</li>
+              <li>Design suitable for 2024</li>
+              <li>Unified designs that were implemented separately</li>
+            </ul>
+          </div>
+          
+          <div class="upgrade-column">
+            <h3 class="upgrade-title">Usability <span class="upgrade-subtitle">Upgrade</span></h3>
+            
+            <div class="usability-section">
+              <h4 class="usability-subheading">Access Structure Improvement</h4>
+              <ul class="upgrade-list">
+                <li>Quick navigation to main menus via bottom navigation buttons</li>
+                <li>Improved navigation including duplicate buttons on added/modified screens</li>
+                <li>Main screen configured around frequently used menus rather than all features</li>
+                <li>Prioritizing default access before displaying all lists (mail box, approval box, etc.)</li>
+              </ul>
+            </div>
+            
+            <div class="usability-section">
+              <h4 class="usability-subheading2">Readability-Focused Screen Improvements</h4>
+              <ul class="upgrade-list">
+                <li>Removed unnecessary buttons that distract focus</li>
+                <li>Redesigned outdated UI with a focus on readability</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="upgrade-column">
+            <!-- First part starts with "Tablet Usability Upgrade" -->
+            <h4 class="usability-subheading first-heading">Tablet Usability Upgrade</h4>
+            <ul class="upgrade-list">
+              <li>Applied UI appropriate for tablets</li>
+              <li>Effective visual structuring on larger screens</li>
+              <li>Greater emphasis on tablet-specific menus within tablet view</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INSIGHT -->
+    <section class="competitive-section">
+      <h2 class="section-title">Insight</h2>
+      <div class="competitive-content">
+        <div class="competitive-text">
+          <h3 class="competitive-heading">
+            Shifting from Comprehensive Portal to Simple Configuration
+          </h3>
+          <p class="overview-paragraph">
+            Mobile groupware UX is changing from a portal-type layout that contains many features and information at once,<br>
+            to a simpler configuration for individual work efficiency.
+          </p>
+        </div>
+        
+        <div class="portal-ui-container">
+          <div class="portal-section">
+            <div class="section-header">
+              <h4 class="section-title-line">Portal</h4>
+              <div class="line-decoration"></div>
+            </div>
+            <p class="section-description">
+              In early groupware, providing as many features and content<br>
+              as possible on the main screen. Emphasizing the corporate portal feel.<br>
+              Influenced by early mobile site mains and Microsoft's Metro UI
+            </p>
+          </div>
+          
+          <div class="simple-ui-section">
+            <div class="section-header">
+              <h4 class="section-title-simple">Simple UI</h4>
+            </div>
+            <p class="section-description">
+              As user experience accumulated, users preferred UIs that provided quick access rather than displaying many features and information. (Based on third-party system user research)<br>
+              The influence of simple Google and Naver UIs led to preferences for concise screens<br>
+              Access to main screens via bottom navigation, with personalization allowing addition of home/news menus.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Gray rounded box with images -->
+        <div class="portal-ui-images">
+          <img src="images/03_1.png" alt="Portal UI" class="portal-image">
+          <img src="images/03_2.png" alt="Simple UI" class="simple-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: UX CONCEPT -->
+    <section class="ux-concept-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="concept-content">
+        <!-- Left Main Title -->
+        <div class="concept-main-title">
+          <h3>
+            <span class="title-line1"><strong>More</strong></span>
+            <span class="title-line2"><strong>Focused</strong></span>
+            <span class="title-line3"><strong>Mobile</strong></span>
+            <span class="title-line4"><strong>Work Experience</strong></span>
+          </h3>
+        </div>
+        
+        <!-- Right Concept Explanation Area - 2 Column Structure -->
+        <div class="concept-details">
+          <div class="concept-row">
+            <!-- First Column -->
+            <div class="concept-column">
+              <!-- First Concept -->
+              <div class="concept-item1">
+                <div class="concept-header">
+                  <span class="concept-condition">For focus</span>
+                  <div class="line-decoration"></div>
+                </div>
+                <h4 class="concept-title-b">Quietly</h4>
+              </div>
+              
+              <!-- Second Concept -->
+              <div class="concept-item2">
+                <h4 class="concept-title-b">Clearly</h4>
+              </div>
+
+              <!-- Third Concept -->
+              <div class="concept-item3">
+                <h4 class="concept-title-b">In Priority Order</h4>
+              </div>
+            </div>
+            
+            <!-- Second Column -->
+            <div class="concept-column">
+              <!-- First Concept Result -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <span class="concept-condition">Visually</span>
+                </div>
+                <h4 class="concept-title">Concise Information</h4>
+                <p class="concept-description">Remove unnecessary elements</p>
+              </div>
+              <!-- Second Concept Result -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <span class="concept-condition">Cognitively</span>
+                </div>
+                <h4 class="concept-title">Intuitive Menu Names and Buttons</h4>
+                <p class="concept-description">Remove distracting elements that cause incorrect selections</p>
+              </div>
+              <!-- Third Concept Result -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <span class="concept-condition">Structurally</span>
+                </div>
+                <h4 class="concept-title">Focus on Key Functions/Screens</h4>
+                <p class="concept-description">Prioritize core features rather than listing everything</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MAIN SCREEN -->
+    <section class="main-screen-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="main-content">
+        <!-- Left Description Area -->
+        <div class="main-description">
+          <h3 class="main-label">Main</h3>
+          <h4 class="main-title">More Focused and Faster</h4>
+          <p class="main-text">
+            Bottom navigation enables quick movement between main menus.<br>
+            Key information (mail and approvals) is placed at the top,<br>
+            and frequently used menus can be set as favorites,<br>
+            helping to optimize individual work.
+          </p>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="main-image-container">
+          <img src="images/04.png" alt="NH Groupware Main Screen" class="main-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SCREEN STRUCTURING -->
+    <section class="wireframe-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="wireframe-content">
+        <!-- Left Description Area -->
+        <div class="wireframe-description">
+          <h3 class="wireframe-label">Main</h3>
+          <h4 class="wireframe-title">Structured Screens for<br>Systematic Information Access</h4>
+          
+          <!-- Left Bottom Description -->
+          <div class="wireframe-text-container">
+            <h5 class="nav-title">Bottom Navigation</h5>
+            <p class="nav-description">
+              Placement of the most frequently used<br>
+              main menus in the mobile office. Helps efficient and quick navigation.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="wireframe-image-container">
+          <img src="images/04_2.png" alt="NH Groupware Wireframe" class="wireframe-image">
+          
+          <!-- Right Description Text Area -->
+          <div class="wireframe-right-info">
+            <div class="info-block key-info">
+              <h5 class="info-title">Key Information at the Top</h5>
+              <p class="info-description">Mail and approval status placed at the very top for quick checking</p>
+            </div>
+            
+            <div class="info-block main-info">
+              <h5 class="info-title">Key Lookup Information Placement</h5>
+              <p class="info-description">Employee search function placed on the main screen for easy access</p>
+            </div>
+            
+            <div class="info-block custom-info">
+              <h5 class="info-title">My Menu Personalization</h5>
+              <p class="info-description">Excluding bottom nav buttons, frequently used<br>individual menus are set as default,<br>which users can then modify to their preferred menus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: MAIL FIRST SCREEN -->
+    <section class="mail-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="mail-content">
+        <!-- Left Description Area -->
+        <div class="mail-description">
+          <h3 class="mail-label">Main</h3>
+          <h4 class="mail-title">If Needed,<br>Set Mail as First Screen</h4>
+          
+          <div class="mail-text">
+            <h5 class="mail-info-title">After setting, when accessing the app<br>
+              the mail screen opens first</h5>
+            <p class="mail-paragraph">
+              The home screen is maintained, but the mail (inbox)<br>
+              screen opens as the first screen.
+            </p>
+          </div>
+          
+          <!-- Left Bottom Images -->
+          <div class="mail-flow-images">
+            <img src="images/05_c.png" alt="App Icon" class="mail-flow-icon">
+            <img src="images/05_d.png" alt="Mail Screen" class="mail-flow-screen">
+          </div>
+        </div>
+        
+        <!-- Right Screen Image and Popup -->
+        <div class="mail-visual-container">
+          <div class="mail-screen-container">
+            <!-- Main Screen Image -->
+<img src="images/04.png" alt="NH Groupware Main Screen" class="mail-main-image">
+          </div>
+          
+          <!-- Right Top Mail Notification Area -->
+          <div class="mail-notification">
+            <img src="images/05_aa.png" alt="Mail Notification" class="mail-notify-icon">
+            <div class="mail-notify-text">
+              <p>When the toggle button is selected, it changes to On state after the confirmation popup.</p>
+              <p>From the next access, the mail screen will open as the first screen.</p>
+            </div>
+          </div>
+          
+          <!-- Popup Image -->
+          <div class="mail-popup">
+            <img src="images/05_bb.png" alt="Set Mail as First Screen Popup" class="mail-popup-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: MAIL ACCESSIBILITY -->
+    <section class="mail-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="mail-content">
+        <!-- Left Description Area -->
+        <div class="mail-description">
+          <h3 class="mail-label">Mail</h3>
+          <h4 class="mail-title">Improved Mail Accessibility</h4>
+          
+          <div class="main-text">
+            <p class="mail-paragraph">
+              Since checking mail is the first task,<br>
+              we show the default mailbox list immediately.
+            </p>
+            <p class="mail-paragraph">
+              Mailbox selection is categorized as a<br>
+              secondary choice that appears when you press the additional button.
+            </p>
+          </div>
+          
+          <!-- Content Preview Area -->
+          <div class="mail-preview">
+            <h5 class="preview-title">Content Preview</h5>
+            <p class="preview-text">
+              While previously only the sender and subject were displayed,<br>
+              we now provide a preview of the email content in the list,<br>
+              helping with quick verification.
+            </p>
+          </div>
+          
+          <!-- Button Simplification Area -->
+          <div class="mail-buttons">
+            <h5 class="buttons-title">Button Simplification</h5>
+            <p class="buttons-text">
+              Only necessary buttons are kept in the mail list, simplified.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="mail-screen-container3">
+          <img src="images/06.png" alt="NH Groupware Mail Screen" class="mail-main-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: PENDING APPROVAL FIRST -->
+    <section class="approval-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="approval-content">
+        <!-- Left Description Area -->
+        <div class="approval-description">
+          <h3 class="approval-label">Approval</h3>
+          <h4 class="approval-title">Pending Approvals Shown First</h4>
+          
+          <div class="approval-text">
+            <p class="approval-paragraph">
+              Mobile approval shows pending approvals first.<br>
+              You can check other approval box statuses together,<br>
+              eliminating the need for a separate approval box selection screen.
+            </p>
+          </div>
+          
+          <!-- Other Approval Boxes Display Area -->
+          <div class="other-approval">
+            <h5 class="other-title">Display of Other Approval Box Counts</h5>
+            <p class="other-text">
+              Along with the default pending approval box, counts for other<br>
+              approval boxes are displayed, allowing at-a-glance verification and immediate access.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="approval-screen-container">
+          <img src="images/07.png" alt="NH Groupware Pending Approval Screen" class="approval-main-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: TABLET MAIN SCREEN -->
+    <section class="tablet-main-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="tablet-content">
+        <!-- Left Description Area -->
+        <div class="tablet-description">
+          <h3 class="tablet-label">Tablet Main</h3>
+          <h4 class="tablet-title">Key Functions in More Detail</h4>
+          
+          <div class="tablet-text">
+            <p class="tablet-paragraph">
+              Utilizing the tablet's wider screen,<br>
+              you can view key functions<br>
+              in more detail even on the main screen.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="tablet-image-container">
+          <img src="images/08.png" alt="NH Groupware Tablet Main Screen" class="tablet-main-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: TABLET APPROVAL SCREEN -->
+    <section class="tablet-approve-section">
+      <h2 class="section-title">UX Concept</h2>
+      
+      <div class="tablet-approve-content">
+        <!-- Left Description Area -->
+        <div class="tablet-approve-description">
+          <h3 class="tablet-approve-label">Tablet Approve</h3>
+          <h4 class="tablet-approve-title">Layout for Easy<br>Access and Navigation</h4>
+          
+          <div class="tablet-approve-text">
+            <p class="tablet-approve-paragraph">
+              We provide bottom navigation in common with mobile,<br>
+              and offer movement through status areas instead of<br>
+              an approval box selection screen.
+            </p>
+            <p class="tablet-approve-paragraph">
+              With list and details visible at a glance,<br>
+              access and navigation become even easier.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Screen Image -->
+        <div class="tablet-approve-image-container">
+          <img src="images/09.png" alt="NH Groupware Tablet Approval Screen" class="tablet-approve-main-image">
+        </div>
+      </div>
+    </section>
+    
+  <div class="mobile-notice">
+    <h2>Mobile Not Supported</h2>
+    <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+  </div>
+    <!-- Back to top button -->
+    <div class="top-button" id="topButton"></div>
+
+  
+
+    <script>
+// Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    topButton.style.display = 'flex';
+  } else {
+    topButton.style.display = 'none';
+  }
+});
+
+// 페이지 로드 후 실행될 함수
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 프로젝트 헤더 배경 애니메이션 설정
+  setupHeaderAnimation();
+  
+  // 2. 스크롤 애니메이션 요소들을 초기화
+  initScrollAnimations();
+  
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', function() {
+    // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+    checkScrollAnimations();
+  });
+  
+  // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
+  checkScrollAnimations();
+});
+
+// 헤더 배경 애니메이션 설정 함수 - 더 부드러운 페이드인 효과
+function setupHeaderAnimation() {
+  const projectHeader = document.querySelector('.project-header');
+  const headerContent = document.querySelector('.project-header-content');
+  
+  // 헤더 배경 초기 스타일 설정
+  if (projectHeader) {
+    // 배경색 설정
+    projectHeader.style.backgroundColor = '#000000';
+    
+    // 오버레이 요소 생성
+    const overlay = document.createElement('div');
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = '#000000';
+    overlay.style.opacity = '1';
+    overlay.style.transition = 'opacity 1s ease';
+    overlay.style.zIndex = '1';
+    
+    // 기존 헤더 콘텐츠를 위한 z-index 조정
+    if (headerContent) {
+      headerContent.style.position = 'relative';
+      headerContent.style.zIndex = '2';
+      headerContent.style.opacity = '0';
+      headerContent.style.transform = 'translateY(30px)';
+      headerContent.style.transition = 'opacity 1s ease, transform 1s ease';
+      headerContent.style.transitionDelay = '0.5s';
+    }
+    
+    // 헤더에 오버레이 추가
+    projectHeader.prepend(overlay);
+    
+    // 배경 이미지 설정
+    projectHeader.style.backgroundImage = 'url("images/01.jpg")';
+    projectHeader.style.backgroundSize = 'cover';
+    projectHeader.style.backgroundPosition = 'top center';
+    projectHeader.style.backgroundRepeat = 'no-repeat';
+    
+    // 약간의 딜레이 후 오버레이 페이드아웃
+    setTimeout(() => {
+      overlay.style.opacity = '0';
+      
+      // 오버레이가 사라진 후 콘텐츠도 페이드인
+      if (headerContent) {
+        headerContent.style.opacity = '1';
+        headerContent.style.transform = 'translateY(0)';
+      }
+      
+      // 오버레이가 완전히 사라지면 제거
+      setTimeout(() => {
+        overlay.remove();
+      }, 1500);
+    }, 200);
+  }
+}
+
+// 스크롤 애니메이션을 위한 요소들 초기화
+function initScrollAnimations() {
+  // 섹션 2: 업그레이드 칼럼 애니메이션 설정
+  const upgradeColumns = document.querySelectorAll('.upgrade-column');
+  upgradeColumns.forEach((column, index) => {
+    // 초기 스타일 직접 설정
+    column.style.opacity = '0';
+    column.style.transform = 'translateY(50px)';
+    column.style.transition = `opacity 0.8s ease, transform 0.8s ease`;
+    // 데이터 속성으로 딜레이 값 저장
+    column.dataset.animDelay = index * 200; // 순차적 딜레이
+  });
+  
+  // 섹션 3: 이미지 애니메이션 설정
+  const portalImage = document.querySelector('.portal-image');
+  const simpleImage = document.querySelector('.simple-image');
+  
+  if (portalImage) {
+    portalImage.style.opacity = '0';
+    portalImage.style.transform = 'translateX(-30px)';
+    portalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  if (simpleImage) {
+    simpleImage.style.opacity = '0';
+    simpleImage.style.transform = 'translateX(-30px)';
+    simpleImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    simpleImage.dataset.animDelay = '300'; // 두 번째 이미지 딜레이
+  }
+  
+  // 섹션 4 초기화
+  initSection4Animations();
+  // 섹션 5 초기화
+  initSection5Animations();
+  // 섹션 6 초기화
+  initSection6Animations();
+  // 섹션 7 초기화
+  initSection7Animations();
+  // 섹션 8 초기화
+  initSection8Animations();
+  // 섹션 9 초기화
+  initSection9Animations();
+  // 섹션 10 초기화
+  initSection10Animations();
+  // 섹션 11 초기화
+  initSection11Animations();
+}
+
+// 섹션 4에 대한 애니메이션 초기화 함수
+function initSection4Animations() {
+  // 왼쪽 컬럼 그룹 (조용하게, 명확하게, 우선 순위대로)
+  const leftColumn = document.querySelector('.concept-column:nth-child(1)');
+  if (leftColumn) {
+    leftColumn.style.opacity = '0';
+    leftColumn.style.transform = 'translateX(-30px)';
+    leftColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  // 오른쪽 컬럼 그룹
+  const rightColumn = document.querySelector('.concept-column:nth-child(2)');
+  if (rightColumn) {
+    rightColumn.style.opacity = '0';
+    rightColumn.style.transform = 'translateX(-30px)';
+    rightColumn.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    // 왼쪽 그룹이 나타난 후 오른쪽 그룹이 나타나도록 딜레이 설정
+    rightColumn.dataset.animDelay = '1000';
+  }
+}
+
+// 섹션 5에 대한 애니메이션 초기화 함수
+function initSection5Animations() {
+  // 섹션 5의 이미지 요소
+  const mainImage = document.querySelector('.main-image-container .main-image');
+  
+  if (mainImage) {
+    // 이미지를 처음에 숨기고 아래에서 위로 올라오도록 설정
+    mainImage.style.opacity = '0';
+    mainImage.style.transform = 'translateY(50px)';
+    mainImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
+
+// 섹션 6에 대한 애니메이션 초기화 함수
+function initSection6Animations() {
+  // 와이어프레임 이미지 컨테이너
+  const wireframeImageContainer = document.querySelector('.wireframe-image-container');
+  
+  if (wireframeImageContainer) {
+    // 이미지 초기 상태 설정 (투명만 적용, transform은 건드리지 않음)
+    const wireframeImage = wireframeImageContainer.querySelector('.wireframe-image');
+    if (wireframeImage) {
+      wireframeImage.style.opacity = '0';
+      wireframeImage.style.transition = 'opacity 0.8s ease';
+    }
+  }
+  
+  // 오른쪽 설명 텍스트 영역 (그룹으로 처리)
+  const wireframeRightInfo = document.querySelector('.wireframe-right-info');
+  
+  if (wireframeRightInfo) {
+    // 오른쪽 텍스트 초기 상태 설정 (투명 + 기존 위치에서 왼쪽으로 30px 이동)
+    wireframeRightInfo.style.opacity = '0';
+    // 기존 transform 유지하면서 X 축으로 -30px 추가 이동
+    const currentTransform = window.getComputedStyle(wireframeRightInfo).transform;
+    const matrix = new DOMMatrix(currentTransform);
+    wireframeRightInfo.style.transform = `translateX(${matrix.m41 - 30}px)`;
+    wireframeRightInfo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    // 이미지 나타난 후 표시되도록 딜레이 설정
+    wireframeRightInfo.dataset.animDelay = '800';
+    // 원래 위치 값 저장
+    wireframeRightInfo.dataset.originalTransform = currentTransform;
+  }
+}
+
+// 섹션 7에 대한 애니메이션 초기화 함수
+function initSection7Animations() {
+  // 이미지 요소
+  const mailMainImage = document.querySelector('.mail-screen-container .mail-main-image');
+  
+  if (mailMainImage) {
+    // 메인 이미지 페이드인
+    mailMainImage.style.opacity = '0';
+    mailMainImage.style.transition = 'opacity 0.8s ease';
+  }
+  
+  // 왼쪽 텍스트 영역과 하단 이미지 그룹
+  const mailTextGroup = document.querySelector('.mail-text');
+  const mailFlowImages = document.querySelector('.mail-flow-images');
+  
+  if (mailTextGroup) {
+    mailTextGroup.style.opacity = '0';
+    mailTextGroup.style.transition = 'opacity 0.8s ease';
+  }
+  
+  if (mailFlowImages) {
+    mailFlowImages.style.opacity = '0';
+    mailFlowImages.style.transition = 'opacity 0.8s ease';
+  }
+  
+  // 오른쪽 알림 영역과 팝업 이미지 그룹
+  const mailNotification = document.querySelector('.mail-notification');
+  const mailPopup = document.querySelector('.mail-popup');
+  
+  if (mailNotification) {
+    mailNotification.style.opacity = '0';
+    mailNotification.style.transition = 'opacity 0.8s ease';
+    mailNotification.dataset.animDelay = '500'; // 메인 이미지 뒤에 표시
+  }
+  
+  if (mailPopup) {
+    mailPopup.style.opacity = '0';
+    mailPopup.style.transition = 'opacity 0.8s ease';
+    mailPopup.dataset.animDelay = '800'; // 알림 뒤에 표시
+  }
+}
+
+// 섹션 8에 대한 애니메이션 초기화 함수
+function initSection8Animations() {
+  // 섹션 8 메일 화면 이미지 - 두 번째 mail-section 섹션 내 요소들
+  const mailSections = document.querySelectorAll('.mail-section');
+  if (mailSections.length >= 2) {
+    const section8 = mailSections[1];
+    
+    // 이미지 컨테이너
+    const mailScreenContainer3 = section8.querySelector('.mail-screen-container3');
+    
+    if (mailScreenContainer3) {
+      const mailImage = mailScreenContainer3.querySelector('.mail-main-image');
+      if (mailImage) {
+        // 이미지를 아래에서 위로 올라오게 설정
+        mailImage.style.opacity = '0';
+        mailImage.style.transform = 'translateY(50px)';
+        mailImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      }
+    }
+    
+    // 오른쪽 텍스트 영역
+    const mailPreview = section8.querySelector('.mail-preview');
+    const mailButtons = section8.querySelector('.mail-buttons');
+    
+    if (mailPreview) {
+      mailPreview.style.opacity = '0';
+      mailPreview.style.transition = 'opacity 0.8s ease';
+      mailPreview.dataset.animDelay = '500';
+    }
+    
+    if (mailButtons) {
+      mailButtons.style.opacity = '0';
+      mailButtons.style.transition = 'opacity 0.8s ease';
+      mailButtons.dataset.animDelay = '700';
+    }
+  }
+}
+
+// 섹션 9에 대한 애니메이션 초기화 함수
+function initSection9Animations() {
+  // 이미지 요소
+  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
+  
+  if (approvalImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    approvalImage.style.opacity = '0';
+    approvalImage.style.transform = 'translateY(50px)';
+    approvalImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+  
+  // 오른쪽 텍스트 영역
+  const otherApproval = document.querySelector('.other-approval');
+  
+  if (otherApproval) {
+    otherApproval.style.opacity = '0';
+    otherApproval.style.transition = 'opacity 0.8s ease';
+    otherApproval.dataset.animDelay = '500';
+  }
+}
+
+// 섹션 10에 대한 애니메이션 초기화 함수
+function initSection10Animations() {
+  // 이미지 요소
+  const tabletMainImage = document.querySelector('.tablet-image-container .tablet-main-image');
+  
+  if (tabletMainImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    tabletMainImage.style.opacity = '0';
+    tabletMainImage.style.transform = 'translateY(50px)';
+    tabletMainImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
+
+// 섹션 11에 대한 애니메이션 초기화 함수
+function initSection11Animations() {
+  // 이미지 요소
+  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
+  
+  if (tabletApproveImage) {
+    // 이미지를 아래에서 위로 올라오게 설정
+    tabletApproveImage.style.opacity = '0';
+    tabletApproveImage.style.transform = 'translateY(50px)';
+    tabletApproveImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  }
+}
+
+// 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
+function checkScrollAnimations() {
+  // 섹션 2: 업그레이드 칼럼 애니메이션 체크
+  const upgradeColumns = document.querySelectorAll('.upgrade-column');
+  upgradeColumns.forEach(column => {
+    if (isElementInViewport(column) && column.style.opacity === '0') {
+      const delay = parseInt(column.dataset.animDelay || 0);
+      setTimeout(() => {
+        column.style.opacity = '1';
+        column.style.transform = 'translateY(0)';
+      }, delay);
+    }
+  });
+  
+  // 섹션 3: 이미지 애니메이션 체크
+  const portalImage = document.querySelector('.portal-image');
+  const simpleImage = document.querySelector('.simple-image');
+  
+  if (portalImage && isElementInViewport(portalImage) && portalImage.style.opacity === '0') {
+    portalImage.style.opacity = '1';
+    portalImage.style.transform = 'translateX(0)';
+    
+    // 왼쪽 이미지 페이드인 후 오른쪽 이미지 페이드인
+    if (simpleImage && simpleImage.style.opacity === '0') {
+      const delay = parseInt(simpleImage.dataset.animDelay || 300);
+      setTimeout(() => {
+        simpleImage.style.opacity = '1';
+        simpleImage.style.transform = 'translateX(0)';
+      }, delay);
+    }
+  }
+  
+  // 섹션 4 체크
+  checkSection4Animations();
+  
+  // 섹션 5 체크
+  checkSection5Animations();
+  
+  // 섹션 6 체크
+  checkSection6Animations();
+  
+  // 섹션 7 체크
+  checkSection7Animations();
+  
+  // 섹션 8 체크
+  checkSection8Animations();
+  
+  // 섹션 9 체크
+  checkSection9Animations();
+  
+  // 섹션 10 체크
+  checkSection10Animations();
+  
+  // 섹션 11 체크
+  checkSection11Animations();
+}
+
+// 섹션 4에 대한 애니메이션 체크 함수
+function checkSection4Animations() {
+  // 섹션이 뷰포트에 들어왔는지 확인
+  const section = document.querySelector('.ux-concept-section');
+  
+  if (isElementInViewport(section)) {
+    // 왼쪽 컬럼 애니메이션
+    const leftColumn = document.querySelector('.concept-column:nth-child(1)');
+    if (leftColumn && leftColumn.style.opacity === '0') {
+      leftColumn.style.opacity = '1';
+      leftColumn.style.transform = 'translateX(0)';
+      
+      // 왼쪽 컬럼이 나타난 후 오른쪽 컬럼 애니메이션
+      const rightColumn = document.querySelector('.concept-column:nth-child(2)');
+      if (rightColumn && rightColumn.style.opacity === '0') {
+        const delay = parseInt(rightColumn.dataset.animDelay || 1000);
+        setTimeout(() => {
+          rightColumn.style.opacity = '1';
+          rightColumn.style.transform = 'translateX(0)';
+        }, delay);
+      }
+    }
+  }
+}
+
+// 섹션 5에 대한 애니메이션 체크 함수
+function checkSection5Animations() {
+  const mainImage = document.querySelector('.main-image-container .main-image');
+  
+  if (mainImage && isElementInViewport(mainImage) && mainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    mainImage.style.opacity = '1';
+    mainImage.style.transform = 'translateY(0)';
+  }
+}
+
+// 섹션 6에 대한 애니메이션 체크 함수
+function checkSection6Animations() {
+  const wireframeImage = document.querySelector('.wireframe-image');
+  const wireframeRightInfo = document.querySelector('.wireframe-right-info');
+  
+  if (wireframeImage && isElementInViewport(wireframeImage) && wireframeImage.style.opacity === '0') {
+    // 이미지 페이드인만 처리 (위치는 그대로 유지)
+    wireframeImage.style.opacity = '1';
+    
+    // 이미지가 나타난 후 오른쪽 텍스트 애니메이션
+    if (wireframeRightInfo && wireframeRightInfo.style.opacity === '0') {
+      const delay = parseInt(wireframeRightInfo.dataset.animDelay || 800);
+      setTimeout(() => {
+        wireframeRightInfo.style.opacity = '1';
+        // 원래 위치로 돌아가기
+        wireframeRightInfo.style.transform = wireframeRightInfo.dataset.originalTransform || 'translateX(127%)';
+      }, delay);
+    }
+  }
+}
+
+// 섹션 7 애니메이션 체크 함수
+function checkSection7Animations() {
+  // 메인 이미지 체크
+  const mailMainImage = document.querySelector('.mail-screen-container .mail-main-image');
+  
+  if (mailMainImage && isElementInViewport(mailMainImage) && mailMainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 페이드인
+    mailMainImage.style.opacity = '1';
+    
+    // 왼쪽 텍스트와 이미지 그룹 체크
+    const mailTextGroup = document.querySelector('.mail-text');
+    const mailFlowImages = document.querySelector('.mail-flow-images');
+    
+    if (mailTextGroup && mailTextGroup.style.opacity === '0') {
+      mailTextGroup.style.opacity = '1';
+    }
+    
+    if (mailFlowImages && mailFlowImages.style.opacity === '0') {
+      mailFlowImages.style.opacity = '1';
+    }
+    
+    // 오른쪽 영역 체크 (딜레이 적용)
+    const mailNotification = document.querySelector('.mail-notification');
+    const mailPopup = document.querySelector('.mail-popup');
+    
+    if (mailNotification && mailNotification.style.opacity === '0') {
+      const notifyDelay = parseInt(mailNotification.dataset.animDelay || 500);
+      setTimeout(() => {
+        mailNotification.style.opacity = '1';
+      }, notifyDelay);
+    }
+    
+    if (mailPopup && mailPopup.style.opacity === '0') {
+      const popupDelay = parseInt(mailPopup.dataset.animDelay || 800);
+      setTimeout(() => {
+        mailPopup.style.opacity = '1';
+      }, popupDelay);
+    }
+  }
+}
+
+// 섹션 8 애니메이션 체크 함수
+function checkSection8Animations() {
+  // 섹션 8 찾기 (두 번째 mail-section)
+  const mailSections = document.querySelectorAll('.mail-section');
+  if (mailSections.length >= 2) {
+    const section8 = mailSections[1];
+    
+    // 이미지 체크
+    const mailImage = section8.querySelector('.mail-screen-container3 .mail-main-image');
+    
+    if (mailImage && isElementInViewport(mailImage) && mailImage.style.opacity === '0') {
+      // 이미지가 뷰포트에 들어오면 애니메이션 적용
+      mailImage.style.opacity = '1';
+      mailImage.style.transform = 'translateY(0)';
+      
+      // 오른쪽 텍스트 영역 체크 (딜레이 적용)
+      const mailPreview = section8.querySelector('.mail-preview');
+      const mailButtons = section8.querySelector('.mail-buttons');
+      
+      if (mailPreview && mailPreview.style.opacity === '0') {
+        const previewDelay = parseInt(mailPreview.dataset.animDelay || 500);
+        setTimeout(() => {
+          mailPreview.style.opacity = '1';
+        }, previewDelay);
+      }
+      
+      if (mailButtons && mailButtons.style.opacity === '0') {
+        const buttonsDelay = parseInt(mailButtons.dataset.animDelay || 700);
+        setTimeout(() => {
+          mailButtons.style.opacity = '1';
+        }, buttonsDelay);
+      }
+    }
+  }
+}
+
+// 섹션 9 애니메이션 체크 함수
+function checkSection9Animations() {
+  // 이미지 체크
+  const approvalImage = document.querySelector('.approval-screen-container .approval-main-image');
+  
+  if (approvalImage && isElementInViewport(approvalImage) && approvalImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    approvalImage.style.opacity = '1';
+    approvalImage.style.transform = 'translateY(0)';
+    
+    // 오른쪽 텍스트 영역 체크
+    const otherApproval = document.querySelector('.other-approval');
+    
+    if (otherApproval && otherApproval.style.opacity === '0') {
+      const otherDelay = parseInt(otherApproval.dataset.animDelay || 500);
+      setTimeout(() => {
+        otherApproval.style.opacity = '1';
+      }, otherDelay);
+    }
+  }
+}
+
+// 섹션 10 애니메이션 체크 함수
+function checkSection10Animations() {
+  // 이미지 체크
+  const tabletMainImage = document.querySelector('.tablet-image-container .tablet-main-image');
+  
+  if (tabletMainImage && isElementInViewport(tabletMainImage) && tabletMainImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    tabletMainImage.style.opacity = '1';
+    tabletMainImage.style.transform = 'translateY(0)';
+  }
+}
+
+// 섹션 11 애니메이션 체크 함수
+function checkSection11Animations() {
+  // 이미지 체크
+  const tabletApproveImage = document.querySelector('.tablet-approve-image-container .tablet-approve-main-image');
+  
+  if (tabletApproveImage && isElementInViewport(tabletApproveImage) && tabletApproveImage.style.opacity === '0') {
+    // 이미지가 뷰포트에 들어오면 애니메이션 적용
+    tabletApproveImage.style.opacity = '1';
+    tabletApproveImage.style.transform = 'translateY(0)';
+  }
+}
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // 요소의 상단이 화면 하단보다 위에 있고, 요소의 하단이 화면 상단보다 아래에 있는지 확인
+  return (
+    rect.top <= windowHeight * 0.8 && // 요소가 화면의 80% 이내에 들어오면 활성화
+    rect.bottom >= 0
+  );
+}
+    </script>
+</div>
+</body>
+</html>
