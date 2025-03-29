@@ -1304,50 +1304,42 @@ function setupSolutionImages() {
     // 대체 이미지 소스 설정
     const alternateSrc = solutionImage.src.replace('.png', 'b.png');
     
-    // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
-    solutionImage.addEventListener('load', function() {
-      setTimeout(() => {
-        // 이미지 컨테이너 설정
-        const container = solutionImage.parentElement;
-        
-        // 컨테이너 스타일 설정
-        if (getComputedStyle(container).position === 'static') {
-          container.style.position = 'relative';
-        }
-        
-        // 정확한 위치와 크기 계산
-        const rect = solutionImage.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        
-        // 원본 이미지의 정확한 위치와 크기 계산
-        const imageLeft = rect.left - containerRect.left;
-        const imageTop = rect.top - containerRect.top;
-        const imageWidth = rect.width;
-        const imageHeight = rect.height;
-        
-        // 대체 이미지 생성 및 설정
-        const alternateImage = new Image();
-        alternateImage.className = 'solution-image-alternate';
-        alternateImage.src = alternateSrc;
-        alternateImage.style.position = 'absolute';
-        alternateImage.style.left = imageLeft + 'px';
-        alternateImage.style.top = imageTop + 'px';
-        alternateImage.style.width = imageWidth + 'px';
-        alternateImage.style.height = imageHeight + 'px';
-        alternateImage.style.opacity = '0';
-        alternateImage.style.transition = 'opacity 0.8s ease';
-        alternateImage.style.zIndex = '2';
-        
-        // DOM에 추가
-        container.appendChild(alternateImage);
-      }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
-    });
+    // 이미지 컨테이너 설정
+    const container = solutionImage.parentElement;
     
-    if (solutionImage.complete) {
-      // 이미 로드된 이미지인 경우 이벤트 발생
-      const event = new Event('load');
-      solutionImage.dispatchEvent(event);
+    // 컨테이너에 상대 위치 설정 (이미지가 로드되기 전에 설정)
+    if (getComputedStyle(container).position === 'static') {
+      container.style.position = 'relative';
     }
+    
+    // 대체 이미지 요소 생성
+    const alternateImage = new Image();
+    alternateImage.className = 'solution-image-alternate';
+    alternateImage.src = alternateSrc;
+    alternateImage.style.position = 'absolute';
+    alternateImage.style.opacity = '0';
+    alternateImage.style.transition = 'opacity 0.8s ease';
+    alternateImage.style.zIndex = '2';
+    
+    // 이미지 로드 후 정확한 위치와 크기 설정
+    alternateImage.onload = function() {
+      // 원본 이미지가 완전히 로드될 때까지 대기
+      const checkOriginalImage = setInterval(() => {
+        if (solutionImage.complete && solutionImage.naturalWidth !== 0) {
+          clearInterval(checkOriginalImage);
+          
+          // 원본 이미지의 크기와 위치를 얻어 대체 이미지에 동일하게 적용
+          alternateImage.style.top = '0';
+          alternateImage.style.left = '0';
+          alternateImage.style.width = '100%';
+          alternateImage.style.height = '100%';
+          alternateImage.style.objectFit = 'cover';
+          
+          // DOM에 추가
+          container.appendChild(alternateImage);
+        }
+      }, 100);
+    };
   }
   
   // 해제 버튼 섹션 설정
@@ -1362,50 +1354,42 @@ function setupSolutionImages() {
       // 대체 이미지 소스 설정
       const alternateSrc = hexagonImage.src.replace('.png', 'b.png');
       
-      // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
-      hexagonImage.addEventListener('load', function() {
-        setTimeout(() => {
-          // 이미지 컨테이너 설정
-          const container = hexagonImage.parentElement;
-          
-          // 컨테이너 스타일 설정
-          if (getComputedStyle(container).position === 'static') {
-            container.style.position = 'relative';
-          }
-          
-          // 정확한 위치와 크기 계산
-          const rect = hexagonImage.getBoundingClientRect();
-          const containerRect = container.getBoundingClientRect();
-          
-          // 원본 이미지의 정확한 위치와 크기 계산
-          const imageLeft = rect.left - containerRect.left;
-          const imageTop = rect.top - containerRect.top;
-          const imageWidth = rect.width;
-          const imageHeight = rect.height;
-          
-          // 대체 이미지 생성 및 설정
-          const alternateImage = new Image();
-          alternateImage.className = 'hexagon-image-alternate';
-          alternateImage.src = alternateSrc;
-          alternateImage.style.position = 'absolute';
-          alternateImage.style.left = imageLeft + 'px';
-          alternateImage.style.top = imageTop + 'px';
-          alternateImage.style.width = imageWidth + 'px';
-          alternateImage.style.height = imageHeight + 'px';
-          alternateImage.style.opacity = '0';
-          alternateImage.style.transition = 'opacity 0.8s ease';
-          alternateImage.style.zIndex = '2';
-          
-          // DOM에 추가
-          container.appendChild(alternateImage);
-        }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
-      });
+      // 이미지 컨테이너 설정
+      const container = hexagonImage.parentElement;
       
-      if (hexagonImage.complete) {
-        // 이미 로드된 이미지인 경우 이벤트 발생
-        const event = new Event('load');
-        hexagonImage.dispatchEvent(event);
+      // 컨테이너에 상대 위치 설정 (이미지가 로드되기 전에 설정)
+      if (getComputedStyle(container).position === 'static') {
+        container.style.position = 'relative';
       }
+      
+      // 대체 이미지 요소 생성
+      const alternateImage = new Image();
+      alternateImage.className = 'hexagon-image-alternate';
+      alternateImage.src = alternateSrc;
+      alternateImage.style.position = 'absolute';
+      alternateImage.style.opacity = '0';
+      alternateImage.style.transition = 'opacity 0.8s ease';
+      alternateImage.style.zIndex = '2';
+      
+      // 이미지 로드 후 정확한 위치와 크기 설정
+      alternateImage.onload = function() {
+        // 원본 이미지가 완전히 로드될 때까지 대기
+        const checkOriginalImage = setInterval(() => {
+          if (hexagonImage.complete && hexagonImage.naturalWidth !== 0) {
+            clearInterval(checkOriginalImage);
+            
+            // 원본 이미지의 크기와 위치를 얻어 대체 이미지에 동일하게 적용
+            alternateImage.style.top = '0';
+            alternateImage.style.left = '0';
+            alternateImage.style.width = '100%';
+            alternateImage.style.height = '100%';
+            alternateImage.style.objectFit = 'cover';
+            
+            // DOM에 추가
+            container.appendChild(alternateImage);
+          }
+        }, 100);
+      };
     }
   }
 }
@@ -1418,7 +1402,7 @@ function setupB2BImages() {
     // 초기 상태 설정 (화면 밖에서 시작)
     b2bLeftImage.style.opacity = '0';
     b2bLeftImage.style.transform = 'translateX(-100px)';
-    b2bLeftImage.style.transition = 'opacity 1s ease, transform 1s ease';
+    b2bLeftImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
   }
   
   // B2B 섹션 오른쪽 이미지
@@ -1427,7 +1411,7 @@ function setupB2BImages() {
     // 초기 상태 설정 (화면 밖에서 시작)
     b2bRightImage.style.opacity = '0';
     b2bRightImage.style.transform = 'translateX(-100px)';
-    b2bRightImage.style.transition = 'opacity 1s ease, transform 1s ease';
+    b2bRightImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
   }
 }
 
@@ -1439,7 +1423,7 @@ function setupB2CImages() {
     // 초기 상태 설정 (화면 밖에서 시작)
     b2cLeftImage.style.opacity = '0';
     b2cLeftImage.style.transform = 'translateX(-100px)';
-    b2cLeftImage.style.transition = 'opacity 1s ease, transform 1s ease';
+    b2cLeftImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
   }
   
   // B2C 섹션 오른쪽 이미지
@@ -1448,7 +1432,7 @@ function setupB2CImages() {
     // 초기 상태 설정 (화면 밖에서 시작)
     b2cRightImage.style.opacity = '0';
     b2cRightImage.style.transform = 'translateX(-100px)';
-    b2cRightImage.style.transition = 'opacity 1s ease, transform 1s ease';
+    b2cRightImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
   }
 }
 
@@ -1537,7 +1521,7 @@ function animateB2BImages() {
         // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
         setTimeout(() => {
           animateB2BRightImage();
-        }, 300);
+        }, 500);
       }
     }
   }
@@ -1573,7 +1557,7 @@ function animateB2CImages() {
         // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
         setTimeout(() => {
           animateB2CRightImage();
-        }, 300);
+        }, 500);
       }
     }
   }
