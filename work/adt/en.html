@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENQFNH7L07"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ENQFNH7L07');
+</script>	
+  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Book.woff" as="font" type="font/woff" crossorigin>
+
+  <title>ADT Caps App - Semin Kim Portfolio</title>
+  <style>
+ @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-400-Book.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    @font-face {
+      font-family: "Jost";
+      src: url("../../woff/Jost-700-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }    
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("../../woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("../../woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("../../woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Black";
+      src: url("../../woff/Pretendard-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --light-gray:#f2f9fc;
+      --blue-light: #41d9ff;
+      --yellow-medium: #e1a317;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+      --light-bg: #f5f7f9;
+      --nav-bg: #f1f6f8;
+      --nav-text: #879299;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard: "Pretendard-Regular", "Pretendard-Light", "Pretendard-Bold", "Pretendard-Black", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+    .container {
+      width: 100%;
+      background-color: var(--nav-bg);
+    }
+/* 기존 코드에 추가/보완할 내용 */
+body, h1, h2, h3, h4, p, span {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important ;
+  text-rendering: optimizeLegibility !important;
+  font-smooth: always;
+}
+
+/* 시스템 폰트 폴백 강화 */
+:root {
+  --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+}
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color: var(--nav-bg);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--nav-text);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .menu-item.active {
+      color: var(--black);
+    }
+
+    .back-link {
+      position: absolute;
+      left: 60px;
+      top: 110px;
+      z-index: 10;
+      background-color: transparent; 
+    }
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #8a8a8a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .top-button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #404040;
+            border-right: 1px solid #404040;
+            transform: rotate(-45deg);
+            margin-top: 4px;
+        }
+    /* PROJECT HEADER SECTION - 새로 작성 */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 60px;
+      background-color: var(--nav-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-header-content {
+      flex: 0 0 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      margin-top: 19vh;
+      z-index: 2;
+    }
+    
+    .project-meta {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #777;
+    }
+
+    .project-title {
+      font-size: var(--font-size-xxxxl);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .project-description {
+      font-family: var(--font-family-pretendard);
+      font-size: var(--font-size-m);
+      line-height: 1.9;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .project-stats {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #777;
+      margin-right: 4px;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    /* HERO IMAGES - 새로 작성 */
+    .project-images {
+      position: relative;
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 1;
+    }
+
+
+    .hero-image {
+      right: 0vw;
+      bottom: 4vh;
+      z-index: 2;
+width:37vw;
+    }
+
+
+
+    /* SECTION COMMON STYLES */
+    .section {
+      padding: 100px 60px;
+      min-height: 100vh; /* height 대신 min-height 사용 */
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      font-size: var(--font-size-m);
+      font-weight: 700;
+      margin-bottom: 64px;
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      max-width: 1200px;
+      margin-right: auto;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight-yellow {
+      color: var(--yellow-medium);
+    }
+
+    .highlight-regular {
+      color: var(--black);
+    }
+      .highlight-d {
+      color : #000;
+    }
+
+  /* SECTION 2: OVERVIEW */
+    .overview-content {
+      position: relative; 
+      max-width: 100%;
+	min-height:100vh;
+      margin: 0;
+      flex: 1;
+      background-color: var(--white);
+    }
+
+    .overview-image {
+      position: absolute;  
+	display:flex;	    
+      margin-top: 6vh; 
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+
+    .overview-image1 {
+      width: 70vw;
+      height: auto;
+	left:4vw;
+	position:absolute;
+    }
+
+    .overview-text {
+      display: block; /* absolute 대신 block 사용 */
+      width: 100%;
+      order: 1;
+    }
+
+    .overview-heading {
+      font-family: "pretendard-bold", sans-serif;
+      font-size: var(--font-size-xxxxxl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .overview-paragraph {
+      font-family: "pretendard-bold", sans-serif;
+      font-weight: 700; 
+      font-size: var(--font-size-m);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: #6e6e73;
+    }
+
+/* SECTION 3: 브랜드 아이덴티티 스타일 */
+.solution-section {
+  padding: 100px 60px;
+  background-color: var(--light-gray);
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.solution-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 64px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.solution-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-family: var(--font-family-pretendard);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  color: #000;
+}
+
+.section-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 스마트폰 이미지 컨테이너 */
+.solution-image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.solution-image {
+  max-width: 60%;
+  height: auto;
+}
+
+/* 출입 기기 섹션 스타일 */
+.access-device-section {
+  position: absolute;
+  top: 32vh;
+  right: -1vw;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.access-device-text {
+  flex: 1;
+}
+
+.access-title {
+  font-family: var(--font-family-pretendard);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.access-description {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.access-hexagon {
+  width: 120px;
+  height: 120px;
+  margin-right: 25px;
+}
+
+.hexagon-image {
+  width: 100%;
+  height: auto;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1200px) {
+  .solution-text {
+    width: 100%;
+  }
+  
+  .access-device-section {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .solution-image {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .solution-section {
+    padding: 80px 20px;
+  }
+  
+  .section-heading {
+    font-size: 36px;
+  }
+  
+  .access-title {
+    font-size: 24px;
+  }
+  
+  .access-device-section {
+    flex-direction: column;
+  }
+  
+  .access-hexagon {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  
+  .solution-image {
+    max-width: 100%;
+  }
+}
+  
+  
+    
+    
+/* SECTION 4: B2B 섹션 스타일 */
+.b2b-section {
+  padding: 100px 60px;
+  background-color: var(--light-gray);
+  min-height: 100vh;
+  position: relative;
+}
+
+.b2b-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 70vh;
+}
+
+.b2b-text {
+  width: 40%;
+  position: relative;
+  z-index: 2;
+  padding-right: 40px;
+}
+
+.b2b-images {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
+
+.b2b-image-left{
+width: 34vw;
+height: auto;
+object-fit: contain; /* 이미지 비율 유지 */
+position: absolute;
+right: 18vw;
+top: -7vh;	
+}
+.b2b-image-right {
+  width: 28.5vw;
+  height: auto;
+  object-fit: contain; /* 이미지 비율 유지 */
+position: absolute;
+right: 1vw;
+top: -7vh;
+}
+
+.b2b-description {
+  margin-top: 30px;
+}
+
+/* SECTION 5: B2C 섹션 스타일 */
+.b2c-section {
+  padding: 100px 60px;
+  background-color: var(--white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.b2c-content {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 70vh;
+}
+
+.b2c-text {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  padding-right: 40px;
+}
+
+.b2c-images {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
+
+.b2c-image-left{
+width: 34vw;
+height: auto;
+object-fit: contain; /* 이미지 비율 유지 */
+position: absolute;
+right: 18vw;
+top: -7vh;	
+}
+.b2c-image-right {
+width: 28.5vw;
+height: auto;
+object-fit: contain; /* 이미지 비율 유지 */
+position: absolute;
+right: 1vw;
+top: -7vh;
+}
+
+.b2c-description {
+  margin-top: 30px;
+}
+
+/* 반응형 미디어 쿼리 */
+@media screen and (max-width: 1200px) {
+  .b2b-content,
+  .b2c-content {
+    flex-direction: column;
+  }
+  
+  .b2b-text,
+  .b2c-text {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  .b2b-images,
+  .b2c-images {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .b2b-section,
+  .b2c-section {
+    padding: 80px 20px;
+  }
+  
+  .b2b-images,
+  .b2c-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .b2b-image-left,
+  .b2b-image-right,
+  .b2c-image-left,
+  .b2c-image-right {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+  
+  .section-heading {
+    font-size: 32px;
+  }
+}
+
+    
+    /* RESPONSIVE STYLES */
+    @media screen and (max-width: 1200px) {
+   
+      .project-header-content {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      
+      .project-images {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .hero-image, .hero-image2 {
+        width: 230px;
+      }
+      
+      .hero-image2 {
+        right: 100px;
+      }
+        .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  .third-level-container {
+    min-width: 200px;
+  }
+    .features-diagram {
+    overflow-x: auto;
+    padding-bottom: 40px;
+    min-height: 800px;
+  }
+  
+  .third-level-container {
+    min-width: 200px;
+  }
+}
+
+
+
+    @media screen and (max-width: 1024px) {
+      
+  
+      .project-title {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .overview-content {
+        flex-direction: column;
+      }
+      
+      .overview-image, .overview-text {
+        width: 100%;
+        position: relative;
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xxl);
+      }
+      
+  
+      /* 반응형 히어로 이미지 조정 */
+      .project-header {
+        flex-direction: column;
+        padding-top: 80px;
+        height: auto;
+        min-height: 90vh;
+      }
+      
+      .project-header-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 60px;
+      }
+      
+      .project-images {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 400px;
+        justify-content: center;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 80px);
+        transform: translateX(50%);
+        bottom: 15%;
+      }
+          .process-grid {
+      flex-wrap: wrap;
+    }
+    
+    .process-column {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+	      .solution-text {
+    width: 100%;
+  }
+  
+  .solution-images {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .solution-description {
+    margin-top: 30px;
+  }
+}
+  
+  
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .hero-image {
+      right: 17vw;
+      bottom: 4vh;
+      z-index: 2;
+    }
+    .hero-image2 {
+      right: -1vw;
+      bottom: -4vh;
+      z-index: 1;
+    }
+.overview-image {
+      position: absolute;  
+      width: 90%;
+      margin-top: 8vh; 
+      right: 10px;
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: 0px;
+      order: 10;
+    }
+.process-box {
+    padding: 30px;
+    width : 260px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+.solution2-image1, .solution2-image2, .solution2-image3 {
+  position: absolute;
+  width: 21vw;
+  height: auto;
+  bottom: -10vh; /* 아래에서부터의 위치 변경 */
+}
+
+.solution2-image1 {
+  right: 40%; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+}
+
+.solution2-image2 {
+  right: 17%;
+  z-index: 3;
+}
+
+.solution2-image3 {
+  right: -6%;
+  z-index: 4;
+}
+.solution3-image1, .solution3-image2, .solution3-image3 {
+  position: absolute;
+  width: 34%;
+  height: auto;
+}
+
+.solution3-image1 {
+  right: 36vw; /* 오른쪽에서부터의 위치 */
+  z-index: 2;
+bottom:-78vh;
+}
+
+.solution3-image2 {
+  right: 15vw;
+  z-index: 3;
+bottom:-82vh;
+}
+
+.solution3-image3 {
+  right: -6vw;
+  z-index: 4;
+bottom:-76vh;
+}
+}
+
+	
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+      
+      .project-header {
+        padding: 60px 20px;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .project-title {
+        font-size: var(--font-size-xxl);
+      }
+      
+      .overview-heading {
+        font-size: var(--font-size-xl);
+      }
+      .features-section {
+        padding: 80px 20px;
+      }
+      
+      .features-diagram {
+        display: none; /* 모바일에서는 다이어그램 숨김 */
+      }
+      
+      /* 반응형 히어로 이미지 조정 */
+      .hero-image, .hero-image2 {
+        width: 200px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(40%);
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 40px);
+        transform: translateX(50%);
+      }
+  .insight-content {
+    flex-direction: column; /* 모바일에서는 세로 배치 */
+    gap: 30px; /* 요소 간 간격 */
+  }
+  
+  .section-heading, .insight-images {
+    max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
+  }
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    .features-section {
+    padding: 80px 20px;
+  }
+  
+  .features-diagram {
+    display: none; /* 모바일에서는 다이어그램 숨김 */
+  }
+
+.solution-section {
+    padding: 80px 20px;
+  }
+  
+  /* 모바일용 대체 컨텐츠 스타일 */
+  .features-content::after {
+    content: "* 화면 크기를 늘리면 전체 구조도를 확인할 수 있습니다.";
+    display: block;
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+  }
+    }
+
+    @media screen and (max-width: 480px) {
+      .project-stats {
+        flex-wrap: wrap;
+      }
+   
+      .hero-image, .hero-image2 {
+        width: 150px;
+      }
+      
+      .hero-image {
+        right: 50%;
+        transform: translateX(30%);
+        bottom: 10%;
+      }
+      
+      .hero-image2 {
+        right: calc(50% + 20px);
+        transform: translateX(50%);
+        bottom: 25%;
+      }
+    }
+  .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  /* Only show the notice on mobile devices */
+  @media screen and (max-width: 768px) {
+    .mobile-notice {
+      display: flex !important;
+    }
+    
+    /* Hide the rest of the content when on mobile */
+    body > *:not(.mobile-notice) {
+    display: none !important;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+     <a href="../../" class="logo">Semin Kim</a>
+      <nav class="menu">
+    <!--     <a href="/en.html" class="menu-item">EN </a> -->
+        <a href="/about/" class="menu-item">ABOUT</a>
+        <a href="/work/" class="menu-item active">WORK</a>
+        <a href="/contact/" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- PROJECT HEADER SECTION -->
+    <section class="project-header">
+      <div class="project-header-content">
+        <div class="project-meta">2015.10- 2015.12</div>
+        <h1 class="project-title">ADT Caps APP</h1>
+        <div class="project-description">
+          <p>Designed the ADT Caps customer service app.</p>
+          <p>As the first integrated customer service, the brand identity was emphasized.</p>
+          <p>After establishing the design concept and designing all screens, the service was launched.</p>
+        </div>
+        <div class="project-stats">
+          <span class="stat-label">ROLE</span>
+          <span class="stat-value">UI DESIGN / 100%</span>
+          <span class="stat-label">PROGRESS</span>
+          <span class="stat-value">Service Launching</span>
+        </div>
+      </div>
+      
+      <!-- Mobile UI Image -->
+      <div class="project-images">
+          <img src="images/01.png" alt="ADT App Screenshot" class="hero-image">      
+      </div>
+    </section>
+    
+   <!-- SECTION 2: OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-content">
+      <div class="overview-text">
+        <h3 class="overview-heading">
+         The first customer app emphasizing real-time security.
+        </h3>
+        <p class="overview-paragraph">In 2015, ADT Caps was the top security company in Korea.<br>
+By building the first online integrated customer app providing real-time security monitoring and control,<br>
+we needed to deliver a new customer experience that builds safety and trust.<br>
+Target customers were in two categories: B2B financial clients and B2C general customers.</p>
+      </div>
+      <div class="overview-image">
+        <img src="images/02.svg" alt="Overview Image 1" class="overview-image1">
+      </div>
+    </div>
+  </section>
+    
+<!-- SECTION 3: BRAND IDENTITY -->
+<section class="solution-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="solution-content">
+    <!-- Left Text Area -->
+    <div class="solution-text">
+      <h3 class="section-heading">
+        Service utility utilizing<br>
+        brand identity.
+      </h3>
+      
+      <div class="solution-description">
+        <p class="overview-paragraph">
+          Before changing its name to SK Shields, ADT Caps was using a blue hexagon as its brand identity.<br>
+          The signboard attached to the exterior and the light indicator on access devices were symbols that security was in progress.<br>
+          Utilizing this, we provided extended uniformity and trustworthiness in the online space as well.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Right Text and Image Area for "Access Device" -->
+    <div class="access-device-section">
+      <!-- Hexagon Release Image -->
+      <div class="access-hexagon">
+        <img src="images/03_2.png" alt="Hexagon Release Button" class="hexagon-image">
+      </div>
+      <div class="access-device-text">
+        <h4 class="access-title">
+        Unified signage in the app as well.
+        </h4>
+        
+        <div class="access-description">
+          <p>We configured the app to display the same sign that lights up on the access device.<br>
+          Applying the identity that had already built trust to the online environment was effective.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Center Smartphone Image -->
+    <div class="solution-image-container">
+      <img src="images/03_1.png" alt="ADT Caps App Screen" class="solution-image">
+    </div>
+  </div>
+</section>
+<!-- SECTION 4: B2B SECTION -->
+<section class="b2b-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="b2b-content">
+    <!-- Left Text Area -->
+    <div class="b2b-text">
+      <h3 class="section-heading">
+        B2B main providing<br>
+        professional security.
+      </h3>
+      
+      <div class="b2b-description">
+        <p class="overview-paragraph">
+          For financial customers, we provide two types: branch and headquarters.<br>
+          By displaying each bank's logo, we made them feel they were using specialized services.<br>
+          For headquarters, we designed it so they could clearly see the status of each branch.<br>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Right Image Area -->
+    <div class="b2b-images">
+      <img src="images/04_1.png" alt="ADT Caps B2B Main Screen - Left" class="b2b-image-left">
+      <img src="images/04_2.png" alt="ADT Caps B2B Main Screen - Right" class="b2b-image-right">
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: B2C SECTION -->
+<section class="b2c-section">
+  <h2 class="section-title">Solution</h2>
+  
+  <div class="b2c-content">
+    <!-- Left Text Area -->
+    <div class="b2c-text">
+      <h3 class="section-heading">
+B2C General Customer<br>
+A friendly service in the palm of your hand.
+      </h3>
+      
+      <div class="b2c-description">
+        <p class="overview-paragraph">
+    The general customer main screen was also designed to maintain the brand identity while providing<br>
+    the experience of safely protecting their valuable assets.<br>
+    The entire menu was clearly grouped and provided according to usage and importance.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Right Image Area -->
+    <div class="b2c-images">
+      <img src="images/05_1.png" alt="ADT Caps B2C Main Screen - Left" class="b2c-image-left">
+      <img src="images/05_2.png" alt="ADT Caps B2C Main Screen - Right" class="b2c-image-right">
+    </div>
+  </div>
+</section>
+  </div>
+    
+
+<div class="mobile-notice">
+  <h2>Mobile Not Supported</h2>
+  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
+</div>
+<div class="top-button" id="topButton"></div>
+
+	
+  <script>
+// Top 버튼 기능 추가
+const topButton = document.getElementById('topButton');
+
+topButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Top 버튼 표시/숨김 처리
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    topButton.style.display = 'flex';
+  } else {
+    topButton.style.display = 'none';
+  }
+});
+
+// 애니메이션 상태를 추적하기 위한 객체
+const animationState = {
+  solutionImageFadedIn: false,
+  solutionImageChanged: false,
+  accessDeviceFadedIn: false,
+  hexagonImageChanged: false,
+  
+  // 섹션 4 애니메이션 상태
+  b2bLeftImageAnimated: false,
+  b2bRightImageAnimated: false,
+  
+  // 섹션 5 애니메이션 상태
+  b2cLeftImageAnimated: false,
+  b2cRightImageAnimated: false
+};
+
+// 이미지 프리로드 함수
+function preloadImages(urls) {
+  return Promise.all(urls.map(url => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error(`이미지 로드 실패: ${url}`));
+      img.src = url;
+    });
+  }));
+}
+
+// 페이지 로드 즉시 최초 설정 실행
+document.addEventListener('DOMContentLoaded', function() {
+  // 히어로 이미지 설정
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    heroImage.style.opacity = '0';
+    heroImage.style.transition = 'opacity 1.5s ease';
+  }
+  
+  // 오버뷰 이미지 설정
+  const overviewImage = document.querySelector('.overview-image1');
+  if (overviewImage) {
+    overviewImage.style.opacity = '0';
+    overviewImage.style.transition = 'opacity 2s ease';
+  }
+  
+  // 필요한 이미지들 미리 로드 후 솔루션 섹션 이미지 설정
+  preloadAllImages().then(() => {
+    setupSolutionImages();
+  });
+  
+  // B2B 섹션 이미지 설정
+  setupB2BImages();
+  
+  // B2C 섹션 이미지 설정
+  setupB2CImages();
+});
+
+// 필요한 모든 이미지 미리 로드
+function preloadAllImages() {
+  const solutionImage = document.querySelector('.solution-image');
+  const hexagonImage = document.querySelector('.hexagon-image');
+  
+  if (solutionImage && hexagonImage) {
+    const imagesToPreload = [
+      solutionImage.src.replace('.png', 'b.png'),
+      hexagonImage.src.replace('.png', 'b.png')
+    ];
+    
+    return preloadImages(imagesToPreload)
+      .then(images => {
+        console.log('모든 이미지가 성공적으로 프리로드됨');
+        return images;
+      })
+      .catch(error => {
+        console.error('이미지 프리로드 중 오류 발생:', error);
+        return [];
+      });
+  }
+  
+  return Promise.resolve([]);
+}
+
+// 솔루션 섹션 이미지들 초기 설정
+function setupSolutionImages() {
+  // 솔루션 이미지(스마트폰) 설정
+  const solutionImage = document.querySelector('.solution-image');
+  if (solutionImage) {
+    // 원본 이미지 설정
+    solutionImage.style.opacity = '0';
+    solutionImage.style.transform = 'translateY(50px)';
+    solutionImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+    
+    // 대체 이미지 소스 설정
+    const alternateSrc = solutionImage.src.replace('.png', 'b.png');
+    
+    // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
+    solutionImage.addEventListener('load', function() {
+      setTimeout(() => {
+        // 이미지 컨테이너 설정
+        const container = solutionImage.parentElement;
+        
+        // 컨테이너 스타일 설정
+        if (getComputedStyle(container).position === 'static') {
+          container.style.position = 'relative';
+        }
+        
+        // 정확한 위치와 크기 계산
+        const rect = solutionImage.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // 원본 이미지의 정확한 위치와 크기 계산
+        const imageLeft = rect.left - containerRect.left;
+        const imageTop = rect.top - containerRect.top;
+        const imageWidth = rect.width;
+        const imageHeight = rect.height;
+        
+        // 대체 이미지 생성 및 설정
+        const alternateImage = new Image();
+        alternateImage.className = 'solution-image-alternate';
+        alternateImage.src = alternateSrc;
+        alternateImage.style.position = 'absolute';
+        alternateImage.style.left = imageLeft + 'px';
+        alternateImage.style.top = imageTop + 'px';
+        alternateImage.style.width = imageWidth + 'px';
+        alternateImage.style.height = imageHeight + 'px';
+        alternateImage.style.opacity = '0';
+        alternateImage.style.transition = 'opacity 0.8s ease';
+        alternateImage.style.zIndex = '2';
+        
+        // DOM에 추가
+        container.appendChild(alternateImage);
+      }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
+    });
+    
+    if (solutionImage.complete) {
+      // 이미 로드된 이미지인 경우 이벤트 발생
+      const event = new Event('load');
+      solutionImage.dispatchEvent(event);
+    }
+  }
+  
+  // 해제 버튼 섹션 설정
+  const accessDeviceSection = document.querySelector('.access-device-section');
+  if (accessDeviceSection) {
+    accessDeviceSection.style.opacity = '0';
+    accessDeviceSection.style.transition = 'opacity 1.5s ease';
+    
+    // 육각형 이미지 설정
+    const hexagonImage = document.querySelector('.hexagon-image');
+    if (hexagonImage) {
+      // 대체 이미지 소스 설정
+      const alternateSrc = hexagonImage.src.replace('.png', 'b.png');
+      
+      // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
+      hexagonImage.addEventListener('load', function() {
+        setTimeout(() => {
+          // 이미지 컨테이너 설정
+          const container = hexagonImage.parentElement;
+          
+          // 컨테이너 스타일 설정
+          if (getComputedStyle(container).position === 'static') {
+            container.style.position = 'relative';
+          }
+          
+          // 정확한 위치와 크기 계산
+          const rect = hexagonImage.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          
+          // 원본 이미지의 정확한 위치와 크기 계산
+          const imageLeft = rect.left - containerRect.left;
+          const imageTop = rect.top - containerRect.top;
+          const imageWidth = rect.width;
+          const imageHeight = rect.height;
+          
+          // 대체 이미지 생성 및 설정
+          const alternateImage = new Image();
+          alternateImage.className = 'hexagon-image-alternate';
+          alternateImage.src = alternateSrc;
+          alternateImage.style.position = 'absolute';
+          alternateImage.style.left = imageLeft + 'px';
+          alternateImage.style.top = imageTop + 'px';
+          alternateImage.style.width = imageWidth + 'px';
+          alternateImage.style.height = imageHeight + 'px';
+          alternateImage.style.opacity = '0';
+          alternateImage.style.transition = 'opacity 0.8s ease';
+          alternateImage.style.zIndex = '2';
+          
+          // DOM에 추가
+          container.appendChild(alternateImage);
+        }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
+      });
+      
+      if (hexagonImage.complete) {
+        // 이미 로드된 이미지인 경우 이벤트 발생
+        const event = new Event('load');
+        hexagonImage.dispatchEvent(event);
+      }
+    }
+  }
+}
+
+// B2B 섹션 이미지 설정 (두 번째 스크립트에서 추가)
+function setupB2BImages() {
+  // B2B 섹션 왼쪽 이미지
+  const b2bLeftImage = document.querySelector('.b2b-image-left');
+  if (b2bLeftImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2bLeftImage.style.opacity = '0';
+    b2bLeftImage.style.transform = 'translateX(-100px)';
+    b2bLeftImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+  }
+  
+  // B2B 섹션 오른쪽 이미지
+  const b2bRightImage = document.querySelector('.b2b-image-right');
+  if (b2bRightImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2bRightImage.style.opacity = '0';
+    b2bRightImage.style.transform = 'translateX(-100px)';
+    b2bRightImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+  }
+}
+
+// B2C 섹션 이미지 설정 (두 번째 스크립트에서 추가)
+function setupB2CImages() {
+  // B2C 섹션 왼쪽 이미지
+  const b2cLeftImage = document.querySelector('.b2c-image-left');
+  if (b2cLeftImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2cLeftImage.style.opacity = '0';
+    b2cLeftImage.style.transform = 'translateX(-100px)';
+    b2cLeftImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+  }
+  
+  // B2C 섹션 오른쪽 이미지
+  const b2cRightImage = document.querySelector('.b2c-image-right');
+  if (b2cRightImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2cRightImage.style.opacity = '0';
+    b2cRightImage.style.transform = 'translateX(-100px)';
+    b2cRightImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+  }
+}
+
+// 페이지가 완전히 로드된 후 실행
+window.onload = function() {
+  console.log("페이지 완전히 로드됨");
+  
+  // 프로젝트 헤더 이미지 애니메이션 설정
+  setupHeaderAnimation();
+  
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', handleScroll);
+  
+  // 첫 로드 시에도 화면에 보이는 요소들에 애니메이션 적용
+  handleScroll();
+};
+
+// 헤더 이미지 애니메이션 설정 함수
+function setupHeaderAnimation() {
+  const heroImage = document.querySelector('.hero-image');
+  
+  if (heroImage) {
+    console.log("헤더 이미지 페이드인 시작");
+    setTimeout(() => {
+      heroImage.style.opacity = '1';
+    }, 300);
+  }
+}
+
+// 스크롤 이벤트 핸들러
+function handleScroll() {
+  // 섹션 2: 오버뷰 이미지 애니메이션 체크
+  animateOverviewImage();
+  
+  // 섹션 3: 솔루션 이미지 애니메이션 체크
+  animateSolutionSection();
+  
+  // 섹션 4: B2B 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
+  animateB2BImages();
+  
+  // 섹션 5: B2C 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
+  animateB2CImages();
+}
+
+// 오버뷰 이미지 애니메이션
+function animateOverviewImage() {
+  const overviewImage = document.querySelector('.overview-image1');
+  
+  if (overviewImage && isElementInViewport(overviewImage) && overviewImage.style.opacity === '0') {
+    console.log("오버뷰 이미지 페이드인 실행");
+    overviewImage.style.opacity = '1';
+  }
+}
+
+// 솔루션 섹션 애니메이션
+function animateSolutionSection() {
+  const solutionImage = document.querySelector('.solution-image');
+  
+  if (solutionImage && isElementInViewport(solutionImage) && !animationState.solutionImageFadedIn) {
+    console.log("솔루션 이미지 페이드인 실행");
+    solutionImage.style.opacity = '1';
+    solutionImage.style.transform = 'translateY(0)';
+    animationState.solutionImageFadedIn = true;
+    
+    // 솔루션 이미지가 나타난 후 1.5초 후에 대체 이미지로 부드럽게 전환
+    setTimeout(() => {
+      changeSolutionImage();
+    }, 1500);
+  }
+}
+
+// B2B 이미지 애니메이션 (두 번째 스크립트에서 추가)
+function animateB2BImages() {
+  const b2bSection = document.querySelector('.b2b-section');
+  
+  if (b2bSection && isElementInViewport(b2bSection, 0.3)) {
+    // 왼쪽 이미지 애니메이션이 아직 실행되지 않았다면 실행
+    if (!animationState.b2bLeftImageAnimated) {
+      const b2bLeftImage = document.querySelector('.b2b-image-left');
+      if (b2bLeftImage) {
+        console.log("B2B 왼쪽 이미지 애니메이션 실행");
+        b2bLeftImage.style.opacity = '1';
+        b2bLeftImage.style.transform = 'translateX(0)';
+        animationState.b2bLeftImageAnimated = true;
+        
+        // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
+        setTimeout(() => {
+          animateB2BRightImage();
+        }, 500);
+      }
+    }
+  }
+}
+
+// B2B 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
+function animateB2BRightImage() {
+  if (animationState.b2bRightImageAnimated) return;
+  
+  const b2bRightImage = document.querySelector('.b2b-image-right');
+  if (b2bRightImage) {
+    console.log("B2B 오른쪽 이미지 애니메이션 실행");
+    b2bRightImage.style.opacity = '1';
+    b2bRightImage.style.transform = 'translateX(0)';
+    animationState.b2bRightImageAnimated = true;
+  }
+}
+
+// B2C 이미지 애니메이션 (두 번째 스크립트에서 추가)
+function animateB2CImages() {
+  const b2cSection = document.querySelector('.b2c-section');
+  
+  if (b2cSection && isElementInViewport(b2cSection, 0.3)) {
+    // 왼쪽 이미지 애니메이션이 아직 실행되지 않았다면 실행
+    if (!animationState.b2cLeftImageAnimated) {
+      const b2cLeftImage = document.querySelector('.b2c-image-left');
+      if (b2cLeftImage) {
+        console.log("B2C 왼쪽 이미지 애니메이션 실행");
+        b2cLeftImage.style.opacity = '1';
+        b2cLeftImage.style.transform = 'translateX(0)';
+        animationState.b2cLeftImageAnimated = true;
+        
+        // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
+        setTimeout(() => {
+          animateB2CRightImage();
+        }, 500);
+      }
+    }
+  }
+}
+
+// B2C 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
+function animateB2CRightImage() {
+  if (animationState.b2cRightImageAnimated) return;
+  
+  const b2cRightImage = document.querySelector('.b2c-image-right');
+  if (b2cRightImage) {
+    console.log("B2C 오른쪽 이미지 애니메이션 실행");
+    b2cRightImage.style.opacity = '1';
+    b2cRightImage.style.transform = 'translateX(0)';
+    animationState.b2cRightImageAnimated = true;
+  }
+}
+
+// 솔루션 이미지 전환 함수
+function changeSolutionImage() {
+  if (animationState.solutionImageChanged) return;
+  
+  console.log("솔루션 이미지 전환 실행");
+  const alternateImage = document.querySelector('.solution-image-alternate');
+  
+  if (alternateImage) {
+    // 대체 이미지 페이드인
+    alternateImage.style.opacity = '1';
+    animationState.solutionImageChanged = true;
+    
+    // 이미지 전환 완료 후 Access Device 섹션 페이드인
+    setTimeout(() => {
+      showAccessDeviceSection();
+    }, 300);
+  }
+}
+
+// Access Device 섹션 보여주기 함수
+function showAccessDeviceSection() {
+  if (animationState.accessDeviceFadedIn) return;
+  
+  console.log("Access Device 섹션 페이드인 실행");
+  const accessDeviceSection = document.querySelector('.access-device-section');
+  
+  if (accessDeviceSection) {
+    accessDeviceSection.style.opacity = '1';
+    animationState.accessDeviceFadedIn = true;
+    
+    // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 전환
+    setTimeout(() => {
+      changeHexagonImage();
+    }, 1000);
+  }
+}
+
+// 육각형 이미지 전환 함수
+function changeHexagonImage() {
+  if (animationState.hexagonImageChanged) return;
+  
+  console.log("육각형 이미지 전환 실행");
+  const alternateHexagonImage = document.querySelector('.hexagon-image-alternate');
+  
+  if (alternateHexagonImage) {
+    // 대체 이미지 페이드인
+    alternateHexagonImage.style.opacity = '1';
+    animationState.hexagonImageChanged = true;
+  }
+}
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isElementInViewport(element, threshold = 0.8) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // 요소의 상단이 화면 하단보다 위에 있고, 요소의 하단이 화면 상단보다 아래에 있는지 확인
+  // threshold를 사용하여 요소가 화면의 일정 부분 이상 보이면 활성화
+  return (
+    rect.top <= windowHeight * threshold && // 요소가 화면의 threshold% 이내에 들어오면 활성화
+    rect.bottom >= 0
+  );
+}
+</script>
+</body>	  
+</html>
