@@ -1248,11 +1248,10 @@ document.addEventListener('DOMContentLoaded', function() {
     overviewImage.style.transition = 'opacity 2s ease';
   }
   
-  // 솔루션 섹션 이미지 설정
-  setupSolutionImages();
-  
-  // 필요한 이미지들 미리 로드
-  preloadAllImages();
+  // 필요한 이미지들 미리 로드 후 솔루션 섹션 이미지 설정
+  preloadAllImages().then(() => {
+    setupSolutionImages();
+  });
 });
 
 // 필요한 모든 이미지 미리 로드
@@ -1266,14 +1265,18 @@ function preloadAllImages() {
       hexagonImage.src.replace('.png', 'b.png')
     ];
     
-    preloadImages(imagesToPreload)
+    return preloadImages(imagesToPreload)
       .then(images => {
         console.log('모든 이미지가 성공적으로 프리로드됨');
+        return images;
       })
       .catch(error => {
         console.error('이미지 프리로드 중 오류 발생:', error);
+        return [];
       });
   }
+  
+  return Promise.resolve([]);
 }
 
 // 솔루션 섹션 이미지들 초기 설정
@@ -1291,21 +1294,34 @@ function setupSolutionImages() {
     solutionImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
     solutionImage.setAttribute('data-alternate-src', solutionImage.src.replace('.png', 'b.png'));
     
-    // 대체 이미지 생성 및 설정 (처음에는 숨김)
-    const alternateImage = document.createElement('img');
-    alternateImage.className = 'solution-image-alternate';
-    alternateImage.src = solutionImage.getAttribute('data-alternate-src');
-    alternateImage.style.position = 'absolute';
-    alternateImage.style.top = '0';
-    alternateImage.style.left = '0';
-    alternateImage.style.width = '100%';
-    alternateImage.style.height = 'auto';
-    alternateImage.style.opacity = '0';
-    alternateImage.style.transition = 'opacity 0.8s ease';
-    alternateImage.style.zIndex = '2';
-    
-    // DOM에 추가
-    container.appendChild(alternateImage);
+    // 원본 이미지 크기 확인을 위해 로드 완료 대기
+    const img = new Image();
+    img.onload = function() {
+      const originalWidth = solutionImage.offsetWidth;
+      const originalHeight = solutionImage.offsetHeight;
+      
+      console.log('원본 이미지 크기:', originalWidth, 'x', originalHeight);
+      
+      // 대체 이미지 생성 및 설정 (처음에는 숨김)
+      const alternateImage = document.createElement('img');
+      alternateImage.className = 'solution-image-alternate';
+      alternateImage.src = solutionImage.getAttribute('data-alternate-src');
+      alternateImage.style.position = 'absolute';
+      alternateImage.style.top = '0';
+      alternateImage.style.left = '0';
+      
+      // 클래스 및 크기를 원본과 동일하게 설정
+      alternateImage.style.width = originalWidth + 'px';
+      alternateImage.style.height = 'auto';
+      alternateImage.style.maxWidth = '100%';
+      alternateImage.style.opacity = '0';
+      alternateImage.style.transition = 'opacity 0.8s ease';
+      alternateImage.style.zIndex = '2';
+      
+      // DOM에 추가
+      container.appendChild(alternateImage);
+    };
+    img.src = solutionImage.src;
   }
   
   // 해제 버튼 섹션 설정
@@ -1324,21 +1340,32 @@ function setupSolutionImages() {
       // 원본 이미지 설정
       hexagonImage.setAttribute('data-alternate-src', hexagonImage.src.replace('.png', 'b.png'));
       
-      // 대체 이미지 생성 및 설정 (처음에는 숨김)
-      const alternateHexagonImage = document.createElement('img');
-      alternateHexagonImage.className = 'hexagon-image-alternate';
-      alternateHexagonImage.src = hexagonImage.getAttribute('data-alternate-src');
-      alternateHexagonImage.style.position = 'absolute';
-      alternateHexagonImage.style.top = '0';
-      alternateHexagonImage.style.left = '0';
-      alternateHexagonImage.style.width = '100%';
-      alternateHexagonImage.style.height = 'auto';
-      alternateHexagonImage.style.opacity = '0';
-      alternateHexagonImage.style.transition = 'opacity 0.8s ease';
-      alternateHexagonImage.style.zIndex = '2';
-      
-      // DOM에 추가
-      container.appendChild(alternateHexagonImage);
+      // 원본 이미지 크기 확인을 위해 로드 완료 대기
+      const img = new Image();
+      img.onload = function() {
+        const originalWidth = hexagonImage.offsetWidth;
+        const originalHeight = hexagonImage.offsetHeight;
+        
+        console.log('육각형 이미지 크기:', originalWidth, 'x', originalHeight);
+        
+        // 대체 이미지 생성 및 설정 (처음에는 숨김)
+        const alternateHexagonImage = document.createElement('img');
+        alternateHexagonImage.className = 'hexagon-image-alternate';
+        alternateHexagonImage.src = hexagonImage.getAttribute('data-alternate-src');
+        alternateHexagonImage.style.position = 'absolute';
+        alternateHexagonImage.style.top = '0';
+        alternateHexagonImage.style.left = '0';
+        alternateHexagonImage.style.width = originalWidth + 'px';
+        alternateHexagonImage.style.height = 'auto';
+        alternateHexagonImage.style.maxWidth = '100%';
+        alternateHexagonImage.style.opacity = '0';
+        alternateHexagonImage.style.transition = 'opacity 0.8s ease';
+        alternateHexagonImage.style.zIndex = '2';
+        
+        // DOM에 추가
+        container.appendChild(alternateHexagonImage);
+      };
+      img.src = hexagonImage.src;
     }
   }
 }
