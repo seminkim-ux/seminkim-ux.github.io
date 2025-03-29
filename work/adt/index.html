@@ -1363,36 +1363,59 @@ function checkScrollAnimations() {
         if (alternateSrc) {
           solutionImage.src = alternateSrc;
           animationState.solutionImageChanged = true;
+          
+          // 솔루션 이미지가 변경된 직후에 Access Device 섹션 애니메이션 자동 트리거
+          setTimeout(() => {
+            const accessDeviceSection = document.querySelector('.access-device-section');
+            if (accessDeviceSection && !animationState.accessDeviceFadedIn) {
+              console.log("솔루션 이미지 변경 후 Access Device 섹션 페이드인 자동 실행");
+              accessDeviceSection.style.opacity = '1';
+              animationState.accessDeviceFadedIn = true;
+              
+              // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 변경
+              setTimeout(() => {
+                if (!animationState.hexagonImageChanged) {
+                  console.log("육각형 이미지 자동 변경 실행");
+                  const hexagonImage = document.querySelector('.hexagon-image');
+                  if (hexagonImage) {
+                    const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
+                    if (alternateSrc) {
+                      hexagonImage.src = alternateSrc;
+                      animationState.hexagonImageChanged = true;
+                    }
+                  }
+                }
+              }, 1000);
+            }
+          }, 100); // 약간의 지연 시간을 두고 실행
         }
       }
     }, 1500);
   }
   
-  // 섹션 3: Access Device 섹션 애니메이션 체크
+  // 섹션 3: Access Device 섹션 애니메이션은 스크롤과 무관하게 솔루션 이미지 변경 후 자동 실행
   const accessDeviceSection = document.querySelector('.access-device-section');
   
-  if (accessDeviceSection && isElementInViewport(accessDeviceSection) && !animationState.accessDeviceFadedIn) {
-    // 솔루션 이미지 애니메이션 이후에만 실행
-    if (animationState.solutionImageChanged) {
-      console.log("Access Device 섹션 페이드인 실행");
-      accessDeviceSection.style.opacity = '1';
-      animationState.accessDeviceFadedIn = true;
-      
-      // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 변경
-      setTimeout(() => {
-        if (!animationState.hexagonImageChanged) {
-          console.log("육각형 이미지 변경 실행");
-          const hexagonImage = document.querySelector('.hexagon-image');
-          if (hexagonImage) {
-            const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
-            if (alternateSrc) {
-              hexagonImage.src = alternateSrc;
-              animationState.hexagonImageChanged = true;
-            }
+  // 솔루션 이미지가 변경되면 isElementInViewport 체크 없이 Access Device 섹션 애니메이션 실행
+  if (animationState.solutionImageChanged && !animationState.accessDeviceFadedIn && accessDeviceSection) {
+    console.log("Access Device 섹션 자동 페이드인 실행");
+    accessDeviceSection.style.opacity = '1';
+    animationState.accessDeviceFadedIn = true;
+    
+    // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 변경
+    setTimeout(() => {
+      if (!animationState.hexagonImageChanged) {
+        console.log("육각형 이미지 변경 실행");
+        const hexagonImage = document.querySelector('.hexagon-image');
+        if (hexagonImage) {
+          const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
+          if (alternateSrc) {
+            hexagonImage.src = alternateSrc;
+            animationState.hexagonImageChanged = true;
           }
         }
-      }, 1000);
-    }
+      }
+    }, 1000);
   }
 }
 
