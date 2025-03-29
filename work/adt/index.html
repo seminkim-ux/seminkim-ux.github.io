@@ -1214,10 +1214,19 @@ window.addEventListener('scroll', () => {
 
 // 애니메이션 상태를 추적하기 위한 객체
 const animationState = {
+  // 섹션 3 애니메이션 상태
   solutionImageFadedIn: false,
   solutionImageChanged: false,
   accessDeviceFadedIn: false,
-  hexagonImageChanged: false
+  hexagonImageChanged: false,
+  
+  // 섹션 4 애니메이션 상태
+  b2bLeftImageAnimated: false,
+  b2bRightImageAnimated: false,
+  
+  // 섹션 5 애니메이션 상태
+  b2cLeftImageAnimated: false,
+  b2cRightImageAnimated: false
 };
 
 // 이미지 프리로드 함수
@@ -1248,10 +1257,17 @@ document.addEventListener('DOMContentLoaded', function() {
     overviewImage.style.transition = 'opacity 2s ease';
   }
   
-  // 필요한 이미지들 미리 로드 후 솔루션 섹션 이미지 설정
-  preloadAllImages().then(() => {
-    setupSolutionImages();
-  });
+  // 솔루션 섹션 이미지 설정
+  setupSolutionImages();
+  
+  // B2B 섹션 이미지 설정
+  setupB2BImages();
+  
+  // B2C 섹션 이미지 설정
+  setupB2CImages();
+  
+  // 필요한 이미지들 미리 로드
+  preloadAllImages();
 });
 
 // 필요한 모든 이미지 미리 로드
@@ -1265,18 +1281,14 @@ function preloadAllImages() {
       hexagonImage.src.replace('.png', 'b.png')
     ];
     
-    return preloadImages(imagesToPreload)
+    preloadImages(imagesToPreload)
       .then(images => {
         console.log('모든 이미지가 성공적으로 프리로드됨');
-        return images;
       })
       .catch(error => {
         console.error('이미지 프리로드 중 오류 발생:', error);
-        return [];
       });
   }
-  
-  return Promise.resolve([]);
 }
 
 // 솔루션 섹션 이미지들 초기 설정
@@ -1398,6 +1410,48 @@ function setupSolutionImages() {
   }
 }
 
+// B2B 섹션 이미지 설정
+function setupB2BImages() {
+  // B2B 섹션 왼쪽 이미지
+  const b2bLeftImage = document.querySelector('.b2b-image-left');
+  if (b2bLeftImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2bLeftImage.style.opacity = '0';
+    b2bLeftImage.style.transform = 'translateX(-100px)';
+    b2bLeftImage.style.transition = 'opacity 1s ease, transform 1s ease';
+  }
+  
+  // B2B 섹션 오른쪽 이미지
+  const b2bRightImage = document.querySelector('.b2b-image-right');
+  if (b2bRightImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2bRightImage.style.opacity = '0';
+    b2bRightImage.style.transform = 'translateX(-100px)';
+    b2bRightImage.style.transition = 'opacity 1s ease, transform 1s ease';
+  }
+}
+
+// B2C 섹션 이미지 설정
+function setupB2CImages() {
+  // B2C 섹션 왼쪽 이미지
+  const b2cLeftImage = document.querySelector('.b2c-image-left');
+  if (b2cLeftImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2cLeftImage.style.opacity = '0';
+    b2cLeftImage.style.transform = 'translateX(-100px)';
+    b2cLeftImage.style.transition = 'opacity 1s ease, transform 1s ease';
+  }
+  
+  // B2C 섹션 오른쪽 이미지
+  const b2cRightImage = document.querySelector('.b2c-image-right');
+  if (b2cRightImage) {
+    // 초기 상태 설정 (화면 밖에서 시작)
+    b2cRightImage.style.opacity = '0';
+    b2cRightImage.style.transform = 'translateX(-100px)';
+    b2cRightImage.style.transition = 'opacity 1s ease, transform 1s ease';
+  }
+}
+
 // 페이지가 완전히 로드된 후 실행
 window.onload = function() {
   console.log("페이지 완전히 로드됨");
@@ -1431,6 +1485,12 @@ function handleScroll() {
   
   // 섹션 3: 솔루션 이미지 애니메이션 체크
   animateSolutionSection();
+  
+  // 섹션 4: B2B 이미지 애니메이션 체크
+  animateB2BImages();
+  
+  // 섹션 5: B2C 이미지 애니메이션 체크
+  animateB2CImages();
 }
 
 // 오버뷰 이미지 애니메이션
@@ -1457,6 +1517,78 @@ function animateSolutionSection() {
     setTimeout(() => {
       changeSolutionImage();
     }, 1500);
+  }
+}
+
+// B2B 이미지 애니메이션
+function animateB2BImages() {
+  const b2bSection = document.querySelector('.b2b-section');
+  
+  if (b2bSection && isElementInViewport(b2bSection, 0.3)) {
+    // 왼쪽 이미지 애니메이션이 아직 실행되지 않았다면 실행
+    if (!animationState.b2bLeftImageAnimated) {
+      const b2bLeftImage = document.querySelector('.b2b-image-left');
+      if (b2bLeftImage) {
+        console.log("B2B 왼쪽 이미지 애니메이션 실행");
+        b2bLeftImage.style.opacity = '1';
+        b2bLeftImage.style.transform = 'translateX(0)';
+        animationState.b2bLeftImageAnimated = true;
+        
+        // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
+        setTimeout(() => {
+          animateB2BRightImage();
+        }, 300);
+      }
+    }
+  }
+}
+
+// B2B 오른쪽 이미지 애니메이션
+function animateB2BRightImage() {
+  if (animationState.b2bRightImageAnimated) return;
+  
+  const b2bRightImage = document.querySelector('.b2b-image-right');
+  if (b2bRightImage) {
+    console.log("B2B 오른쪽 이미지 애니메이션 실행");
+    b2bRightImage.style.opacity = '1';
+    b2bRightImage.style.transform = 'translateX(0)';
+    animationState.b2bRightImageAnimated = true;
+  }
+}
+
+// B2C 이미지 애니메이션
+function animateB2CImages() {
+  const b2cSection = document.querySelector('.b2c-section');
+  
+  if (b2cSection && isElementInViewport(b2cSection, 0.3)) {
+    // 왼쪽 이미지 애니메이션이 아직 실행되지 않았다면 실행
+    if (!animationState.b2cLeftImageAnimated) {
+      const b2cLeftImage = document.querySelector('.b2c-image-left');
+      if (b2cLeftImage) {
+        console.log("B2C 왼쪽 이미지 애니메이션 실행");
+        b2cLeftImage.style.opacity = '1';
+        b2cLeftImage.style.transform = 'translateX(0)';
+        animationState.b2cLeftImageAnimated = true;
+        
+        // 왼쪽 이미지 애니메이션 완료 후 오른쪽 이미지 애니메이션 시작
+        setTimeout(() => {
+          animateB2CRightImage();
+        }, 300);
+      }
+    }
+  }
+}
+
+// B2C 오른쪽 이미지 애니메이션
+function animateB2CRightImage() {
+  if (animationState.b2cRightImageAnimated) return;
+  
+  const b2cRightImage = document.querySelector('.b2c-image-right');
+  if (b2cRightImage) {
+    console.log("B2C 오른쪽 이미지 애니메이션 실행");
+    b2cRightImage.style.opacity = '1';
+    b2cRightImage.style.transform = 'translateX(0)';
+    animationState.b2cRightImageAnimated = true;
   }
 }
 
@@ -1512,13 +1644,14 @@ function changeHexagonImage() {
 }
 
 // 요소가 화면에 보이는지 확인하는 함수
-function isElementInViewport(element) {
+function isElementInViewport(element, threshold = 0.8) {
   const rect = element.getBoundingClientRect();
   const windowHeight = window.innerHeight || document.documentElement.clientHeight;
   
   // 요소의 상단이 화면 하단보다 위에 있고, 요소의 하단이 화면 상단보다 아래에 있는지 확인
+  // threshold를 사용하여 요소가 화면의 일정 부분 이상 보이면 활성화
   return (
-    rect.top <= windowHeight * 0.8 && // 요소가 화면의 80% 이내에 들어오면 활성화
+    rect.top <= windowHeight * threshold && // 요소가 화면의 threshold% 이내에 들어오면 활성화
     rect.bottom >= 0
   );
 }
