@@ -1212,7 +1212,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// 페이지 로드 즉시 최초 설정 실행
+  // 페이지 로드 즉시 최초 설정 실행
 document.addEventListener('DOMContentLoaded', function() {
   // DOM이 로드되자마자 이미지 숨기기 (깜빡임 방지)
   const heroImage = document.querySelector('.hero-image');
@@ -1248,6 +1248,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   if (hexagonImage) {
+    // 육각형 이미지에 트랜지션 효과 적용
+    hexagonImage.style.transition = 'opacity 0.5s ease';
     // 원본 경로 저장
     hexagonImage.setAttribute('data-original-src', hexagonImage.src);
     hexagonImage.setAttribute('data-alternate-src', hexagonImage.src.replace('.png', 'b.png'));
@@ -1355,14 +1357,23 @@ function checkScrollAnimations() {
     solutionImage.style.transform = 'translateY(0)';
     animationState.solutionImageFadedIn = true;
     
-    // 1.5초 후에 이미지 변경
+    // 1.5초 후에 이미지 페이드 효과와 함께 변경
     setTimeout(() => {
       if (!animationState.solutionImageChanged) {
         console.log("솔루션 이미지 변경 실행");
         const alternateSrc = solutionImage.getAttribute('data-alternate-src');
         if (alternateSrc) {
-          solutionImage.src = alternateSrc;
-          animationState.solutionImageChanged = true;
+          // 페이드 효과를 위한 일시적인 스타일 적용
+          solutionImage.style.opacity = '0';
+          
+          // 페이드 아웃 후 이미지 변경
+          setTimeout(() => {
+            solutionImage.src = alternateSrc;
+            // 페이드 인
+            setTimeout(() => {
+              solutionImage.style.opacity = '1';
+            }, 50);
+            animationState.solutionImageChanged = true;
           
           // 솔루션 이미지가 변경된 직후에 Access Device 섹션 애니메이션 자동 트리거
           setTimeout(() => {
@@ -1372,7 +1383,7 @@ function checkScrollAnimations() {
               accessDeviceSection.style.opacity = '1';
               animationState.accessDeviceFadedIn = true;
               
-              // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 변경
+              // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 페이드 효과와 함께 변경
               setTimeout(() => {
                 if (!animationState.hexagonImageChanged) {
                   console.log("육각형 이미지 자동 변경 실행");
@@ -1380,14 +1391,26 @@ function checkScrollAnimations() {
                   if (hexagonImage) {
                     const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
                     if (alternateSrc) {
-                      hexagonImage.src = alternateSrc;
-                      animationState.hexagonImageChanged = true;
+                      // 페이드 효과를 위한 일시적인 스타일 적용
+                      hexagonImage.style.transition = 'opacity 0.5s ease';
+                      hexagonImage.style.opacity = '0';
+                      
+                      // 페이드 아웃 후 이미지 변경
+                      setTimeout(() => {
+                        hexagonImage.src = alternateSrc;
+                        // 페이드 인
+                        setTimeout(() => {
+                          hexagonImage.style.opacity = '1';
+                        }, 50);
+                        animationState.hexagonImageChanged = true;
+                      }, 500);
                     }
                   }
                 }
               }, 1000);
             }
           }, 100); // 약간의 지연 시간을 두고 실행
+          }, 500); // 페이드 아웃 시간만큼 대기
         }
       }
     }, 1500);
