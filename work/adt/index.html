@@ -1182,7 +1182,7 @@ B2C 일반고객<br>
     </div>
   </div>
 </section>
-
+  </div>
     
 
 <div class="mobile-notice">
@@ -1226,6 +1226,31 @@ document.addEventListener('DOMContentLoaded', function() {
   if (overviewImage) {
     overviewImage.style.opacity = '0';
     overviewImage.style.transition = 'opacity 2s ease';
+  }
+  
+  // 솔루션 섹션 요소들 초기 설정
+  const solutionImage = document.querySelector('.solution-image');
+  const accessDeviceSection = document.querySelector('.access-device-section');
+  const hexagonImage = document.querySelector('.hexagon-image');
+  
+  if (solutionImage) {
+    solutionImage.style.opacity = '0';
+    solutionImage.style.transform = 'translateY(50px)';
+    solutionImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+    // 이미지 경로 저장 (나중에 변경 시 사용)
+    solutionImage.setAttribute('data-original-src', solutionImage.src);
+    solutionImage.setAttribute('data-alternate-src', solutionImage.src.replace('.png', 'b.png'));
+  }
+  
+  if (accessDeviceSection) {
+    accessDeviceSection.style.opacity = '0';
+    accessDeviceSection.style.transition = 'opacity 1.5s ease';
+  }
+  
+  if (hexagonImage) {
+    // 원본 경로 저장
+    hexagonImage.setAttribute('data-original-src', hexagonImage.src);
+    hexagonImage.setAttribute('data-alternate-src', hexagonImage.src.replace('.png', 'b.png'));
   }
 });
 
@@ -1282,12 +1307,33 @@ function setupHeaderAnimation() {
 // 스크롤 애니메이션을 위한 요소들 초기화
 function initScrollAnimations() {
   const overviewImage = document.querySelector('.overview-image1');
+  const solutionImage = document.querySelector('.solution-image');
+  const accessDeviceSection = document.querySelector('.access-device-section');
   
   if (overviewImage) {
     console.log("오버뷰 이미지 애니메이션 초기화");
     // 이미 DOM 로드 시점에 투명도를 설정했으므로 여기서는 추가 설정 필요 없음
   }
+  
+  // 솔루션 섹션 이미지와 설명 영역도 초기화
+  if (solutionImage) {
+    console.log("솔루션 이미지 애니메이션 초기화");
+    // 이미 DOM 로드 시점에 설정했으므로 여기서는 추가 설정 필요 없음
+  }
+  
+  if (accessDeviceSection) {
+    console.log("Access Device 섹션 애니메이션 초기화");
+    // 이미 DOM 로드 시점에 설정했으므로 여기서는 추가 설정 필요 없음
+  }
 }
+
+// 애니메이션 상태를 추적하기 위한 객체
+const animationState = {
+  solutionImageFadedIn: false,
+  solutionImageChanged: false,
+  accessDeviceFadedIn: false,
+  hexagonImageChanged: false
+};
 
 // 스크롤 위치에 따라 요소들을 체크하여 애니메이션 적용
 function checkScrollAnimations() {
@@ -1298,6 +1344,55 @@ function checkScrollAnimations() {
     console.log("오버뷰 이미지 페이드인 실행");
     // 이미지가 뷰포트에 들어오면 페이드인
     overviewImage.style.opacity = '1';
+  }
+  
+  // 섹션 3: 솔루션 이미지 애니메이션 체크
+  const solutionImage = document.querySelector('.solution-image');
+  
+  if (solutionImage && isElementInViewport(solutionImage) && !animationState.solutionImageFadedIn) {
+    console.log("솔루션 이미지 페이드인 실행");
+    solutionImage.style.opacity = '1';
+    solutionImage.style.transform = 'translateY(0)';
+    animationState.solutionImageFadedIn = true;
+    
+    // 1.5초 후에 이미지 변경
+    setTimeout(() => {
+      if (!animationState.solutionImageChanged) {
+        console.log("솔루션 이미지 변경 실행");
+        const alternateSrc = solutionImage.getAttribute('data-alternate-src');
+        if (alternateSrc) {
+          solutionImage.src = alternateSrc;
+          animationState.solutionImageChanged = true;
+        }
+      }
+    }, 1500);
+  }
+  
+  // 섹션 3: Access Device 섹션 애니메이션 체크
+  const accessDeviceSection = document.querySelector('.access-device-section');
+  
+  if (accessDeviceSection && isElementInViewport(accessDeviceSection) && !animationState.accessDeviceFadedIn) {
+    // 솔루션 이미지 애니메이션 이후에만 실행
+    if (animationState.solutionImageChanged) {
+      console.log("Access Device 섹션 페이드인 실행");
+      accessDeviceSection.style.opacity = '1';
+      animationState.accessDeviceFadedIn = true;
+      
+      // Access Device 섹션이 나타난 후 1초 후에 육각형 이미지 변경
+      setTimeout(() => {
+        if (!animationState.hexagonImageChanged) {
+          console.log("육각형 이미지 변경 실행");
+          const hexagonImage = document.querySelector('.hexagon-image');
+          if (hexagonImage) {
+            const alternateSrc = hexagonImage.getAttribute('data-alternate-src');
+            if (alternateSrc) {
+              hexagonImage.src = alternateSrc;
+              animationState.hexagonImageChanged = true;
+            }
+          }
+        }
+      }, 1000);
+    }
   }
 }
 
@@ -1312,7 +1407,31 @@ function isElementInViewport(element) {
     rect.bottom >= 0
   );
 }
+
+// 이미지 프리로드 함수
+function preloadImages(urls) {
+  urls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
+}
+
+// 이미지 프리로드 실행
+document.addEventListener('DOMContentLoaded', function() {
+  // 추가 이미지 프리로드 (b 버전의 이미지들)
+  const solutionImage = document.querySelector('.solution-image');
+  const hexagonImage = document.querySelector('.hexagon-image');
+  
+  if (solutionImage) {
+    const alternateSrc = solutionImage.src.replace('.png', 'b.png');
+    preloadImages([alternateSrc]);
+  }
+  
+  if (hexagonImage) {
+    const alternateSrc = hexagonImage.src.replace('.png', 'b.png');
+    preloadImages([alternateSrc]);
+  }
+});
 </script>
-  </div>
 </body>	  
 </html>
