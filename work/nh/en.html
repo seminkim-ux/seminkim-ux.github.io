@@ -130,6 +130,36 @@
       width: 100%;
     }
 
+      .mobile-notice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font-family-jost);
+    padding: 20px;
+  }
+  
+  .mobile-notice h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mobile-notice p {
+    font-size: 16px;
+    color: #666;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+
     /* 시스템 폰트 폴백 강화 */
     :root {
       --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
@@ -1459,212 +1489,19 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
-      .header {
-        padding: 0 20px;
-      }
-      
-      .project-header {
-        padding: 60px 20px;
-      }
-      
-      .section, 
-      .competitive-section,
-      .ux-concept-section,
-      .main-screen-section,
-      .wireframe-section,
-      .mail-section,
-      .approval-section,
-      .tablet-main-section,
-      .tablet-approve-section {
-        padding: 80px 20px;
-      }
-      
-      .project-title {
-        font-size: var(--font-size-xxl);
-      }
-      
-      .overview-heading {
-        font-size: var(--font-size-xl);
-      }
-      
-      .upgrade-container {
-        flex-direction: column;
-        gap: 3rem;
-      }
-      
-      .upgrade-column {
-        flex: 0 0 100%;
-      }
-      
-      .portal-ui-container {
-        flex-direction: column;
-      }
-      
-      .portal-section, .simple-ui-section {
-        width: 100%;
-        margin-bottom: 30px;
-      }
-      
-      .portal-ui-images {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .portal-image, .simple-image {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-      
-      .simple-image {
-        margin-bottom: 0;
-      }
-      
-      .concept-main-title h3 {
-        font-size: 36px;
-      }
-      
-      .concept-row {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-      }
-      
-      .concept-column {
-        flex: 0 0 100%;
-      }
-      
-      .concept-title {
-        font-size: 28px;
-      }
-      
-      .concept-condition, .concept-focus {
-        font-size: 14px;
-      }
-      
-      .concept-description {
-        font-size: 14px;
-      }
-      
-      .main-title,
-      .wireframe-title,
-      .mail-title,
-      .approval-title,
-      .tablet-title,
-      .tablet-approve-title {
-        font-size: 32px;
-      }
-      
-      .main-label,
-      .wireframe-label,
-      .mail-label,
-      .approval-label,
-      .tablet-label,
-      .tablet-approve-label {
-        font-size: 20px;
-      }
-      
-      .main-text {
-        font-size: 15px;
-      }
-      
-      .nav-title {
-        font-size: 20px;
-      }
-      
-      .nav-description {
-        font-size: 15px;
-      }
-      
-      .info-block {
-        flex: 0 0 100%;
-      }
-      
-      .mail-paragraph,
-      .approval-paragraph,
-      .preview-text,
-      .buttons-text,
-      .other-text,
-      .tablet-paragraph,
-      .tablet-approve-paragraph {
-        font-size: 15px;
-      }
-      
-      .preview-title,
-      .buttons-title,
-      .other-title {
-        font-size: 18px;
-      }
-      
-      .mail-flow-images {
-        flex-direction: column;
-        align-items: flex-start;
-        transform: translateX(25%);
-      }
-      
-      .mail-flow-icon {
-        margin-bottom: 15px;
-      }
-      
-      .mail-notification {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .mail-notify-icon {
-        margin-right: 0;
-        margin-bottom: 15px;
-      }
-      
-      .mail-notify-text {
-        text-align: center;
-      }
-      
-      .mail-popup-image {
-        max-width: 180px;
-      }
-    }
+   
 
-    @media screen and (max-width: 480px) {
-      .project-stats {
-        flex-wrap: wrap;
-      }
-    }
-  .mobile-notice {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    font-family: var(--font-family-jost);
-    padding: 20px;
-  }
-  
-  .mobile-notice h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .mobile-notice p {
-    font-size: 16px;
-    color: #666;
-    max-width: 80%;
-    line-height: 1.5;
-  }
   
   /* Only show the notice on mobile devices */
-  @media screen and (max-width: 768px) {
-    .mobile-notice {
-      display: flex !important;
-    }
+@media screen and (max-width: 768px) {
+  .mobile-notice {
+    display: flex !important;
+  }
+  
+  .container {
+    display: none !important;
+  }
+}
     
     /* Hide the rest of the content when on mobile */
     body > *:not(.mobile-notice) {
