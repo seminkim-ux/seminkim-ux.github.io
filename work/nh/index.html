@@ -129,7 +129,36 @@
     .container {
       width: 100%;
     }
+ /* PC에서는 mobile-notice를 완전히 숨김 */
+.mobile-notice {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: var(--font-family-jost);
+  padding: 20px;
+}
 
+.mobile-notice h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.mobile-notice p {
+  font-size: 16px;
+  color: #666;
+  max-width: 80%;
+  line-height: 1.5;
+}
     /* 시스템 폰트 폴백 강화 */
     :root {
       --font-family-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
@@ -1460,42 +1489,18 @@
     }
 
 
- /* PC에서는 mobile-notice를 완전히 숨김 */
-.mobile-notice {
-  display: none !important;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  font-family: var(--font-family-jost);
-  padding: 20px;
-}
 
-.mobile-notice h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.mobile-notice p {
-  font-size: 16px;
-  color: #666;
-  max-width: 80%;
-  line-height: 1.5;
-}
 
 /* 모바일 디바이스에서만 표시 */
 @media screen and (max-width: 768px) {
   .mobile-notice {
     display: flex !important;
   }
+  
+  .container {
+    display: none !important;
+  }
+}
   
   /* 모바일에서는 다른 콘텐츠 숨김 */
   body > *:not(.mobile-notice) {
