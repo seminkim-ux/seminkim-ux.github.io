@@ -1214,7 +1214,6 @@ window.addEventListener('scroll', () => {
 
 // 애니메이션 상태를 추적하기 위한 객체
 const animationState = {
-  // 섹션 3 애니메이션 상태
   solutionImageFadedIn: false,
   solutionImageChanged: false,
   accessDeviceFadedIn: false,
@@ -1299,44 +1298,58 @@ function setupSolutionImages() {
   // 솔루션 이미지(스마트폰) 설정
   const solutionImage = document.querySelector('.solution-image');
   if (solutionImage) {
-    // 이미지 컨테이너를 상대 위치로 설정
-    const container = solutionImage.parentElement;
-    container.style.position = 'relative';
-    
     // 원본 이미지 설정
     solutionImage.style.opacity = '0';
     solutionImage.style.transform = 'translateY(50px)';
     solutionImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
-    solutionImage.setAttribute('data-alternate-src', solutionImage.src.replace('.png', 'b.png'));
     
-    // 원본 이미지 크기 확인을 위해 로드 완료 대기
-    const img = new Image();
-    img.onload = function() {
-      const originalWidth = solutionImage.offsetWidth;
-      const originalHeight = solutionImage.offsetHeight;
-      
-      console.log('원본 이미지 크기:', originalWidth, 'x', originalHeight);
-      
-      // 대체 이미지 생성 및 설정 (처음에는 숨김)
-      const alternateImage = document.createElement('img');
-      alternateImage.className = 'solution-image-alternate';
-      alternateImage.src = solutionImage.getAttribute('data-alternate-src');
-      alternateImage.style.position = 'absolute';
-      alternateImage.style.top = '0';
-      alternateImage.style.left = '0';
-      
-      // 클래스 및 크기를 원본과 동일하게 설정
-      alternateImage.style.width = originalWidth + 'px';
-      alternateImage.style.height = 'auto';
-      alternateImage.style.maxWidth = '100%';
-      alternateImage.style.opacity = '0';
-      alternateImage.style.transition = 'opacity 0.8s ease';
-      alternateImage.style.zIndex = '2';
-      
-      // DOM에 추가
-      container.appendChild(alternateImage);
-    };
-    img.src = solutionImage.src;
+    // 대체 이미지 소스 설정
+    const alternateSrc = solutionImage.src.replace('.png', 'b.png');
+    
+    // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
+    solutionImage.addEventListener('load', function() {
+      setTimeout(() => {
+        // 이미지 컨테이너 설정
+        const container = solutionImage.parentElement;
+        
+        // 컨테이너 스타일 설정
+        if (getComputedStyle(container).position === 'static') {
+          container.style.position = 'relative';
+        }
+        
+        // 정확한 위치와 크기 계산
+        const rect = solutionImage.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // 원본 이미지의 정확한 위치와 크기 계산
+        const imageLeft = rect.left - containerRect.left;
+        const imageTop = rect.top - containerRect.top;
+        const imageWidth = rect.width;
+        const imageHeight = rect.height;
+        
+        // 대체 이미지 생성 및 설정
+        const alternateImage = new Image();
+        alternateImage.className = 'solution-image-alternate';
+        alternateImage.src = alternateSrc;
+        alternateImage.style.position = 'absolute';
+        alternateImage.style.left = imageLeft + 'px';
+        alternateImage.style.top = imageTop + 'px';
+        alternateImage.style.width = imageWidth + 'px';
+        alternateImage.style.height = imageHeight + 'px';
+        alternateImage.style.opacity = '0';
+        alternateImage.style.transition = 'opacity 0.8s ease';
+        alternateImage.style.zIndex = '2';
+        
+        // DOM에 추가
+        container.appendChild(alternateImage);
+      }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
+    });
+    
+    if (solutionImage.complete) {
+      // 이미 로드된 이미지인 경우 이벤트 발생
+      const event = new Event('load');
+      solutionImage.dispatchEvent(event);
+    }
   }
   
   // 해제 버튼 섹션 설정
@@ -1348,44 +1361,58 @@ function setupSolutionImages() {
     // 육각형 이미지 설정
     const hexagonImage = document.querySelector('.hexagon-image');
     if (hexagonImage) {
-      // 이미지 컨테이너를 상대 위치로 설정
-      const container = hexagonImage.parentElement;
-      container.style.position = 'relative';
+      // 대체 이미지 소스 설정
+      const alternateSrc = hexagonImage.src.replace('.png', 'b.png');
       
-      // 원본 이미지 설정
-      hexagonImage.setAttribute('data-alternate-src', hexagonImage.src.replace('.png', 'b.png'));
+      // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
+      hexagonImage.addEventListener('load', function() {
+        setTimeout(() => {
+          // 이미지 컨테이너 설정
+          const container = hexagonImage.parentElement;
+          
+          // 컨테이너 스타일 설정
+          if (getComputedStyle(container).position === 'static') {
+            container.style.position = 'relative';
+          }
+          
+          // 정확한 위치와 크기 계산
+          const rect = hexagonImage.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          
+          // 원본 이미지의 정확한 위치와 크기 계산
+          const imageLeft = rect.left - containerRect.left;
+          const imageTop = rect.top - containerRect.top;
+          const imageWidth = rect.width;
+          const imageHeight = rect.height;
+          
+          // 대체 이미지 생성 및 설정
+          const alternateImage = new Image();
+          alternateImage.className = 'hexagon-image-alternate';
+          alternateImage.src = alternateSrc;
+          alternateImage.style.position = 'absolute';
+          alternateImage.style.left = imageLeft + 'px';
+          alternateImage.style.top = imageTop + 'px';
+          alternateImage.style.width = imageWidth + 'px';
+          alternateImage.style.height = imageHeight + 'px';
+          alternateImage.style.opacity = '0';
+          alternateImage.style.transition = 'opacity 0.8s ease';
+          alternateImage.style.zIndex = '2';
+          
+          // DOM에 추가
+          container.appendChild(alternateImage);
+        }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
+      });
       
-      // 원본 이미지 크기 확인을 위해 로드 완료 대기
-      const img = new Image();
-      img.onload = function() {
-        const originalWidth = hexagonImage.offsetWidth;
-        const originalHeight = hexagonImage.offsetHeight;
-        
-        console.log('육각형 이미지 크기:', originalWidth, 'x', originalHeight);
-        
-        // 대체 이미지 생성 및 설정 (처음에는 숨김)
-        const alternateHexagonImage = document.createElement('img');
-        alternateHexagonImage.className = 'hexagon-image-alternate';
-        alternateHexagonImage.src = hexagonImage.getAttribute('data-alternate-src');
-        alternateHexagonImage.style.position = 'absolute';
-        alternateHexagonImage.style.top = '0';
-        alternateHexagonImage.style.left = '0';
-        alternateHexagonImage.style.width = originalWidth + 'px';
-        alternateHexagonImage.style.height = 'auto';
-        alternateHexagonImage.style.maxWidth = '100%';
-        alternateHexagonImage.style.opacity = '0';
-        alternateHexagonImage.style.transition = 'opacity 0.8s ease';
-        alternateHexagonImage.style.zIndex = '2';
-        
-        // DOM에 추가
-        container.appendChild(alternateHexagonImage);
-      };
-      img.src = hexagonImage.src;
+      if (hexagonImage.complete) {
+        // 이미 로드된 이미지인 경우 이벤트 발생
+        const event = new Event('load');
+        hexagonImage.dispatchEvent(event);
+      }
     }
   }
 }
 
-// B2B 섹션 이미지 설정
+// B2B 섹션 이미지 설정 (두 번째 스크립트에서 추가)
 function setupB2BImages() {
   // B2B 섹션 왼쪽 이미지
   const b2bLeftImage = document.querySelector('.b2b-image-left');
@@ -1406,7 +1433,7 @@ function setupB2BImages() {
   }
 }
 
-// B2C 섹션 이미지 설정
+// B2C 섹션 이미지 설정 (두 번째 스크립트에서 추가)
 function setupB2CImages() {
   // B2C 섹션 왼쪽 이미지
   const b2cLeftImage = document.querySelector('.b2c-image-left');
@@ -1461,10 +1488,10 @@ function handleScroll() {
   // 섹션 3: 솔루션 이미지 애니메이션 체크
   animateSolutionSection();
   
-  // 섹션 4: B2B 이미지 애니메이션 체크
+  // 섹션 4: B2B 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
   animateB2BImages();
   
-  // 섹션 5: B2C 이미지 애니메이션 체크
+  // 섹션 5: B2C 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
   animateB2CImages();
 }
 
@@ -1495,7 +1522,7 @@ function animateSolutionSection() {
   }
 }
 
-// B2B 이미지 애니메이션
+// B2B 이미지 애니메이션 (두 번째 스크립트에서 추가)
 function animateB2BImages() {
   const b2bSection = document.querySelector('.b2b-section');
   
@@ -1518,7 +1545,7 @@ function animateB2BImages() {
   }
 }
 
-// B2B 오른쪽 이미지 애니메이션
+// B2B 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
 function animateB2BRightImage() {
   if (animationState.b2bRightImageAnimated) return;
   
@@ -1531,7 +1558,7 @@ function animateB2BRightImage() {
   }
 }
 
-// B2C 이미지 애니메이션
+// B2C 이미지 애니메이션 (두 번째 스크립트에서 추가)
 function animateB2CImages() {
   const b2cSection = document.querySelector('.b2c-section');
   
@@ -1554,7 +1581,7 @@ function animateB2CImages() {
   }
 }
 
-// B2C 오른쪽 이미지 애니메이션
+// B2C 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
 function animateB2CRightImage() {
   if (animationState.b2cRightImageAnimated) return;
   
