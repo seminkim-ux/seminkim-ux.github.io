@@ -1121,7 +1121,7 @@ bottom:-76vh;
     
     <!-- 중앙 스마트폰 이미지 -->
     <div class="solution-image-container">
-      <img src="images/03_1.png" alt="ADT 캡스 앱 화면" class="solution-image">
+      <img src="images/03_1b.png" alt="ADT 캡스 앱 화면" class="solution-image">
     </div>
   </div>
 </section>
@@ -1215,7 +1215,6 @@ window.addEventListener('scroll', () => {
 // 애니메이션 상태를 추적하기 위한 객체
 const animationState = {
   solutionImageFadedIn: false,
-  solutionImageChanged: false,
   accessDeviceFadedIn: false,
   hexagonImageChanged: false,
   
@@ -1256,10 +1255,8 @@ document.addEventListener('DOMContentLoaded', function() {
     overviewImage.style.transition = 'opacity 2s ease';
   }
   
-  // 필요한 이미지들 미리 로드 후 솔루션 섹션 이미지 설정
-  preloadAllImages().then(() => {
-    setupSolutionImages();
-  });
+  // 솔루션 이미지와 육각형 이미지 설정 직접 호출
+  setupSolutionImages();
   
   // B2B 섹션 이미지 설정
   setupB2BImages();
@@ -1268,88 +1265,18 @@ document.addEventListener('DOMContentLoaded', function() {
   setupB2CImages();
 });
 
-// 필요한 모든 이미지 미리 로드
-function preloadAllImages() {
-  const solutionImage = document.querySelector('.solution-image');
-  const hexagonImage = document.querySelector('.hexagon-image');
-  
-  if (solutionImage && hexagonImage) {
-    const imagesToPreload = [
-      solutionImage.src.replace('.png', 'b.png'),
-      hexagonImage.src.replace('.png', 'b.png')
-    ];
-    
-    return preloadImages(imagesToPreload)
-      .then(images => {
-        console.log('모든 이미지가 성공적으로 프리로드됨');
-        return images;
-      })
-      .catch(error => {
-        console.error('이미지 프리로드 중 오류 발생:', error);
-        return [];
-      });
-  }
-  
-  return Promise.resolve([]);
-}
-
 // 솔루션 섹션 이미지들 초기 설정
 function setupSolutionImages() {
-  // 솔루션 이미지(스마트폰) 설정
+  // 솔루션 이미지(스마트폰) 설정 - 직접 03_1b.png 사용
   const solutionImage = document.querySelector('.solution-image');
   if (solutionImage) {
+    // 03_1b.png 이미지로 직접 설정
+    solutionImage.src = solutionImage.src.replace('03_1.png', '03_1b.png');
+    
     // 원본 이미지 설정
     solutionImage.style.opacity = '0';
     solutionImage.style.transform = 'translateY(50px)';
     solutionImage.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
-    
-    // 대체 이미지 소스 설정
-    const alternateSrc = solutionImage.src.replace('.png', 'b.png');
-    
-    // 원본 이미지가 로드되면 위치와 크기를 정확히 측정하여 클론 생성
-    solutionImage.addEventListener('load', function() {
-      setTimeout(() => {
-        // 이미지 컨테이너 설정
-        const container = solutionImage.parentElement;
-        
-        // 컨테이너 스타일 설정
-        if (getComputedStyle(container).position === 'static') {
-          container.style.position = 'relative';
-        }
-        
-        // 정확한 위치와 크기 계산
-        const rect = solutionImage.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        
-        // 원본 이미지의 정확한 위치와 크기 계산
-        const imageLeft = rect.left - containerRect.left;
-        const imageTop = rect.top - containerRect.top;
-        const imageWidth = rect.width;
-        const imageHeight = rect.height;
-        
-        // 대체 이미지 생성 및 설정
-        const alternateImage = new Image();
-        alternateImage.className = 'solution-image-alternate';
-        alternateImage.src = alternateSrc;
-        alternateImage.style.position = 'absolute';
-        alternateImage.style.left = imageLeft + 'px';
-        alternateImage.style.top = imageTop + 'px';
-        alternateImage.style.width = imageWidth + 'px';
-        alternateImage.style.height = imageHeight + 'px';
-        alternateImage.style.opacity = '0';
-        alternateImage.style.transition = 'opacity 0.8s ease';
-        alternateImage.style.zIndex = '2';
-        
-        // DOM에 추가
-        container.appendChild(alternateImage);
-      }, 100); // 약간의 지연 시간을 두어 레이아웃이 완전히 적용된 후 측정
-    });
-    
-    if (solutionImage.complete) {
-      // 이미 로드된 이미지인 경우 이벤트 발생
-      const event = new Event('load');
-      solutionImage.dispatchEvent(event);
-    }
   }
   
   // 해제 버튼 섹션 설정
@@ -1412,7 +1339,7 @@ function setupSolutionImages() {
   }
 }
 
-// B2B 섹션 이미지 설정 (두 번째 스크립트에서 추가)
+// B2B 섹션 이미지 설정
 function setupB2BImages() {
   // B2B 섹션 왼쪽 이미지
   const b2bLeftImage = document.querySelector('.b2b-image-left');
@@ -1433,7 +1360,7 @@ function setupB2BImages() {
   }
 }
 
-// B2C 섹션 이미지 설정 (두 번째 스크립트에서 추가)
+// B2C 섹션 이미지 설정
 function setupB2CImages() {
   // B2C 섹션 왼쪽 이미지
   const b2cLeftImage = document.querySelector('.b2c-image-left');
@@ -1488,10 +1415,10 @@ function handleScroll() {
   // 섹션 3: 솔루션 이미지 애니메이션 체크
   animateSolutionSection();
   
-  // 섹션 4: B2B 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
+  // 섹션 4: B2B 이미지 애니메이션 체크
   animateB2BImages();
   
-  // 섹션 5: B2C 이미지 애니메이션 체크 (두 번째 스크립트에서 추가)
+  // 섹션 5: B2C 이미지 애니메이션 체크
   animateB2CImages();
 }
 
@@ -1515,14 +1442,14 @@ function animateSolutionSection() {
     solutionImage.style.transform = 'translateY(0)';
     animationState.solutionImageFadedIn = true;
     
-    // 솔루션 이미지가 나타난 후 1.5초 후에 대체 이미지로 부드럽게 전환
+    // 이미지 페이드인 후 Access Device 섹션 표시
     setTimeout(() => {
-      changeSolutionImage();
-    }, 1500);
+      showAccessDeviceSection();
+    }, 300);
   }
 }
 
-// B2B 이미지 애니메이션 (두 번째 스크립트에서 추가)
+// B2B 이미지 애니메이션
 function animateB2BImages() {
   const b2bSection = document.querySelector('.b2b-section');
   
@@ -1545,7 +1472,7 @@ function animateB2BImages() {
   }
 }
 
-// B2B 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
+// B2B 오른쪽 이미지 애니메이션
 function animateB2BRightImage() {
   if (animationState.b2bRightImageAnimated) return;
   
@@ -1558,7 +1485,7 @@ function animateB2BRightImage() {
   }
 }
 
-// B2C 이미지 애니메이션 (두 번째 스크립트에서 추가)
+// B2C 이미지 애니메이션
 function animateB2CImages() {
   const b2cSection = document.querySelector('.b2c-section');
   
@@ -1581,7 +1508,7 @@ function animateB2CImages() {
   }
 }
 
-// B2C 오른쪽 이미지 애니메이션 (두 번째 스크립트에서 추가)
+// B2C 오른쪽 이미지 애니메이션
 function animateB2CRightImage() {
   if (animationState.b2cRightImageAnimated) return;
   
@@ -1591,25 +1518,6 @@ function animateB2CRightImage() {
     b2cRightImage.style.opacity = '1';
     b2cRightImage.style.transform = 'translateX(0)';
     animationState.b2cRightImageAnimated = true;
-  }
-}
-
-// 솔루션 이미지 전환 함수
-function changeSolutionImage() {
-  if (animationState.solutionImageChanged) return;
-  
-  console.log("솔루션 이미지 전환 실행");
-  const alternateImage = document.querySelector('.solution-image-alternate');
-  
-  if (alternateImage) {
-    // 대체 이미지 페이드인
-    alternateImage.style.opacity = '1';
-    animationState.solutionImageChanged = true;
-    
-    // 이미지 전환 완료 후 Access Device 섹션 페이드인
-    setTimeout(() => {
-      showAccessDeviceSection();
-    }, 300);
   }
 }
 
@@ -1657,6 +1565,7 @@ function isElementInViewport(element, threshold = 0.8) {
     rect.bottom >= 0
   );
 }
+
 </script>
 </body>	  
 </html>
