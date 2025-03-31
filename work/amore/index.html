@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Book.woff" as="font" type="font/woff" crossorigin>
 
   <title>Amore Pacific App - Semin Kim Portfolio</title>
   <style>
@@ -1124,7 +1124,7 @@ PC로 국한되었던 판매등록, 영업관리, 조회 업무를 모바일 환
     </div>
   </div>
 </section>
-
+  </div>
 	<div class="mobile-notice">
 	  <h2>Mobile Not Supported</h2>
 	  <p>This website is not optimized for mobile devices. Please view on a desktop computer for the best experience.</p>
@@ -1150,7 +1150,141 @@ window.addEventListener('scroll', () => {
         topButton.style.display = 'none';
     }
 });
+// 스크롤 애니메이션 관련 스크립트
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 페이지 로드 시 헤더 섹션 페이드인 효과
+  const projectHeader = document.querySelector('.project-header-content');
+  const heroImage = document.querySelector('.hero-image');
+  
+  setTimeout(function() {
+    projectHeader.style.opacity = '1';
+    projectHeader.style.transform = 'translateY(0)';
+  }, 300);
+  
+  setTimeout(function() {
+    heroImage.style.opacity = '1';
+    heroImage.style.transform = 'translateY(0)';
+  }, 600);
+  
+  // 스크롤 이벤트 리스너
+  window.addEventListener('scroll', function() {
+    // 스크롤 위치 확인
+    const scrollPosition = window.scrollY + window.innerHeight;
+    
+    // 2. 두번째 섹션 (overview) 이미지 페이드인
+    const overviewImage = document.querySelector('.overview-image');
+    if (overviewImage && isElementInViewport(overviewImage, 0.3)) {
+      overviewImage.classList.add('animate-fade-in');
+    }
+    
+    // 3. 세번째 섹션 (target) 이미지들 순차적으로 나타나게
+    const targetImages = document.querySelectorAll('.target-image1, .target-image2, .target-image3');
+    const targetSection = document.querySelector('.target-section');
+    
+    if (targetSection && isElementInViewport(targetSection, 0.3) && !targetSection.classList.contains('animated')) {
+      targetSection.classList.add('animated');
+      
+      targetImages.forEach((img, index) => {
+        setTimeout(() => {
+          img.classList.add('animate-slide-in');
+        }, 300 * (index + 1)); // 300ms 간격으로 애니메이션 적용
+      });
+    }
+    
+    // 4. 네번째 섹션 (concise) 이미지 아래에서 위로 페이드인
+    const conciseImage = document.querySelector('.concise-image1');
+    if (conciseImage && isElementInViewport(conciseImage, 0.3)) {
+      conciseImage.classList.add('animate-slide-up');
+    }
+    
+    // 5. 다섯번째 섹션 (solutiona) 이미지 페이드인
+    const solutionaImage = document.querySelector('.solutiona-image-container img');
+    if (solutionaImage && isElementInViewport(solutionaImage, 0.3)) {
+      solutionaImage.classList.add('animate-fade-in');
+    }
+    
+    // 6. 여섯번째 섹션 (solutionb) 이미지 페이드인
+    const solutionbImage = document.querySelector('.solutionb-image-container img');
+    if (solutionbImage && isElementInViewport(solutionbImage, 0.3)) {
+      solutionbImage.classList.add('animate-fade-in');
+    }
+  });
+  
+  // 초기 스크롤 이벤트 트리거 (페이지 새로고침 시 현재 위치에 있는 요소들 애니메이션 적용)
+  setTimeout(function() {
+    window.dispatchEvent(new Event('scroll'));
+  }, 100);
+});
+
+// 요소가 화면에 보이는지 확인하는 함수
+function isElementInViewport(el, threshold = 0) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight * (1 - threshold)) &&
+    rect.bottom >= (window.innerHeight * threshold)
+  );
+}
+
+// 필요한 CSS 스타일 동적 추가
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
+  /* 헤더 초기 상태 */
+  .project-header-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .hero-image {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  /* 페이드인 애니메이션 */
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  /* 슬라이드인 애니메이션 (왼쪽에서 오른쪽) */
+  .target-image1, .target-image2, .target-image3 {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .animate-slide-in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* 아래에서 위로 슬라이드 애니메이션 */
+  .concise-image1 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .animate-slide-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 페이드인 키프레임 애니메이션 */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+document.head.appendChild(animationStyles);
+  
 </script>
-  </div>
 </body>
 </html>
