@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ENQFNH7L07"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ENQFNH7L07');
+</script>
+  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="../../woff/Jost-700-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../../woff/Jost-400-Regular.woff" as="font" type="font/woff" crossorigin>
+  <title>Semin Kim - UX Works</title>
+  <style>
+
+     @font-face {
+  font-family: "Jost";
+  src: url("/woff/Jost-400-Book.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("/woff/Jost-700-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+    @font-face {
+      font-family: "Epilogue";
+      src: url("https://fonts.googleapis.com/css?family=Epilogue:400,600");
+      font-weight: 400;
+      font-style: normal;
+    }
+    /* Pretendard 폰트는 기존 woff 참조 유지 */
+  
+    @font-face {
+      font-family: "Pretendard-Light";
+      src: url("woff/Pretendard-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("woff/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("woff/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root { 
+      --black: #2d2d2d;
+      --black-2: #000000;
+      --fern: #65c479;
+      --sunset-orange: #ff6250;
+      --white: #ffffff;
+      --blue-light: #41d9ff;
+      --blue-medium: #517fff;
+      --yellow: #ffd453;
+      --bg-blue: #87a0ae;
+     
+      --font-size-l: 20px;
+      --font-size-m: 17px;
+      --font-size-xl: 37px;
+      --font-size-xxl: 38px;
+      --font-size-xxxl: 48px;
+      --font-size-xxxxl: 82px;
+      --font-size-xxxxxl: 54px;
+     
+      --font-family-epilogue: "Epilogue", Helvetica;
+      --font-family-jost: "Jost", Helvetica;
+      --font-family-pretendard-light: "Pretendard-Light", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-jost);
+      background-color: var(--white);
+      color: var(--black);
+        -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+    }
+
+    .subtitle {
+      font-family: var(--font-family-epilogue);
+      font-size: var(--font-size-l);
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0px;
+    }
+
+    .body-text {
+      font-family: var(--font-family-epilogue);
+      font-size: var(--font-size-m);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0px;
+    }
+
+    .valign-text-middle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* SECTION 1: Header/Navigation */
+    .header {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo {
+      color: var(--white);
+      font-size: var(--font-size-l);
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu-item {
+      color: var(--white);
+      font-size: var(--font-size-m);
+      text-decoration: none;
+    }
+
+    /* SECTION 2: Hero section with blue background */
+    .hero-section {
+      background-color: var(--bg-blue);
+      width: 100%;
+      height: 100vh;
+      padding: 0 40px;
+      position: relative;
+      /* 중앙 정렬 유지 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-title, .hero-subtitle {
+      transform: translateY(calc(-5vh - 30px));
+      overflow: hidden;
+    }
+
+    .hero-title {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 5px;
+      perspective: 1000px;
+    }
+    .hero-subtitle {
+      color: var(--white);
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 700;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .js-split-char, .js-split-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .is-animated .js-split-char,
+    .is-animated .js-split-word {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 미디어 쿼리: 모니터 크기가 클 때 글자 크기는 뷰포트 단위로 처리됨 */
+    @media screen and (min-width: 1440px) {
+      .hero-section {
+        padding: 0 60px;
+      }
+    }
+
+    /* SECTION 3: UX Sections (Consulting, Planning, GUI) */
+    .ux-sections-container {
+      position: relative;
+      height: 133vh; /* 섹션 높이를 2/3로 줄임 (200vh에서 133vh로) */
+      width: 100%;
+      background-color: white;
+      margin-bottom: 66px; /* 섹션4와의 간격 2/3로 줄임 (200px에서 66px로) */
+    }
+
+    .ux-sections {
+      width: 100%;
+      height: 100vh; /* 뷰포트 높이와 동일 */
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .ux-items-wrapper {
+      position: relative;
+      height: 450px; /* 내용물 높이 */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ux-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(400px); /* 더 아래에서 시작 */
+      transition: opacity 0.2s ease, transform 0.8s ease;
+      position: absolute;
+    }
+    
+    .ux-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ux-consulting {
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
+      color: var(--fern);
+      text-align: center;
+      top: 0;
+    }
+
+    .ux-planning {
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
+      color: var(--blue-medium);
+      text-align: center;
+      top: 150px; /* 간격 */
+    }
+
+    .ux-gui {
+      font-size: calc(var(--font-size-xxxl) * 1.5 * 1.2);
+      color: var(--sunset-orange);
+      text-align: center;
+      top: 300px; /* 간격 */
+    }
+
+    .icon {
+      width: 72px;
+      height: 72px;
+      margin-right: 24px;
+    }
+
+    /* SECTION 4: Works section */
+    .works-section {
+      width: 100%;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .works-title {
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .work-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-image {
+      width: 100%;
+      height: 250px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden; /* 이미지가 모서리를 넘치지 않도록 */
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .work-title {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 4px;
+      margin-top: 18px;
+    }
+
+    .work-description {
+      font-size: 17px;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+.work-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+    /* 고밀도 화면(레티나 등)에서는 글자 크기 줄이기 */
+    @media screen and (min-resolution: 2dppx) {
+      .hero-title, .hero-subtitle {
+        font-size: clamp(4rem, 6vw, 6rem);
+      }
+    }
+
+    /* 반응형: 작은 화면에서 작업 그리드 조정 */
+    @media screen and (max-width: 768px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: calc(var(--font-size-xxxl) * 1.2);
+      }
+      
+      .icon {
+        width: 48px;
+        height: 48px;
+        margin-right: 16px;
+      }
+      
+      .ux-items-wrapper {
+        height: 280px; /* 작은 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 90px; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 180px; /* 간격 조정 */
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: var(--font-size-xxxl);
+      }
+      
+      .icon {
+        width: 36px;
+        height: 36px;
+        margin-right: 12px;
+      }
+      
+      .ux-items-wrapper {
+        height: 240px; /* 더 작은 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 80px; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 160px; /* 간격 조정 */
+      }
+    }
+
+    @media only screen and (min-width: 2000px) {
+      .ux-consulting, .ux-planning, .ux-gui {
+        font-size: calc(2.4vw * 1.5 * 1.2);
+      }
+      
+      .icon {
+        width: 3.6vw;
+        height: 3.6vw;
+        margin-right: 1.2vw;
+      }
+      
+      .ux-items-wrapper {
+        height: 17.5vw; /* 큰 화면에서 높이 조정 */
+      }
+      
+      .ux-planning {
+        top: 6vw; /* 간격 조정 */
+      }
+      
+      .ux-gui {
+        top: 12vw; /* 간격 조정 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-center-horizontal">
+    <!-- SECTION 1: Header/Navigation -->
+    <header class="header">
+          <a href="/" class="logo">Semin Kim</a>
+      <nav class="menu">
+           <a href="/" class="menu-item">KO</a>
+        <a href="/about/en.html" class="menu-item">ABOUT</a>
+        <a href="/work/en.html" class="menu-item">WORK</a>
+        <a href="/contact/en.html" class="menu-item">CONTACT</a>
+      </nav>
+    </header>
+    
+    <!-- SECTION 2: Hero section with blue background -->
+    <section class="hero-section">
+      <div class="hero-text-container">
+        <h2 class="hero-title">I Design</h2>
+        <h1 class="hero-subtitle">Inside & Outside of Service</h1>
+      </div>
+    </section>
+    
+<!-- SECTION 3: UX Sections (Consulting, Planning, GUI) -->
+<section class="ux-sections-container">
+  <div class="ux-sections">
+    <div class="ux-items-wrapper">
+      <div class="ux-item ux-consulting">
+        <img src="images/01.svg" alt="UX Consulting Icon" class="icon">
+        UX Consulting
+      </div>
+      
+      <div class="ux-item ux-planning">
+        <img src="images/02.svg" alt="Planning & Wireframe Icon" class="icon">
+        Planning & Wireframe
+      </div>
+      
+      <div class="ux-item ux-gui">
+        <img src="images/03.svg" alt="GUI & Interaction Icon" class="icon">
+        GUI & Interaction
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: Works section -->
+<section class="works-section">
+  <h2 class="works-title">WORK</h2>
+  <div class="works-grid">
+    <article class="work-card">
+     <a href="work/hdc/en.html">
+      <div class="work-image">
+        <img src="images/01.png" alt="HDC IoT APP">
+      </div>
+      <div class="work-title">HDC IoT APP</div>
+      <div class="work-description">UX Concept, UI</div>
+     </a>
+    </article>
+    
+    <article class="work-card">
+      <a href="work/nbb/en.html">
+      <div class="work-image">
+        <img src="images/02.png" alt="No Brand Burger APP">
+      </div>
+      <div class="work-title">No Brand Burger APP</div>
+      <div class="work-description">UX Concept, UI</div>
+      </a>
+    </article>
+    
+    <article class="work-card">
+       <a href="work/bkjh/en.html">
+      <div class="work-image">
+        <img src="images/03_2.png" alt="Burgerking Japan Omni Channel">
+      </div>
+      <div class="work-title">Burgerking Japan Omni Channel</div>
+      <div class="work-description">UX, GUI</div>
+       </a>
+    </article>
+    
+    <article class="work-card">
+    <a href="work/kumon/en.html">
+      <div class="work-image">
+        <img src="images/04.png" alt="Kumon APP">
+      </div>
+      <div class="work-title">Kumon APP</div>
+      <div class="work-description">UI, GUI</div>
+    </a>
+    </article>
+    
+    <article class="work-card">
+      <a href="work/th/en.html">
+      <div class="work-image">
+        <img src="images/05.png" alt="Tim Hortons Kiosk">
+      </div>
+      <div class="work-title">Tim Hortons Kiosk</div>
+      <div class="work-description">UX Concept, UI</div>
+    </a>
+    </article>
+    
+    <article class="work-card">
+      <a href="work/adt/en.html">
+      <div class="work-image">
+        <img src="images/07.png" alt="ADT Caps APP">
+      </div>
+      <div class="work-title">ADT Caps APP</div>
+      <div class="work-description">UI, GUI</div>
+    </article>
+  </a>
+  </div>
+</section>
+  </div>
+
+<script>
+
+
+// Text splitting and animation class
+class TextSplitter {
+  constructor(options = {}) {
+    this.elements = Array.isArray(options.elements) ? options.elements : [options.elements];
+    this.type = options.type || 'chars'; // chars, words
+    this.delay = options.delay || 0;
+    this.charDelay = options.charDelay || 0.05;
+    this.wordDelay = options.wordDelay || 0.1;
+    
+    this.init();
+  }
+  
+  init() {
+    this.elements.forEach(element => {
+      if (!element) return;
+      
+      // Store original text
+      const originalText = element.textContent;
+      element.dataset.originalText = originalText;
+      
+      // Clear element
+      element.innerHTML = '';
+      
+      if (this.type === 'chars') {
+        // 글자별로 분리 시 공백 처리 개선
+        const chars = Array.from(originalText); // split('')보다 더 정확하게 공백 보존
+        
+        chars.forEach((char, index) => {
+          if (char === ' ') {
+            // 공백은 일반 텍스트 노드로 추가
+            element.appendChild(document.createTextNode(' '));
+          } else {
+            const span = document.createElement('span');
+            span.classList.add('js-split-char');
+            span.textContent = char;
+            span.style.transitionDelay = `${this.delay + (index * this.charDelay)}s`;
+            element.appendChild(span);
+          }
+        });
+      } else {
+        // Split by words
+        const words = originalText.split(' ');
+        
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.classList.add('js-split-word');
+          span.textContent = word;
+          span.style.transitionDelay = `${this.delay + (index * this.wordDelay)}s`;
+          element.appendChild(span);
+          
+          // Add space after each word except the last one
+          if (index < words.length - 1) {
+            element.appendChild(document.createTextNode(' '));
+          }
+        });
+      }
+      
+      // Add class to indicate element is split
+      element.classList.add('is-splitted');
+      
+      // Trigger animation after a small delay
+      setTimeout(() => {
+        element.classList.add('is-animated');
+      }, 100);
+    });
+  }
+}
+
+// 텍스트 분할 애니메이션을 위한 CSS 스타일 추가
+const styleElement = document.createElement('style');
+styleElement.textContent = `
+  .js-split-char, .js-split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .is-animated .js-split-char,
+  .is-animated .js-split-word {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(styleElement);
+
+// UX 섹션 스크롤 애니메이션
+function updateUxItemsVisibility() {
+  const uxItems = document.querySelectorAll('.ux-item');
+  const uxSectionContainer = document.querySelector('.ux-sections-container');
+  
+  if (!uxSectionContainer || !uxItems.length) return;
+  
+  const scrollY = window.scrollY;
+  const containerTop = uxSectionContainer.offsetTop;
+  const containerHeight = uxSectionContainer.offsetHeight;
+  const windowHeight = window.innerHeight;
+  
+  // 컨테이너 내에서의 상대적 스크롤 위치 (0~1)
+  const offset = 300; // 이 값을 조절하여 더 일찍 또는 늦게 나타나게 할 수 있음
+  const relativeScroll = Math.max(0, Math.min(1, (scrollY - (containerTop - offset)) / (containerHeight - windowHeight)));
+      
+  // 첫 번째 아이템은 더 빨리 나타나도록 threshold 조정
+  // 나머지 아이템은 기존 속도 유지
+  if (relativeScroll > 0) { // 첫 번째 아이템 - 10% 스크롤하면 나타나게 함
+    uxItems[0].classList.add('visible');
+  } else {
+    uxItems[0].classList.remove('visible');
+  }
+  
+  if (relativeScroll > 0.4) { // 두 번째 아이템
+    uxItems[1].classList.add('visible');
+  } else {
+    uxItems[1].classList.remove('visible');
+  }
+  
+  if (relativeScroll > 0.7) { // 세 번째 아이템
+    uxItems[2].classList.add('visible');
+  } else {
+    uxItems[2].classList.remove('visible');
+  }
+}
+
+// 작업 카드 애니메이션 - 스크롤에 따라 순차적으로 나타나게 함
+function updateWorkCardsVisibility() {
+  const workCards = document.querySelectorAll('.work-card');
+  const worksSection = document.querySelector('.works-section');
+  
+  if (!worksSection || !workCards.length) return;
+  
+  const scrollY = window.scrollY;
+  const sectionTop = worksSection.offsetTop;
+  const windowHeight = window.innerHeight;
+  
+  // 각 카드에 대해 화면에 보이는지 확인하고 애니메이션 적용
+  workCards.forEach((card, index) => {
+    // 카드 위치에 따라 화면에 보이는지 확인
+    const cardTop = card.getBoundingClientRect().top + window.scrollY;
+    const cardOffset = 150; // 카드가 화면에 일부 보일 때 애니메이션 시작
+    
+    // 순차적으로 나타나도록 지연 시간 추가
+    const delay = index * 0.15; // 각 카드마다 0.15초 지연
+    
+    if (scrollY + windowHeight > cardTop + cardOffset) {
+      // 카드가 화면에 보이면 애니메이션 클래스 추가
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, delay * 1000);
+    }
+  });
+}
+
+// 애니메이션 초기화 함수
+function initAnimations() {
+  console.log('애니메이션 초기화 실행됨');
+  
+  // Hero 타이틀 요소 가져오기
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  // 애니메이션 적용하기 전에 기존 애니메이션 클래스 제거
+  if (heroTitle) {
+    heroTitle.classList.remove('is-splitted', 'is-animated');
+    heroTitle.innerHTML = heroTitle.dataset.originalText || 'I Design';
+  }
+  
+  if (heroSubtitle) {
+    heroSubtitle.classList.remove('is-splitted', 'is-animated');
+    heroSubtitle.innerHTML = heroSubtitle.dataset.originalText || 'Inside & Outside of Service';
+  }
+  
+  // 타이틀과 서브타이틀에 애니메이션 적용
+  if (heroTitle) {
+    new TextSplitter({
+      elements: heroTitle,
+      type: 'chars',
+      delay: 0.2,
+      charDelay: 0.04
+    });
+  }
+  
+  if (heroSubtitle) {
+    new TextSplitter({
+      elements: heroSubtitle,
+      type: 'chars',
+      delay: 0.5,
+      charDelay: 0.03
+    });
+  }
+
+  // UX 섹션과 워크 카드 가시성 업데이트
+  updateUxItemsVisibility();
+  updateWorkCardsVisibility();
+}
+
+// 페이지 로드 완료 시 애니메이션 초기화
+document.addEventListener('DOMContentLoaded', initAnimations);
+
+// 페이지 이동 감지 및 애니메이션 재실행
+// 방법 1: popstate 이벤트 (뒤로/앞으로 가기 버튼)
+window.addEventListener('popstate', () => {
+  setTimeout(initAnimations, 100);
+});
+
+// 방법 2: 내비게이션 링크 클릭 처리
+document.addEventListener('click', (e) => {
+  // 메뉴 링크 클릭 감지
+  const link = e.target.closest('a');
+  if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
+    // 현재 URL 저장
+    const currentPath = window.location.pathname;
+    
+    // URL 변경 감지를 위한 인터벌 설정
+    const checkInterval = setInterval(() => {
+      if (window.location.pathname !== currentPath) {
+        clearInterval(checkInterval);
+        setTimeout(initAnimations, 100);
+      }
+    }, 50);
+    
+    // 최대 3초 후 인터벌 해제 (안전장치)
+    setTimeout(() => clearInterval(checkInterval), 3000);
+  }
+});
+
+// 스크롤 이벤트 리스너
+window.addEventListener('scroll', () => {
+  updateUxItemsVisibility();
+  updateWorkCardsVisibility();
+});
+
+// 리사이즈 이벤트 리스너
+window.addEventListener('resize', () => {
+  updateUxItemsVisibility();
+  updateWorkCardsVisibility();
+});
+
+// 페이지 히스토리 이동 감지 (SPA에서 사용)
+window.addEventListener('pageshow', (event) => {
+  // bfcache에서 페이지가 복원된 경우
+  if (event.persisted) {
+    setTimeout(initAnimations, 100);
+  }
+});
+
+// Barba.js 사용 시 페이지 전환 처리 (있는 경우에만)
+if (typeof barba !== 'undefined') {
+  barba.hooks.after((data) => {
+    setTimeout(initAnimations, 100);
+  });
+}
+  // 이 코드를 script 태그 맨 아래에 추가하세요
+document.addEventListener('DOMContentLoaded', function() {
+  // DOMContentLoaded 이벤트가 이미 발생했다면 바로 실행되도록 추가
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function() {
+      // 첫 번째 애니메이션만 강제로 다시 실행
+      const heroTitle = document.querySelector('.hero-title');
+      const heroSubtitle = document.querySelector('.hero-subtitle');
+      
+      if (heroTitle) {
+        heroTitle.innerHTML = 'I Design';
+        new TextSplitter({
+          elements: heroTitle,
+          type: 'chars',
+          delay: 0.2,
+          charDelay: 0.04
+        });
+      }
+      
+      if (heroSubtitle) {
+        heroSubtitle.innerHTML = 'Inside & Outside of Service';
+        new TextSplitter({
+          elements: heroSubtitle,
+          type: 'chars',
+          delay: 0.5,
+          charDelay: 0.03
+        });
+      }
+    }, 10);
+  }
+});
+
+// 페이지 로드 시 항상 실행되도록 추가
+window.addEventListener('load', function() {
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  if (heroTitle && !heroTitle.classList.contains('is-animated')) {
+    heroTitle.innerHTML = 'I Design';
+    new TextSplitter({
+      elements: heroTitle,
+      type: 'chars',
+      delay: 0.2,
+      charDelay: 0.04
+    });
+  }
+  
+  if (heroSubtitle && !heroSubtitle.classList.contains('is-animated')) {
+    heroSubtitle.innerHTML = 'Inside & Outside of Service';
+    new TextSplitter({
+      elements: heroSubtitle,
+      type: 'chars',
+      delay: 0.5,
+      charDelay: 0.03
+    });
+  }
+});
+</script>
+</body>
+</html>
