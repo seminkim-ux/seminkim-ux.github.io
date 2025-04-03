@@ -554,7 +554,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
 <script>
-
+// 개선된 애니메이션 초기화 및 관리 코드
 
 // Text splitting and animation class
 class TextSplitter {
@@ -616,31 +616,64 @@ class TextSplitter {
       // Add class to indicate element is split
       element.classList.add('is-splitted');
       
-      // Trigger animation after a small delay
-      setTimeout(() => {
-        element.classList.add('is-animated');
-      }, 100);
+      // Trigger animation immediately instead of small delay
+      element.classList.add('is-animated');
     });
   }
 }
 
-// 텍스트 분할 애니메이션을 위한 CSS 스타일 추가
-const styleElement = document.createElement('style');
-styleElement.textContent = `
-  .js-split-char, .js-split-word {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+// 페이지 이동 감지를 위한 전역 변수
+let lastNavigationTimestamp = 0;
+
+// 애니메이션 초기화 함수 - 페이지 진입 시 항상 실행됨
+function initAnimations() {
+  console.log('애니메이션 초기화 실행됨', new Date().toISOString());
+  
+  // 중복 실행 방지 (1초 내 재호출 방지)
+  const now = Date.now();
+  if (now - lastNavigationTimestamp < 1000) {
+    return;
+  }
+  lastNavigationTimestamp = now;
+  
+  // Hero 타이틀 요소 가져오기
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  
+  // 애니메이션 적용하기 전에 기존 애니메이션 클래스 제거
+  if (heroTitle) {
+    heroTitle.classList.remove('is-splitted', 'is-animated');
+    heroTitle.innerHTML = heroTitle.dataset.originalText || 'I Design';
+  }
+  
+  if (heroSubtitle) {
+    heroSubtitle.classList.remove('is-splitted', 'is-animated');
+    heroSubtitle.innerHTML = heroSubtitle.dataset.originalText || 'Inside & Outside of Service';
+  }
+  
+  // 타이틀과 서브타이틀에 애니메이션 적용
+  if (heroTitle) {
+    new TextSplitter({
+      elements: heroTitle,
+      type: 'chars',
+      delay: 0.2,
+      charDelay: 0.04
+    });
+  }
+  
+  if (heroSubtitle) {
+    new TextSplitter({
+      elements: heroSubtitle,
+      type: 'chars',
+      delay: 0.5,
+      charDelay: 0.03
+    });
   }
 
-  .is-animated .js-split-char,
-  .is-animated .js-split-word {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-document.head.appendChild(styleElement);
+  // UX 섹션과 워크 카드 가시성 업데이트
+  updateUxItemsVisibility();
+  updateWorkCardsVisibility();
+}
 
 // UX 섹션 스크롤 애니메이션
 function updateUxItemsVisibility() {
@@ -708,144 +741,70 @@ function updateWorkCardsVisibility() {
   });
 }
 
-// 애니메이션 초기화 함수
-function initAnimations() {
-  console.log('애니메이션 초기화 실행됨');
-  
-  // Hero 타이틀 요소 가져오기
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  
-  // 애니메이션 적용하기 전에 기존 애니메이션 클래스 제거
-  if (heroTitle) {
-    heroTitle.classList.remove('is-splitted', 'is-animated');
-    heroTitle.innerHTML = heroTitle.dataset.originalText || 'I Design';
-  }
-  
-  if (heroSubtitle) {
-    heroSubtitle.classList.remove('is-splitted', 'is-animated');
-    heroSubtitle.innerHTML = heroSubtitle.dataset.originalText || 'Inside & Outside of Service';
-  }
-  
-  // 타이틀과 서브타이틀에 애니메이션 적용
-  if (heroTitle) {
-    new TextSplitter({
-      elements: heroTitle,
-      type: 'chars',
-      delay: 0.2,
-      charDelay: 0.04
-    });
-  }
-  
-  if (heroSubtitle) {
-    new TextSplitter({
-      elements: heroSubtitle,
-      type: 'chars',
-      delay: 0.5,
-      charDelay: 0.03
-    });
-  }
+// ========================
+// 이벤트 리스너 개선 부분
+// ========================
 
-  // UX 섹션과 워크 카드 가시성 업데이트
-  updateUxItemsVisibility();
-  updateWorkCardsVisibility();
-}
-
-// 페이지 로드 완료 시 애니메이션 초기화
-document.addEventListener('DOMContentLoaded', initAnimations);
-
-// 페이지 이동 감지 및 애니메이션 재실행
-// 방법 1: popstate 이벤트 (뒤로/앞으로 가기 버튼)
-window.addEventListener('popstate', () => {
-  setTimeout(initAnimations, 100);
-});
-
-// 방법 2: 내비게이션 링크 클릭 처리
-document.addEventListener('click', (e) => {
-  // 메뉴 링크 클릭 감지
-  const link = e.target.closest('a');
-  if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-    // 현재 URL 저장
-    const currentPath = window.location.pathname;
-    
-    // URL 변경 감지를 위한 인터벌 설정
-    const checkInterval = setInterval(() => {
-      if (window.location.pathname !== currentPath) {
-        clearInterval(checkInterval);
-        setTimeout(initAnimations, 100);
-      }
-    }, 50);
-    
-    // 최대 3초 후 인터벌 해제 (안전장치)
-    setTimeout(() => clearInterval(checkInterval), 3000);
-  }
-});
-
-// 스크롤 이벤트 리스너
-window.addEventListener('scroll', () => {
-  updateUxItemsVisibility();
-  updateWorkCardsVisibility();
-});
-
-// 리사이즈 이벤트 리스너
-window.addEventListener('resize', () => {
-  updateUxItemsVisibility();
-  updateWorkCardsVisibility();
-});
-
-// 페이지 히스토리 이동 감지 (SPA에서 사용)
-window.addEventListener('pageshow', (event) => {
-  // bfcache에서 페이지가 복원된 경우
-  if (event.persisted) {
-    setTimeout(initAnimations, 100);
-  }
-});
-
-// Barba.js 사용 시 페이지 전환 처리 (있는 경우에만)
-if (typeof barba !== 'undefined') {
-  barba.hooks.after((data) => {
-    setTimeout(initAnimations, 100);
+// 로컬 페이지 이동 감지를 위한 향상된 코드
+function setupLinkInterceptors() {
+  // 모든 내부 링크 이벤트 가로채기
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    // 내부 링크인 경우만 처리
+    if (link && link.getAttribute('href') && 
+        link.getAttribute('href').startsWith('/') && 
+        !link.getAttribute('target')) {
+        
+      // 현재 URL 저장
+      const destinationPath = link.getAttribute('href');
+      
+      // 로컬 스토리지에 페이지 전환 표시
+      localStorage.setItem('pageNavigating', 'true');
+      localStorage.setItem('destinationPage', destinationPath);
+      localStorage.setItem('navigationTimestamp', Date.now().toString());
+    }
   });
 }
-  // 이 코드를 script 태그 맨 아래에 추가하세요
-document.addEventListener('DOMContentLoaded', function() {
-  // DOMContentLoaded 이벤트가 이미 발생했다면 바로 실행되도록 추가
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(function() {
-      // 첫 번째 애니메이션만 강제로 다시 실행
-      const heroTitle = document.querySelector('.hero-title');
-      const heroSubtitle = document.querySelector('.hero-subtitle');
-      
-      if (heroTitle) {
-        heroTitle.innerHTML = 'I Design';
-        new TextSplitter({
-          elements: heroTitle,
-          type: 'chars',
-          delay: 0.2,
-          charDelay: 0.04
-        });
-      }
-      
-      if (heroSubtitle) {
-        heroSubtitle.innerHTML = 'Inside & Outside of Service';
-        new TextSplitter({
-          elements: heroSubtitle,
-          type: 'chars',
-          delay: 0.5,
-          charDelay: 0.03
-        });
-      }
-    }, 10);
+
+// 페이지 로드 완료 시 애니메이션 초기화 (일반 페이지 로드)
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded 이벤트 발생');
+  
+  // 로컬 스토리지 확인하여 페이지 이동 감지
+  const wasNavigating = localStorage.getItem('pageNavigating') === 'true';
+  const navTimestamp = parseInt(localStorage.getItem('navigationTimestamp') || '0');
+  const timeDiff = Date.now() - navTimestamp;
+  
+  if (wasNavigating && timeDiff < 5000) {
+    console.log('페이지 이동 감지됨, 애니메이션 초기화');
+    
+    // 상태 초기화
+    localStorage.removeItem('pageNavigating');
+    localStorage.removeItem('destinationPage');
+    
+    // 애니메이션 초기화 실행
+    initAnimations();
+  } else {
+    // 일반 페이지 로드(새로고침 또는 직접 URL 입력)
+    console.log('일반 페이지 로드, 애니메이션 초기화');
+    initAnimations();
   }
+  
+  // 링크 이벤트 설정
+  setupLinkInterceptors();
 });
 
-// 페이지 로드 시 항상 실행되도록 추가
-window.addEventListener('load', function() {
+// 페이지 완전 로드 후 추가 체크
+window.addEventListener('load', () => {
+  console.log('window.load 이벤트 발생');
+  
+  // 애니메이션 요소 확인
   const heroTitle = document.querySelector('.hero-title');
   const heroSubtitle = document.querySelector('.hero-subtitle');
   
+  // 누락된 애니메이션 확인 및 처리
   if (heroTitle && !heroTitle.classList.contains('is-animated')) {
-    heroTitle.innerHTML = 'I Design';
+    console.log('애니메이션 누락 감지 및 재처리: heroTitle');
     new TextSplitter({
       elements: heroTitle,
       type: 'chars',
@@ -855,7 +814,7 @@ window.addEventListener('load', function() {
   }
   
   if (heroSubtitle && !heroSubtitle.classList.contains('is-animated')) {
-    heroSubtitle.innerHTML = 'Inside & Outside of Service';
+    console.log('애니메이션 누락 감지 및 재처리: heroSubtitle');
     new TextSplitter({
       elements: heroSubtitle,
       type: 'chars',
@@ -864,6 +823,90 @@ window.addEventListener('load', function() {
     });
   }
 });
+
+// 뒤로/앞으로 가기 버튼 감지 (History API)
+window.addEventListener('popstate', () => {
+  console.log('popstate 이벤트 발생');
+  // 페이지 상태 변경 시 애니메이션 재실행
+  setTimeout(initAnimations, 50);
+});
+
+// 브라우저 캐시에서 페이지 로드 감지
+window.addEventListener('pageshow', (event) => {
+  console.log('pageshow 이벤트 발생, persisted:', event.persisted);
+  // bfcache에서 페이지가 복원된 경우
+  if (event.persisted) {
+    // 페이지가 캐시에서 복원되었을 때 애니메이션 재실행
+    setTimeout(initAnimations, 50);
+  }
+});
+
+// 스크롤 이벤트 - 스로틀링 적용
+let scrollThrottleTimer;
+window.addEventListener('scroll', () => {
+  if (!scrollThrottleTimer) {
+    scrollThrottleTimer = setTimeout(() => {
+      updateUxItemsVisibility();
+      updateWorkCardsVisibility();
+      scrollThrottleTimer = null;
+    }, 50); // 50ms 스로틀링
+  }
+});
+
+// 리사이즈 이벤트 - 디바운싱 적용
+let resizeDebounceTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeDebounceTimer);
+  resizeDebounceTimer = setTimeout(() => {
+    updateUxItemsVisibility();
+    updateWorkCardsVisibility();
+  }, 100); // 100ms 디바운싱
+});
+
+// 쿠키 관련 이슈를 방지하기 위한 세션 스토리지 지원
+// 애니메이션 상태를 세션에 저장
+function setAnimationState(key, value) {
+  try {
+    sessionStorage.setItem(`animation_${key}`, value);
+  } catch (e) {
+    console.error('세션 스토리지 접근 오류:', e);
+  }
+}
+
+// 애니메이션 상태 확인
+function getAnimationState(key) {
+  try {
+    return sessionStorage.getItem(`animation_${key}`);
+  } catch (e) {
+    console.error('세션 스토리지 접근 오류:', e);
+    return null;
+  }
+}
+
+// 페이지 가시성 변경 감지 (탭 전환 등)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    // 페이지가 다시 보이게 되었을 때 애니메이션 상태 확인
+    const lastCheck = getAnimationState('last_check');
+    const now = Date.now();
+    
+    // 30초 이상 지났으면 애니메이션 재실행
+    if (!lastCheck || (now - parseInt(lastCheck)) > 30000) {
+      const heroTitle = document.querySelector('.hero-title');
+      const heroSubtitle = document.querySelector('.hero-subtitle');
+      
+      if (heroTitle && !heroTitle.classList.contains('is-animated')) {
+        initAnimations();
+      }
+      
+      setAnimationState('last_check', now.toString());
+    }
+  }
+});
+
+// 페이지 초기화 시 애니메이션 상태 기록
+setAnimationState('last_check', Date.now().toString());
+setAnimationState('initialized', 'true');
 </script>
 </body>
 </html>
