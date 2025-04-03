@@ -756,5 +756,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 </script>
+  <script>
+  // 애니메이션 즉시 실행을 위한 가장 간단한 방법
+  document.addEventListener('DOMContentLoaded', function() {
+    // 타이틀과 서브타이틀 요소
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    
+    // 애니메이션 적용 함수
+    function applyAnimation(element, text, baseDelay, charDelay) {
+      if (!element) return;
+      
+      // 내용 초기화
+      element.innerHTML = '';
+      
+      // 각 글자에 애니메이션 적용
+      Array.from(text).forEach((char, index) => {
+        if (char === ' ') {
+          element.appendChild(document.createTextNode(' '));
+        } else {
+          const span = document.createElement('span');
+          span.style.display = 'inline-block';
+          span.style.opacity = '0';
+          span.style.transform = 'translateY(100%)';
+          span.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          span.style.transitionDelay = `${baseDelay + (index * charDelay)}s`;
+          span.textContent = char;
+          
+          element.appendChild(span);
+          
+          // 강제 리플로우 및 애니메이션 트리거
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              span.style.opacity = '1';
+              span.style.transform = 'translateY(0)';
+            });
+          });
+        }
+      });
+    }
+    
+    // 애니메이션 적용
+    if (heroTitle) {
+      applyAnimation(heroTitle, heroTitle.textContent, 0.2, 0.04);
+    }
+    
+    if (heroSubtitle) {
+      applyAnimation(heroSubtitle, heroSubtitle.textContent, 0.5, 0.03);
+    }
+  });
+</script>
 </body>
 </html>
