@@ -554,250 +554,207 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
 <script>
-// 페이지 로드 시 항상 애니메이션이 실행되도록 수정된 스크립트
-document.addEventListener('DOMContentLoaded', initializeAll);
-window.addEventListener('load', checkAndReapplyAnimations);
-
-// 모든 초기화 작업을 처리하는 메인 함수
-function initializeAll() {
-  // 1. 텍스트 애니메이션 초기화
-  initTextAnimations();
+// 직접 DOM 조작을 통한 즉각적인 애니메이션 처리
+(function() {
+  console.log('즉시 실행 애니메이션 스크립트');
   
-  // 2. 스크롤 이벤트 설정
-  window.addEventListener('scroll', function() {
-    updateUxItemsVisibility();
-    updateWorkCardsVisibility();
-  });
-  
-  // 3. 리사이즈 이벤트 설정
-  window.addEventListener('resize', function() {
-    updateUxItemsVisibility();
-    updateWorkCardsVisibility();
-  });
-  
-  // 4. 페이지 이동 이벤트 설정
-  setupPageNavigationHandlers();
-}
-
-// 텍스트 애니메이션 초기화 함수
-function initTextAnimations() {
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  
-  if (heroTitle) {
-    heroTitle.innerHTML = heroTitle.textContent; // 내용 재설정
-    applyTextSplitter(heroTitle, 'chars', 0.2, 0.04);
+  // 함수 정의: 텍스트 애니메이션 실행
+  function animateHeroText() {
+    console.log('애니메이션 함수 실행');
+    
+    // 타이틀 요소
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    
+    if (!heroTitle || !heroSubtitle) {
+      console.log('애니메이션 대상 요소를 찾을 수 없음');
+      // 요소를 못 찾으면 100ms 후에 다시 시도
+      setTimeout(animateHeroText, 100);
+      return;
+    }
+    
+    // 원본 텍스트 가져오기
+    const titleText = heroTitle.textContent || 'I Design';
+    const subtitleText = heroSubtitle.textContent || 'Inside & Outside of Service';
+    
+    console.log('애니메이션 적용 텍스트:', titleText, subtitleText);
+    
+    // 요소 내용 초기화
+    heroTitle.innerHTML = '';
+    heroSubtitle.innerHTML = '';
+    
+    // 타이틀 애니메이션
+    animateText(heroTitle, titleText, 0.2, 0.04);
+    
+    // 서브타이틀 애니메이션
+    animateText(heroSubtitle, subtitleText, 0.5, 0.03);
   }
   
-  if (heroSubtitle) {
-    heroSubtitle.innerHTML = heroSubtitle.textContent; // 내용 재설정
-    applyTextSplitter(heroSubtitle, 'chars', 0.5, 0.03);
-  }
-}
-
-// 텍스트 분할 및 애니메이션 적용 함수
-function applyTextSplitter(element, type, delay, charDelay) {
-  if (!element) return;
-  
-  // 원본 텍스트 저장
-  const originalText = element.textContent.trim();
-  element.innerHTML = '';
-  
-  if (type === 'chars') {
-    // 글자별로 분리
-    const chars = Array.from(originalText);
+  // 텍스트 애니메이션 처리 함수
+  function animateText(element, text, startDelay, charDelay) {
+    const chars = Array.from(text);
     
     chars.forEach((char, index) => {
       if (char === ' ') {
-        // 공백은 텍스트 노드로 추가
         element.appendChild(document.createTextNode(' '));
       } else {
-        const span = document.createElement('span');
-        span.classList.add('js-split-char');
-        span.textContent = char;
-        span.style.transitionDelay = `${delay + (index * charDelay)}s`;
-        element.appendChild(span);
+        const charSpan = document.createElement('span');
+        charSpan.textContent = char;
+        charSpan.style.display = 'inline-block';
+        charSpan.style.opacity = '0';
+        charSpan.style.transform = 'translateY(100%)';
+        charSpan.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        // 각 글자마다 지연 시간 설정
+        const delay = startDelay + (index * charDelay);
+        charSpan.style.transitionDelay = `${delay}s`;
+        
+        element.appendChild(charSpan);
+        
+        // 강제 리플로우를 통해 애니메이션 트리거
+        setTimeout(() => {
+          charSpan.style.opacity = '1';
+          charSpan.style.transform = 'translateY(0)';
+        }, 20); // 약간의 지연으로 스타일 적용이 확실히 되도록 함
       }
     });
-  } else {
-    // 단어별로 분리
-    const words = originalText.split(' ');
+  }
+  
+  // UX 항목 처리
+  function setupUxItemsAnimation() {
+    const uxItems = document.querySelectorAll('.ux-item');
+    if (!uxItems.length) return;
     
-    words.forEach((word, index) => {
-      const span = document.createElement('span');
-      span.classList.add('js-split-word');
-      span.textContent = word;
-      span.style.transitionDelay = `${delay + (index * 0.1)}s`;
-      element.appendChild(span);
+    // 스크롤 감지 이벤트
+    window.addEventListener('scroll', function() {
+      const uxSectionContainer = document.querySelector('.ux-sections-container');
+      if (!uxSectionContainer) return;
       
-      if (index < words.length - 1) {
-        element.appendChild(document.createTextNode(' '));
+      const scrollY = window.scrollY;
+      const containerTop = uxSectionContainer.offsetTop;
+      const containerHeight = uxSectionContainer.offsetHeight;
+      const windowHeight = window.innerHeight;
+      
+      // 컨테이너 내 스크롤 위치 계산
+      const offset = 300;
+      const relativeScroll = Math.max(0, Math.min(1, (scrollY - (containerTop - offset)) / (containerHeight - windowHeight)));
+      
+      // 각 아이템 표시 여부 결정
+      if (relativeScroll > 0) {
+        uxItems[0].classList.add('visible');
+      } else {
+        uxItems[0].classList.remove('visible');
+      }
+      
+      if (relativeScroll > 0.4) {
+        uxItems[1].classList.add('visible');
+      } else {
+        uxItems[1].classList.remove('visible');
+      }
+      
+      if (relativeScroll > 0.7) {
+        uxItems[2].classList.add('visible');
+      } else {
+        uxItems[2].classList.remove('visible');
       }
     });
   }
   
-  // 분할 완료 클래스 추가
-  element.classList.add('is-splitted');
-  
-  // 즉시 애니메이션 실행 (지연 없음)
-  element.classList.add('is-animated');
-}
-
-// UX 섹션 요소 가시성 업데이트
-function updateUxItemsVisibility() {
-  const uxItems = document.querySelectorAll('.ux-item');
-  const uxSectionContainer = document.querySelector('.ux-sections-container');
-  
-  if (!uxSectionContainer || !uxItems.length) return;
-  
-  const scrollY = window.scrollY;
-  const containerTop = uxSectionContainer.offsetTop;
-  const containerHeight = uxSectionContainer.offsetHeight;
-  const windowHeight = window.innerHeight;
-  
-  // 컨테이너 내 상대적 스크롤 위치 계산 (0~1)
-  const offset = 300;
-  const relativeScroll = Math.max(0, Math.min(1, (scrollY - (containerTop - offset)) / (containerHeight - windowHeight)));
-  
-  // 아이템별 가시성 업데이트
-  if (relativeScroll > 0) {
-    uxItems[0].classList.add('visible');
-  } else {
-    uxItems[0].classList.remove('visible');
-  }
-  
-  if (relativeScroll > 0.4) {
-    uxItems[1].classList.add('visible');
-  } else {
-    uxItems[1].classList.remove('visible');
-  }
-  
-  if (relativeScroll > 0.7) {
-    uxItems[2].classList.add('visible');
-  } else {
-    uxItems[2].classList.remove('visible');
-  }
-}
-
-// 작업 카드 가시성 업데이트
-function updateWorkCardsVisibility() {
-  const workCards = document.querySelectorAll('.work-card');
-  const worksSection = document.querySelector('.works-section');
-  
-  if (!worksSection || !workCards.length) return;
-  
-  const scrollY = window.scrollY;
-  const windowHeight = window.innerHeight;
-  
-  workCards.forEach((card, index) => {
-    const cardTop = card.getBoundingClientRect().top + window.scrollY;
-    const cardOffset = 150;
-    const delay = index * 0.15;
+  // 작업 카드 애니메이션
+  function setupWorkCardsAnimation() {
+    const workCards = document.querySelectorAll('.work-card');
+    if (!workCards.length) return;
     
-    if (scrollY + windowHeight > cardTop + cardOffset) {
-      setTimeout(() => {
-        card.classList.add('visible');
-      }, delay * 1000);
-    }
-  });
-}
-
-// 페이지 이동 관련 이벤트 핸들러 설정
-function setupPageNavigationHandlers() {
-  // 페이지 내 모든 링크 처리
-  document.body.addEventListener('click', function(e) {
-    const link = e.target.closest('a');
-    if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-      // 내부 링크 클릭 시 로컬 스토리지에 정보 저장
-      localStorage.setItem('pageChanged', 'true');
-      localStorage.setItem('pageChangeTime', Date.now().toString());
-    }
-  });
+    window.addEventListener('scroll', function() {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      workCards.forEach((card, index) => {
+        if (card.classList.contains('visible')) return; // 이미 표시된 카드는 처리 안함
+        
+        const cardTop = card.getBoundingClientRect().top + window.scrollY;
+        const cardOffset = 150;
+        const delay = index * 0.15;
+        
+        if (scrollY + windowHeight > cardTop + cardOffset) {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, delay * 1000);
+        }
+      });
+    });
+  }
   
-  // 뒤로/앞으로 가기 버튼 처리
-  window.addEventListener('popstate', function() {
-    // 페이지 상태 변경 시 지연 없이 애니메이션 초기화
-    initTextAnimations();
+  // 페이지 이동 처리
+  function setupNavigationHandling() {
+    document.body.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
+        sessionStorage.setItem('needsAnimation', 'true');
+      }
+    });
+  }
+  
+  // 애니메이션 필요 여부 확인
+  function checkNeedsAnimation() {
+    const needsAnimation = sessionStorage.getItem('needsAnimation') === 'true';
+    if (needsAnimation) {
+      sessionStorage.removeItem('needsAnimation');
+      animateHeroText();
+    }
+  }
+  
+  // 초기화 함수
+  function initialize() {
+    console.log('페이지 초기화');
+    
+    // 히어로 텍스트 애니메이션 실행
+    animateHeroText();
+    
+    // UX 항목 처리
+    setupUxItemsAnimation();
+    
+    // 작업 카드 애니메이션
+    setupWorkCardsAnimation();
+    
+    // 페이지 이동 처리
+    setupNavigationHandling();
+    
+    // 초기 스크롤 트리거
+    setTimeout(() => {
+      window.dispatchEvent(new Event('scroll'));
+    }, 100);
+  }
+  
+  // 문서 로드 상태 확인
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    // 이미 로드됨
+    initialize();
+  }
+  
+  // 페이지 완전 로드 시 추가 확인
+  window.addEventListener('load', function() {
+    console.log('페이지 완전 로드');
+    checkNeedsAnimation();
+    
+    // 애니메이션이 적용되었는지 최종 확인
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle && heroTitle.children.length === 0) {
+      console.log('애니메이션 미적용 감지, 재적용');
+      animateHeroText();
+    }
   });
   
   // 브라우저 캐시에서 페이지 복원 처리
   window.addEventListener('pageshow', function(event) {
     if (event.persisted) {
-      // bfcache에서 복원된 경우 애니메이션 초기화
-      initTextAnimations();
+      console.log('bfcache에서 페이지 복원 감지');
+      animateHeroText();
     }
   });
-}
-
-// 추가 보완: 애니메이션이 실행되었는지 확인하고 필요 시 재적용
-function checkAndReapplyAnimations() {
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  
-  // 로컬 스토리지 확인하여 페이지 전환 여부 확인
-  const pageChanged = localStorage.getItem('pageChanged') === 'true';
-  const changeTime = parseInt(localStorage.getItem('pageChangeTime') || '0');
-  const timeDiff = Date.now() - changeTime;
-  
-  // 페이지 전환 후 5초 이내인 경우 또는 애니메이션 클래스가 없는 경우
-  if ((pageChanged && timeDiff < 5000) || 
-      (heroTitle && !heroTitle.classList.contains('is-animated')) || 
-      (heroSubtitle && !heroSubtitle.classList.contains('is-animated'))) {
-    
-    // 로컬 스토리지 초기화
-    localStorage.removeItem('pageChanged');
-    localStorage.removeItem('pageChangeTime');
-    
-    // 애니메이션 재적용
-    initTextAnimations();
-  }
-}
-
-// CSS 스타일 추가하여 애니메이션 동작 보장
-function ensureAnimationStyles() {
-  // 이미 스타일이 추가되어 있는지 확인
-  if (document.querySelector('#animation-styles')) return;
-  
-  const styleElement = document.createElement('style');
-  styleElement.id = 'animation-styles';
-  styleElement.textContent = `
-    .js-split-char, .js-split-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(100%);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .is-animated .js-split-char,
-    .is-animated .js-split-word {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-  document.head.appendChild(styleElement);
-}
-
-// 스타일 보장 즉시 실행
-ensureAnimationStyles();
-
-// 초기 호출 보장을 위한 추가 코드
-// DOMContentLoaded 이벤트가 이미 발생했을 경우를 대비
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeAll);
-} else {
-  // 이미 DOM이 로드된 상태면 직접 호출
-  initializeAll();
-}
-
-// 모든 로드 완료 후 최종 확인
-window.addEventListener('load', function() {
-  // 모든 이미지와 리소스 로드 완료 후 최종 확인
-  setTimeout(checkAndReapplyAnimations, 100);
-  
-  // UX 섹션과 작업 카드 가시성 업데이트
-  updateUxItemsVisibility();
-  updateWorkCardsVisibility();
-});
+})();
 </script>
 </body>
 </html>
