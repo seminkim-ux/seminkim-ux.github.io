@@ -62,11 +62,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     :root { 
       --black: #2d2d2d;
       --black-2: #000000;
-      --fern: #65c479;
-      --sunset-orange: #ff6250;
+      --fern: #00d4ad;
+      --sunset-orange: #ff6a14;
       --white: #ffffff;
       --blue-light: #41d9ff;
-      --blue-medium: #517fff;
+      --blue-medium: #0dc2ff;
       --yellow: #ffd453;
       --bg-blue: #87a0ae;
      
@@ -127,15 +127,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 100%;
     }
 
-    /* SECTION 1: Header/Navigation */
+    /* SECTION 1: Header/Navigation - 히어로 블러 배경 위에 떠있는 투명 GNB */
     .header {
-      background-color: var(--bg-blue);
+      background: linear-gradient(to bottom, rgba(10, 8, 20, 0.1), rgba(10, 8, 20, 0));
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       width: 100%;
       height: 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
     }
 
     .logo {
@@ -156,38 +162,154 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-decoration: none;
     }
 
-    /* SECTION 2: Hero section with blue background */
+    /* SECTION 2: Hero section with animated gradient blur background */
     .hero-section {
-      background-color: var(--bg-blue);
       width: 100%;
       height: 100vh;
       padding: 0 40px;
       position: relative;
+      overflow: hidden;
       /* 중앙 정렬 유지 */
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
+
+    /* 움직이는 그라데이션 블러 배경 */
+    .hero-gradient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #e0f2fe; /* 맑고 화사한 파스텔 하늘색 */
+}
+
+    .hero-gradient-bg .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      will-change: transform;
+    }
+
+  /* 1. 화사한 파스텔 스카이 */
+.blob--mint {
+  width: 46vw;
+  height: 46vw;
+  top: -14%;
+  left: -10%;
+  background: #38bdf8;
+  opacity: 0.6;
+  animation: drift-mint 11s ease-in-out infinite;
+}
+
+/* 2. 감성적인 소프트 파스텔 핑크 */
+.blob--coral {
+  width: 40vw;
+  height: 40vw;
+  top: 6%;
+  right: -12%;
+  background: #f472b6;
+  opacity: 0.45;
+  animation: drift-coral 13s ease-in-out infinite;
+}
+
+/* 3. 청량한 아쿠아 민트 */
+.blob--sky {
+  width: 44vw;
+  height: 44vw;
+  bottom: -18%;
+  left: 8%;
+  background: #2dd4bf;
+  opacity: 0.5;
+  animation: drift-sky 12s ease-in-out infinite;
+}
+
+/* 4. 부드러운 라벤더 바이올렛 */
+.blob--butter {
+  width: 36vw;
+  height: 36vw;
+  bottom: -10%;
+  right: 4%;
+  background: #c084fc;
+  opacity: 0.5;
+  animation: drift-butter 14s ease-in-out infinite;
+}
+    /* 대비 확보를 위한 은은한 다크 비네트 
+    .hero-gradient-bg .vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(circle at 50% 45%, rgba(8, 6, 18, 0.15), rgba(8, 6, 18, 0.55) 100%);
+      pointer-events: none;
+    }
+*/
+    @keyframes drift-mint {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(18vw, 14vh) scale(1.25); }
+      66%      { transform: translate(6vw, -10vh) scale(0.85); }
+    }
+
+    @keyframes drift-coral {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40%      { transform: translate(-16vw, 18vh) scale(1.2); }
+      75%      { transform: translate(-22vw, -8vh) scale(0.8); }
+    }
+
+    @keyframes drift-sky {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      35%      { transform: translate(15vw, -16vh) scale(1.3); }
+      70%      { transform: translate(-10vw, 8vh) scale(0.82); }
+    }
+
+    @keyframes drift-butter {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      45%      { transform: translate(-17vw, -14vh) scale(1.22); }
+      80%      { transform: translate(12vw, 10vh) scale(0.85); }
+    }
+
+    /* 은은한 노이즈(그레인) 텍스처 */
+    .hero-gradient-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-gradient-bg .blob { animation: none; }
+    }
+
+    .hero-text-container {
+      position: relative;
+      z-index: 1;
+    }
+
     .hero-title, .hero-subtitle {
-      transform: translateY(calc(-5vh - 30px));
+      transform: translateY(calc(5vh - 30px));
       overflow: hidden;
     }
 
-    .hero-title {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: clamp(4rem, 7vw, 7rem);
-      font-weight: 700;
-      position: relative;
-      margin-bottom: 5px;
-      perspective: 1000px;
-    }
-    .hero-subtitle {
-      color: var(--white);
-      font-size: clamp(4rem, 7vw, 7rem);
-      font-weight: 700;
-      position: relative;
-      perspective: 1000px;
-    }
+ .hero-title {
+  color: #ffffff;
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 5px;
+  perspective: 1000px;
+}
+
+.hero-subtitle {
+  color: #ffffff; /* 부제목은 선명도를 위해 약간 더 짙은 회색으로 균형을 맞춰줍니다 */
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 700;
+  position: relative;
+  perspective: 1000px;
+}
+
 
     .js-split-char, .js-split-word {
       display: inline-block;
@@ -458,6 +580,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <!-- SECTION 2: Hero section with blue background -->
     <section class="hero-section">
+      <div class="hero-gradient-bg" aria-hidden="true">
+        <div class="blob blob--mint"></div>
+        <div class="blob blob--coral"></div>
+        <div class="blob blob--sky"></div>
+        <div class="blob blob--butter"></div>
+        <div class="vignette"></div>
+      </div>
       <div class="hero-text-container">
         <h2 class="hero-title">I Design</h2>
         <h1 class="hero-subtitle">Inside & Outside of Service</h1>
@@ -469,17 +598,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="ux-sections">
     <div class="ux-items-wrapper">
       <div class="ux-item ux-consulting">
-        <img src="images/01.svg" alt="UX Consulting Icon" class="icon">
+        <img src="images/01a.svg" alt="UX Consulting Icon" class="icon">
          UX Strategy
       </div>
       
       <div class="ux-item ux-planning">
-        <img src="images/02.svg" alt="Planning & Wireframe Icon" class="icon">
+        <img src="images/02a.svg" alt="Planning & Wireframe Icon" class="icon">
         UX Research
       </div>
       
       <div class="ux-item ux-gui">
-        <img src="images/03.svg" alt="GUI & Interaction Icon" class="icon">
+        <img src="images/03a.svg" alt="GUI & Interaction Icon" class="icon">
        Service Planning
       </div>
     </div>
